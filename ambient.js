@@ -27,7 +27,7 @@
       const r = document.querySelector('.splashComposition').getBoundingClientRect();
       area = { x: r.left - bounds.left, y: r.top - bounds.top, w: r.width, h: r.height };
       sources = [[.16,.624,.061,.065,0],[.833,.624,.061,.065,0],
-        [.255,.137,.025,.105,1,-.58],[.733,.132,.03,.125,0,.65]];
+        [.255,.137,.036,.115,1,2.55],[.733,.132,.042,.14,0,-2.55]];
     } else if (active === 'menu') {
       sources = width > height
         ? [[.025,.78,.028,.08,0],[.97,.78,.028,.08,0],[.33,.48,.018,.06,0],[.668,.48,.018,.06,0],
@@ -54,21 +54,41 @@
   function flame(s, i) {
     const [x,y,w,h,blue,angle=0] = s;
     ctx.save();ctx.translate(area.x+x*area.w,area.y+y*area.h);ctx.rotate(angle);
-    const fw=w*area.w, fh=h*area.h;
-    const glow=ctx.createRadialGradient(0,-fh*.25,0,0,-fh*.25,fh);
-    glow.addColorStop(0,blue?'rgba(90,190,255,.12)':'rgba(255,130,25,.13)');glow.addColorStop(1,'transparent');
-    ctx.fillStyle=glow;ctx.fillRect(-fh,-fh*1.3,fh*2,fh*2);
-    for(let j=0;j<5;j++){
-      const phase=time*(2.6+j*.2)+i*2+j;
-      const base=(j-2)*fw*.22, tip=base+Math.sin(phase)*fw*.25;
-      const high=fh*(.50+.09*j+.13*Math.sin(phase*1.4));
+    const dragon = angle !== 0;
+    const fw=w*area.w, fh=h*area.h*(dragon?1:1.25);
+    const surge=.82+.13*Math.sin(time*3.1+i*2)+.08*Math.sin(time*8.3+i);
+    const glow=ctx.createRadialGradient(0,-fh*.3,0,0,-fh*.3,fh*1.1);
+    glow.addColorStop(0,blue?`rgba(90,190,255,${.27*surge})`:`rgba(255,100,15,${.3*surge})`);
+    glow.addColorStop(1,'transparent');
+    ctx.fillStyle=glow;ctx.fillRect(-fh*1.2,-fh*1.5,fh*2.4,fh*2.4);
+    // Separate tongues stretch, curl and break up on different rhythms.
+    for(let layer=0;layer<3;layer++)for(let j=0;j<7;j++){
+      const phase=time*(4.5+j*.27)+i*2+j*1.7;
+      const base=(j-3)*fw*.17;
+      const tip=base+Math.sin(phase)*fw*.45+Math.sin(phase*1.9)*fw*.14;
+      const high=fh*(.62+.13*Math.sin(j*2)+.23*Math.sin(phase*1.4))*surge*(1-layer*.2);
+      const half=fw*(.25-layer*.055);
       const g=ctx.createLinearGradient(0,0,0,-high);
-      g.addColorStop(0,blue?'rgba(150,230,255,.30)':'rgba(255,205,70,.32)');
-      g.addColorStop(.45,blue?'rgba(65,170,255,.19)':'rgba(255,105,15,.22)');g.addColorStop(1,'transparent');
-      ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(base-fw*.24,0);
-      ctx.bezierCurveTo(base-fw*.4,-high*.4,tip+fw*.18,-high*.7,tip,-high);
-      ctx.bezierCurveTo(tip-fw*.15,-high*.45,base+fw*.42,-high*.2,base+fw*.24,0);ctx.fill();
+      const alpha=[.48,.43,.65][layer];
+      g.addColorStop(0,blue?`rgba(195,245,255,${alpha})`:`rgba(255,239,150,${alpha})`);
+      g.addColorStop(.25,blue?`rgba(90,200,255,${alpha})`:`rgba(255,174,36,${alpha})`);
+      g.addColorStop(.65,blue?'rgba(35,125,255,.28)':'rgba(255,64,8,.32)');
+      g.addColorStop(1,'transparent');
+      ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(base-half,0);
+      ctx.bezierCurveTo(base-half*1.7,-high*.34,tip+half*Math.cos(phase),-high*.7,tip,-high);
+      ctx.bezierCurveTo(tip-half,-high*.52,base+half*1.6,-high*.18,base+half,0);ctx.fill();
     }
+    // Short-lived wisps peel away from the flame rather than forming a solid glow.
+    for(let j=0;j<8;j++){
+      const age=(time*(.65+j*.035)+j*.137+i*.19)%1;
+      const x=Math.sin(age*7+j)*fw*.45;
+      const y=-fh*(.3+age*.9);
+      ctx.globalAlpha=Math.sin(age*Math.PI)*.5;
+      const radius=fw*(.12*(1-age)+.015);
+      ctx.fillStyle=blue?'#83dfff':'#ffac35';
+      ctx.beginPath();ctx.ellipse(x,y,radius,radius*2.8,Math.sin(time*4+j)*.6,0,Math.PI*2);ctx.fill();
+    }
+    ctx.globalAlpha=1;
     ctx.restore();
   }
   function draw(stamp) {
@@ -88,7 +108,7 @@
       ctx.clip('evenodd');
     }
     sources.forEach(flame);ctx.restore();
-    const target=active==='victory'?100:60;
+    const target=active==='victory'?140:active==='splash'||active==='menu'?95:70;
     while(sparks.length<target)sparks.push(spark(true));
     if(sparks.length>target)sparks.length=target;
     for(let i=0;i<sparks.length;i++){
