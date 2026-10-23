@@ -21,7 +21,7 @@
 .onlinePanel input{width:90%;padding:10px;margin:5px;background:#15151a;border:1px solid #bc8d48;border-radius:5px;color:#ffe6ac;font-size:16px}
 .onlinePanel .btn{font-size:clamp(11px,3vw,16px);padding:9px;margin:5px auto;max-width:95%}
 #onlineLiveOptions .answer{margin:7px 0}
-</style><link rel="stylesheet" href="responsive.css?v=20261022-navigation"></head><body><div class="app"><div class="scene"></div><div class="embers" id="embers"></div><button class="music" onclick="toggleMusic()" id="musicBtn">♫</button>
+</style><link rel="stylesheet" href="responsive.css?v=20261022-navigation"><link rel="stylesheet" href="artwork.css?v=20261022-art"></head><body><div class="app"><div class="scene"></div><div class="embers" id="embers"></div><button class="music" onclick="toggleMusic()" id="musicBtn">♫</button>
 <section class="page active" id="splash"><div class="splashComposition">
 <img class="splashOriginal" src="approved-splash.png" alt="Throne Trivia: dragons of ice and fire above the sword throne">
 <div class="splashLight iceLight" aria-hidden="true"></div><div class="splashLight fireLight" aria-hidden="true"></div>
@@ -113,4 +113,4 @@ window.TT = (()=>{
  function leave(){if(poll)clearInterval(poll);poll=null;room=null;roomDetails=null;currentRound=0;ended=false;go('menu')}
  return {signUp:()=>auth('signUp'),signIn:()=>auth('signInWithPassword'),createRoom,joinRoom,ready,leave};
 })();
-</script><script src="audio-lifecycle.js"></script><script src="ambient.js"></script><script src="questions.js"></script><script src="question-freshness.js"></script><script src="characters.js"></script><script src="friend-presentation.js"></script><script src="progression.js"></script></body></html>
+</script><script src="audio-lifecycle.js"></script><script src="ambient.js"></script><script src="questions.js"></script><script src="question-freshness.js"></script><script src="characters.js"></script><script src="friend-presentation.js"></script><script src="progression.js"></script><script src="theme-sets.js?v=20261022-full-themes"></script><script src="artwork.js?v=20261022-art"></script></body></html>

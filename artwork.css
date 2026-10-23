@@ -1,0 +1,129 @@
+/* New full-resolution art is kept separate from live controls and game state. */
+.app{background:#05090f}
+.scene{display:none}
+.page>.screen-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0}
+.page>.content{position:relative;z-index:3}
+.page:not(#splash):not(#menu) .title{color:#ffe0a0;text-shadow:0 2px 3px #000,0 0 14px #805317;font-size:clamp(21px,6vw,30px);margin:0 0 10px}
+.page .panel,.onlinePanel{background:linear-gradient(130deg,#10171aeb,#080c12ed);border:1px solid #bb8a42;box-shadow:inset 0 0 0 2px #2c2116,0 4px 14px #0008;border-radius:5px}
+.page .btn,.page .answer,.page .tile,.page .tab button,.invite-steps button{color:#ffe2a4;background:linear-gradient(120deg,#1f211f,#070c11 60%,#20170d);border:1px solid #d2a14d;box-shadow:inset 0 0 0 2px #412e18,0 3px 8px #0008;border-radius:4px}
+.page .btn.gold{background:linear-gradient(#fff0b8,#dca646 52%,#94601e);color:#1b1104;font-weight:bold;text-shadow:0 1px #ffdc87}
+.page .answer.good{background:linear-gradient(#26682e,#12421b);border-color:#a6e87a}
+.page .answer.bad{background:linear-gradient(#852a1c,#4f100d);border-color:#ff8168}
+.page .tab button,.invite-steps button{min-height:40px}
+.page .btn:active,.page .tile:active{filter:brightness(1.25)}
+.page .btn:focus-visible,.page .tile:focus-visible,.theme-card:focus-visible{outline:3px solid #fff1b7;outline-offset:2px}
+.menu-composition{position:absolute;inset:0;margin:auto;width:100%;height:100%;isolation:isolate}
+#kingdomMenuArt{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+#menu .hit{left:15.5%!important;width:69%!important;height:10.2%!important;z-index:8!important;min-height:0!important;background:transparent!important;border:0!important;color:transparent!important;box-shadow:none!important;padding:0!important}
+#menu .hit1{top:40.9%!important}#menu .hit2{top:52.1%!important}#menu .hit3{top:63.2%!important}#menu .hit4{top:74.2%!important}#menu .hit5{top:85.3%!important}
+#menu .hit>*{visibility:hidden}
+#menu .hit:focus-visible{outline:3px solid #fff0a3!important;outline-offset:2px}
+.theme-title{display:none}
+.menu-composition.themed .theme-title{display:flex;position:absolute;top:13%;left:9%;right:9%;height:20%;flex-direction:column;justify-content:center;text-align:center;font:bold clamp(40px,12vw,67px)/.92 Georgia;color:#f8cf75;text-shadow:0 3px 0 #713f0a,0 5px 9px #000,0 0 20px #000}
+#menu .themed .hit,#menu .hit.live-layout{display:flex;align-items:center;gap:6px;padding:4px 7px!important;color:#ffe1a0!important;background:linear-gradient(130deg,#171d1cf5,#05090ff5)!important;border:2px solid #c99a49!important;box-shadow:inset 0 0 0 2px #5e3f17,0 2px 8px #000!important}
+#menu .themed .hit>*{visibility:visible}
+.menu-icon{display:block;flex:0 0 23%;height:90%;aspect-ratio:1;max-width:62px;background-image:url('menu-approved.webp');background-size:565% 988%;background-position-x:22.5%;background-repeat:no-repeat;border-radius:50%}
+.icon-0{background-position-y:45.2%}.icon-1{background-position-y:57.5%}.icon-2{background-position-y:69.8%}.icon-3{background-position-y:82%}.icon-4{background-position-y:94.2%}
+#menu .hit span{display:flex;flex:1;min-width:0;flex-direction:column;text-align:left;gap:4px}
+#menu .hit b{font-size:clamp(13px,4vw,21px);white-space:nowrap}
+#menu .hit small{font:clamp(9px,2.7vw,12px)/1.1 Georgia;text-transform:uppercase}
+#characters .content{padding-top:22dvh}
+#characters .grow{display:none}
+#characters .btn{margin-top:auto}
+#characters .portrait{background:#0a1018}
+#lobby .content{padding-top:24dvh}
+#lobby .panel.flex{background:#080d16a8;min-height:24dvh}
+#lobby .avatar{width:clamp(90px,25vw,145px);height:clamp(120px,31vw,180px);border:2px solid #d5ae66;object-fit:cover}
+#countdown .content{padding-top:11dvh}
+#countdown #count{position:absolute;top:43%;left:0;right:0;font-size:clamp(80px,20vw,130px)!important}
+#countdown .small{position:absolute;top:62%;left:0;right:0}
+#summary .content{padding-top:33dvh}
+#summary .grow{flex:0 1 25px}
+#summary #roundStats{padding:25px 10px;line-height:1.8}
+#feedback .content{justify-content:center}
+#feedback .grow{display:none}
+#leaderboard .content,#rewards .content,#settings .content{padding-top:16dvh}
+#seasons .content,#levels .content{padding-top:22dvh}
+#seasongrid{gap:10px}
+#seasongrid .tile{min-height:75px;font-size:15px;padding:9px}
+#levelgrid .tile{min-height:65px!important;font-size:21px}
+#invite .content{padding-top:37dvh;padding-bottom:16px}
+#invite .title{font-size:23px;margin-bottom:5px}
+#invite .onlinePanel{display:flex;flex-direction:column;width:100%;min-height:0;padding:8px 10px}
+.invite-steps{display:flex;gap:6px;margin-bottom:8px}
+.invite-steps button{flex:1;font:12px Georgia}
+.invite-steps button[aria-selected=true]{border-color:#ffeab0;background:#72501e}
+.invite-step[hidden]{display:none!important}
+.invite-step{display:grid;gap:4px;width:100%}
+#invite .onlinePanel input{width:100%;margin:0;min-width:0;box-sizing:border-box}
+#invite .onlinePanel .btn{width:100%;margin:0;font-size:14px}
+#ttStatus{min-height:34px}
+.theme-browser{flex:1;min-height:0;display:flex;flex-direction:column;gap:7px}
+.theme-browser h3,.theme-browser p{margin:0}
+.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;flex:1;min-height:0}
+.theme-card{position:relative;min-height:0;overflow:hidden;border:1px solid #a47a3d;border-radius:5px;background:#080d14;color:#ffe7b3;padding:0}
+.theme-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.theme-card span{position:absolute;bottom:0;left:0;right:0;padding:8px 2px;background:#04090ee8;font:13px Georgia}
+.theme-card[aria-pressed=true]{border:3px solid #ffe9aa;box-shadow:0 0 12px #e9b74d66}
+.theme-pager{display:flex;gap:24px;align-items:center;justify-content:center}
+.theme-pager button{min-width:44px;min-height:35px;background:#10151c;border:1px solid #cda260;color:#ffe6b0;font-size:24px}
+.theme-browser>.btn{margin:0!important;min-height:40px}
+@media(orientation:landscape){
+ .app{width:100vw!important;max-width:1100px}
+ .page>.screen-art{object-fit:cover;object-position:center 42%}
+ #menu .menu-composition{width:100%;height:100%}
+ #kingdomMenuArt{object-fit:cover;object-position:center 17%;filter:brightness(.65)}
+ #menu .theme-title,.menu-composition.themed .theme-title{display:flex;position:absolute;left:3%;right:auto;top:25%;width:38%;height:45%;flex-direction:column;text-align:center;justify-content:center;color:#ffe2a0;font:bold clamp(32px,6vw,65px)/1 Georgia;text-shadow:0 3px 4px #000}
+ #menu .hit{display:flex;align-items:center;gap:10px;left:46%!important;width:46%!important;height:16.2%!important;min-height:44px!important;padding:3px 12px!important;color:#ffe1a0!important;background:linear-gradient(130deg,#171d1cf5,#05090ff5)!important;border:2px solid #c99a49!important;box-shadow:inset 0 0 0 2px #5e3f17!important}
+ #menu .hit>*{visibility:visible}
+ #menu .hit1{top:5%!important}#menu .hit2{top:23.4%!important}#menu .hit3{top:41.8%!important}#menu .hit4{top:60.2%!important}#menu .hit5{top:78.6%!important}
+ #menu .hit b{font-size:clamp(14px,2.5vw,23px)}#menu .hit small{font-size:10px}.menu-icon{max-width:48px;flex-basis:48px}
+ #characters .content,#lobby .content,#seasons .content,#levels .content,#leaderboard .content,#rewards .content,#settings .content,#summary .content{padding-top:12px}
+ .page:not(#splash):not(#menu) .title{font-size:23px;margin-bottom:4px}
+ #characters .btn{margin:0;min-height:34px}
+ #lobby .panel.flex{margin:auto;width:80%}#lobby .avatar{width:90px;height:110px}
+ #seasongrid .tile{min-height:70px;font-size:14px;padding:5px}
+ #levelgrid .tile{min-height:55px!important}
+ #summary .content{justify-content:center}#summary .grow{display:none}#summary #roundStats{padding:10px;line-height:1.4}
+ #invite .content{display:flex;padding:12px 65px 12px 44%;gap:4px}
+ #invite .onlinePanel{display:flex;padding:5px;gap:3px}
+ #invite .onlinePanel .small{font-size:11px;margin:0}
+ .invite-steps{margin:0}.invite-steps button{min-height:30px}
+ .invite-step{grid-template-columns:1fr 1fr;gap:4px}
+ #invite .onlinePanel input,#invite .onlinePanel .btn{min-height:36px;font-size:12px;margin:0;padding:5px}
+ #ttStatus{min-height:25px}
+ .theme-browser{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto;gap:5px;padding:7px!important}
+ .theme-browser h3{font-size:16px}.theme-browser>.small{font-size:11px;text-align:right}
+ .theme-grid{grid-column:1/-1;grid-template-columns:repeat(4,1fr)}
+ .theme-browser>.btn{font-size:12px;min-height:32px}
+ .theme-card span{padding:4px 2px;font-size:11px}
+ #settings .content{gap:4px}#settings .panel{padding:5px}#settings .stat{padding:4px}
+ #settings .content>.btn{min-height:32px;font-size:12px;margin:0}
+}
+@media(max-height:700px) and (orientation:portrait){
+ #characters .content{padding-top:16dvh;gap:4px}.portrait span{font-size:10px;min-height:24px}
+ #characters .title{font-size:21px}#characters .btn{min-height:36px}
+ #seasons .content,#levels .content{padding-top:16dvh}#seasongrid .tile{min-height:61px;font-size:13px}
+ #invite .content{padding-top:28dvh}.invite-steps button{min-height:32px}
+ #invite .onlinePanel input,#invite .onlinePanel .btn{min-height:35px;padding:4px}
+ #leaderboard .content,#rewards .content,#settings .content{padding-top:12dvh}
+}
+
+/* Every saved kingdom supplies all fifteen scenes. */
+.themed-splash .splashComposition{width:min(100%,calc((100dvh - 8px)*4/7));aspect-ratio:4/7}
+.themed-splash .splashLight,.themed-splash .throneAura,.themed-splash .plaqueLight{display:none}
+.themed-splash .splashEnter{left:12%;top:77%;width:76%;height:13%}
+.theme-card:disabled{opacity:.4;cursor:wait}
+
+/* Hit areas follow each rendered entry plaque. */
+.themed-splash .splashEnter{left:8%;width:84%}
+.app[data-kingdom="winterfell"] .splashEnter{top:71%;height:13%}
+.app[data-kingdom="the-wall"] .splashEnter{top:71%;height:16%}
+.app[data-kingdom="kings-landing"] .splashEnter{top:77%;height:15%}
+.app[data-kingdom="dragonstone"] .splashEnter{top:75%;height:16%}
+.app[data-kingdom="casterly-rock"] .splashEnter{top:76%;height:16%}
+.app[data-kingdom="highgarden"] .splashEnter{top:75%;height:14%}
+.app[data-kingdom="iron-islands"] .splashEnter{top:77%;height:16%}
+.app[data-kingdom="dorne"] .splashEnter{top:72%;height:15%}
+.app[data-kingdom="the-vale"] .splashEnter{top:74%;height:16%}
+.app[data-kingdom="storms-end"] .splashEnter{top:74%;height:16%}

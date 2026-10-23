@@ -12,7 +12,19 @@
   if (!ctx) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let width = 1, height = 1, frame = 0, previous = 0, time = 0;
-  let area, sources = [], active = '', sparks = [];
+  let area, sources = [], active = '', sparks = [], artImage=null, artRegions=[];
+  const regions={
+    invite:[[.42,.23,.18,.10]],characters:[[0,.66,.15,.09],[.85,.66,.15,.09],[.17,.10,.15,.12],[.72,.10,.20,.15]],
+    lobby:[[0,.54,.16,.12],[.84,.54,.16,.12],[.30,.24,.07,.03],[.62,.24,.07,.03]],
+    countdown:[[0,.55,.16,.12],[.84,.55,.16,.12]],quiz:[[0,.68,.16,.10],[.84,.68,.16,.10],[.19,.21,.06,.04],[.72,.21,.06,.04]],
+    feedback:[[.02,.66,.16,.10],[.83,.66,.17,.10],[.18,.09,.19,.14],[.66,.09,.21,.16]],
+    summary:[[0,.74,.13,.10],[.88,.74,.12,.10],[.18,.17,.13,.08],[.70,.17,.13,.08]],
+    victory:[[0,.38,.17,.09],[.82,.38,.18,.09],[0,.64,.13,.05],[.88,.62,.12,.07]],
+    leaderboard:[[0,.63,.12,.07],[.89,.63,.11,.07],[.11,.20,.06,.04],[.83,.20,.06,.04]],
+    rewards:[[0,.57,.16,.09],[.84,.57,.16,.09],[.15,.39,.05,.035],[.80,.39,.05,.035]],settings:[[0,.70,.14,.09],[.86,.70,.14,.09]],
+    seasons:[[0,.72,.17,.10],[.83,.72,.17,.10]],levels:[[0,.70,.14,.08],[.86,.70,.14,.08]],
+    menu:[[.04,.55,.12,.06],[.84,.55,.12,.06],[.20,.09,.18,.10],[.67,.08,.20,.12]]
+  };
   const random = (a, b) => a + Math.random() * (b - a);
   const splashArt=new Image();splashArt.src='approved-splash.png';
   function layout() {
@@ -24,6 +36,26 @@
     active = document.querySelector('.page.active')?.id || '';
     area = { x: 0, y: 0, w: width, h: height };
     sources = [];
+    artImage=document.querySelector('.page.active > .screen-art')||(active==='menu'?document.getElementById('kingdomMenuArt'):active==='splash'&&app.dataset.kingdom!=='royal-castle'?document.querySelector('.splashOriginal'):null);
+    artRegions=[];
+    if(artImage&&artImage.naturalWidth){
+      const r=artImage.getBoundingClientRect(),style=getComputedStyle(artImage);
+      if(style.objectFit==='cover'){
+        const scale=Math.max(r.width/artImage.naturalWidth,r.height/artImage.naturalHeight),w=artImage.naturalWidth*scale,h=artImage.naturalHeight*scale;
+        const y=active==='menu'?.17:.42;
+        area={x:r.left-bounds.left+(r.width-w)/2,y:r.top-bounds.top+(r.height-h)*(width>height?y:.5),w,h};
+      }else area={x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height};
+      artRegions=regions[active==='ttOnline'?'quiz':active]||[];
+      if(active==='menu'&&artImage.dataset.artScreen==='characters')artRegions=regions.characters;
+      if(active==='menu'&&artImage.dataset.artScreen!=='characters'&&document.querySelector('.app').dataset.kingdom!=='royal-castle'){
+        const theme=document.querySelector('.app').dataset.kingdom;
+        const ys={'the-wall':[.51,.075],'kings-landing':[.53,.09],dragonstone:[.48,.075],'casterly-rock':[.60,.07],highgarden:[.52,.07],'iron-islands':[.46,.085]};
+        const [y,h]=ys[theme]||[.57,.11];artRegions=[[.02,y,.15,h],[.83,y,.15,h]];
+      }
+      const themedEntry=window.THRONE_THEME_SETS?.[app.dataset.kingdom]?.[artImage.dataset.artScreen||active];
+      if(themedEntry?.fireRegions)artRegions=themedEntry.fireRegions;
+      sources=artRegions.map(([x,y,w,h])=>[x+w/2,y+h,w*.4,h,0]);
+    }else
     if (active === 'splash') {
       const r = document.querySelector('.splashComposition').getBoundingClientRect();
       area = { x: r.left - bounds.left, y: r.top - bounds.top, w: r.width, h: r.height };
@@ -100,8 +132,20 @@
     previous=stamp;time+=dt;ctx.clearRect(0,0,width,height);
     ctx.globalCompositeOperation='screen';
     ctx.save();
-    sources.forEach(flame);ctx.restore();
-    if(active==='splash'&&splashArt.complete&&splashArt.naturalWidth){
+    if(artImage&&artImage.complete&&artImage.naturalWidth){
+      // Flicker the painted fire itself. Subtle strip displacement adds motion
+      // without placing unrelated flame cones over the artwork.
+      artRegions.forEach(([x,y,w,h],i)=>{
+        ctx.save();ctx.beginPath();ctx.rect(area.x+x*area.w,area.y+y*area.h,w*area.w,h*area.h);ctx.clip();
+        ctx.globalAlpha=.12+.12*(1+Math.sin(time*8.7+i*2))+.04*Math.sin(time*17+i)**2;
+        for(let k=0;k<12;k++){
+          const sy=(y+h*k/12)*artImage.naturalHeight,sh=h*artImage.naturalHeight/12;
+          const dx=Math.sin(time*6+k*.7+i)*Math.min(2,area.w*.003)*(1-k/12);
+          ctx.drawImage(artImage,0,sy,artImage.naturalWidth,sh,area.x+dx,area.y+(y+h*k/12)*area.h,area.w,h*area.h/12+.5);
+        }ctx.restore();
+      });
+    }else sources.forEach(flame);ctx.restore();
+    if(active==='splash'&&app.dataset.kingdom==='royal-castle'&&splashArt.complete&&splashArt.naturalWidth){
       // Animate the approved pixels themselves, never a differently shaped flame cone.
       for(const [i,points] of [
         [[.252,.124],[.288,.144],[.355,.221],[.30,.225],[.237,.157]],
@@ -115,7 +159,7 @@
     if(active!=='splash'&&active!=='menu'){
       // Clearing each rectangle creates a union; overlapping buttons/images stay protected.
       const origin=app.getBoundingClientRect();
-      for(const el of document.querySelectorAll('.page.active .panel,.page.active button,.page.active input,.page.active .title,.page.active .question,.page.active img')){
+      for(const el of document.querySelectorAll('.page.active .panel,.page.active button,.page.active input,.page.active .title,.page.active .question,.page.active img:not(.screen-art):not(#kingdomMenuArt)')){
         const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-2,r.top-origin.top-2,r.width+4,r.height+4);
       }
     }
@@ -143,6 +187,11 @@
         ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x+(oldX-p.x)*2+.4,p.y+(oldY-p.y)*2+1);ctx.stroke();
       }
     }
+    // Embers stay around the controls, never over names, questions or faces.
+    const origin=app.getBoundingClientRect();
+    for(const el of document.querySelectorAll('.page.active button,.page.active input,.page.active .panel,.page.active .title,.page.active .question,.page.active img:not(.screen-art):not(#kingdomMenuArt):not(.splashOriginal)')){
+      const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-1,r.top-origin.top-1,r.width+2,r.height+2);
+    }
     ctx.shadowBlur=0;ctx.globalAlpha=1;canvas.dataset.frames=String(Number(canvas.dataset.frames||0)+1);
     frame=requestAnimationFrame(draw);
   }
@@ -152,6 +201,8 @@
     else ctx.clearRect(0,0,width,height);
   }
   new ResizeObserver(layout).observe(app);
+  app.addEventListener('load',layout,true);
+  window.addEventListener('artworkchange',layout);
   new MutationObserver(layout).observe(app,{subtree:true,attributes:true,attributeFilter:['class']});
   document.addEventListener('visibilitychange',resume);
   window.addEventListener('pageshow',()=>{layout();resume();});
