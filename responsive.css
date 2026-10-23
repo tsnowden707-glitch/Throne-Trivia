@@ -14,6 +14,8 @@ html,body{height:100%;overflow:hidden}
 .embers{z-index:2;opacity:.8}
 .content,.hit,.back{z-index:3}
 .content{isolation:isolate}
+.page>.back{z-index:20;pointer-events:auto;touch-action:manipulation}
+#seasongrid button:disabled,#levelgrid button:disabled{opacity:.58;cursor:default;filter:saturate(.45)}
 .ember{width:3px;height:5px}
 .levelPager{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:auto}
 .levelPager button{min-height:44px;min-width:60px;color:#ffe5ba;border:1px solid #cb9752;background:#142338}

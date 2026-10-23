@@ -14,6 +14,7 @@
   let width = 1, height = 1, frame = 0, previous = 0, time = 0;
   let area, sources = [], active = '', sparks = [];
   const random = (a, b) => a + Math.random() * (b - a);
+  const splashArt=new Image();splashArt.src='approved-splash.png';
   function layout() {
     const bounds = app.getBoundingClientRect();
     width = app.clientWidth; height = app.clientHeight;
@@ -26,8 +27,7 @@
     if (active === 'splash') {
       const r = document.querySelector('.splashComposition').getBoundingClientRect();
       area = { x: r.left - bounds.left, y: r.top - bounds.top, w: r.width, h: r.height };
-      sources = [[.16,.624,.061,.065,0],[.833,.624,.061,.065,0],
-        [.255,.137,.036,.115,1,2.55],[.733,.132,.042,.14,0,-2.55]];
+      sources = [[.16,.624,.061,.065,0],[.833,.624,.061,.065,0]];
     } else if (active === 'menu') {
       sources = width > height
         ? [[.025,.78,.028,.08,0],[.97,.78,.028,.08,0],[.33,.48,.018,.06,0],[.668,.48,.018,.06,0],
@@ -100,16 +100,25 @@
     previous=stamp;time+=dt;ctx.clearRect(0,0,width,height);
     ctx.globalCompositeOperation='screen';
     ctx.save();
-    // Fire remains behind live controls and text, even with the decorative canvas above panels.
-    if(active!=='splash'&&active!=='menu'){
-      const origin=app.getBoundingClientRect();
-      ctx.beginPath();ctx.rect(0,0,width,height);
-      for(const el of document.querySelectorAll('.page.active .panel,.page.active button,.page.active input,.page.active .title,.page.active .question,.page.active img')){
-        const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.rect(r.left-origin.left-2,r.top-origin.top-2,r.width+4,r.height+4);
-      }
-      ctx.clip('evenodd');
-    }
     sources.forEach(flame);ctx.restore();
+    if(active==='splash'&&splashArt.complete&&splashArt.naturalWidth){
+      // Animate the approved pixels themselves, never a differently shaped flame cone.
+      for(const [i,points] of [
+        [[.252,.124],[.288,.144],[.355,.221],[.30,.225],[.237,.157]],
+        [[.735,.124],[.75,.151],[.683,.234],[.622,.223],[.703,.156]]
+      ].entries()){
+        ctx.save();ctx.beginPath();points.forEach(([x,y],n)=>{const px=area.x+x*area.w,py=area.y+y*area.h;n?ctx.lineTo(px,py):ctx.moveTo(px,py);});ctx.closePath();ctx.clip();
+        ctx.globalAlpha=.07+.06*(1+Math.sin(time*9+i*2))+.035*Math.sin(time*17+i)**2;
+        ctx.drawImage(splashArt,area.x,area.y,area.w,area.h);ctx.restore();
+      }
+    }
+    if(active!=='splash'&&active!=='menu'){
+      // Clearing each rectangle creates a union; overlapping buttons/images stay protected.
+      const origin=app.getBoundingClientRect();
+      for(const el of document.querySelectorAll('.page.active .panel,.page.active button,.page.active input,.page.active .title,.page.active .question,.page.active img')){
+        const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-2,r.top-origin.top-2,r.width+4,r.height+4);
+      }
+    }
     const target=active==='victory'?140:active==='splash'||active==='menu'?95:70;
     while(sparks.length<target)sparks.push(spark(true));
     if(sparks.length>target)sparks.length=target;
