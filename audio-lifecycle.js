@@ -1,6 +1,17 @@
 // Visibility changes never pause or rewrite server-authoritative match timestamps.
 (() => {
  const music=document.getElementById('music');
+ // Keep the lead-in musical, then leave the whole question/answer round quiet.
+ // Every resume route uses this same gate, including taps and tab visibility.
+ const originalMusicPlay=musicPlay;
+ const roundIsQuiet=()=>['quiz','feedback','ttOnline'].includes(current);
+ musicPlay=function(){
+  if(roundIsQuiet()||window.ThronePause?.active){music.pause();return;}
+  originalMusicPlay();
+ };
+ document.addEventListener('screenchange',()=>{
+  if(roundIsQuiet())music.pause();else musicPlay();
+ });
  musicMuted=localStorage.getItem('throne_music_muted')==='true';
  music.muted=musicMuted;
  const volume=Number(localStorage.getItem('throne_music_volume')??'0.16');
@@ -23,7 +34,7 @@
   if(typeof soundCtx!=='undefined'&&soundCtx?.state==='running')soundCtx.suspend().catch(()=>{});
  }
  function resume(){
-  if(document.hidden)return;
+  if(document.hidden||window.ThronePause?.active)return;
   musicPlay();
   if(typeof soundCtx!=='undefined'&&soundCtx?.state==='suspended'&&document.getElementById('effects').checked)soundCtx.resume().catch(()=>{});
  }

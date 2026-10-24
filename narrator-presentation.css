@@ -1,0 +1,5 @@
+.opening-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none}
+.splashComposition .splashEnter{z-index:8}
+.edward-intro{position:absolute;left:3%;bottom:5%;width:clamp(68px,15vw,150px);aspect-ratio:1;object-fit:cover;border:3px solid #d5ac54;border-radius:50%;box-shadow:0 0 18px #d59b3940;z-index:8;pointer-events:none}
+.edward-intro[hidden]{display:none}
+@media(orientation:portrait){#menu .edward-intro{width:72px;left:4%;bottom:3%}#countdown .edward-intro{bottom:8%;left:calc(50% - 45px);width:90px}}

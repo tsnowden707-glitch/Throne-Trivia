@@ -4,10 +4,10 @@ function campaignProgress(){
 }
 function completedLevels(s){return Math.max(0,Math.min(50,Number(campaignProgress()[s])||0));}
 function seasonAvailable(s){return s===1||completedLevels(s-1)===50;}
-// Carry the existing reserved-question history into the new campaign tracker once.
+// Seeing a question does not prove a completed level. Preserve earned campaign
+// records, but never unlock seasons from abandoned or merely reserved questions.
 if(!localStorage.getItem('throne_campaign_v2')){
- const history=new Set(seen),progress={};for(let s=1;s<=8;s++)progress[s]=Math.min(50,Math.floor(BANK.filter(q=>q.s===s&&history.has(q.id)).length/10));
- localStorage.setItem('throne_campaign_v2',JSON.stringify(progress));
+ localStorage.setItem('throne_campaign_v2','{}');
 }
 function savePendingRound(answered=false){localStorage.setItem('throne_pending_'+currentSeason,JSON.stringify({season:currentSeason,level:chosenLevel,match,index,score,foe,right,answered}));}
 const nextQuestionBeforeProgress=nextQuestion;
@@ -18,7 +18,7 @@ drawSeasons=function(){
  const c=$('seasongrid');c.replaceChildren();
  seasons.forEach((name,i)=>{const s=i+1,open=seasonAvailable(s),b=document.createElement('button');b.className='tile';b.disabled=!open;b.setAttribute('aria-label',`Season ${s}${open?'':' locked'}`);
  b.innerHTML=`Season ${s}<br>${name}<br><small>${open?completedLevels(s)+' / 50 complete':'🔒 Complete Season '+(s-1)}</small>`;
- b.onclick=()=>{if(!seasonAvailable(s))return;currentSeason=s;chosenLevel=Math.min(50,completedLevels(s)+1);levelPage=Math.floor((chosenLevel-1)/10);go('levels');};c.append(b);});
+ b.onclick=()=>{if(!seasonAvailable(s))return;currentSeason=s;if(playMode==='friend'){validateCharacter();go('characters');return;}chosenLevel=Math.min(50,completedLevels(s)+1);levelPage=Math.floor((chosenLevel-1)/10);go('levels');};c.append(b);});
 };
 const drawLevelsBeforeProgress=drawLevels;
 drawLevels=function(){

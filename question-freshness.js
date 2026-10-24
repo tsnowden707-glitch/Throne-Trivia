@@ -12,7 +12,7 @@ selectBank=function(){
  const available=BANK.filter(q=>q.s===currentSeason&&!used.has(q.id));
  const picked=[],characterCounts={};
  for(const [difficulty,count] of [['challenging',2],['medium',4],['easy',4]]){
-  const pool=shuffle(available.filter(q=>q.d===difficulty));
+  const pool=shuffle(available.filter(q=>(q.d==='hard'?'challenging':q.d)===difficulty));
   if(pool.length<count){questionPoolExhausted=true;return [];}
   for(let n=0;n<count;n++){
    const penalty=q=>questionCharacters(q).reduce((total,name)=>total+(characterCounts[name]||0)**2+((characterCounts[name]||0)>=2?1000:0),0);

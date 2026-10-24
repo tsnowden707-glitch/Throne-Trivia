@@ -85,12 +85,12 @@
  #seasongrid .tile{min-height:70px;font-size:14px;padding:5px}
  #levelgrid .tile{min-height:55px!important}
  #summary .content{justify-content:center}#summary .grow{display:none}#summary #roundStats{padding:10px;line-height:1.4}
- #invite .content{display:flex;padding:12px 65px 12px 44%;gap:4px}
- #invite .onlinePanel{display:flex;padding:5px;gap:3px}
+ #invite .content{display:flex;padding:16px 64px;gap:12px;justify-content:center;max-width:720px!important}
+ #invite .onlinePanel{display:flex;padding:16px;gap:10px}
  #invite .onlinePanel .small{font-size:11px;margin:0}
  .invite-steps{margin:0}.invite-steps button{min-height:30px}
  .invite-step{grid-template-columns:1fr 1fr;gap:4px}
- #invite .onlinePanel input,#invite .onlinePanel .btn{min-height:36px;font-size:12px;margin:0;padding:5px}
+ #invite .onlinePanel input,#invite .onlinePanel .btn{min-height:44px;font-size:16px;margin:0;padding:8px}
  #ttStatus{min-height:25px}
  .theme-browser{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto;gap:5px;padding:7px!important}
  .theme-browser h3{font-size:16px}.theme-browser>.small{font-size:11px;text-align:right}

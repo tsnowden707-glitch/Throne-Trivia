@@ -26,7 +26,7 @@ menu.querySelectorAll('.hit').forEach((button,i)=>{
  button.innerHTML=`<i class="menu-icon icon-${i}" aria-hidden="true"></i><span><b>${menuLabels[i][0]}</b><small>${menuLabels[i][1]}</small></span>`;
  button.setAttribute('aria-label',menuLabels[i][0]);composition.append(button);
 });menu.append(composition);
-function sizeMenuArtwork(){const app=document.querySelector('.app'),landscape=app.clientWidth>app.clientHeight;const h=landscape?app.clientHeight:Math.min(app.clientHeight,app.clientWidth*7/4);composition.style.width=(landscape?app.clientWidth:h*4/7)+'px';composition.style.height=h+'px';const source=kingdomArt(landscape?'characters':'menu');if(menuImage.getAttribute('src')!==source)menuImage.src=source;menuImage.dataset.artScreen=landscape?'characters':'menu';window.dispatchEvent(new Event('artworkchange'));}
+function sizeMenuArtwork(){const app=document.querySelector('.app'),landscape=app.clientWidth>app.clientHeight;const h=landscape?app.clientHeight:Math.min(app.clientHeight,app.clientWidth*7/4);composition.style.width=(landscape?app.clientWidth:h*4/7)+'px';composition.style.height=h+'px';const source=kingdomArt('menu');if(menuImage.getAttribute('src')!==source)menuImage.src=source;menuImage.dataset.artScreen='menu';window.dispatchEvent(new Event('artworkchange'));}
 new ResizeObserver(sizeMenuArtwork).observe(document.querySelector('.app'));sizeMenuArtwork();
 function setKingdomTheme(id){
  if(!KINGDOM_THEMES.some(t=>t[0]===id))return;
@@ -73,7 +73,7 @@ inviteGroups[1].insertBefore($('ttCode'),inviteGroups[1].querySelector('[onclick
 const oldInvitePanel=document.querySelector('#invite .content > .panel');
 if(oldInvitePanel){for(const b of [...oldInvitePanel.querySelectorAll('button')])inviteGroups[2].append(b);oldInvitePanel.remove();}
 onlineControls.insertBefore(inviteSteps,$('ttStatus'));inviteGroups.forEach(g=>onlineControls.insertBefore(g,$('ttStatus')));
-showInviteStep(0);
+showInviteStep(1);
 document.querySelectorAll('#invite .content > .small').forEach(e=>e.remove());
 const themeShortcut=document.createElement('button');themeShortcut.className='btn';themeShortcut.textContent='CHANGE KINGDOM THEME';themeShortcut.onclick=()=>{go('rewards');reward('Themes');};document.querySelector('#settings .content').append(themeShortcut);
 function applyActiveKingdomArtwork(){

@@ -1,0 +1,1253 @@
+{
+  "status": "Production scripts; story state effects and ending selection still require game implementation and testing. Do not play a response unless its effect was actually applied.",
+  "scenes": [
+    {
+      "id": "chapter-01-scene-01",
+      "chapter": 1,
+      "title": "At the Gate",
+      "narration": "Three houses offer you an audience. Their interests differ, and your first introduction will be remembered. Whose invitation will you accept?",
+      "choices": [
+        {
+          "label": "House Stark",
+          "response": "The northern delegation grants you an audience.",
+          "response_audio_id": "chapter-01-scene-01-response-1",
+          "effect_key": "audience_stark"
+        },
+        {
+          "label": "House Tyrell",
+          "response": "The Reach delegation grants you an audience.",
+          "response_audio_id": "chapter-01-scene-01-response-2",
+          "effect_key": "audience_tyrell"
+        },
+        {
+          "label": "House Martell",
+          "response": "The Dornish delegation grants you an audience.",
+          "response_audio_id": "chapter-01-scene-01-response-3",
+          "effect_key": "audience_martell"
+        }
+      ]
+    },
+    {
+      "id": "chapter-01-scene-02",
+      "chapter": 1,
+      "title": "A Public Promise",
+      "narration": "Your hosts ask what you will defend when power becomes costly. You must offer a promise before asking for their support.",
+      "choices": [
+        {
+          "label": "Protect civilians",
+          "response": "You pledge to protect the people.",
+          "response_audio_id": "chapter-01-scene-02-response-1",
+          "effect_key": "promise_people"
+        },
+        {
+          "label": "Honor agreements",
+          "response": "You pledge to honor your agreements.",
+          "response_audio_id": "chapter-01-scene-02-response-2",
+          "effect_key": "promise_agreements"
+        },
+        {
+          "label": "Defend allies",
+          "response": "You pledge to defend your allies.",
+          "response_audio_id": "chapter-01-scene-02-response-3",
+          "effect_key": "promise_allies"
+        }
+      ]
+    },
+    {
+      "id": "chapter-01-scene-03",
+      "chapter": 1,
+      "title": "An Empty Purse",
+      "narration": "A messenger needs help reaching your hosts. You have little to spare, but there are several ways to assist.",
+      "choices": [
+        {
+          "label": "Give supplies",
+          "response": "You part with supplies to help the messenger.",
+          "response_audio_id": "chapter-01-scene-03-response-1",
+          "effect_key": "spend_supplies"
+        },
+        {
+          "label": "Offer escort",
+          "response": "You give your time to escort the messenger.",
+          "response_audio_id": "chapter-01-scene-03-response-2",
+          "effect_key": "escort_messenger"
+        },
+        {
+          "label": "Find shelter",
+          "response": "You arrange shelter for the messenger.",
+          "response_audio_id": "chapter-01-scene-03-response-3",
+          "effect_key": "shelter_messenger"
+        }
+      ]
+    },
+    {
+      "id": "chapter-01-scene-04",
+      "chapter": 1,
+      "title": "The Whisper",
+      "narration": "A stranger offers a rumor about your hosts. It could be useful, but nothing has been proven. What will you do with it?",
+      "choices": [
+        {
+          "label": "Seek evidence",
+          "response": "You begin checking the stranger’s account.",
+          "response_audio_id": "chapter-01-scene-04-response-1",
+          "effect_key": "investigate_rumor"
+        },
+        {
+          "label": "Tell hosts",
+          "response": "You warn your hosts that a rumor is spreading.",
+          "response_audio_id": "chapter-01-scene-04-response-2",
+          "effect_key": "disclose_rumor"
+        },
+        {
+          "label": "Keep quiet",
+          "response": "You keep the rumor to yourself for now.",
+          "response_audio_id": "chapter-01-scene-04-response-3",
+          "effect_key": "hold_rumor"
+        }
+      ]
+    },
+    {
+      "id": "chapter-01-scene-05",
+      "chapter": 1,
+      "title": "A Seat Offered",
+      "narration": "Your hosts offer a place among their supporters. They expect something in return. Decide what you can honestly commit.",
+      "choices": [
+        {
+          "label": "Offer service",
+          "response": "You offer your service without a permanent oath.",
+          "response_audio_id": "chapter-01-scene-05-response-1",
+          "effect_key": "service"
+        },
+        {
+          "label": "Swear loyalty",
+          "response": "You bind your claim to a formal oath.",
+          "response_audio_id": "chapter-01-scene-05-response-2",
+          "effect_key": "loyalty_oath"
+        },
+        {
+          "label": "Remain independent",
+          "response": "You preserve your independence and decline their protection.",
+          "response_audio_id": "chapter-01-scene-05-response-3",
+          "effect_key": "independent"
+        }
+      ]
+    },
+    {
+      "id": "chapter-01-scene-06",
+      "chapter": 1,
+      "title": "Your First Departure",
+      "narration": "Before you leave, choose how to establish your own reputation. This will become part of the story people tell about your claim.",
+      "choices": [
+        {
+          "label": "Thank hosts",
+          "response": "You publicly acknowledge those who welcomed you.",
+          "response_audio_id": "chapter-01-scene-06-response-1",
+          "effect_key": "public_gratitude"
+        },
+        {
+          "label": "Meet townsfolk",
+          "response": "You spend your remaining time among the townsfolk.",
+          "response_audio_id": "chapter-01-scene-06-response-2",
+          "effect_key": "meet_people"
+        },
+        {
+          "label": "Recruit advisers",
+          "response": "You seek advisers for the road ahead.",
+          "response_audio_id": "chapter-01-scene-06-response-3",
+          "effect_key": "seek_advisers"
+        }
+      ]
+    },
+    {
+      "id": "chapter-02-scene-01",
+      "chapter": 2,
+      "title": "The Prisoner",
+      "narration": "Your guards bring you a captured courier from a rival faction. They carry a sealed message. How will you begin?",
+      "choices": [
+        {
+          "label": "Hear account",
+          "response": "You give the courier a chance to explain.",
+          "response_audio_id": "chapter-02-scene-01-response-1",
+          "effect_key": "hear_captive"
+        },
+        {
+          "label": "Read message",
+          "response": "You open the courier’s sealed message.",
+          "response_audio_id": "chapter-02-scene-01-response-2",
+          "effect_key": "read_message"
+        },
+        {
+          "label": "Call witness",
+          "response": "You ask a witness to join the questioning.",
+          "response_audio_id": "chapter-02-scene-01-response-3",
+          "effect_key": "witness"
+        }
+      ]
+    },
+    {
+      "id": "chapter-02-scene-02",
+      "chapter": 2,
+      "title": "Terms of Custody",
+      "narration": "The courier must remain with you while their story is checked. Your guards ask how they should be treated.",
+      "choices": [
+        {
+          "label": "Guarded room",
+          "response": "You order secure and humane confinement.",
+          "response_audio_id": "chapter-02-scene-02-response-1",
+          "effect_key": "humane_custody"
+        },
+        {
+          "label": "Strict watch",
+          "response": "You order a stricter watch on the captive.",
+          "response_audio_id": "chapter-02-scene-02-response-2",
+          "effect_key": "strict_custody"
+        },
+        {
+          "label": "Trusted keeper",
+          "response": "You place the captive with a trusted keeper.",
+          "response_audio_id": "chapter-02-scene-02-response-3",
+          "effect_key": "trusted_keeper"
+        }
+      ]
+    },
+    {
+      "id": "chapter-02-scene-03",
+      "chapter": 2,
+      "title": "The Ransom Offer",
+      "narration": "A rival offers money for the courier’s return. The payment could help your claim, but accepting it creates a public bargain.",
+      "choices": [
+        {
+          "label": "Ask supplies",
+          "response": "You request supplies instead of gold.",
+          "response_audio_id": "chapter-02-scene-03-response-1",
+          "effect_key": "ransom_supplies_offer"
+        },
+        {
+          "label": "Ask gold",
+          "response": "You name a price in gold.",
+          "response_audio_id": "chapter-02-scene-03-response-2",
+          "effect_key": "ransom_gold_offer"
+        },
+        {
+          "label": "Decline bargain",
+          "response": "You decline the proposed ransom.",
+          "response_audio_id": "chapter-02-scene-03-response-3",
+          "effect_key": "decline_ransom"
+        }
+      ]
+    },
+    {
+      "id": "chapter-02-scene-04",
+      "chapter": 2,
+      "title": "An Exchange",
+      "narration": "An intermediary suggests exchanging the courier for someone held by the rival. Who should benefit from your negotiation?",
+      "choices": [
+        {
+          "label": "Your ally",
+          "response": "You negotiate for an allied prisoner.",
+          "response_audio_id": "chapter-02-scene-04-response-1",
+          "effect_key": "exchange_ally_offer"
+        },
+        {
+          "label": "Local captives",
+          "response": "You negotiate for imprisoned townsfolk.",
+          "response_audio_id": "chapter-02-scene-04-response-2",
+          "effect_key": "exchange_people_offer"
+        },
+        {
+          "label": "Seek guarantee",
+          "response": "You request proof before agreeing to an exchange.",
+          "response_audio_id": "chapter-02-scene-04-response-3",
+          "effect_key": "exchange_guarantee"
+        }
+      ]
+    },
+    {
+      "id": "chapter-02-scene-05",
+      "chapter": 2,
+      "title": "The Final Terms",
+      "narration": "You must now decide the courier’s fate. Mercy, payment, and exchange each leave a different obligation behind.",
+      "choices": [
+        {
+          "label": "Release freely",
+          "response": "You release the courier without demanding payment.",
+          "response_audio_id": "chapter-02-scene-05-response-1",
+          "effect_key": "release_mercy"
+        },
+        {
+          "label": "Accept ransom",
+          "response": "The agreed ransom is paid, and the courier leaves.",
+          "response_audio_id": "chapter-02-scene-05-response-2",
+          "effect_key": "release_ransom"
+        },
+        {
+          "label": "Arrange exchange",
+          "response": "The agreed exchange returns a prisoner to your protection.",
+          "response_audio_id": "chapter-02-scene-05-response-3",
+          "effect_key": "release_exchange"
+        }
+      ]
+    },
+    {
+      "id": "chapter-02-scene-06",
+      "chapter": 2,
+      "title": "Who Hears First",
+      "narration": "The courier has departed. Decide who receives your account of the negotiation before rumors begin filling the gaps.",
+      "choices": [
+        {
+          "label": "Tell allies",
+          "response": "You send your allies an account of the bargain.",
+          "response_audio_id": "chapter-02-scene-06-response-1",
+          "effect_key": "report_allies"
+        },
+        {
+          "label": "Tell public",
+          "response": "You make the outcome public.",
+          "response_audio_id": "chapter-02-scene-06-response-2",
+          "effect_key": "report_public"
+        },
+        {
+          "label": "Keep records",
+          "response": "You preserve a private record of the negotiation.",
+          "response_audio_id": "chapter-02-scene-06-response-3",
+          "effect_key": "report_private"
+        }
+      ]
+    },
+    {
+      "id": "chapter-03-scene-01",
+      "chapter": 3,
+      "title": "The Proposal",
+      "narration": "A powerful family proposes a marriage alliance. Before responding, decide what you need to know about their offer.",
+      "choices": [
+        {
+          "label": "Ask intentions",
+          "response": "You ask what the family expects from the alliance.",
+          "response_audio_id": "chapter-03-scene-01-response-1",
+          "effect_key": "ask_intentions"
+        },
+        {
+          "label": "Review terms",
+          "response": "You request the full terms in writing.",
+          "response_audio_id": "chapter-03-scene-01-response-2",
+          "effect_key": "review_terms"
+        },
+        {
+          "label": "Meet partner",
+          "response": "You request a private conversation with the proposed partner.",
+          "response_audio_id": "chapter-03-scene-01-response-3",
+          "effect_key": "meet_partner"
+        }
+      ]
+    },
+    {
+      "id": "chapter-03-scene-02",
+      "chapter": 3,
+      "title": "A Prior Obligation",
+      "narration": "Your advisers remind you to examine earlier commitments before accepting new ones. How will you check for conflicts?",
+      "choices": [
+        {
+          "label": "Review promises",
+          "response": "You review your recorded promises.",
+          "response_audio_id": "chapter-03-scene-02-response-1",
+          "effect_key": "review_promises"
+        },
+        {
+          "label": "Consult allies",
+          "response": "You ask your allies how this agreement affects them.",
+          "response_audio_id": "chapter-03-scene-02-response-2",
+          "effect_key": "consult_allies"
+        },
+        {
+          "label": "Seek counsel",
+          "response": "You seek an independent adviser’s judgment.",
+          "response_audio_id": "chapter-03-scene-02-response-3",
+          "effect_key": "independent_counsel"
+        }
+      ]
+    },
+    {
+      "id": "chapter-03-scene-03",
+      "chapter": 3,
+      "title": "The Price",
+      "narration": "The family wants a public concession as part of the agreement. Which term are you willing to discuss?",
+      "choices": [
+        {
+          "label": "Trade rights",
+          "response": "You offer to negotiate trading rights.",
+          "response_audio_id": "chapter-03-scene-03-response-1",
+          "effect_key": "offer_trade"
+        },
+        {
+          "label": "Council seat",
+          "response": "You offer to negotiate a council seat.",
+          "response_audio_id": "chapter-03-scene-03-response-2",
+          "effect_key": "offer_seat"
+        },
+        {
+          "label": "No concession",
+          "response": "You refuse an additional concession.",
+          "response_audio_id": "chapter-03-scene-03-response-3",
+          "effect_key": "refuse_concession"
+        }
+      ]
+    },
+    {
+      "id": "chapter-03-scene-04",
+      "chapter": 3,
+      "title": "The Other Voice",
+      "narration": "Your proposed partner has concerns of their own. The agreement will shape both your lives. How will you respond?",
+      "choices": [
+        {
+          "label": "Hear concerns",
+          "response": "You give your prospective partner room to speak.",
+          "response_audio_id": "chapter-03-scene-04-response-1",
+          "effect_key": "hear_partner"
+        },
+        {
+          "label": "Revise terms",
+          "response": "You reopen the terms for discussion.",
+          "response_audio_id": "chapter-03-scene-04-response-2",
+          "effect_key": "revise_terms"
+        },
+        {
+          "label": "Request delay",
+          "response": "You ask for time before making a commitment.",
+          "response_audio_id": "chapter-03-scene-04-response-3",
+          "effect_key": "delay_terms"
+        }
+      ]
+    },
+    {
+      "id": "chapter-03-scene-05",
+      "chapter": 3,
+      "title": "The Agreement",
+      "narration": "The terms are before you. Accepting creates an alliance; refusing preserves your freedom to choose a different path.",
+      "choices": [
+        {
+          "label": "Accept terms",
+          "response": "You accept the agreement and its obligations.",
+          "response_audio_id": "chapter-03-scene-05-response-1",
+          "effect_key": "marriage_accept"
+        },
+        {
+          "label": "Decline respectfully",
+          "response": "You decline the marriage without making a new pledge.",
+          "response_audio_id": "chapter-03-scene-05-response-2",
+          "effect_key": "marriage_decline"
+        },
+        {
+          "label": "Offer treaty",
+          "response": "You propose a treaty in place of marriage.",
+          "response_audio_id": "chapter-03-scene-05-response-3",
+          "effect_key": "treaty_offer"
+        }
+      ]
+    },
+    {
+      "id": "chapter-03-scene-06",
+      "chapter": 3,
+      "title": "The Announcement",
+      "narration": "Others will judge this decision by how you explain it. Choose what to emphasize when you announce your position.",
+      "choices": [
+        {
+          "label": "Shared duties",
+          "response": "You emphasize the duties each side must honor.",
+          "response_audio_id": "chapter-03-scene-06-response-1",
+          "effect_key": "announce_duties"
+        },
+        {
+          "label": "Realm’s welfare",
+          "response": "You emphasize what the agreement means for the realm.",
+          "response_audio_id": "chapter-03-scene-06-response-2",
+          "effect_key": "announce_people"
+        },
+        {
+          "label": "Your ambition",
+          "response": "You openly state how this decision serves your claim.",
+          "response_audio_id": "chapter-03-scene-06-response-3",
+          "effect_key": "announce_claim"
+        }
+      ]
+    },
+    {
+      "id": "chapter-04-scene-01",
+      "chapter": 4,
+      "title": "The Charge",
+      "narration": "A formal accusation of treason threatens your position. You have time to prepare a response, but rumors are moving faster.",
+      "choices": [
+        {
+          "label": "Demand details",
+          "response": "You demand the specific charges and evidence.",
+          "response_audio_id": "chapter-04-scene-01-response-1",
+          "effect_key": "charge_details"
+        },
+        {
+          "label": "Seek counsel",
+          "response": "You seek counsel before answering.",
+          "response_audio_id": "chapter-04-scene-01-response-2",
+          "effect_key": "charge_counsel"
+        },
+        {
+          "label": "Contact allies",
+          "response": "You ask your allies for assistance.",
+          "response_audio_id": "chapter-04-scene-01-response-3",
+          "effect_key": "charge_allies"
+        }
+      ]
+    },
+    {
+      "id": "chapter-04-scene-02",
+      "chapter": 4,
+      "title": "A Witness",
+      "narration": "A witness offers information that may help your defense. Their account must be handled carefully.",
+      "choices": [
+        {
+          "label": "Check account",
+          "response": "You check the witness’s account against the records.",
+          "response_audio_id": "chapter-04-scene-02-response-1",
+          "effect_key": "verify_witness"
+        },
+        {
+          "label": "Provide protection",
+          "response": "You arrange protection for the witness.",
+          "response_audio_id": "chapter-04-scene-02-response-2",
+          "effect_key": "protect_witness"
+        },
+        {
+          "label": "Record testimony",
+          "response": "You preserve the testimony for the hearing.",
+          "response_audio_id": "chapter-04-scene-02-response-3",
+          "effect_key": "record_witness"
+        }
+      ]
+    },
+    {
+      "id": "chapter-04-scene-03",
+      "chapter": 4,
+      "title": "The Offer",
+      "narration": "An intermediary offers to negotiate reduced penalties. A settlement may preserve freedom while weakening your claim.",
+      "choices": [
+        {
+          "label": "Hear terms",
+          "response": "You agree to hear the proposed settlement.",
+          "response_audio_id": "chapter-04-scene-03-response-1",
+          "effect_key": "hear_settlement"
+        },
+        {
+          "label": "Reject offer",
+          "response": "You reject the offer and continue your defense.",
+          "response_audio_id": "chapter-04-scene-03-response-2",
+          "effect_key": "reject_settlement"
+        },
+        {
+          "label": "Ask mediator",
+          "response": "You request an independent mediator.",
+          "response_audio_id": "chapter-04-scene-03-response-3",
+          "effect_key": "ask_mediator"
+        }
+      ]
+    },
+    {
+      "id": "chapter-04-scene-04",
+      "chapter": 4,
+      "title": "A Champion",
+      "narration": "Trial by combat remains an option. Before risking your defense on it, consider whether anyone will willingly stand for you.",
+      "choices": [
+        {
+          "label": "Ask volunteer",
+          "response": "You ask for a willing champion.",
+          "response_audio_id": "chapter-04-scene-04-response-1",
+          "effect_key": "ask_champion"
+        },
+        {
+          "label": "Consult guards",
+          "response": "You discuss the risks with your guards.",
+          "response_audio_id": "chapter-04-scene-04-response-2",
+          "effect_key": "consult_guards"
+        },
+        {
+          "label": "Keep evidence",
+          "response": "You keep your defense focused on evidence.",
+          "response_audio_id": "chapter-04-scene-04-response-3",
+          "effect_key": "evidence_path"
+        }
+      ]
+    },
+    {
+      "id": "chapter-04-scene-05",
+      "chapter": 4,
+      "title": "Your Defense",
+      "narration": "The hearing begins. Choose the defense you are prepared to support. Your claim will survive this chapter, but the cost may differ.",
+      "choices": [
+        {
+          "label": "Present evidence",
+          "response": "Your evidence is entered into the hearing.",
+          "response_audio_id": "chapter-04-scene-05-response-1",
+          "effect_key": "defense_evidence"
+        },
+        {
+          "label": "Seek settlement",
+          "response": "You submit negotiated terms for judgment.",
+          "response_audio_id": "chapter-04-scene-05-response-2",
+          "effect_key": "defense_settlement"
+        },
+        {
+          "label": "Request combat",
+          "response": "You formally request trial by combat.",
+          "response_audio_id": "chapter-04-scene-05-response-3",
+          "effect_key": "defense_combat_request"
+        }
+      ]
+    },
+    {
+      "id": "chapter-04-scene-06",
+      "chapter": 4,
+      "title": "After the Hearing",
+      "narration": "The hearing leaves your position uncertain. You must decide where to direct your efforts while the judgment is carried out.",
+      "choices": [
+        {
+          "label": "Rebuild trust",
+          "response": "You begin repairing strained relationships.",
+          "response_audio_id": "chapter-04-scene-06-response-1",
+          "effect_key": "repair_trust"
+        },
+        {
+          "label": "Secure shelter",
+          "response": "You secure a place for your household.",
+          "response_audio_id": "chapter-04-scene-06-response-2",
+          "effect_key": "secure_shelter"
+        },
+        {
+          "label": "Preserve records",
+          "response": "You preserve the records of your defense.",
+          "response_audio_id": "chapter-04-scene-06-response-3",
+          "effect_key": "preserve_defense"
+        }
+      ]
+    },
+    {
+      "id": "chapter-05-scene-01",
+      "chapter": 5,
+      "title": "An Unexpected Patron",
+      "narration": "A patron offers help rebuilding your position. Before accepting, choose what matters most to understand.",
+      "choices": [
+        {
+          "label": "Ask cost",
+          "response": "You ask what repayment will be expected.",
+          "response_audio_id": "chapter-05-scene-01-response-1",
+          "effect_key": "patron_cost"
+        },
+        {
+          "label": "Check motives",
+          "response": "You investigate the patron’s interests.",
+          "response_audio_id": "chapter-05-scene-01-response-2",
+          "effect_key": "patron_motives"
+        },
+        {
+          "label": "Consult council",
+          "response": "You bring the offer before your council.",
+          "response_audio_id": "chapter-05-scene-01-response-3",
+          "effect_key": "patron_council"
+        }
+      ]
+    },
+    {
+      "id": "chapter-05-scene-02",
+      "chapter": 5,
+      "title": "The Gift",
+      "narration": "The patron offers a choice of support. Each could strengthen a different part of your household.",
+      "choices": [
+        {
+          "label": "Take supplies",
+          "response": "You accept supplies and record the obligation.",
+          "response_audio_id": "chapter-05-scene-02-response-1",
+          "effect_key": "aid_supplies"
+        },
+        {
+          "label": "Take shelter",
+          "response": "You accept shelter and record the obligation.",
+          "response_audio_id": "chapter-05-scene-02-response-2",
+          "effect_key": "aid_shelter"
+        },
+        {
+          "label": "Take gold",
+          "response": "You accept gold and record the obligation.",
+          "response_audio_id": "chapter-05-scene-02-response-3",
+          "effect_key": "aid_gold"
+        }
+      ]
+    },
+    {
+      "id": "chapter-05-scene-03",
+      "chapter": 5,
+      "title": "Repayment",
+      "narration": "Your patron asks how you intend to repay their help. Do not promise more than you can defend later.",
+      "choices": [
+        {
+          "label": "Fixed repayment",
+          "response": "You propose repayment with a clear limit.",
+          "response_audio_id": "chapter-05-scene-03-response-1",
+          "effect_key": "fixed_debt"
+        },
+        {
+          "label": "Future favor",
+          "response": "You promise a future favor.",
+          "response_audio_id": "chapter-05-scene-03-response-2",
+          "effect_key": "open_favor"
+        },
+        {
+          "label": "Offer service",
+          "response": "You offer service in place of repayment.",
+          "response_audio_id": "chapter-05-scene-03-response-3",
+          "effect_key": "debt_service"
+        }
+      ]
+    },
+    {
+      "id": "chapter-05-scene-04",
+      "chapter": 5,
+      "title": "A Strained Household",
+      "narration": "Members of your household disagree over how to use the help. What will guide your allocation?",
+      "choices": [
+        {
+          "label": "Protect vulnerable",
+          "response": "You direct aid toward the most vulnerable.",
+          "response_audio_id": "chapter-05-scene-04-response-1",
+          "effect_key": "aid_vulnerable"
+        },
+        {
+          "label": "Restore defenses",
+          "response": "You direct aid toward your defenses.",
+          "response_audio_id": "chapter-05-scene-04-response-2",
+          "effect_key": "aid_defenses"
+        },
+        {
+          "label": "Divide evenly",
+          "response": "You distribute the available aid evenly.",
+          "response_audio_id": "chapter-05-scene-04-response-3",
+          "effect_key": "aid_even"
+        }
+      ]
+    },
+    {
+      "id": "chapter-05-scene-05",
+      "chapter": 5,
+      "title": "The Patron’s Request",
+      "narration": "Your patron asks for an additional concession beyond the recorded agreement. How will you answer?",
+      "choices": [
+        {
+          "label": "Honor terms",
+          "response": "You insist on the terms already agreed.",
+          "response_audio_id": "chapter-05-scene-05-response-1",
+          "effect_key": "keep_debt_terms"
+        },
+        {
+          "label": "Negotiate change",
+          "response": "You open negotiations over the new request.",
+          "response_audio_id": "chapter-05-scene-05-response-2",
+          "effect_key": "renegotiate_debt"
+        },
+        {
+          "label": "Grant request",
+          "response": "You agree to the additional concession.",
+          "response_audio_id": "chapter-05-scene-05-response-3",
+          "effect_key": "grant_concession"
+        }
+      ]
+    },
+    {
+      "id": "chapter-05-scene-06",
+      "chapter": 5,
+      "title": "A New Foundation",
+      "narration": "With immediate needs addressed, choose the foundation you want to strengthen for the coming struggle.",
+      "choices": [
+        {
+          "label": "Build reserves",
+          "response": "You set aside resources for future shortages.",
+          "response_audio_id": "chapter-05-scene-06-response-1",
+          "effect_key": "build_reserves"
+        },
+        {
+          "label": "Repair alliances",
+          "response": "You invest effort in repairing alliances.",
+          "response_audio_id": "chapter-05-scene-06-response-2",
+          "effect_key": "repair_alliances"
+        },
+        {
+          "label": "Gather intelligence",
+          "response": "You seek better information about your rivals.",
+          "response_audio_id": "chapter-05-scene-06-response-3",
+          "effect_key": "gather_information"
+        }
+      ]
+    },
+    {
+      "id": "chapter-06-scene-01",
+      "chapter": 6,
+      "title": "The Storehouse",
+      "narration": "Your stores are lower than expected. Before allocating what remains, decide how to assess the shortage.",
+      "choices": [
+        {
+          "label": "Count supplies",
+          "response": "You order a fresh count of the stores.",
+          "response_audio_id": "chapter-06-scene-01-response-1",
+          "effect_key": "count_stores"
+        },
+        {
+          "label": "Check records",
+          "response": "You examine the supply records.",
+          "response_audio_id": "chapter-06-scene-01-response-2",
+          "effect_key": "check_stores"
+        },
+        {
+          "label": "Hear stewards",
+          "response": "You hear directly from the stewards.",
+          "response_audio_id": "chapter-06-scene-01-response-3",
+          "effect_key": "hear_stewards"
+        }
+      ]
+    },
+    {
+      "id": "chapter-06-scene-02",
+      "chapter": 6,
+      "title": "The First Rations",
+      "narration": "Food must be distributed today. Every allocation leaves someone with less than they hoped.",
+      "choices": [
+        {
+          "label": "Feed families",
+          "response": "You give priority to civilian households.",
+          "response_audio_id": "chapter-06-scene-02-response-1",
+          "effect_key": "ration_people"
+        },
+        {
+          "label": "Feed soldiers",
+          "response": "You give priority to the soldiers.",
+          "response_audio_id": "chapter-06-scene-02-response-2",
+          "effect_key": "ration_army"
+        },
+        {
+          "label": "Share equally",
+          "response": "You divide the food equally.",
+          "response_audio_id": "chapter-06-scene-02-response-3",
+          "effect_key": "ration_equal"
+        }
+      ]
+    },
+    {
+      "id": "chapter-06-scene-03",
+      "chapter": 6,
+      "title": "A Loan",
+      "narration": "A lender offers provisions against future repayment. The terms could burden your claim long after the shortage ends.",
+      "choices": [
+        {
+          "label": "Review terms",
+          "response": "You examine the lender’s conditions.",
+          "response_audio_id": "chapter-06-scene-03-response-1",
+          "effect_key": "loan_review"
+        },
+        {
+          "label": "Offer collateral",
+          "response": "You offer collateral for revised terms.",
+          "response_audio_id": "chapter-06-scene-03-response-2",
+          "effect_key": "loan_collateral"
+        },
+        {
+          "label": "Refuse loan",
+          "response": "You refuse the loan and its obligations.",
+          "response_audio_id": "chapter-06-scene-03-response-3",
+          "effect_key": "loan_refuse"
+        }
+      ]
+    },
+    {
+      "id": "chapter-06-scene-04",
+      "chapter": 6,
+      "title": "The Supply Road",
+      "narration": "Reports suggest a supply route may be unsafe. How will you prepare before sending another convoy?",
+      "choices": [
+        {
+          "label": "Send scouts",
+          "response": "You send scouts to assess the route.",
+          "response_audio_id": "chapter-06-scene-04-response-1",
+          "effect_key": "send_scouts"
+        },
+        {
+          "label": "Seek escort",
+          "response": "You request an escort for the convoy.",
+          "response_audio_id": "chapter-06-scene-04-response-2",
+          "effect_key": "seek_escort"
+        },
+        {
+          "label": "Change route",
+          "response": "You choose a different supply route.",
+          "response_audio_id": "chapter-06-scene-04-response-3",
+          "effect_key": "change_route"
+        }
+      ]
+    },
+    {
+      "id": "chapter-06-scene-05",
+      "chapter": 6,
+      "title": "A Public Explanation",
+      "narration": "The shortage has become impossible to hide. Your people deserve an explanation of the choices made in their name.",
+      "choices": [
+        {
+          "label": "Share accounts",
+          "response": "You publish the supply accounts.",
+          "response_audio_id": "chapter-06-scene-05-response-1",
+          "effect_key": "publish_accounts"
+        },
+        {
+          "label": "Hold council",
+          "response": "You invite representatives to question the council.",
+          "response_audio_id": "chapter-06-scene-05-response-2",
+          "effect_key": "public_council"
+        },
+        {
+          "label": "Give assurance",
+          "response": "You offer a public assurance of continued relief efforts.",
+          "response_audio_id": "chapter-06-scene-05-response-3",
+          "effect_key": "public_assurance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-06-scene-06",
+      "chapter": 6,
+      "title": "Preparing for Winter",
+      "narration": "Immediate relief has bought time. Decide how to reduce the chance of another crisis.",
+      "choices": [
+        {
+          "label": "Improve storage",
+          "response": "You invest in safer storage.",
+          "response_audio_id": "chapter-06-scene-06-response-1",
+          "effect_key": "improve_storage"
+        },
+        {
+          "label": "Secure trade",
+          "response": "You pursue more dependable trading agreements.",
+          "response_audio_id": "chapter-06-scene-06-response-2",
+          "effect_key": "secure_trade"
+        },
+        {
+          "label": "Build reserves",
+          "response": "You set aside a protected emergency reserve.",
+          "response_audio_id": "chapter-06-scene-06-response-3",
+          "effect_key": "emergency_reserve"
+        }
+      ]
+    },
+    {
+      "id": "chapter-07-scene-01",
+      "chapter": 7,
+      "title": "A Broken Confidence",
+      "narration": "Private council information has reached a rival. Suspicion alone does not identify who betrayed you. Where will you begin?",
+      "choices": [
+        {
+          "label": "Trace message",
+          "response": "You investigate how the message traveled.",
+          "response_audio_id": "chapter-07-scene-01-response-1",
+          "effect_key": "trace_leak"
+        },
+        {
+          "label": "Question council",
+          "response": "You question the council about the disclosure.",
+          "response_audio_id": "chapter-07-scene-01-response-2",
+          "effect_key": "question_council"
+        },
+        {
+          "label": "Protect records",
+          "response": "You secure the remaining private records.",
+          "response_audio_id": "chapter-07-scene-01-response-3",
+          "effect_key": "secure_records"
+        }
+      ]
+    },
+    {
+      "id": "chapter-07-scene-02",
+      "chapter": 7,
+      "title": "The Accusation",
+      "narration": "An adviser names a suspect, but their account is incomplete. What will you require before acting?",
+      "choices": [
+        {
+          "label": "Seek evidence",
+          "response": "You request evidence supporting the accusation.",
+          "response_audio_id": "chapter-07-scene-02-response-1",
+          "effect_key": "require_evidence"
+        },
+        {
+          "label": "Hear suspect",
+          "response": "You give the accused a chance to respond.",
+          "response_audio_id": "chapter-07-scene-02-response-2",
+          "effect_key": "hear_suspect"
+        },
+        {
+          "label": "Find witness",
+          "response": "You seek an independent witness.",
+          "response_audio_id": "chapter-07-scene-02-response-3",
+          "effect_key": "find_witness"
+        }
+      ]
+    },
+    {
+      "id": "chapter-07-scene-03",
+      "chapter": 7,
+      "title": "A Private Confession",
+      "narration": "A council member admits sharing information, claiming they intended to prevent a worse outcome. How will you examine that claim?",
+      "choices": [
+        {
+          "label": "Check motive",
+          "response": "You investigate their stated motive.",
+          "response_audio_id": "chapter-07-scene-03-response-1",
+          "effect_key": "check_confession"
+        },
+        {
+          "label": "Review damage",
+          "response": "You assess what the disclosure has cost.",
+          "response_audio_id": "chapter-07-scene-03-response-2",
+          "effect_key": "review_damage"
+        },
+        {
+          "label": "Call mediator",
+          "response": "You bring in a mediator for the dispute.",
+          "response_audio_id": "chapter-07-scene-03-response-3",
+          "effect_key": "betrayal_mediator"
+        }
+      ]
+    },
+    {
+      "id": "chapter-07-scene-04",
+      "chapter": 7,
+      "title": "The Consequence",
+      "narration": "The disclosure is confirmed. You must respond without allowing suspicion to consume the rest of your council.",
+      "choices": [
+        {
+          "label": "Remove adviser",
+          "response": "You remove the adviser from the council.",
+          "response_audio_id": "chapter-07-scene-04-response-1",
+          "effect_key": "remove_adviser"
+        },
+        {
+          "label": "Restrict access",
+          "response": "You restrict the adviser’s access to private information.",
+          "response_audio_id": "chapter-07-scene-04-response-2",
+          "effect_key": "restrict_adviser"
+        },
+        {
+          "label": "Offer conditions",
+          "response": "You offer a conditional path to regain trust.",
+          "response_audio_id": "chapter-07-scene-04-response-3",
+          "effect_key": "conditional_forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "chapter-07-scene-05",
+      "chapter": 7,
+      "title": "Restoring the Council",
+      "narration": "Your remaining advisers watch how you respond to the breach. Choose a step toward rebuilding a working council.",
+      "choices": [
+        {
+          "label": "Clarify duties",
+          "response": "You clarify each adviser’s responsibilities.",
+          "response_audio_id": "chapter-07-scene-05-response-1",
+          "effect_key": "clarify_duties"
+        },
+        {
+          "label": "Share evidence",
+          "response": "You share the verified evidence with the council.",
+          "response_audio_id": "chapter-07-scene-05-response-2",
+          "effect_key": "share_evidence"
+        },
+        {
+          "label": "Renew commitments",
+          "response": "You ask the council to renew its commitments.",
+          "response_audio_id": "chapter-07-scene-05-response-3",
+          "effect_key": "renew_commitments"
+        }
+      ]
+    },
+    {
+      "id": "chapter-07-scene-06",
+      "chapter": 7,
+      "title": "Before the Final Season",
+      "narration": "The final struggle approaches. Decide which part of your claim needs attention before the last chapter begins.",
+      "choices": [
+        {
+          "label": "Contact allies",
+          "response": "You contact your allies before the final season.",
+          "response_audio_id": "chapter-07-scene-06-response-1",
+          "effect_key": "final_allies"
+        },
+        {
+          "label": "Review debts",
+          "response": "You review the debts still attached to your claim.",
+          "response_audio_id": "chapter-07-scene-06-response-2",
+          "effect_key": "final_debts"
+        },
+        {
+          "label": "Secure household",
+          "response": "You strengthen your household’s immediate security.",
+          "response_audio_id": "chapter-07-scene-06-response-3",
+          "effect_key": "final_household"
+        }
+      ]
+    },
+    {
+      "id": "chapter-08-scene-01",
+      "chapter": 8,
+      "title": "The Final Assembly",
+      "narration": "Representatives gather to hear your claim. Your history has arrived with you. How will you open your appeal?",
+      "choices": [
+        {
+          "label": "Cite service",
+          "response": "You open by describing your service to the realm.",
+          "response_audio_id": "chapter-08-scene-01-response-1",
+          "effect_key": "appeal_service"
+        },
+        {
+          "label": "Cite alliances",
+          "response": "You open by naming the alliances behind your claim.",
+          "response_audio_id": "chapter-08-scene-01-response-2",
+          "effect_key": "appeal_alliances"
+        },
+        {
+          "label": "Cite stability",
+          "response": "You open with your plans for stability.",
+          "response_audio_id": "chapter-08-scene-01-response-3",
+          "effect_key": "appeal_stability"
+        }
+      ]
+    },
+    {
+      "id": "chapter-08-scene-02",
+      "chapter": 8,
+      "title": "Outstanding Promises",
+      "narration": "The assembly asks which obligations you will honor if your claim succeeds. Your answer must stand beside your recorded choices.",
+      "choices": [
+        {
+          "label": "Honor debts",
+          "response": "You commit to honoring your recorded debts.",
+          "response_audio_id": "chapter-08-scene-02-response-1",
+          "effect_key": "final_honor_debts"
+        },
+        {
+          "label": "Seek new terms",
+          "response": "You ask to renegotiate outstanding obligations openly.",
+          "response_audio_id": "chapter-08-scene-02-response-2",
+          "effect_key": "final_new_terms"
+        },
+        {
+          "label": "Reject demands",
+          "response": "You reject the demands placed before the assembly.",
+          "response_audio_id": "chapter-08-scene-02-response-3",
+          "effect_key": "final_reject_demands"
+        }
+      ]
+    },
+    {
+      "id": "chapter-08-scene-03",
+      "chapter": 8,
+      "title": "A Rival’s Offer",
+      "narration": "A rival offers an agreement that could change the final contest. Its value depends on what you are willing to surrender.",
+      "choices": [
+        {
+          "label": "Hear bargain",
+          "response": "You hear the rival’s proposed bargain.",
+          "response_audio_id": "chapter-08-scene-03-response-1",
+          "effect_key": "final_hear_bargain"
+        },
+        {
+          "label": "Offer compromise",
+          "response": "You propose a compromise of your own.",
+          "response_audio_id": "chapter-08-scene-03-response-2",
+          "effect_key": "final_compromise"
+        },
+        {
+          "label": "Stand apart",
+          "response": "You refuse a bargain with this rival.",
+          "response_audio_id": "chapter-08-scene-03-response-3",
+          "effect_key": "final_stand_apart"
+        }
+      ]
+    },
+    {
+      "id": "chapter-08-scene-04",
+      "chapter": 8,
+      "title": "The Last Council",
+      "narration": "Your advisers disagree over the last appeal. Choose whose argument deserves your closest attention before you decide.",
+      "choices": [
+        {
+          "label": "Listen allies",
+          "response": "You listen to the allies who remain with you.",
+          "response_audio_id": "chapter-08-scene-04-response-1",
+          "effect_key": "listen_allies"
+        },
+        {
+          "label": "Listen people",
+          "response": "You hear the people’s representatives.",
+          "response_audio_id": "chapter-08-scene-04-response-2",
+          "effect_key": "listen_people"
+        },
+        {
+          "label": "Listen counsel",
+          "response": "You hear independent counsel on your position.",
+          "response_audio_id": "chapter-08-scene-04-response-3",
+          "effect_key": "listen_counsel"
+        }
+      ]
+    },
+    {
+      "id": "chapter-08-scene-05",
+      "chapter": 8,
+      "title": "Your Final Terms",
+      "narration": "There is one last chance to state the terms on which you seek power. Every promise now becomes part of your final claim.",
+      "choices": [
+        {
+          "label": "Accept limits",
+          "response": "You accept stated limits on your authority.",
+          "response_audio_id": "chapter-08-scene-05-response-1",
+          "effect_key": "accept_limits"
+        },
+        {
+          "label": "Share authority",
+          "response": "You propose sharing authority with a council.",
+          "response_audio_id": "chapter-08-scene-05-response-2",
+          "effect_key": "share_authority"
+        },
+        {
+          "label": "Claim authority",
+          "response": "You press your claim to undivided authority.",
+          "response_audio_id": "chapter-08-scene-05-response-3",
+          "effect_key": "claim_authority"
+        }
+      ]
+    },
+    {
+      "id": "chapter-08-scene-06",
+      "chapter": 8,
+      "title": "The Judgment",
+      "narration": "Your final appeal awaits. No speech can erase the journey behind you. How will you face the judgment of your claim?",
+      "choices": [
+        {
+          "label": "Speak plainly",
+          "response": "You present your final appeal without concealment.",
+          "response_audio_id": "chapter-08-scene-06-response-1",
+          "effect_key": "final_plain"
+        },
+        {
+          "label": "Invoke promises",
+          "response": "You remind the assembly of its promises and yours.",
+          "response_audio_id": "chapter-08-scene-06-response-2",
+          "effect_key": "final_promises"
+        },
+        {
+          "label": "Trust supporters",
+          "response": "You let your remaining supporters speak for your claim.",
+          "response_audio_id": "chapter-08-scene-06-response-3",
+          "effect_key": "final_supporters"
+        }
+      ]
+    }
+  ]
+}

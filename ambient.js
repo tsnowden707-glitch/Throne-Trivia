@@ -38,7 +38,12 @@
     sources = [];
     artImage=document.querySelector('.page.active > .screen-art')||(active==='menu'?document.getElementById('kingdomMenuArt'):active==='splash'&&app.dataset.kingdom!=='royal-castle'?document.querySelector('.splashOriginal'):null);
     artRegions=[];
-    if(artImage&&artImage.naturalWidth){
+    if(active==='journeyStory'){
+      const stage=document.querySelector('.journey-stage'),r=stage.getBoundingClientRect();
+      area={x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height};
+      const portrait=r.height>r.width,record=stage.classList.contains('journey-record-view');
+      sources=record?[[.08,.16,.02,.06,0],[.95,.16,.02,.06,0]]:portrait?[[.035,.355,.025,.055,1],[.965,.355,.025,.055,0],[.035,.82,.025,.05,1],[.965,.82,.025,.05,0]]:[[.05,.65,.035,.10,1],[.95,.65,.035,.10,0],[.195,.09,.007,.025,0],[.79,.09,.007,.025,0]];
+    }else if(artImage&&artImage.naturalWidth){
       const r=artImage.getBoundingClientRect(),style=getComputedStyle(artImage);
       if(style.objectFit==='cover'){
         const scale=Math.max(r.width/artImage.naturalWidth,r.height/artImage.naturalHeight),w=artImage.naturalWidth*scale,h=artImage.naturalHeight*scale;
@@ -189,7 +194,7 @@
     }
     // Embers stay around the controls, never over names, questions or faces.
     const origin=app.getBoundingClientRect();
-    for(const el of document.querySelectorAll('.page.active button,.page.active input,.page.active .panel,.page.active .title,.page.active .question,.page.active img:not(.screen-art):not(#kingdomMenuArt):not(.splashOriginal)')){
+    for(const el of document.querySelectorAll('.page.active button,.page.active input,.page.active .panel,.page.active .title,.page.active .question,.page.active .journey-question,.page.active .journey-reminder,.page.active .bella-guide,.page.active .journey-panels,.page.active .journey-heading,.page.active img:not(.screen-art):not(#kingdomMenuArt):not(.splashOriginal)')){
       const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-1,r.top-origin.top-1,r.width+2,r.height+2);
     }
     ctx.shadowBlur=0;ctx.globalAlpha=1;canvas.dataset.frames=String(Number(canvas.dataset.frames||0)+1);
