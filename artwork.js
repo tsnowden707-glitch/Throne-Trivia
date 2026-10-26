@@ -11,6 +11,7 @@ if(!KINGDOM_THEMES.some(t=>t[0]===activeKingdomTheme))activeKingdomTheme='royal-
 let themePage=0;
 const SCREEN_ART_IDS=['invite','characters','lobby','countdown','quiz','feedback','summary','victory','leaderboard','rewards','settings','seasons','levels'];
 function kingdomArt(screen,theme=activeKingdomTheme){
+ if(matchMedia('(orientation: landscape)').matches && window.THRONE_LANDSCAPE_SETS?.[theme]?.[screen])return window.THRONE_LANDSCAPE_SETS[theme][screen].src;
  return window.THRONE_THEME_SETS?.[theme]?.[screen]?.src || (screen==='splash'?'approved-splash.png':screen==='menu'?'menu-approved.webp':'screen-'+screen+'.webp');
 }
 for(const id of SCREEN_ART_IDS){
@@ -26,8 +27,8 @@ menu.querySelectorAll('.hit').forEach((button,i)=>{
  button.innerHTML=`<i class="menu-icon icon-${i}" aria-hidden="true"></i><span><b>${menuLabels[i][0]}</b><small>${menuLabels[i][1]}</small></span>`;
  button.setAttribute('aria-label',menuLabels[i][0]);composition.append(button);
 });menu.append(composition);
-function sizeMenuArtwork(){const app=document.querySelector('.app'),landscape=app.clientWidth>app.clientHeight;const h=landscape?app.clientHeight:Math.min(app.clientHeight,app.clientWidth*7/4);composition.style.width=(landscape?app.clientWidth:h*4/7)+'px';composition.style.height=h+'px';const source=kingdomArt('menu');if(menuImage.getAttribute('src')!==source)menuImage.src=source;menuImage.dataset.artScreen='menu';window.dispatchEvent(new Event('artworkchange'));}
-new ResizeObserver(sizeMenuArtwork).observe(document.querySelector('.app'));sizeMenuArtwork();
+function sizeMenuArtwork(){const app=document.querySelector('.app'),landscape=app.clientWidth>app.clientHeight;const h=landscape?app.clientHeight:Math.min(Math.max(200,app.clientHeight-64),app.clientWidth*7/4);composition.style.width=(landscape?app.clientWidth:h*4/7)+'px';composition.style.height=h+'px';composition.style.bottom=landscape?'0':'64px';const source=kingdomArt('menu');if(menuImage.getAttribute('src')!==source)menuImage.src=source;menuImage.dataset.artScreen='menu';const centered=landscape&&!!window.THRONE_LANDSCAPE_SETS?.[activeKingdomTheme]?.menu;composition.classList.toggle('approved-landscape',centered);if(centered){const entry=window.THRONE_LANDSCAPE_SETS[activeKingdomTheme].menu,ratio=entry.width/entry.height;const w=Math.min(app.clientWidth,app.clientHeight*ratio);composition.style.width=w+'px';composition.style.height=(w/ratio)+'px';}composition.classList.toggle('painted-actions',activeKingdomTheme==='royal-castle');window.dispatchEvent(new Event('artworkchange'));}
+new ResizeObserver(()=>{sizeMenuArtwork();applyActiveKingdomArtwork();}).observe(document.querySelector('.app'));sizeMenuArtwork();
 function setKingdomTheme(id){
  if(!KINGDOM_THEMES.some(t=>t[0]===id))return;
  activeKingdomTheme=id;localStorage.setItem('throne_theme_v2',id);

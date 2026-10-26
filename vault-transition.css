@@ -1,0 +1,17 @@
+.vault-transition{position:absolute;inset:0;z-index:65;overflow:hidden;pointer-events:none;perspective:1200px;isolation:isolate}
+.vault-transition[hidden]{display:none}
+.vault-door{position:absolute;top:0;bottom:0;width:50.2%;box-sizing:border-box;border:clamp(6px,1.5vmin,14px) ridge #9f773b;background:repeating-linear-gradient(0deg,#ffffff04 0 1px,transparent 1px 5px),linear-gradient(110deg,#10151b,#45505b 32%,#171e28 63%,#080d13);box-shadow:inset 0 0 25px #000,0 0 25px #000;display:grid;place-items:center;will-change:transform}
+.vault-left{left:0;transform:translateX(-102%)}.vault-right{right:0;transform:translateX(102%)}
+.vault-inset{position:absolute;inset:6%;border:3px double #b79450;border-radius:12% 12% 8% 8%;box-shadow:inset 0 0 24px #000,0 0 0 8px #080e1599;background:radial-gradient(ellipse,#66717a33,#050c1488);display:grid;place-items:center}
+.vault-crest{position:absolute;top:5%;font-size:clamp(36px,9vmin,80px);color:#dfb968;text-shadow:0 2px 3px #000,0 0 16px #b5803655}
+.vault-wheel{position:relative;width:clamp(72px,22vmin,190px);aspect-ratio:1;border:clamp(7px,1.8vmin,17px) ridge #c19b54;border-radius:50%;box-shadow:0 8px 14px #000,inset 0 0 12px #000;background:radial-gradient(circle,#171e27 55%,#68727c);transform:rotate(0deg)}
+.vault-wheel i{position:absolute;left:46%;top:0;width:8%;height:100%;background:linear-gradient(90deg,#55401e,#f4d78c,#675333);border-radius:5px;box-shadow:1px 1px 3px #000}.vault-wheel i:nth-child(2){transform:rotate(60deg)}.vault-wheel i:nth-child(3){transform:rotate(120deg)}
+.vault-wheel b{position:absolute;inset:36%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe4a1,#8c652b 65%,#261d12);box-shadow:0 2px 6px #000}
+.vault-bolts{position:absolute;inset:12% -8%;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none}.vault-bolts i{height:5%;background:linear-gradient(#e2d2ab,#716344 40%,#211e16);box-shadow:0 2px 5px #000;border-radius:4px}
+.vault-rivets{position:absolute;inset:2%;border:5px dotted #a98b58;opacity:.8}
+.vault-transition.running .vault-left{animation:vault-left 1.45s cubic-bezier(.4,0,.2,1) both}.vault-transition.running .vault-right{animation:vault-right 1.45s cubic-bezier(.4,0,.2,1) both}
+.vault-transition.running .vault-wheel{animation:vault-lock 1.45s ease-in-out both}.vault-transition.running .vault-right .vault-wheel{animation-direction:reverse}
+@keyframes vault-left{0%{transform:translateX(-102%)}22%,55%{transform:translateX(0)}100%{transform:translateX(-102%)}}
+@keyframes vault-right{0%{transform:translateX(102%)}22%,55%{transform:translateX(0)}100%{transform:translateX(102%)}}
+@keyframes vault-lock{0%,22%{transform:rotate(0)}45%,55%{transform:rotate(100deg)}75%,100%{transform:rotate(0)}}
+@media(prefers-reduced-motion:reduce){.vault-transition{display:none!important}}

@@ -1,0 +1,20 @@
+[
+  {
+    "file": "first-card.mp3",
+    "start": 0,
+    "end": 20.95,
+    "seconds": 20.95
+  },
+  {
+    "file": "friends.mp3",
+    "start": 21.05,
+    "end": 32.98,
+    "seconds": 11.929977324263039
+  },
+  {
+    "file": "use-card.mp3",
+    "start": 33.05,
+    "end": 45.68816326530612,
+    "seconds": 12.638185941043083
+  }
+]

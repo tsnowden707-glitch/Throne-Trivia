@@ -14,7 +14,7 @@ window.TT = (()=>{
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&room){needsNarration=true;refresh()}});
  function escapeHtml(s){return String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
  async function refresh(){if(!room||refreshing)return;refreshing=true;const requestedRoom=room;try{const s=await exec('tt_state',{p_room:room});if(room!==requestedRoom)return;if(s.state==='waiting'){if(s.guest&&!arrivalPlayed){arrivalPlayed=true;window.ThroneVoice?.announce('arrival');}status(s.guest?'Both players connected · waiting for READY':'Room '+s.code+' · Waiting for friend to join');return;}
- if(s.state==='finished'){if(ended)return;roomDetails=await exec('tt_room_details',{p_room:room});const {data}=await client().auth.getUser();if(room!==requestedRoom)return;ended=true;clearInterval(poll);poll=null;showOnlineVictory(s,roomDetails,data.user.id);return;}
+ if(s.state==='finished'){if(ended)return;roomDetails=await exec('tt_room_details',{p_room:room});const {data}=await client().auth.getUser();if(room!==requestedRoom)return;ended=true;clearInterval(poll);poll=null;showOnlineVictory(s,roomDetails,data.user.id);setTimeout(()=>window.ThroneCards?.reward("online:"+requestedRoom),1500);return;}
  if(current!=='ttOnline')go('ttOnline');const reveal=new Date(s.reveal_at).getTime(),close=new Date(s.closes_at).getTime(),now=s.server_now?new Date(s.server_now).getTime():Date.now();
  if(s.round!==currentRound){currentRound=s.round;shown=false;el('onlineLiveOptions').innerHTML='';el('onlinePrompt').textContent='QUESTION '+s.round+' OF 10\n'+s.prompt;el('onlineStatus').textContent='Listen to the question…';needsNarration=true;}
  if(needsNarration){needsNarration=false;window.ThroneVoice?.stop();if(now<reveal&&!document.hidden&&el('narrate').checked&&window.ThroneVoice){const offset=s.narration_started_at?Math.max(0,(now-new Date(s.narration_started_at).getTime())/1000):0;ThroneVoice.questionByText(s.prompt,()=>{},offset)}}
@@ -32,5 +32,5 @@ window.TT = (()=>{
  }
 
  function leave(){if(poll)clearInterval(poll);poll=null;room=null;roomDetails=null;currentRound=0;ended=false;go('menu')}
- return {signUp:()=>auth('signUp'),signIn:()=>auth('signInWithPassword'),createRoom,joinRoom,ready,leave,getRoomCode:()=>room?el('ttCode').value.trim():null};
+ return {signUp:()=>auth('signUp'),signIn:()=>auth('signInWithPassword'),createRoom,joinRoom,ready,leave,getRoomCode:()=>room?el('ttCode').value.trim():null,cardCommand:async(action,args={})=>{await requireLogin();return exec('tt_cards',{action,args});}};
 })();

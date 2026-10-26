@@ -47,7 +47,27 @@
   if(k==='ration_people'||k==='ration_army')keep('promise_people',k==='ration_people');
   if(k==='final_honor_debts'||k==='final_reject_demands')keep('promise_agreements',k==='final_honor_debts');
   if(k==='final_allies'||k==='final_stand_apart')keep('promise_allies',k==='final_allies');
-  for(const ally of Object.values(s.alliances))ally.support=Math.max(0,Math.min(5,1+Math.floor(s.trust/3)));
+  // Each alliance remembers its own treatment. Global trust is not its loyalty.
+  const houseNames=Object.keys(s.alliances).filter(name=>name.startsWith('House '));
+  const react=(names,amount,reason)=>{
+   for(const name of names){const ally=s.alliances[name];if(!ally)continue;
+    ally.support=Math.max(0,Math.min(5,ally.support+amount));
+    ally.history=ally.history||[];ally.history.push(reason);
+    changes.push(name+': '+reason);
+   }
+  };
+  if(['consult_allies','report_allies','loyalty_oath','final_allies','listen_allies','final_supporters'].includes(k))react(houseNames,1,'You stood by your allies');
+  if(k==='marriage_accept'&&s.decisions.some(d=>d.effect==='loyalty_oath')&&!s.decisions.some(d=>d.effect==='consult_allies'))react(houseNames,-1,'Your marriage promise conflicted with your earlier oath');
+  if(['hear_partner','announce_duties'].includes(k))react(['Marriage alliance'],1,'You honored the partnership');
+  if(['repair_trust','repair_alliances','renew_commitments'].includes(k))react(Object.keys(s.alliances),1,'You took a step toward repairing trust');
+  if(k==='final_stand_apart')react(houseNames,-1,'You chose to stand apart');
+  const protection=s.cardEffects?.[scene.id];
+  if(protection?.family==='Protection'){
+   let remaining=protection.amount;
+   const debtSaved=Math.min(remaining,Math.max(0,s.debt-previous.debt));s.debt-=debtSaved;remaining-=debtSaved;
+   const trustSaved=Math.min(remaining,Math.max(0,previous.trust-s.trust));s.trust+=trustSaved;
+   if(debtSaved||trustSaved)changes.push('Your protection card prevented '+debtSaved+' debt and '+trustSaved+' lost trust');
+  }
   s.decisions.push({scene:scene.id,chapter:scene.chapter,title:scene.title,choice:choice.label,effect:k,response:choice.response,changes});
   if(s.decisions.length===48){
    const support=s.trust+s.people+Math.min(4,s.evidence)-s.debt;
@@ -55,6 +75,28 @@
   }
   return s;
  }
- const api={fresh,apply};
+ function recap(s){
+  const lines=[];
+  for(const [name,ally] of Object.entries(s.alliances))lines.push(name+(ally.support?' stood beside you':' withdrew support')+(ally.history?.length?' — '+ally.history.at(-1):''));
+  for(const promise of Object.values(s.promises))lines.push(promise.label+': '+promise.status.toLowerCase());
+  if(s.debt>0)lines.push('Unsettled obligations remained: '+s.debt);
+  const turningPoints=s.decisions.filter(d=>d.changes?.length).slice(-3);
+  for(const d of turningPoints)lines.push('Season '+d.chapter+' · '+d.title+': '+d.choice);
+  return lines;
+ }
+ function favorAvailable(s,name){
+  const chapter=Math.floor(s.decisions.length/6)+1;
+  return !s.ending&&chapter<=8&&(s.alliances[name]?.support||0)>=3&&!(s.favors||[]).some(f=>f.chapter===chapter);
+ }
+ function callFavor(previous,name){
+  if(!favorAvailable(previous,name))throw Error('No favor available');
+  const s=JSON.parse(JSON.stringify(previous)),chapter=Math.floor(s.decisions.length/6)+1;
+  s.favors=s.favors||[];s.favors.push({chapter,ally:name,reward:'supplies',amount:1});
+  s.resources.supplies+=1;s.alliances[name].support-=1;
+  s.alliances[name].history=s.alliances[name].history||[];
+  s.alliances[name].history.push('Sent one supply when you called in a favor in season '+chapter);
+  return s;
+ }
+ const api={fresh,apply,recap,favorAvailable,callFavor};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.JourneyState=api;
 })();

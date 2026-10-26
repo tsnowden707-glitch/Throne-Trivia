@@ -1,0 +1,21 @@
+.journey-card-collection{position:fixed;inset:0;background:#040910;display:grid;place-items:center;overflow:hidden}
+.journey-card-stage{position:relative;width:min(100vw,177.68dvh);aspect-ratio:1672/941;overflow:hidden}
+.journey-card-background{display:block;width:100%;height:100%;pointer-events:none}
+.card-art-hotspot{position:absolute;margin:0;padding:0;border:0;border-radius:18px;background:transparent;color:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.card-art-hotspot.selected{box-shadow:inset 0 0 18px #35a9e9bb,0 0 9px #35a9e966;background:#1a77c833}
+.card-art-hotspot:active{box-shadow:inset 0 0 16px #ffd98299}.card-art-hotspot:focus-visible{outline:2px solid #ffe8a9;outline-offset:-3px}
+.card-filter-all{left:37.2%;top:21.3%;width:12.1%;height:5.2%}.card-filter-ready{left:49.8%;top:21.3%;width:13%;height:5.2%}
+.card-family-supplies{left:18.9%;top:28.4%;width:14.6%;height:5.4%}.card-family-information{left:33.8%;top:28.4%;width:15.9%;height:5.4%}.card-family-diplomacy{left:50%;top:28.4%;width:15.6%;height:5.4%}.card-family-protection{left:65.9%;top:28.4%;width:15.3%;height:5.4%}
+.card-action-back{left:3.5%;top:89.1%;width:12%;height:5.7%}.card-action-friends{left:65.4%;top:89.1%;width:15.4%;height:5.7%}.card-action-tutorial{left:81.7%;top:89.1%;width:14.8%;height:5.7%}
+.card-discovery-count{position:absolute;left:41.5%;top:16.2%;width:17%;height:3.1%;display:grid;place-items:center;color:#f6e1bb;font:600 clamp(11px,1.2vw,20px) Georgia,serif}
+.journey-card-grid{position:absolute;left:15%;top:37%;width:70%;height:31.5%;overflow:auto;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2%;align-content:start;padding:0 1%;box-sizing:border-box;scrollbar-color:#bd934c #071321}
+.journey-card-grid{grid-auto-rows:max-content;align-items:start;row-gap:12px}
+.journey-collection-card{position:relative;border:0;padding:0;background:none;cursor:pointer;aspect-ratio:2/3;border-radius:5%;-webkit-tap-highlight-color:transparent;min-width:0;width:100%;height:auto;overflow:hidden;align-self:start}
+.journey-collection-card img{display:block;width:100%;height:auto}.journey-collection-card:active{filter:brightness(1.12)}.journey-collection-card:focus-visible{outline:2px solid #f3d589;outline-offset:-3px}
+.card-copy-count{position:absolute;bottom:2%;right:3%;padding:2px 5px;background:#08101ee8;border:1px solid #b99d60;border-radius:6px;color:#fff4d8;font:700 clamp(11px,1.1vw,18px) Georgia}
+.journey-collection-card.undiscovered{border:2px solid #967641;background:repeating-linear-gradient(45deg,#0b2034,#0b2034 4px,#10283d 4px,#10283d 8px);box-shadow:inset 0 0 0 5px #091423,inset 0 0 0 6px #917340;opacity:1}
+.undiscovered span{font:50px Georgia;color:#aa874a}.card-empty{grid-column:1/-1;color:#e9d7b7;text-align:center;font:18px Georgia}
+.card-candle-light{position:absolute;pointer-events:none;border-radius:50%;background:radial-gradient(ellipse,#ffb22a55,transparent 68%);mix-blend-mode:screen;animation:candle-breathe 2.2s ease-in-out infinite alternate;width:13%;height:21%}.card-light-left{left:0;top:52%}.card-light-right{right:1%;top:55%;animation-delay:-.8s}
+@keyframes candle-breathe{0%{opacity:.5;transform:scale(.9)}45%{opacity:.9}65%{opacity:.65}100%{opacity:1;transform:scale(1.06)}}
+@media(orientation:portrait){.journey-card-stage{width:min(100vw,56.28dvh);aspect-ratio:941/1672}.card-discovery-count{left:35%;top:12%;width:29%;height:2%;font-size:clamp(11px,3vw,20px)}.card-filter-all{left:27%;top:16%;width:23%;height:3.5%}.card-filter-ready{left:50.5%;top:16%;width:23.5%;height:3.5%}.card-family-supplies{left:5%;top:21%;width:22.5%;height:4%}.card-family-information{left:27.7%;top:21%;width:22.2%;height:4%}.card-family-diplomacy{left:50.3%;top:21%;width:22.1%;height:4%}.card-family-protection{left:72.7%;top:21%;width:22.1%;height:4%}.journey-card-grid{left:6%;top:28%;width:88%;height:37%;grid-template-columns:repeat(2,minmax(0,1fr));gap:3%}.card-action-back{left:4%;top:87%;width:24%;height:4%}.card-action-friends{left:31%;top:87%;width:34%;height:4%}.card-action-tutorial{left:68%;top:87%;width:28%;height:4%}.card-copy-count{font-size:clamp(12px,3vw,20px)}.card-light-left{top:67%;height:13%;width:20%}.card-light-right{top:67%;height:13%;width:20%}}
+@media(prefers-reduced-motion:reduce){.card-candle-light{animation:none}}

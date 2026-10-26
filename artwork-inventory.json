@@ -1,0 +1,3309 @@
+{
+  "screens": 15,
+  "themes": 11,
+  "portrait_files": 165,
+  "landscape_files": 165,
+  "release_status": "candidate; final visual review pending",
+  "entries": [
+    {
+      "theme": "royal-castle",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-royal-castle-splash.webp",
+        "size": [
+          1024,
+          1536
+        ],
+        "sha256": "438ab68cdbad988d4fea87d8315526fc3c5477c0105629cc1e531fcba6473eb7"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "135ec50961c54eb29c5940d5fa8cc7537b04f765a8f8cdbb959709dad7a149da"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-royal-castle-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "40a4e80d7c6c53797ebb22c1b5d64f7b6e42cfd5408fffbffbf199c360cd87a2"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-menu.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "64eb9c9d99100f8e065d930195095ea7b0bf12809aa97e674e8a18755d1badd6"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-royal-castle-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e3d6a81592c469966c9d5e119199dd82491c0f19a99e5137930ce6f0f9bb897f"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "1b20662660eeaa5b2520c088185ec46b2b07f1c62f1b050b496390908327b080"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-royal-castle-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "9733886c759fc2babe5dd4a68102838658e77179c54e958fe6682945e75d45fa"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "bb0838ebb112e6820c64545829d7acd936b57d59f2b9edc44ac3f05d84762006"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-royal-castle-lobby.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "cc9ed19e83e9eef385623fcefd342faad76e6f60dab1be2ffcd6ed42ed8acf6d"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "6330cecea77500a15b605fab7db3f7122063761e0c84d067ce9cb4862a8eb611"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-royal-castle-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "cbbbd7adff3f63ff275af1e5c0f8b4bc90ef0ddbd8e5cbfd2ee28be892eaffef"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "f5dd25623d9362de93612d290ef68c62e5a4ca28e93cf6313ab1cdd8235b7981"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-royal-castle-quiz.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "f5a13706ac8cd7037197009a020e96812c6127667009d692872c53173a3f54bd"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "be3e0a9e19221ba361fbb7de3f968aff05ac5a708b4216205c3c9ff026490805"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-royal-castle-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "34fbf959a954dcc6e6a5c27adb5c8567422434e8446dc4fb3e4099265e7653be"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "1880039a45470c347735d43ca554e3c5d3bc17859806c7a84bd4f99616fb81d4"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-royal-castle-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "829ee70076bffb0431398cc6fda59138b9bf96a3f66f86fbdeff96ff99b18e86"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "18bd870a135867612d34a0e5ca33e756c31e89c3a7bbe3ca112206020b560317"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-royal-castle-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "017ad1d009b4478ce10350633134fb0563637e697c9fc3e9b35c86452e79d355"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "62d9318fc3ad1cbacac0feb3a6557e451d6d3b243e0d1170dd0942dff3b41163"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-royal-castle-leaderboard.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "a03810c5cc21a8cd8b83976563dc6b9c1459a5c181cc3b48ec420a6ecef0c547"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "86787ff7f4648b07186bf74e4c39e038e3a3d2110093f12336383a1ac06fc2e0"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-royal-castle-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "604a3b6b268055d7a5d67ef824f828d335cf40b2cd1d19159f73b44cb8da2af5"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ed5f090535ef8d0299c6dad3e9d44c697d81d3c0fcca45ca1b809ac688ea5bf3"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-royal-castle-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "16cb37324f1093136b4ebcb40bff5e71228dcda6743656655ecafa0b649c3f6e"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "80af38e33d49274c7162af4393f9dab3f0ab490d3c0d22d0226a5abd19323891"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-royal-castle-seasons.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "94feceafa5e30efa0891ab1cf4f5f5716c41636e973d971c72b32380bffa07dc"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8b32cee39f61d8bd69d5527bc54255bc6420dcabf3327994758cac1ceb6f4eaf"
+      }
+    },
+    {
+      "theme": "royal-castle",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-royal-castle-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "03902cda9d5cfbbff8a9e5af2738917fa8a8dcab2478c545952b6672b11218f8"
+      },
+      "landscape": {
+        "file": "landscape-royal-castle-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a054cb2f9462affb060516d59e1c94f9033b545a2486ae59b304b02edd2e0f3a"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-winterfell-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "ce50c352f62cba3819fa30adc73a70dbce562160ce7f1aaa191f5cfcdc5afa64"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "f2123807ee75e3ea0eefd34e12edbbc90e491bc96dc74eefe1271bad7f10d42f"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-winterfell-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a33eff9e00070feb7d3ede1a010ba0a4d5c18212de93bdb8f9fc6f562793fcf0"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-menu.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "77aa6f3757e823a96943f461ffc39efc80956807778d86c80ca2df696ee4b957"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-winterfell-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "47b25cc7c4b99f549f0de0172c49d4fec9eee2fc9c9b9ae7236008f3299f098d"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "b03aa37c87c74e9433183ced77055aba56edc8e1cad13bff5c985d63facff2cf"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-winterfell-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "734fe14afd67771da0a3626ddf50d179ae96e6a62513550243963137fd6ad621"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "b3f0e48b95c572d4a5b51d8f2ac1ec33ecd9fa8c0cad3b5b45b4f0c88cf990b4"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-winterfell-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c2d8e8b2e89c39512cbe8272ce4b287e1c6c9d94a8e1c40ef33eb0e6622a3d50"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "2bf8b811584d8791be2f207902609eb2fdde7949c30ca7de4d6ca428244f4f0b"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-winterfell-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a08f2f792bbda75180433a0a853607de52f8160d3fecbda697bd0755caf6ad1c"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "620c99207072c271acd09216df0500e2f4795de26386a6a84b5122c2aef1b6c9"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-winterfell-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "3b212df7af3a47ed76387423ef0e882f40fb723da6fb5255972b887b948357cf"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "75993f2f9619eb06cfe4fda0e28f6621d781113edf7ffce096a88947d43bd1a4"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-winterfell-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "759a1feb661d7e377980f2cf09a3922e58d7e25950b6e5f386c8539e18cd2fa7"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e4503bb1c9c91a71b6dca5f6e1c8c2c306251d7905f4eac90e0aa072c43c2fa8"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-winterfell-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "50a0a9d059802c7e8eca1ca83187802bbcf1e0fb6a83b8e22b28fe66102a1d01"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ab496d1832213f4c530575019e62c79c7cb7789ec8d123ca2659990789f11914"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-winterfell-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1e87dff0d76bd4e1d1686ceb7fb5736aa0f0267d69a3bfcc33ebcb3a8a239d5b"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "7a795508627a1a4fc9b3d5f8e5c72ac0f5f5f63155958e85b073345bb6e8d1df"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-winterfell-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b0ef0ff48228fb6e5cdfd2da8352dc457a46de1f3c92c59300fb5ce1e011c9a9"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "624ed6847a28fb297128bc7b22e03f5859e141d44340b96ab94f6bf22db9ef59"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-winterfell-rewards.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "1eb87d84fe37db38cfc28496cae32c3a27f330d35436c723f13ac078bb9c9190"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "0255a1aa10ce7903f4dd7519d4cef222609f6202f441a275de07da85a8cfb196"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-winterfell-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b53ee75db3b0701d5a59900035c214256c629877d9be5d977a5f37ce0ec074b8"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e6f26ea63e65658ecb6f8c622a69c4bf63a7ef82e23d04d343fa27210fbc8752"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-winterfell-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "f46e1ae9798354b411147f06aedac93b662ec84e8e30b6bd171552b88f2106e1"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "71746b7a9f4bed1b4f6d74d28a5b11227de2ed1becb00ff4fac4a4ac9ea6cbf2"
+      }
+    },
+    {
+      "theme": "winterfell",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-winterfell-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d59674353d0c96f885c0ca5773e618ef49c4e7835e1cc4b762a874d39acd8b02"
+      },
+      "landscape": {
+        "file": "landscape-winterfell-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "f418244c9806f6306e565321be7e1d76234eee9bcd740ca9ed17e18aa2607dd3"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-the-wall-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "368ba091a51e4bc50cc234f116d72594cf97490f316091b595730fae80899e21"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "d4816d60623bd0bf71d51eba4416a1145be4ac9b6029d8c752a56d3e032e9c99"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-the-wall-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "3c6a85a2cb6fb76bd965ed540f84fddaef816e422f41740ab2e087ace68b6f1f"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4fd6383af30afe8d8b0d3a8cb3653e32d2de5424aad95e118fb46700a932136c"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-the-wall-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c06fb09b638028356a709baf775f21fc0914de0329c25e0d9fa817c6d43f4060"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "c9b6a79799524a591af0758e997382451d9704bd5806adb2b87e61f4a0448ace"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-the-wall-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "07a9d613b0faafd33b1f4a358649f9def71f6b8ad0c3d0ec26899df176470994"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "d60ec4c615bb1900b926e8220b87098fd2e3b0ba6e776fecbd8ac1262911eaf3"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-the-wall-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "4e1250dd51befaf1e000f0b93dffbe3e9b5af0fe6f0ef2fa59a16a67ad56c383"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "da0971ee0f8d23c458eeb64131bf85ee8f4bf6a7bb7b4b7520d555baa9a9f5c0"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-the-wall-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c5a845a26141235134f64a7ec2a1ff59831849f4585a5632f623805dd5a79fd0"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "b92ae42729b8dce486ab93dfdc93594f85db8a5ce85fd5fbfd235b90199148d4"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-the-wall-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "05be7823db990edc91d9b04eb3c4d885b48b5f7a42d0d8638d19918e54e2adc0"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "493e1e1feb52e1a1ac7a4d6ffae0eb42cd7fd09adaf0a211179b1082da787311"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-the-wall-feedback.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "5ec0fa872f877d69400166d2fcb8d5d34c5ea36ac79bcc0a336a162ed0666a00"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "89197594a66239087e6495269dd27878229bd7104f0a31830a2b6abb9efd82ef"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-the-wall-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "6f3b5001e4bc8aa1ba03f7a8e175641eee97079a87388cfe05d6b31230907e3e"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "d7e2a90689ad6ff15d4d95f24ee1095dd98c0a44d8d19d4641aeb6fc96d8ceac"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-the-wall-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "34dd1298669ea5ff17c400481aab727768b76f4331132e509c7d343f2c22baf6"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "2ed59728a89b62104be1691cf0d04be1e6d117817f8c5be2f6132ad325955504"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-the-wall-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "99d62c80146075cdc6fb9474c3bdb3fc835a912dc7b233d2f02462decd78b6f5"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "1dce1441c4c43e69ecf4fd0a99312ce67acda744d2318a1aff70848dc547e202"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-the-wall-rewards.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "de7620cb534cb9bd5e9749f122ac7f97add433299b1ccc6f6ac4880615c36388"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "df00b1090f3e12b01ad7d93b40ba62946e8bb14879556b1ab6a251a541f42037"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-the-wall-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e31094f24986f4abfc04515f061396467892ce6190956269067f6a54bc7d27b4"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "db44fbe024d019942ef7506c69c974ed577eca97d67d0dc3654211ae50a20822"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-the-wall-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "443914013840698c9838bd12c08029c33b06b356193dfd5cfd5cafbdb5faae8a"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "75f7d15248b30f11494e648f1132b0192051040c7600cb00fd1f262aa06cce6e"
+      }
+    },
+    {
+      "theme": "the-wall",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-the-wall-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "bfb6ab832ef2de61f9484ec17cb225d6c444c48947924298a4167022f3705808"
+      },
+      "landscape": {
+        "file": "landscape-the-wall-levels.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "032735794276b156dca23d01c2155c99308a6790456d8bc78541abed6ec8fd1a"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-kings-landing-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1b2ea859a5140e8adc8da06a57d52a210c9ef573391df39f56fa0bb283865ef5"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "5d463e615769f758330bb3ec6dd8f7b17f35435771c14e396b150c8c5d47b184"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-kings-landing-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "9956b8da8d760af142351a31db3701a9de259706581fd4ee69028812bdc84ff9"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-menu.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "716dcd15641767c9605932e9e6c7f753b06bdbbd9e37a6bd08d7643de534e0f3"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-kings-landing-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b5469998682c8d9f1949a54e9361154cd3c4fb7bbae4001c660b6403455835fc"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e88171816b8d904f0aa27a1d287cc3519553c2307882f313671a3e4dddd1f664"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-kings-landing-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "33d951b641eabc1c5eff2b63ce86109c25373ae50981322251288a25d51b92ed"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "058124d2f934f1141825d9bba2e6118f2a4daef835b94a32631fae03e6257ae3"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-kings-landing-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2bf567868212bca517e315cb69835f4d4f4f0bb135204018287e965113895fb5"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "85cf04aeb71a0d64251e7613cf381c33aa714d80cf3762f68e00a624321efc07"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-kings-landing-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "6a3d9e1df761275d46e55d7af77828849ddbc7af9b9ff85f8ef01b25d961d376"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "88fa704814afc31c60407a66674648600ae8d4e991192cd8e585662a678b4f96"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-kings-landing-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "cc3483716aeb6f2aae2de53b277f714a14ed1127d0f15bab30a1ccaa9be24fb6"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-quiz.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "9219d61076c93ae8a0ee51c691c55d03a196341f7ac3530d99fa4977aac13e3c"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-kings-landing-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d9838c0563a647cb6fd56779712f7692104a9b06d9af0253f93ed50f68f49872"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "763fd2b395497bf7877550d686adf8d7b138f8cc3baab79f22aa9cb339ac56e6"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-kings-landing-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "7789d10d0b35cd39836ef1282f84766c1194a4e3c7842a59ea7b7577f054c3da"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "51cc0bb65fe4e37c94b69dbe7cc93a7c6b08b7eef373f70321af0c2d2bd5f672"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-kings-landing-victory.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "1354014879b21d6c48115adaa4313e1216088a55bbf399a2866bc7a377a88457"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "c021596e05dd0190885b2a2f6d215b0c014ac0754fa5bbca6d8924a5b141d72b"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-kings-landing-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d5b22dc1f7499e1500b7adca00132ebce6208cd5d29a81b62e793e84a007e9dc"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "10565376f122d3cafc97aaec22ea395d5442faff4d05c3d148d2d4c1eae2e0a8"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-kings-landing-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "98e0f7cc46972bb00a28d96db95b06c35e88561b7001480c97c58e7318f460f6"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a28364dccb35ea9c79fab109f0d7bf76259014cbd4bc2e2722a9044250676227"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-kings-landing-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "4ac5fc3bd29a65e90c30d3cd7000dc8590d976cf8cb0f43ea079e26a02091e12"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "de7dba766599c8f941fd6accf9e40baaa4c37298e8e96a36ad8d46d592b9ecc2"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-kings-landing-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1ac5209a909ae68dcdca35db8ea89763191f4bb7750a66c89cdae0ea48bf774f"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "cdde26582a6c90e6349a40904cdf4a0fcb13532b3f134871e0b24d7e6101596e"
+      }
+    },
+    {
+      "theme": "kings-landing",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-kings-landing-levels.webp",
+        "size": [
+          949,
+          1658
+        ],
+        "sha256": "60fca9692e82464eecfc9632c32a516c7fa099c9a1c83a81183b9061107b9b53"
+      },
+      "landscape": {
+        "file": "landscape-kings-landing-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "09860e9185f8141dfe042863c602a2f079182f2be27e0f14c3d81279b1815305"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-dragonstone-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d5ffa3a5226c7615b2e169def7e940c363110f086ca67d3b5a5983b28ea6be4c"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "232cc1c4248dbde6f74ac8d550b94a32f0f0140874e6ae80e95ca72029f63891"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-dragonstone-menu.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "f466d3cf3ef7489dd2cb469eb985f059b66cc8727c73492ca7e5b4bae8a96203"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "eaf4c8be3fff2974045737c1a82209fa2ceda95930dc092331f235faded1dff2"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-dragonstone-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e19dc2b9a065ce32ed10dae3b68109e70af3c288c57323a89244db2cb87c69b7"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "40f6ba4465f47533610035aca88d5b57ed7cbfd6e98fa674055c00dd010f3c4b"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-dragonstone-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "77e807316dd2381a8eee8a6a8df45ffda9ef09e00f799a8dab6bb80316422209"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "639fd55d8d0ed839cd461d0975cb1e57e331cdaef3b962ca9f1c388a4487fa67"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-dragonstone-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "00a820284c722c1994043d1162be34b2f5acd9bc8c63b76c199d09a9c0cf2b7f"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "6030562cc6473d663d5b65dae60f47f0fb5e99305c125f8dec6be00ae2896311"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-dragonstone-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "de85d90c4856cc6eedd8e52307bfdd247595333e4de42f7f2ff2d7a48e7eddbd"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "335a5e6b82f988e984adf2dd827a2e99f96050687f1d8f5f761c41ebe0ec0cae"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-dragonstone-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "fb9a0e17d5f5e49190eaf1a68dc9bcc863cac66017a42be5d793c1abe3943bc0"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "2eaca22f381b3e25a4298d0dd16d30cf5426f519aead34b094ee7f44407111e1"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-dragonstone-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "16631a61f803463cee6a2a8ea1ab8f860213d4c6b79d5b112e8722fbacefef6a"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "17b2cef9f52ad10f24be99b37d2a2857af8c0a8f7f04f357cf2c3fe8760f211b"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-dragonstone-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "076238d68dc1522c7d5da21399d82c5e7722f9a42c378db2207b5a520a0b9efc"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e57f96a678c04ccec13729524b2488b6f1761e2f3c73858ef967b548a19e4cd8"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-dragonstone-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "52197b1a96dadfd922750145e4f6c79f88aa13a23101a62f9d31525a60418ff3"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "b052a40fa6792812bb0b46afceccdff91c6ee913727e3e75f815c26998cc6fd2"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-dragonstone-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "576bf51e9a11db9a3219cf2d9e8e3c1ae6c08579eab6896499e79f62fe3cf1b9"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a30414e17ffc146033ac7e8837d602102f112a6075bc0d68254bf4a837684be8"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-dragonstone-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "ab7535336a9b394f01de1452d6d76ce6d78b0a87993c7c15ee93e1988497e197"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4219bad370787a4e6f9b5c721a37909a6d10c6511f796979d7dd196a02123739"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-dragonstone-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e67a497dacf9b42fba5262eef8727d947a66eebb28f8f14250f1a7ec8d745af3"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "77750a113a316c55add09907f32df7455eb7e515a74e931f83c406dcd82b5358"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-dragonstone-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "96ce5476d067c1ca0908574fbb8201b95cc73e9bf11d9f336bff44aa07687722"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "dc268eee68ec10cf3fd9b8eba9629995a2036c8a77d1ac2baa09d22989fdacdd"
+      }
+    },
+    {
+      "theme": "dragonstone",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-dragonstone-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "71a28adfd2890fcf0dc7353b0c11618cfbc0f6c9253b696a352b5de63675c0fd"
+      },
+      "landscape": {
+        "file": "landscape-dragonstone-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "2bb4a07faf3adc61b5b63220ed90d42f74217d3a153bb265547f4cc6fd41e774"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-casterly-rock-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b6cb589b68759340a3e42b1d602315043250866a88f53e6be340f6fcce0c36f0"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-splash.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "e0332e4bb1efcc798ed0313f3d2d4515a80e51e2fec08d1f76651961bc96b2b2"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-casterly-rock-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e7a53da3ea36e39598e3badfe2616c1974acc50c444823f54e82309f4c4b028f"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "77679940dcacdf61545b8647158922b13a3f9bc06b8c3cfb69f9cc7367aa9e9b"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-casterly-rock-invite.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "87f3af416f2280c449f98ad9982440e0c2924ae27f757042e5f4f94b21cd4f0b"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "532fd65c404af54eba83a27e03e57187072cd5ba2158345fb521a274da7434dd"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-casterly-rock-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2fdf9bfb1991135996ea22ed04881de732b1296c258bc8136548307daa2349f6"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8e1ce469b98538444943956c6d1ee50d35b504f4a320502c150f89bed8a1f6aa"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-casterly-rock-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d6447940bf98f3198030de78dcfd24e2c55d8baf3a0f80be2e51a72e778e7574"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "199bbb0f5a31a0d3759a2550c619186e15e601aaeda7bf6e41e9e2b6ef36936c"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-casterly-rock-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "050642d0cf373bfa68b9f708e5813a4fcc3d736247fd52314d890e1dd7ae3b13"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "f46f0bf53aa52ed00f48e0c3fa294f1f3dd1d799fa5b587b5a31ba79ae0e89d2"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-casterly-rock-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1557e6acc7cb69af0e793e2769ab7d7e5770af766a0dd709a5cc31677b9ed7ae"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "d38af4a12566a52123a155123985577f10bb7d9003e149b131db8baafa6eef54"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-casterly-rock-feedback.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "929cf7c5b3ea92a8b96cc0859989042805dc62c7bc70f9bc4ad1327cfbc6487e"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4afce2db3acb9d545df7f5411319de0b76258e4e8233997b5c14e9cf23305e63"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-casterly-rock-summary.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "98dd59a4e083cf3b473364d3496db79dac9f2edfbb277a9e6af8df6193f2ed4a"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "0d1a4accbf8ecf14001be6370aa89e4996bd0b8ba114a62d3eebd5bf8cd73093"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-casterly-rock-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a1820e7d6e967ea4a80d06069f94b3dc082f374a8e76f1ddb84b64ec6b06910c"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "62aee6cc082db5fea87953f12f44ad5725e4d76fe685681a8a6f6cd091c56b77"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-casterly-rock-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c54eec5b179b979ae9920f99df713ddb556d3114bd2223e5c6879d21f377bddb"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a976c8db970b04ccebf21f1fb5c87f69693c7274deb1f81ed43593f292136861"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-casterly-rock-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2602a7d316b52ff507ffdc75d4034e0c313256401ccef17b9ffc41d9ffb83407"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "11a5be313dc923676ddd44f30c692f759e8ec701a632bfa1b29061f0549d89b7"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-casterly-rock-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e88a752e9a6d32fe6ca5ea1deaa3ae1bb57253c62868f9f38ea9449b169bbdc8"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "bc36a04b9a7ddc08fd66264334224f4bec268cef92c88fc19a975e3fd141b5a2"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-casterly-rock-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b2e2920973dcc69352625fe1e4b2358df3d8d064aeb41176d8d257c66a79c23f"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a2562e9c692476201025da21c360f09a61ca0812e3d573b13a757daba2488310"
+      }
+    },
+    {
+      "theme": "casterly-rock",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-casterly-rock-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "97ebdd75e9174e294e734fa3feb028401153b9c4d1f8c82be17df991b101ac37"
+      },
+      "landscape": {
+        "file": "landscape-casterly-rock-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e6d94e0c1ec79f9fc82f9d21c500a628eb3b154bd8f30847e9b56efe24afe8dd"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-highgarden-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "96a4627ab27d77f7df7e6f79a618f8dd9b38e7ba5669971f63a0ca84daf1e287"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4617acd250a848b458a4120a93ff66560a9ff36945d430480acedcccdb1c2208"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-highgarden-menu.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "b537ac5e08110b305b913ad7a4c8733375e8198ddb3efed9a83d41c76d09f28c"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "836c920dfb06b30ff34f3f368eebabb3aa40f60658248aa4fba0211e3d72f879"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-highgarden-invite.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "aaa1c6e806a00a02e1ca481938999f2b5bf20b2f86583a5ab34f77e60be599b4"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "12d525db9f74e8d0d13e9fa5d518e9555c60ab09860cdf0f523f8b55f2a41a21"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-highgarden-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "091203f01a055f607553ead7eb103e2f25df297a58f2a507462a89276d64fecf"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "78da97801e1c5df834c296599071d84f103eb1959882b272822ffc164d1f6f6f"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-highgarden-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1feda7c745c72bf98b7e82f1958d70e88cfebc1f092ceb89e81fb67b7a4e9bb4"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a8a0138407efe11269cf2ade6104cf63ed6c4f572a4e8f83f88d0cabc4111592"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-highgarden-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "ab932fe161377ab5a15a98f8b55eab0ed7e41b68fd301c66f0952526e74cf8de"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "d213f9e2995fd702e5b8c365ec41198203ab4f719784e9632055632634dd47c4"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-highgarden-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c6fdbdd7e7a9fb75df1285629dc0f6cd3e91350ac1d03dbc25eb4fb9681abb3c"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ff6f3a13c13040f034abdf73d312d7034b85d765382e5d23c47fb2d163a49524"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-highgarden-feedback.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "72f1bacac211fc3b32bce7682b2cee2aec8ec2c375c0836b92cd8d5feddc07e9"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "9674641b105ea7006752959b212847335ace81d8527a95c89b49588b771de53c"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-highgarden-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d963738a07401b5a5bf2eef660ce3263b083d494a1c99753a7fe9cbc1e3229fd"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "5db22fcb129ad8567583196c9c7eb1a7ddcc5f7e3084689750ff0a4143074065"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-highgarden-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "e20848b99346e79a7f4c7e6e33f1a360475270d67940b0904aeac0b02d5d2854"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a4bd5d60dc8f3c7963104736e70b7ff3baf94092e4a4947ef575ba0ed1ea90a4"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-highgarden-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "f75a830dfc65c8651ac04e69503dc3d7f742bbd5223c444a4a70d6088458392a"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "fe6b31d6b0dbcd935d9c4d3188ec309195e300355787a9d6dfc6b586f3c34297"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-highgarden-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "5715cbe2709a7871a554724173a47d5efa8862f215d38212c5394397becc226f"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4c7a6af5258974056cc226bfdf8ca80738baaec3a8a5fa21072d848428f585ae"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-highgarden-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a6d309dafff6a09d75602814a368e0444d9933e808d0c345cce6ac812a4c8c24"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-settings.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "37fa2849420d5b655f21b2bc24585480387402968459b58b6806641c3f1bd9c8"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-highgarden-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "978c818f6273cc6743f7b1da132308fa9948e5797b4c95e069e3565606829a96"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8a8c928cb5b254495e2227db95f4f4993045cd9c9ac1a7f0dd020a8ec9348198"
+      }
+    },
+    {
+      "theme": "highgarden",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-highgarden-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "3823f280cf80fbfe64ce5dccbba9298816f01e7cf1a305bdfa9cbd40d357dee2"
+      },
+      "landscape": {
+        "file": "landscape-highgarden-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "6de262c6435dde8c93e8ced464a867da727a309cf7d5adf319deb674e72cf952"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-iron-islands-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "18092b1e3a446841a5f5b83825847aa02c92863882b280d33b5f946acb683bdd"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e7933c48e7be1a9d1b36b5ba5208a2cf42dee34f7dea2a5169efc34a8b3ca754"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-iron-islands-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "0cc6b75bed9fc3c796be6db903ab393925036385bc688c251ec71b7e9787e603"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "85f4ce54fd0edc9f1a2ba41250eb644ad9ba6432f586ffe3eaec9ebc93225e24"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-iron-islands-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "fd884c293a615161453ae4d71ef72fd6f5f890cdf41a154d106a861d54c53baf"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "b62a2311985c6a92fbde762620e65a7ff11fe5b3bd062fc94777c0e3341bfbf4"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-iron-islands-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a79dec2575fafbdef470aba6123c653032f92f3ac6321b7af08aec9c65383b72"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ff669eb931b45007e863907fee45abbbcc05ca838866fedec4b9c3221d730dba"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-iron-islands-lobby.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "94980fe232abd6710c9dc3e7437629a137fa6286330540020233e240c52b50e0"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "17e9e7a1966fbd71463d15c84c5deb5367cf8a0c47ce636d01fcdd16487160cd"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-iron-islands-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "070342389def5942e5f715d97be17e024e26b576c81dcedce31d17196107f2df"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "5b8f89518d0dddf1375bbca92a4eccf54dbf341814ebe9ac62ef1aecef3524e1"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-iron-islands-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "29b41dc098f9177350ee98fd786860c35573d19741d6e316edb74a1516cdd101"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "9fa4a218e4ef8be97a3bdc62a46976a029154832a6eed07779f17979dbc2f3c7"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-iron-islands-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c7b7b45fbf55dc56151569159fcda3a070d2135c98d0ae7a58e12128d2aaea72"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4c198e206a0d9e7c17adca9ee069bb2c89fb651db009a6abad5e42f892ba6519"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-iron-islands-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1f230d475dc3970ed9c033547f8d7ae11146a5b3e9e52c6bff572882606fa7b9"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "5803b09eb996cd426c38e90feeebc7bb0d4cca95c15410fb2bc77e6f65ad210b"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-iron-islands-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "8cc60b1b8d0159bd3e8479f326e7acde271c3be70ee50545c76c4a95c0a9e324"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-victory.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "88d12892a372996f0f8c797be5f8e1bf8b0459c1cd48f0cd762682cef5aa7abe"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-iron-islands-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a0ba650b0db2ebde5039bc71e0c4be3cdd4d832a6c11f960c894ef92d779c4d1"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "92e6dda6f22d8f4545f51d4b52e9663c7c00de4cb80e74afe8ddcdbbe764aff0"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-iron-islands-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "86d9b5c48869d17dfeb6d71ba4088ea59e0dbde44f66d0783d71e14b024280a0"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "90d6a3abf52db7328fd5d72a0a827001e20d9066a5cd6cf898f940560f0aefa6"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-iron-islands-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "343f3dab4a3e8a4322e84af4ac21986651b8f0999502a4ad263b6c50141853dc"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "7f69989d4840871d7169470ddd8bf0d91120bf3dfe58257add49f2c388fe5db7"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-iron-islands-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "7b478610730dded5bd5f780c757142f01a76a4c4facc6614b4728a68fa17bd95"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-seasons.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "3a7c5c89ce541546976596ebe7dd5b3d57e62700c607c892f156b71db4a1c746"
+      }
+    },
+    {
+      "theme": "iron-islands",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-iron-islands-levels.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "118fc9c8d78c6e578307b1a087219584aa37c3c0b4cdc0acc4f6a4da02065e51"
+      },
+      "landscape": {
+        "file": "landscape-iron-islands-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "6971f660b663511adbca4631ebc20df8cf4cc7a60617a7a58a7eaa6db47705f8"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-dorne-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "035d769b230b47d5d51cbff6dbca3b213190f219be8f69f1e033bcc45c3ca772"
+      },
+      "landscape": {
+        "file": "landscape-dorne-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "e1801ac92950711456b1d27756bbed207999e5cdcc8291b7c6a2ee2bd5e7359e"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-dorne-menu.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "2246fb6b023f2d6df08582e156d45cfab31ce130f7b74fa18c936626b443e363"
+      },
+      "landscape": {
+        "file": "landscape-dorne-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ec4d8f61ca5d9c9aa810695c4a6f41888c0bf253a13b455ce54d8523645619bc"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-dorne-invite.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "8cc368193c5ea03e99906e0592525b0e3a50993276ad23f4fae80889540d7727"
+      },
+      "landscape": {
+        "file": "landscape-dorne-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "fc8e3e12f93c90fe45a3d2be844133932ebba810b150f0cfae968dc17528b7c3"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-dorne-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c9979c565e154dd2e3fa50c701146a34976818a89ae68525643aeacabcc976bb"
+      },
+      "landscape": {
+        "file": "landscape-dorne-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "84f058ca3e641c4ab863984973df990d4566c075b1332b4173036454bce854af"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-dorne-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "cb928d145608353bb4baaac2616408e459c12a3a0756ba7d847f9ac0fa04f7be"
+      },
+      "landscape": {
+        "file": "landscape-dorne-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "0435e889acc84bbd1cbed35d5d800b72b7b574316e716545956a66bfc3a020e9"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-dorne-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "50e7aecd01f0faca0ac4569e3bead68d24c8b960dffd062312ca55712d250290"
+      },
+      "landscape": {
+        "file": "landscape-dorne-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4b2f0ac4d924d010beb8dc349f066c9d9b1d8f5e6e8c07ec0108cf96e3b6d427"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-dorne-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "92cf269671f7b6b1fe00890b6c347dd8c9f9fcc59166530f1a39d0703c3483a9"
+      },
+      "landscape": {
+        "file": "landscape-dorne-quiz.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "6e94e9017aae314be55f77a77749ded6a336db27cc65071b4da78b298eb74e34"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-dorne-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "4b531d21bfae77c340fe00f24289e654ab40d689241c628a6766dbb53bcdbdce"
+      },
+      "landscape": {
+        "file": "landscape-dorne-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "275f117f1107366ddec950541d283e0e0c30446d64e0e98b47694099f7ef9a8d"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-dorne-summary.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "901d25dbe5d3c6bd28786a08946ebc2ec3666c1a007b71187c1cf1542aefc3f7"
+      },
+      "landscape": {
+        "file": "landscape-dorne-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "c76a3f9cf5a55a5fd0cd700ae8a504159dcc8058df0face7f7cf67f4f6983bfe"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-dorne-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a84fe16d782e9a875d8845d2d50696befac3c625433e4fb6e261bfd32543489c"
+      },
+      "landscape": {
+        "file": "landscape-dorne-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "fa238bbca81e11aacd4a447287a4c6ea666f5bfeecc092893c12f8c48d78ccfc"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-dorne-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2aadb89cb7cf629e5667b79e1c20cb15610677ff887766a7f058b8b08a0382f6"
+      },
+      "landscape": {
+        "file": "landscape-dorne-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "24a73b88bf509e233f9fb6ff503fd786890e37f579c5cfe9c384f9a70d5d7cbb"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-dorne-rewards.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2ac12aabf0a9e64218104708082e3686b97238d202ca35a8828b4273a2c4a967"
+      },
+      "landscape": {
+        "file": "landscape-dorne-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "dfabe35f5a3fb464be5e4d87fefec3fe51e3b4ebcd7ca7ea4b8446bc273d93f7"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-dorne-settings.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "aea8444f6f62f5760a4ff43e61a20321b6ad7b1b3243d7d3d31ebd1dcc18f900"
+      },
+      "landscape": {
+        "file": "landscape-dorne-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "f1a5a858ff262870fcbc23c61a9afecb4e87bdc0a73c9c705205ffc12375e170"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-dorne-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a83491edcb744f8d392181fb741feedd2acba60b93766980df35da52a3008649"
+      },
+      "landscape": {
+        "file": "landscape-dorne-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "109ff298add56560840aad289dc7017813a7f1ebb0fc3b107a593172ab499d68"
+      }
+    },
+    {
+      "theme": "dorne",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-dorne-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2824fe2e81c216e78101609072d0d7b3a371d094f6bde1d0de1af94ee5dd96eb"
+      },
+      "landscape": {
+        "file": "landscape-dorne-levels.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "254c1fd9f1ff4f2dc90d4369d3a83c0a81004d78a6db2fa63069d9d1fc9de36b"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-the-vale-splash.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "b1581f9f5693e7566287e5bd75cf1e9762161adb1275a2bee89593fbadf2e4e7"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "7f600ba53a690bceb37bed811f189a95b03364193a0467fb2b2c00c4ff474cd7"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-the-vale-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "dcc397e5e669564dfe3df9788459f64406934ff01f2491745ac8d035f515326b"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "a3c1ad5fa5892052ec3b2918575f3e1a214a5cc60afdf8770f2fbc52409a4bdb"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-the-vale-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d1abfa62c66127e16d11c4034a41f23c43185859452c04a44b88f3c9a66bb3a7"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "5acdb0f58d7dda10a71b3134e2a8e5524758d38e74dbf1860a0c438612fcaa87"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-the-vale-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a402fc291dbd70e66063715d7e22e9b4c3205cf1677901aea7d651c24be67f57"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "0ece8553e5748d988c99fed2902be9de408838b0305015c069c04673fce532b2"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-the-vale-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "2886dacd84a21dd307bcba6944fca7851e41a17a0cd9d6263c77fadc94d69586"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "35602e7ed46e2a70a32aed9e277243c95616e4c69d77391ee789922d93c385c7"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-the-vale-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "4a8795506127cc418cec79e251615bf3dae8f48534460e083baa2fec18d1680a"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "903d9d2c015f1930d3b0cf7929f7ca1b8f2623d9b715e5b82e238bdd85a83f59"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-the-vale-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "f32f449ca9d87270fcd17eb363e31772677e3d8d986ce594a4d4e85d9c558ef2"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "b12a75e35d7a04a10459daac150ec2e925f124ac36b2d3aff3b0311e5ee01c98"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-the-vale-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "bb2793c5a876ed366b6a852512db782d0ff9c7d8c0ae7141c8769cb7f9560af8"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "397c73f6734bd9a13aa562bfb362962d38c626d4b255624c0e794c06a3359033"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-the-vale-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "6e5601b74e663b31dfc8eda8601e2a639600872bae8861723bb41c0b1fdbf79d"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-summary.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "7a87da086873f65edca25180e60199bd17db37ae93b5c937e4c2c459d8886d19"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-the-vale-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c44623011736ff6d2483f1e4bced94cd0aaee686705d1b132ed17ddc1eb8cd23"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-victory.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "6d360df15689477f7d969a621492eabaab3d885f1a90a095dc7bd2717d27588f"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-the-vale-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "d3d4a7a5a45e04fa27f9abefcec640a452c4657484e113876768e8658b01bd29"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "491d53085c7130fb5cdf5dec70d88c8b0ce3c61a32b867da7e7bea72344dd358"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-the-vale-rewards.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "4e77adcbce89f9809d0135cd1ff1cd639bfed93fa7fd74ffac0f6e2f38132be9"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "1bb4f7e32480f9e0f42ba98a9f8602c496c0b37b4e5cecfa6c32add255fece98"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-the-vale-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "1d4c51ddf0c6cf68004822be1aa903a9ded4472fcf64b116e4b1c22afa0c2980"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "56e5f8fde3e41c75503e4686ba85585992f9c2e3c541e81df2a3f25b25598ae9"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-the-vale-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "87d5d716419e4313d88a97478e78fa083f1258a81ad417f0db9006a7ceae18c2"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "3a3e83ccc0648e427e2053c407f9305416f8f8860941e2a247f18cb51f225a50"
+      }
+    },
+    {
+      "theme": "the-vale",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-the-vale-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "0698d6b9b1177676e6748d1ba4a46aea0f6cae906fa4226b8a55f161bc427203"
+      },
+      "landscape": {
+        "file": "landscape-the-vale-levels.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "f30695e3122c4899fd1dc153c7bfe70098eb569c244763baa6888916d41b9216"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "splash",
+      "portrait": {
+        "file": "kingdom-storms-end-splash.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b57e6549d890a222e2776e7fab3746729b07567bbc2c170c67d1dbbf2b7f212c"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-splash.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "fc2e3fd84850bdd16c255eb413414c393dca237bbaaa0be532c87dc1464f0230"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "menu",
+      "portrait": {
+        "file": "kingdom-storms-end-menu.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c4f228cde24c56b0a512da378bee2b836490af9b583ff8f46a8701921746b941"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-menu.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8fa39c3a31910fe1578364e360d3210bd7735822fe04f5c03ab772d330588f37"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "invite",
+      "portrait": {
+        "file": "kingdom-storms-end-invite.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "c1340b3086d2b5d8e75bacea733ad7b3b95c6e5378b010573a192343d5249754"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-invite.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "5639a40f586d3a15ffa9b13dfb30e41420c1aa228e76c0293f89fd1608b59790"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "characters",
+      "portrait": {
+        "file": "kingdom-storms-end-characters.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "45e5ff4896bdf6d186a3fcbfa05a0f51c53d0dccdceadfc092831989848eb609"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-characters.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "858325ee41c56b671a21fa7c11eaa0f9e9d23489a1d7cd62edd07a7c2dc46202"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "lobby",
+      "portrait": {
+        "file": "kingdom-storms-end-lobby.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "36e7f563f9b720b9d0935306f0a0def615619ce1e8e041cf453d90b68dedb219"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-lobby.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "0b9a9cbc778b72534a7c20caf05db2ba1d934b90ca8ef8173784e14c1a206a78"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "countdown",
+      "portrait": {
+        "file": "kingdom-storms-end-countdown.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "b7a38b23cb6818d5630644f5a79fbb9fb0fac855b79abf635551e70615d980ca"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-countdown.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4637b3773eae6fd850cf65511f383f44daa518ea40f59928191414a1d8ac8706"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "quiz",
+      "portrait": {
+        "file": "kingdom-storms-end-quiz.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "cf54193d1928b7b8a4f7105a8febf7686476d87b5661d0e75a7d40dd325c5e6f"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-quiz.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "4202157246af044626e2259def7751d22b3c38bd6428ce48f7e166d49b31e20a"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "feedback",
+      "portrait": {
+        "file": "kingdom-storms-end-feedback.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "0c4262869d5cb793b0faf09257c86b0c94026fc5a027c51f24d79fb5efbba143"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-feedback.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ea8b741c8bf7a3de4860cc896ec72f4297f0132a068e3a67a8305cb52697e468"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "summary",
+      "portrait": {
+        "file": "kingdom-storms-end-summary.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "97f3eda0bf8622579db8e2a054288030319cb9d5eb4d26f1f87cd9294272a9e8"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-summary.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "80cdf7df80c1704a4d1f031c692df65688b6f6ca074a55488ecdc6261b42e817"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "victory",
+      "portrait": {
+        "file": "kingdom-storms-end-victory.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "f31c6a7a26b0e0aa7d3039a410f40815b01479b0fba0cc03301b9b0e686bdd26"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-victory.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "be01ffa1c74d343982ea410836688aecfd33045925726476972c850a7c6f7668"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "leaderboard",
+      "portrait": {
+        "file": "kingdom-storms-end-leaderboard.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "78bfe0f1f77bc517249d3447f97efdf029f3af4d0f5cff8f3fd84776796c43db"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-leaderboard.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8143becfd5694aa26aa888a65cbe0753c1a40fb49d5980e21429dba7014a8d8d"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "rewards",
+      "portrait": {
+        "file": "kingdom-storms-end-rewards.webp",
+        "size": [
+          948,
+          1660
+        ],
+        "sha256": "dae3c5f2e5f4697884cb206fd61abbc5980bcbf87665587d145fdbd00e868d7a"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-rewards.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8df6aecbfe6082eda0f79bb026df3b5c559f011ed953eaf562a379f0df7eb04c"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "settings",
+      "portrait": {
+        "file": "kingdom-storms-end-settings.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "fbf57836b5bb66c8a6c9ec01be938d88d68853e6d944c9c802d41265bfcbc95a"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-settings.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "2234fa4aa3734838233615669e192a0f0565db1d0b3f11b84659b0a57df681a4"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "seasons",
+      "portrait": {
+        "file": "kingdom-storms-end-seasons.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "a8fcb0649ae85e133959ecd6ac31616d91366bd2b232cade558bbfd2473dffe3"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-seasons.webp",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "ebf211cc93d9482fc406cfce10133b7be7193985f2bc96bceab3e47b15e2a025"
+      }
+    },
+    {
+      "theme": "storms-end",
+      "screen": "levels",
+      "portrait": {
+        "file": "kingdom-storms-end-levels.webp",
+        "size": [
+          948,
+          1659
+        ],
+        "sha256": "061f20de54445ab87c5db1a5b2d35e189a6d9849ba673113e362d235de8589ea"
+      },
+      "landscape": {
+        "file": "landscape-storms-end-levels.webp",
+        "size": [
+          1672,
+          940
+        ],
+        "sha256": "79c1eefd18cdc2a7bf96e84d6aa2efb855f3c71a362bb375f85a70729c7445ce"
+      }
+    }
+  ]
+}

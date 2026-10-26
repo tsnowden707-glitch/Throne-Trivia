@@ -127,3 +127,16 @@
 .app[data-kingdom="dorne"] .splashEnter{top:72%;height:15%}
 .app[data-kingdom="the-vale"] .splashEnter{top:74%;height:16%}
 .app[data-kingdom="storms-end"] .splashEnter{top:74%;height:16%}
+
+/* Landscape master: coordinate-mapped controls over the intact source. */
+@media(orientation:landscape){
+ #menu .menu-composition.approved-landscape #kingdomMenuArt{object-fit:contain;filter:none}
+ #menu .menu-composition.approved-landscape .theme-title{display:none}
+ #menu .menu-composition.approved-landscape .hit{left:33.5%!important;width:33%!important;height:11.5%!important;min-height:0!important;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;padding:0!important}
+ #menu .menu-composition.approved-landscape .hit>*{visibility:hidden}
+ #menu .menu-composition.approved-landscape .hit1{top:34.6%!important}
+ #menu .menu-composition.approved-landscape .hit2{top:46.9%!important}
+ #menu .menu-composition.approved-landscape .hit3{top:59.2%!important}
+ #menu .menu-composition.approved-landscape .hit4{top:71.5%!important}
+ #menu .menu-composition.approved-landscape .hit5{top:83.9%!important}
+}

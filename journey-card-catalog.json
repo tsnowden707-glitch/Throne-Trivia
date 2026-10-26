@@ -1,0 +1,437 @@
+{
+  "version": 1,
+  "cards": [
+    {
+      "name": "Stark Supply Cache",
+      "family": "Supplies",
+      "rarity": "COMMON",
+      "slug": "stark-supply-cache",
+      "id": "stark-supply-cache",
+      "image": "cards/stark-supply-cache.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Tyrell Grain Wagon",
+      "family": "Supplies",
+      "rarity": "COMMON",
+      "slug": "tyrell-grain-wagon",
+      "id": "tyrell-grain-wagon",
+      "image": "cards/tyrell-grain-wagon.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Tully River Provisions",
+      "family": "Supplies",
+      "rarity": "COMMON",
+      "slug": "tully-river-provisions",
+      "id": "tully-river-provisions",
+      "image": "cards/tully-river-provisions.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Arryn Trail Rations",
+      "family": "Supplies",
+      "rarity": "COMMON",
+      "slug": "arryn-trail-rations",
+      "id": "arryn-trail-rations",
+      "image": "cards/arryn-trail-rations.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Martell Water Skins",
+      "family": "Supplies",
+      "rarity": "COMMON",
+      "slug": "martell-water-skins",
+      "id": "martell-water-skins",
+      "image": "cards/martell-water-skins.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Baratheon Camp Stores",
+      "family": "Supplies",
+      "rarity": "COMMON",
+      "slug": "baratheon-camp-stores",
+      "id": "baratheon-camp-stores",
+      "image": "cards/baratheon-camp-stores.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Stark Winter Provisions",
+      "family": "Supplies",
+      "rarity": "RARE",
+      "slug": "stark-winter-provisions",
+      "id": "stark-winter-provisions",
+      "image": "cards/stark-winter-provisions.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Tyrell Harvest Convoy",
+      "family": "Supplies",
+      "rarity": "RARE",
+      "slug": "tyrell-harvest-convoy",
+      "id": "tyrell-harvest-convoy",
+      "image": "cards/tyrell-harvest-convoy.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Tully Medicine Chest",
+      "family": "Supplies",
+      "rarity": "RARE",
+      "slug": "tully-medicine-chest",
+      "id": "tully-medicine-chest",
+      "image": "cards/tully-medicine-chest.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Lannister Provision Contract",
+      "family": "Supplies",
+      "rarity": "RARE",
+      "slug": "lannister-provision-contract",
+      "id": "lannister-provision-contract",
+      "image": "cards/lannister-provision-contract.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Tyrell Granary Reserve",
+      "family": "Supplies",
+      "rarity": "LEGENDARY",
+      "slug": "tyrell-granary-reserve",
+      "id": "tyrell-granary-reserve",
+      "image": "cards/tyrell-granary-reserve.webp",
+      "unlockSeason": 4
+    },
+    {
+      "name": "Stark Winter Relief",
+      "family": "Supplies",
+      "rarity": "LEGENDARY",
+      "slug": "stark-winter-relief",
+      "id": "stark-winter-relief",
+      "image": "cards/stark-winter-relief.webp",
+      "unlockSeason": 4
+    },
+    {
+      "name": "Stark Scout Report",
+      "family": "Information",
+      "rarity": "COMMON",
+      "slug": "stark-scout-report",
+      "id": "stark-scout-report",
+      "image": "cards/stark-scout-report.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Arryn Lookout Report",
+      "family": "Information",
+      "rarity": "COMMON",
+      "slug": "arryn-lookout-report",
+      "id": "arryn-lookout-report",
+      "image": "cards/arryn-lookout-report.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Tully River Chart",
+      "family": "Information",
+      "rarity": "COMMON",
+      "slug": "tully-river-chart",
+      "id": "tully-river-chart",
+      "image": "cards/tully-river-chart.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Martell Desert Guide",
+      "family": "Information",
+      "rarity": "COMMON",
+      "slug": "martell-desert-guide",
+      "id": "martell-desert-guide",
+      "image": "cards/martell-desert-guide.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Greyjoy Tide Chart",
+      "family": "Information",
+      "rarity": "COMMON",
+      "slug": "greyjoy-tide-chart",
+      "id": "greyjoy-tide-chart",
+      "image": "cards/greyjoy-tide-chart.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Baratheon Road Survey",
+      "family": "Information",
+      "rarity": "COMMON",
+      "slug": "baratheon-road-survey",
+      "id": "baratheon-road-survey",
+      "image": "cards/baratheon-road-survey.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Stark Raven Insight",
+      "family": "Information",
+      "rarity": "RARE",
+      "slug": "stark-raven-insight",
+      "id": "stark-raven-insight",
+      "image": "cards/stark-raven-insight.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Arryn Hidden Pass Map",
+      "family": "Information",
+      "rarity": "RARE",
+      "slug": "arryn-hidden-pass-map",
+      "id": "arryn-hidden-pass-map",
+      "image": "cards/arryn-hidden-pass-map.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Martell Coded Message",
+      "family": "Information",
+      "rarity": "RARE",
+      "slug": "martell-coded-message",
+      "id": "martell-coded-message",
+      "image": "cards/martell-coded-message.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Lannister Court Intelligence",
+      "family": "Information",
+      "rarity": "RARE",
+      "slug": "lannister-court-intelligence",
+      "id": "lannister-court-intelligence",
+      "image": "cards/lannister-court-intelligence.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Arryn Far-Reaching Watch",
+      "family": "Information",
+      "rarity": "LEGENDARY",
+      "slug": "arryn-far-reaching-watch",
+      "id": "arryn-far-reaching-watch",
+      "image": "cards/arryn-far-reaching-watch.webp",
+      "unlockSeason": 5
+    },
+    {
+      "name": "Martell Hidden Network",
+      "family": "Information",
+      "rarity": "LEGENDARY",
+      "slug": "martell-hidden-network",
+      "id": "martell-hidden-network",
+      "image": "cards/martell-hidden-network.webp",
+      "unlockSeason": 5
+    },
+    {
+      "name": "Tully Letter of Introduction",
+      "family": "Diplomacy",
+      "rarity": "COMMON",
+      "slug": "tully-letter-of-introduction",
+      "id": "tully-letter-of-introduction",
+      "image": "cards/tully-letter-of-introduction.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Tyrell Welcome Gift",
+      "family": "Diplomacy",
+      "rarity": "COMMON",
+      "slug": "tyrell-welcome-gift",
+      "id": "tyrell-welcome-gift",
+      "image": "cards/tyrell-welcome-gift.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Stark Letter of Good Faith",
+      "family": "Diplomacy",
+      "rarity": "COMMON",
+      "slug": "stark-letter-of-good-faith",
+      "id": "stark-letter-of-good-faith",
+      "image": "cards/stark-letter-of-good-faith.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Arryn Audience Request",
+      "family": "Diplomacy",
+      "rarity": "COMMON",
+      "slug": "arryn-audience-request",
+      "id": "arryn-audience-request",
+      "image": "cards/arryn-audience-request.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Martell Peace Offering",
+      "family": "Diplomacy",
+      "rarity": "COMMON",
+      "slug": "martell-peace-offering",
+      "id": "martell-peace-offering",
+      "image": "cards/martell-peace-offering.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Baratheon Envoy Seal",
+      "family": "Diplomacy",
+      "rarity": "COMMON",
+      "slug": "baratheon-envoy-seal",
+      "id": "baratheon-envoy-seal",
+      "image": "cards/baratheon-envoy-seal.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Tully Mediation Charter",
+      "family": "Diplomacy",
+      "rarity": "RARE",
+      "slug": "tully-mediation-charter",
+      "id": "tully-mediation-charter",
+      "image": "cards/tully-mediation-charter.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Tyrell Diplomatic Seal",
+      "family": "Diplomacy",
+      "rarity": "RARE",
+      "slug": "tyrell-diplomatic-seal",
+      "id": "tyrell-diplomatic-seal",
+      "image": "cards/tyrell-diplomatic-seal.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Martell Private Audience",
+      "family": "Diplomacy",
+      "rarity": "RARE",
+      "slug": "martell-private-audience",
+      "id": "martell-private-audience",
+      "image": "cards/martell-private-audience.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Lannister Negotiating Writ",
+      "family": "Diplomacy",
+      "rarity": "RARE",
+      "slug": "lannister-negotiating-writ",
+      "id": "lannister-negotiating-writ",
+      "image": "cards/lannister-negotiating-writ.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Tully Council of Allies",
+      "family": "Diplomacy",
+      "rarity": "LEGENDARY",
+      "slug": "tully-council-of-allies",
+      "id": "tully-council-of-allies",
+      "image": "cards/tully-council-of-allies.webp",
+      "unlockSeason": 6
+    },
+    {
+      "name": "Baratheon Royal Petition",
+      "family": "Diplomacy",
+      "rarity": "LEGENDARY",
+      "slug": "baratheon-royal-petition",
+      "id": "baratheon-royal-petition",
+      "image": "cards/baratheon-royal-petition.webp",
+      "unlockSeason": 6
+    },
+    {
+      "name": "Stark Trusted Escort",
+      "family": "Protection",
+      "rarity": "COMMON",
+      "slug": "stark-trusted-escort",
+      "id": "stark-trusted-escort",
+      "image": "cards/stark-trusted-escort.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Arryn Mountain Guide",
+      "family": "Protection",
+      "rarity": "COMMON",
+      "slug": "arryn-mountain-guide",
+      "id": "arryn-mountain-guide",
+      "image": "cards/arryn-mountain-guide.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Tully Ferry Escort",
+      "family": "Protection",
+      "rarity": "COMMON",
+      "slug": "tully-ferry-escort",
+      "id": "tully-ferry-escort",
+      "image": "cards/tully-ferry-escort.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Martell Desert Shelter",
+      "family": "Protection",
+      "rarity": "COMMON",
+      "slug": "martell-desert-shelter",
+      "id": "martell-desert-shelter",
+      "image": "cards/martell-desert-shelter.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Greyjoy Coastal Passage",
+      "family": "Protection",
+      "rarity": "COMMON",
+      "slug": "greyjoy-coastal-passage",
+      "id": "greyjoy-coastal-passage",
+      "image": "cards/greyjoy-coastal-passage.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Baratheon Camp Watch",
+      "family": "Protection",
+      "rarity": "COMMON",
+      "slug": "baratheon-camp-watch",
+      "id": "baratheon-camp-watch",
+      "image": "cards/baratheon-camp-watch.webp",
+      "unlockSeason": 1
+    },
+    {
+      "name": "Stark Hidden Refuge",
+      "family": "Protection",
+      "rarity": "RARE",
+      "slug": "stark-hidden-refuge",
+      "id": "stark-hidden-refuge",
+      "image": "cards/stark-hidden-refuge.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Arryn Safe Passage",
+      "family": "Protection",
+      "rarity": "RARE",
+      "slug": "arryn-safe-passage",
+      "id": "arryn-safe-passage",
+      "image": "cards/arryn-safe-passage.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Tully River Sanctuary",
+      "family": "Protection",
+      "rarity": "RARE",
+      "slug": "tully-river-sanctuary",
+      "id": "tully-river-sanctuary",
+      "image": "cards/tully-river-sanctuary.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Greyjoy Storm Shelter",
+      "family": "Protection",
+      "rarity": "RARE",
+      "slug": "greyjoy-storm-shelter",
+      "id": "greyjoy-storm-shelter",
+      "image": "cards/greyjoy-storm-shelter.webp",
+      "unlockSeason": 2
+    },
+    {
+      "name": "Stark Sworn Guard",
+      "family": "Protection",
+      "rarity": "LEGENDARY",
+      "slug": "stark-sworn-guard",
+      "id": "stark-sworn-guard",
+      "image": "cards/stark-sworn-guard.webp",
+      "unlockSeason": 7
+    },
+    {
+      "name": "Arryn Mountain Sanctuary",
+      "family": "Protection",
+      "rarity": "LEGENDARY",
+      "slug": "arryn-mountain-sanctuary",
+      "id": "arryn-mountain-sanctuary",
+      "image": "cards/arryn-mountain-sanctuary.webp",
+      "unlockSeason": 7
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+/* Source-relative framing: no viewport crop, generic opaque overlay or stretched art. */
+.menu-composition{container-type:inline-size}
+@media(orientation:landscape){
+ #menu .menu-composition.approved-landscape:not(.painted-actions) .theme-title{display:flex;left:32%;top:4%;width:36%;height:24%;font-size:5cqw;line-height:.9}
+ #menu .menu-composition.approved-landscape:not(.painted-actions) .hit{display:flex;left:33.5%!important;width:33%!important;height:11.5%!important;color:#ffe1a0!important;border:2px solid #c99a49!important;background:linear-gradient(130deg,#171d1cf5,#05090ff5)!important;box-shadow:inset 0 0 0 2px #5e3f17!important;padding:.3cqw .8cqw!important}
+ #menu .menu-composition.approved-landscape:not(.painted-actions) .hit>*{visibility:visible}
+ #menu .menu-composition.approved-landscape:not(.painted-actions) .hit b{font-size:1.8cqw}
+ #menu .menu-composition.approved-landscape:not(.painted-actions) .hit small{font-size:.9cqw}
+}
+.approved-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);container-type:inline-size;isolation:isolate}
+.approved-stage>.screen-art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:0}
+.page.approved-page .approved-stage>.content{position:absolute!important;left:12%;top:27%;width:76%;height:59%;max-width:none!important;margin:0;padding:0!important;display:flex!important;flex-direction:column;gap:1.2cqw;z-index:3;min-height:0;overflow:hidden!important;font-size:3.3cqw}
+.page.approved-page .title{font-size:5cqw!important;line-height:1.1;margin:0 0 1cqw;text-align:center;color:#ffe4a2}
+.page.approved-page .small{font-size:2.8cqw;line-height:1.2;margin:1cqw 0;text-align:center}
+.page.approved-page .grow{display:none}
+.page.approved-page .panel,.page.approved-page .onlinePanel{background:transparent;box-shadow:none;border:0;padding:1cqw;min-height:0}
+.page.approved-page .btn,.page.approved-page .answer,.page.approved-page .tile{font-size:3.3cqw;line-height:1.15;min-height:6cqw;padding:1.5cqw;margin:.5cqw 0;border-radius:4px}
+.page.approved-page .tab button{font-size:2.5cqw;min-height:6cqw;padding:1cqw}
+.page.approved-page .stat{font-size:3.2cqw;padding:1.3cqw 0}
+#characters .approved-stage .content{top:26%;height:54%}
+#characters .approved-stage .portraits{flex:1;min-height:0;overflow:auto;max-height:none;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw;align-content:start}
+#characters .approved-stage .portrait img{width:100%;height:auto;aspect-ratio:3/4;max-height:none;object-fit:cover}
+#characters .approved-stage .portrait span{font-size:2.5cqw}
+#characters .approved-stage .btn{flex-shrink:0}
+#invite .approved-stage .content{top:43%;left:10%;width:80%;height:51%}
+#invite .approved-stage .onlinePanel{flex:1;overflow:auto;padding:0;gap:1cqw}
+#invite .approved-stage .invite-steps{gap:1cqw;margin-bottom:1cqw}
+#invite .approved-stage .invite-steps button{font-size:2.5cqw;min-height:6cqw}
+#invite .approved-stage input{font-size:3cqw;min-height:6cqw;padding:1cqw}
+#invite .approved-stage #ttStatus{min-height:0}
+#lobby .approved-stage .content{top:24%;height:65%;justify-content:center}
+#lobby .approved-stage .panel.flex{width:100%;margin:2cqw 0;padding:0;min-height:0}
+#lobby .approved-stage .avatar{width:22cqw;height:30cqw;object-fit:cover}
+#lobby .approved-stage .score p{font-size:3cqw}
+#countdown .approved-stage .content{inset:0;width:100%;height:100%}
+#countdown .approved-stage .title{position:absolute;top:18%;width:100%}
+#countdown .approved-stage #count{position:absolute;left:0;right:0;top:39%;height:23%;display:grid;place-items:center;font-size:19cqw!important}
+#countdown .approved-stage .small{position:absolute;top:66%;width:100%}
+#quiz .approved-stage .content{top:13%;height:77%;left:14%;width:72%;gap:1cqw}
+#quiz .approved-stage .question{font-size:4cqw;line-height:1.3;margin:2cqw 0;min-height:10cqw}
+#quiz .approved-stage .score b{font-size:5cqw}
+#quiz .approved-stage .timer,#ttOnline .approved-stage .timer{width:9cqw;height:9cqw;font-size:5cqw;border-width:.6cqw}
+#quiz .approved-stage #answers,#ttOnline .approved-stage #onlineLiveOptions{display:grid;grid-template-columns:1fr;gap:1cqw}
+#quiz .approved-stage #answers .answer{min-height:8cqw;text-align:left}
+#quiz .approved-stage .panel.flex{min-height:10cqw}
+#feedback .approved-stage .content{top:36%;height:29%;justify-content:center}
+#feedback .approved-stage .question{font-size:5cqw;text-align:center}
+#summary .approved-stage .content{top:43%;height:38%;justify-content:center}
+#summary .approved-stage #roundStats{font-size:4.5cqw;line-height:1.6;text-align:center;padding:0}
+#victory .approved-stage .content{top:14%;height:77%;align-items:stretch}
+#victory .approved-stage .hero{height:42%;width:100%;object-fit:contain;min-height:0;margin:0}
+#victory .approved-stage .question{font-size:3.5cqw;text-align:center;line-height:1.3;margin:0}
+#leaderboard .approved-stage .content{top:25%;height:60%}
+#leaderboard .approved-stage #rankBox{flex:1;overflow:auto}
+#rewards .approved-stage .content{top:17%;height:54%;left:13%;width:74%}
+#rewards .approved-stage #rewardBox{flex:1;overflow:auto;min-height:0}
+#rewards .approved-stage .theme-card span{font-size:2.5cqw}
+#rewards .approved-stage .theme-pager{gap:4cqw}
+#rewards .approved-stage .theme-pager button{font-size:4cqw;min-height:6cqw;min-width:6cqw}
+#rewards .approved-stage .theme-browser h3{font-size:4cqw}
+#rewards .approved-stage .theme-browser>.btn{min-height:6cqw;font-size:3cqw}
+#settings .approved-stage .content{top:25%;height:58%;left:17%;width:66%;overflow:auto!important}
+#settings .approved-stage h3{font-size:3.8cqw;margin:1cqw 0}
+#settings .approved-stage .stat button{font-size:3cqw;min-height:6cqw}
+#seasons .approved-stage .content,#levels .approved-stage .content{top:28%;height:57%}
+#seasons .approved-stage #seasongrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2cqw;min-height:0;flex:1;overflow:auto}
+#seasons .approved-stage .tile{min-height:10cqw;padding:1cqw;font-size:3cqw}
+#levels .approved-stage #levelgrid{min-height:0;flex:1;overflow:auto;align-content:start}
+#levels .approved-stage #levelgrid .tile{min-height:8cqw!important;font-size:3.5cqw}
+#levels .approved-stage .levelPager{font-size:3cqw;margin:0}
+#levels .approved-stage .levelPager button{font-size:3cqw;min-height:6cqw;min-width:8cqw}
+#ttOnline .approved-stage .content{top:16%;height:73%;left:14%;width:72%}
+#ttOnline .approved-stage .question{font-size:4cqw}
+/* Dedicated landscape source layouts, applied only when the landscape asset exists. */
+.page.approved-page .approved-stage[data-orientation=landscape]>.content{left:27%;width:46%;top:27%;height:58%;font-size:1.5cqw;gap:.5cqw}
+.approved-stage[data-orientation=landscape] .title{font-size:2.3cqw!important}
+.approved-stage[data-orientation=landscape] .small{font-size:1.2cqw!important}
+.page.approved-page .approved-stage[data-orientation=landscape] .btn,.page.approved-page .approved-stage[data-orientation=landscape] .answer,.page.approved-page .approved-stage[data-orientation=landscape] .tile{font-size:1.5cqw;min-height:3.3cqw;padding:.6cqw;margin:.2cqw 0}
+.approved-stage[data-orientation=landscape] .tab button{font-size:1.2cqw!important;min-height:3cqw!important}
+#characters .approved-stage[data-orientation=landscape] .portraits{grid-template-columns:repeat(5,1fr);gap:.7cqw}
+#characters .approved-stage[data-orientation=landscape] .portrait span{font-size:1.1cqw}
+#characters .approved-stage[data-orientation=landscape]>.content{left:24%;width:52%;top:24%;height:59%}
+#invite .approved-stage[data-orientation=landscape]>.content{left:29%;width:42%;top:29%;height:57%}
+#invite .approved-stage[data-orientation=landscape] input{font-size:1.4cqw;min-height:3cqw;padding:.5cqw}
+#invite .approved-stage[data-orientation=landscape] .invite-steps button{font-size:1.1cqw;min-height:3cqw}
+#lobby .approved-stage[data-orientation=landscape] .avatar{width:9cqw;height:12cqw}
+#lobby .approved-stage[data-orientation=landscape] .score p{font-size:1.4cqw}
+#countdown .approved-stage[data-orientation=landscape]>.content{inset:0;width:100%;height:100%}
+#countdown .approved-stage[data-orientation=landscape] #count{top:32%;height:32%;font-size:10cqw!important}
+#countdown .approved-stage[data-orientation=landscape] .title{top:14%}
+#quiz .approved-stage[data-orientation=landscape]>.content{top:7%;height:83%;left:26%;width:48%}
+#quiz .approved-stage[data-orientation=landscape] .question{font-size:1.7cqw;min-height:4cqw;margin:.7cqw 0}
+#quiz .approved-stage[data-orientation=landscape] .score b{font-size:2cqw}
+#quiz .approved-stage[data-orientation=landscape] .timer,#ttOnline .approved-stage[data-orientation=landscape] .timer{width:4cqw;height:4cqw;font-size:2cqw;border-width:.25cqw}
+#quiz .approved-stage[data-orientation=landscape] .panel.flex{min-height:4cqw}
+#quiz .approved-stage[data-orientation=landscape] #answers{gap:.4cqw}
+#quiz .approved-stage[data-orientation=landscape] #answers .answer{min-height:3.3cqw}
+#feedback .approved-stage[data-orientation=landscape] .question{font-size:2.3cqw}
+#summary .approved-stage[data-orientation=landscape]>.content{top:39%;height:43%}
+#summary .approved-stage[data-orientation=landscape] #roundStats{font-size:2cqw}
+#victory .approved-stage[data-orientation=landscape]>.content{top:13%;height:79%;left:32%;width:36%}
+#victory .approved-stage[data-orientation=landscape] .question{font-size:1.5cqw}
+#rewards .approved-stage[data-orientation=landscape]>.content{top:23%;height:49%;left:25%;width:50%}
+#rewards .approved-stage[data-orientation=landscape] .theme-card span{font-size:1.1cqw}
+#rewards .approved-stage[data-orientation=landscape] .theme-browser h3{font-size:1.6cqw}
+#rewards .approved-stage[data-orientation=landscape] .theme-pager button{min-height:2.8cqw;min-width:3cqw;font-size:1.6cqw}
+#rewards .approved-stage[data-orientation=landscape] .theme-browser>.btn{font-size:1.3cqw;min-height:2.7cqw}
+#settings .approved-stage[data-orientation=landscape]>.content{left:30%;width:40%;top:25%;height:58%}
+#settings .approved-stage[data-orientation=landscape] .stat{font-size:1.4cqw;padding:.4cqw 0}
+#settings .approved-stage[data-orientation=landscape] h3{font-size:1.7cqw}
+#settings .approved-stage[data-orientation=landscape] .stat button{font-size:1.3cqw;min-height:2.5cqw}
+#seasons .approved-stage[data-orientation=landscape]>.content,#levels .approved-stage[data-orientation=landscape]>.content{left:25%;width:50%;top:30%;height:55%}
+#seasons .approved-stage[data-orientation=landscape] #seasongrid{grid-template-columns:repeat(4,1fr);gap:.7cqw}
+#seasons .approved-stage[data-orientation=landscape] .tile{font-size:1.3cqw;min-height:5cqw}
+#levels .approved-stage[data-orientation=landscape] #levelgrid .tile{min-height:3.3cqw!important;font-size:1.5cqw}
+#levels .approved-stage[data-orientation=landscape] .levelPager,#levels .approved-stage[data-orientation=landscape] .levelPager button{font-size:1.4cqw;min-height:3cqw}
+/* Keep the separate story entrance clear of the five approved menu plaques. */
+@media (orientation:landscape){
+ #menu .journey-menu-button{left:auto;right:2%;bottom:5%;width:21%;max-width:240px;min-height:44px;padding:8px;font-size:clamp(12px,1.5vw,18px)}
+}
+/* Settings stays inside the illustrated arch and scrolls without shrinking controls. */
+#settings .approved-stage>.content{left:22%;width:56%}
+#settings .approved-stage>.content>*{flex-shrink:0}
+#settings .approved-stage .stat{min-height:40px;gap:8px;font-size:3.6cqw}
+#settings .approved-stage .stat input[type=range]{width:48%;min-width:0}
+#settings .approved-stage .stat button{color:#ffe4a2;background:#15202c;border:1px solid #b78d43;border-radius:4px;padding:6px;min-height:40px}
+#settings .approved-stage input[type=checkbox]{accent-color:#d7ad50;width:20px;height:20px}
+#settings .approved-stage[data-orientation=landscape]>.content{left:36%;width:28%}
+#settings .approved-stage[data-orientation=landscape] .stat{font-size:1.45cqw;min-height:36px}
+/* Cards keep full faces and names; the grid scrolls instead of clipping each card. */
+#characters .approved-stage .portraits{grid-auto-rows:max-content}
+#characters .approved-stage .portrait{height:max-content;min-height:0;align-self:start}
+#characters .approved-stage .portrait img{aspect-ratio:1;height:auto!important;max-height:none!important}
+#characters .approved-stage .portrait span{min-height:32px;white-space:normal}
+
+.opening-video[hidden]{display:none}
+#splash .approved-wide-splash .splashEnter{left:32%;top:80%;width:36%;height:13%}
+#splash .approved-wide-splash .splashLight,#splash .approved-wide-splash .throneAura,#splash .approved-wide-splash .plaqueLight{display:none}
+/* Preserve readable text and usable tap targets on short landscape phones. */
+.page.approved-page .approved-stage[data-orientation=landscape]>.content{overflow:auto!important}
+.page.approved-page .approved-stage[data-orientation=landscape] .title{font-size:clamp(18px,2.5cqw,28px)!important;flex-shrink:0}
+.page.approved-page .approved-stage[data-orientation=landscape] .btn,.page.approved-page .approved-stage[data-orientation=landscape] .answer,.page.approved-page .approved-stage[data-orientation=landscape] .tile{font-size:clamp(12px,1.5cqw,18px);min-height:40px;flex-shrink:0}
+#quiz .approved-stage[data-orientation=landscape] #answers .answer{min-height:40px}
+#quiz .approved-stage[data-orientation=landscape] .question{font-size:clamp(14px,1.7cqw,20px)}
+#characters .approved-stage[data-orientation=landscape] .portrait span{font-size:clamp(10px,1.1cqw,14px)}
+.approved-stage[data-orientation=landscape] .small{font-size:clamp(10px,1.2cqw,14px)!important}
+/* The portrait opening clip belongs only to the Royal Castle portrait composition. */
+.app:not([data-kingdom="royal-castle"]) .opening-video{display:none!important}
+@media(orientation:landscape){.opening-video{display:none!important}}
+.page.approved-page .approved-stage>.content{background:transparent!important;scrollbar-width:thin;scrollbar-color:#bc9348 #101720}
+.page.approved-page .approved-stage .portraits{scrollbar-width:thin;scrollbar-color:#bc9348 #101720}
+.page.approved-page .approved-stage p,.page.approved-page .approved-stage .stat,.page.approved-page .approved-stage h3{ text-shadow:0 1px 3px #000,0 0 5px #000 }
+/* Questions remain readable against bright sky, snow, and reflected fire. */
+#quiz .approved-stage .question,#ttOnline .approved-stage .question{background:rgba(5,12,20,.88);color:#fff2d1;border:1px solid #a68142;border-radius:4px;padding:10px;box-sizing:border-box;text-shadow:0 1px 2px #000;flex-shrink:0}
+#quiz .approved-stage .panel.flex,#ttOnline .approved-stage .panel.flex{background:rgba(5,12,20,.85);border:1px solid #a68142;border-radius:4px}
+/* Keep phone actions comfortable to tap; long lists scroll within their frame. */
+.page.approved-page .approved-stage[data-orientation=portrait] .btn{min-height:40px;flex-shrink:0}
+#quiz .approved-stage[data-orientation=portrait] #answers .answer{min-height:44px}
+#settings .approved-stage .stat button{min-height:40px!important}
+#quiz .approved-stage>.content,#ttOnline .approved-stage>.content{overflow:auto!important}
+
+/* Keep results below the ornamental crest and settings readable over reflections. */
+#summary .approved-stage[data-orientation=landscape]>.content{top:45%;height:38%}
+#settings .approved-stage .stat{background:rgba(5,12,20,.8);border-radius:4px;padding:6px}

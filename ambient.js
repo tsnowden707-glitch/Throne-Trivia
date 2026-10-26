@@ -13,6 +13,32 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let width = 1, height = 1, frame = 0, previous = 0, time = 0;
   let area, sources = [], active = '', sparks = [], artImage=null, artRegions=[];
+  let fireTiles=[],fireTileKey='';
+  function prepareFireTiles(){
+    const key=(artImage?.currentSrc||'')+JSON.stringify(artRegions);
+    if(key===fireTileKey)return;
+    fireTiles=[];
+    if(!artImage?.complete||!artImage.naturalWidth){fireTileKey='';return;}
+    fireTileKey=key;
+    for(const [x,y,w,h] of artRegions){
+      const tile=document.createElement('canvas');
+      tile.width=Math.max(1,Math.min(512,Math.round(w*artImage.naturalWidth)));
+      tile.height=Math.max(1,Math.round(tile.width*h*artImage.naturalHeight/(w*artImage.naturalWidth)));
+      const paint=tile.getContext('2d',{willReadFrequently:true});
+      paint.drawImage(artImage,x*artImage.naturalWidth,y*artImage.naturalHeight,w*artImage.naturalWidth,h*artImage.naturalHeight,0,0,tile.width,tile.height);
+      try{
+        const pixels=paint.getImageData(0,0,tile.width,tile.height),data=pixels.data;
+        for(let py=0;py<tile.height;py++)for(let px=0;px<tile.width;px++){
+          const n=(py*tile.width+px)*4,r=data[n],g=data[n+1],b=data[n+2];
+          const warm=r>180&&g>65&&r>b*1.3;
+          const cool=b>175&&g>100&&b>r*1.2;
+          const edge=Math.min(1,px/8,py/8,(tile.width-1-px)/8,(tile.height-1-py)/8);
+          data[n+3]=warm||cool?Math.round(255*Math.max(0,edge)):0;
+        }
+        paint.putImageData(pixels,0,0);fireTiles.push({tile,x,y,w,h});
+      }catch(_){/* Leave unverified cross-origin pixels unmodified. */}
+    }
+  }
   const regions={
     invite:[[.42,.23,.18,.10]],characters:[[0,.66,.15,.09],[.85,.66,.15,.09],[.17,.10,.15,.12],[.72,.10,.20,.15]],
     lobby:[[0,.54,.16,.12],[.84,.54,.16,.12],[.30,.24,.07,.03],[.62,.24,.07,.03]],
@@ -36,7 +62,7 @@
     active = document.querySelector('.page.active')?.id || '';
     area = { x: 0, y: 0, w: width, h: height };
     sources = [];
-    artImage=document.querySelector('.page.active > .screen-art')||(active==='menu'?document.getElementById('kingdomMenuArt'):active==='splash'&&app.dataset.kingdom!=='royal-castle'?document.querySelector('.splashOriginal'):null);
+    artImage=document.querySelector('.page.active .screen-art')||(active==='menu'?document.getElementById('kingdomMenuArt'):active==='splash'&&(app.dataset.kingdom!=='royal-castle'||width>height)?document.querySelector('.splashOriginal'):null);
     artRegions=[];
     if(active==='journeyStory'){
       const stage=document.querySelector('.journey-stage'),r=stage.getBoundingClientRect();
@@ -57,8 +83,11 @@
         const ys={'the-wall':[.51,.075],'kings-landing':[.53,.09],dragonstone:[.48,.075],'casterly-rock':[.60,.07],highgarden:[.52,.07],'iron-islands':[.46,.085]};
         const [y,h]=ys[theme]||[.57,.11];artRegions=[[.02,y,.15,h],[.83,y,.15,h]];
       }
-      const themedEntry=window.THRONE_THEME_SETS?.[app.dataset.kingdom]?.[artImage.dataset.artScreen||active];
+      const artScreen=artImage.dataset.artScreen||active;
+      const wideEntry=window.THRONE_LANDSCAPE_SETS?.[app.dataset.kingdom]?.[artScreen];
+      const themedEntry=wideEntry&&artImage.getAttribute('src')===wideEntry.src?wideEntry:window.THRONE_THEME_SETS?.[app.dataset.kingdom]?.[artScreen];
       if(themedEntry?.fireRegions)artRegions=themedEntry.fireRegions;
+      if(active==='menu'&&app.dataset.kingdom==='royal-castle'&&document.querySelector('.approved-landscape'))artRegions=[[.09,.65,.055,.075],[.85,.65,.055,.075]];
       sources=artRegions.map(([x,y,w,h])=>[x+w/2,y+h,w*.4,h,0]);
     }else
     if (active === 'splash') {
@@ -78,6 +107,7 @@
       sources = [[.259,.764,.045,.14,0],[.728,.764,.045,.14,0],
         [.353,.44,.014,.075,0],[.643,.44,.014,.075,0],[.885,.94,.045,.13,0]];
     }
+    prepareFireTiles();
     canvas.dataset.scene = active;
     canvas.dataset.sources = String(sources.length);
   }
@@ -140,17 +170,17 @@
     if(artImage&&artImage.complete&&artImage.naturalWidth){
       // Flicker the painted fire itself. Subtle strip displacement adds motion
       // without placing unrelated flame cones over the artwork.
-      artRegions.forEach(([x,y,w,h],i)=>{
-        ctx.save();ctx.beginPath();ctx.rect(area.x+x*area.w,area.y+y*area.h,w*area.w,h*area.h);ctx.clip();
+      fireTiles.forEach(({tile,x,y,w,h},i)=>{
+        ctx.save();
         ctx.globalAlpha=.12+.12*(1+Math.sin(time*8.7+i*2))+.04*Math.sin(time*17+i)**2;
         for(let k=0;k<12;k++){
-          const sy=(y+h*k/12)*artImage.naturalHeight,sh=h*artImage.naturalHeight/12;
+          const sy=k*tile.height/12,sh=tile.height/12;
           const dx=Math.sin(time*6+k*.7+i)*Math.min(2,area.w*.003)*(1-k/12);
-          ctx.drawImage(artImage,0,sy,artImage.naturalWidth,sh,area.x+dx,area.y+(y+h*k/12)*area.h,area.w,h*area.h/12+.5);
+          ctx.drawImage(tile,0,sy,tile.width,sh,area.x+x*area.w+dx,area.y+(y+h*k/12)*area.h,w*area.w,h*area.h/12+.5);
         }ctx.restore();
       });
     }else sources.forEach(flame);ctx.restore();
-    if(active==='splash'&&app.dataset.kingdom==='royal-castle'&&splashArt.complete&&splashArt.naturalWidth){
+    if(active==='splash'&&width<=height&&app.dataset.kingdom==='royal-castle'&&document.querySelector('.opening-video')?.hidden&&splashArt.complete&&splashArt.naturalWidth){
       // Animate the approved pixels themselves, never a differently shaped flame cone.
       for(const [i,points] of [
         [[.252,.124],[.288,.144],[.355,.221],[.30,.225],[.237,.157]],

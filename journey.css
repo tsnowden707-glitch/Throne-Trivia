@@ -1,6 +1,8 @@
 #journeyStory{background:#05080c;overflow:hidden}
 .journey-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,177.68vh);height:min(56.28vw,100vh);background:url('journey-landscape.png') center/100% 100% no-repeat;container-type:inline-size;color:#fff;font-family:Georgia,serif}
 .journey-stage button{cursor:pointer;color:#fff;font:inherit;min-height:0;margin:0}
+.journey-stage .journey-favor{display:block;min-height:44px;padding:6px 10px;border:1px solid #c59a43;background:#101820;border-radius:6px;font-size:inherit;line-height:1.2;margin:6px 0}
+.journey-stage .journey-favor:focus-visible{outline:2px solid #fff5aa;outline-offset:2px}
 .journey-back,.journey-toggle{position:absolute;border:0;background:transparent!important;color:transparent!important;z-index:4}
 .journey-back{left:1%;top:3%;width:7%;height:8%}
 .journey-toggle{right:1%;top:3%;width:16%;height:8%}
