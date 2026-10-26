@@ -52,3 +52,13 @@
  .card-copy-count{font-size:16px}
 }
 @media(orientation:landscape){#levels .approved-stage[data-orientation=landscape] #levelgrid .tile{min-height:48px!important;font-size:18px!important}}
+@media(orientation:landscape){
+ #rewards .approved-stage[data-orientation=landscape]>.content>*{flex-shrink:0}
+ #rewards .approved-stage[data-orientation=landscape] #rewardBox{flex:none;overflow:visible}
+ #rewards .approved-stage[data-orientation=landscape] .theme-browser{display:flex;flex-direction:column}
+ #rewards .approved-stage[data-orientation=landscape] .theme-grid{flex:none;grid-template-columns:repeat(2,minmax(0,1fr))}
+ #rewards .approved-stage[data-orientation=landscape] .theme-card{height:130px;min-height:130px}
+ #rewards .approved-stage[data-orientation=landscape] .theme-card span{font-size:16px}
+ #rewards .approved-stage[data-orientation=landscape] .theme-pager button{min-height:48px;min-width:48px}
+}
+@media(orientation:landscape){#rewards .approved-stage[data-orientation=landscape]>.content{overflow-y:auto!important;overflow-x:hidden!important}}
