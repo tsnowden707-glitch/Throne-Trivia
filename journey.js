@@ -17,7 +17,7 @@
  }
  for(const clip of [video,spare])clip.addEventListener('ended',()=>pose('idle'));
  function save(){localStorage.setItem(KEY,JSON.stringify(state));}
- function available(chapter){return completedLevels(chapter)>=50;}
+ function available(chapter){return Number.isInteger(chapter)&&chapter>=1&&chapter<=8&&(chapter===1||completedLevels(chapter-1)>=50);}
  function currentScene(){return scenes[state.decisions.length];}
  function speak(id,done=()=>{}){pose('speaking');ThroneVoice.bella(id,()=>{pose('idle');done();});}
  function narrateScene(){
@@ -42,7 +42,7 @@
   $j('.bella-replay').disabled=!scene||!available(scene.chapter)||transitioning;
   if(state.ending){$j('.journey-question').textContent={throne:'The throne is yours.',wall:'Your journey ends at the Wall.',exile:'Your claim ends in exile.',execution:'The court sentences you to execution.'}[state.ending];choices.append(button('Hear your ending',()=>speak('ending-'+state.ending)),button('See what shaped your journey',()=>changeView('record')));return;}
   if(!scene){$j('.journey-question').textContent='Preparing your story…';return;}
-  if(!available(scene.chapter)){$j('.journey-question').textContent='Complete trivia season '+scene.chapter+' to unlock this chapter. Your earlier decisions are saved.';choices.append(button('Return to trivia',()=>go('seasons')));return;}
+  if(!available(scene.chapter)){$j('.journey-question').textContent='Reach trivia season '+scene.chapter+' to continue this chapter. Your earlier decisions are saved.';choices.append(button('Return to trivia',()=>go('seasons')));return;}
   $j('.journey-question').textContent=scene.narration;
   scene.choices.forEach((choice,i)=>choices.append(button(choice.label,()=>choose(scene,i))));
  }

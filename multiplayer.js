@@ -3,7 +3,7 @@ window.TT = (()=>{
  let sb=null,room=null,poll=null,currentRound=0,shown=false,speaking=false,live=false,ended=false,roomDetails=null,refreshing=false,submitting=false,connecting=false,myId=null,arrivalPlayed=false,needsNarration=false;
  const el=id=>document.getElementById(id);
  const status=s=>{el('ttStatus').textContent=s;el('onlineStatus').textContent=s;};
- function client(){if(!window.supabase){status('Internet required: could not load the multiplayer library.');throw Error('Supabase SDK unavailable');}return sb ||= window.supabase.createClient(url,key);}
+ function client(){if(!window.supabase){status('Internet required: could not load the multiplayer library.');throw Error('Supabase SDK unavailable');}const id=window.ThroneTestId;const options=id?{auth:{storage:{getItem:k=>localStorage.getItem(id+':'+k),setItem:(k,v)=>localStorage.setItem(id+':'+k,v),removeItem:k=>localStorage.removeItem(id+':'+k)}}}:undefined;return sb ||= window.supabase.createClient(url,key,options);}
  async function exec(name,args={}){const {data,error}=await client().rpc(name,args);if(error)throw error;return data;}
  async function auth(method){try{let email=el('ttEmail').value.trim(),password=el('ttPassword').value;let {data,error}=await client().auth[method]({email,password});if(error)throw error;status(data.session?'Signed in. Create or join a room.':'Check your email if confirmation is required.');}catch(e){status(e.message)}}
  async function requireLogin(){const {data}=await client().auth.getUser();if(data.user){myId=data.user.id;return data.user;}const guest=await client().auth.signInAnonymously();if(guest.error)throw Error('Guest play is unavailable right now. You can sign in with an existing account.');myId=guest.data.user.id;return guest.data.user;}
