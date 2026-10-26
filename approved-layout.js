@@ -20,7 +20,7 @@
 
   for(const {stage,art} of stages){
    const ratio=art.naturalWidth&&art.naturalHeight?art.naturalWidth/art.naturalHeight:4/7;
-   const width=Math.min(app.clientWidth,app.clientHeight*ratio);
+   const width=ratio>1?app.clientWidth:Math.min(app.clientWidth,app.clientHeight*ratio);
    stage.style.width=width+'px';stage.style.height=(width/ratio)+'px';
    stage.dataset.orientation=ratio>1?'landscape':'portrait';
   }

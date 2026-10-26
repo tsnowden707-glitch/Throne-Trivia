@@ -1,0 +1,52 @@
+/* Preserve approved art at screen width; do not miniaturize it to phone height. */
+@media(orientation:landscape){
+ .page.approved-page,#menu,#journeyStory{overflow-y:auto!important;overflow-x:hidden!important}
+ .approved-stage[data-orientation=landscape]{position:relative;left:0;top:0;transform:none;margin:0 auto}
+ #menu .menu-composition.approved-landscape{position:relative;inset:auto!important;margin:0 auto!important;transform:none}
+ .page.approved-page .approved-stage[data-orientation=landscape]>.content{font-size:18px;gap:8px}
+ .page.approved-page .approved-stage[data-orientation=landscape] .title{font-size:clamp(24px,3cqw,36px)!important;line-height:1.15}
+ .page.approved-page .approved-stage[data-orientation=landscape] .small{font-size:16px!important;line-height:1.35}
+ .page.approved-page .approved-stage[data-orientation=landscape] :is(.btn,.answer,.tile,.tab button,.levelPager button,.invite-steps button){font-size:18px!important;min-height:48px!important;padding:8px!important;line-height:1.25;flex-shrink:0}
+ .page.approved-page .approved-stage[data-orientation=landscape] :is(.stat,input,.score p){font-size:18px!important}
+ .page.approved-page .approved-stage[data-orientation=landscape] input{min-height:44px}
+ #characters .approved-stage[data-orientation=landscape] .portraits{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;flex:none;overflow:visible;height:auto}
+ #characters .approved-stage[data-orientation=landscape] .portrait span{font-size:16px;min-height:42px;line-height:1.2}
+ #characters .approved-stage[data-orientation=landscape]>.content{left:22%;width:56%;height:64%;overflow:auto!important}
+ #characters .approved-stage[data-orientation=landscape]>.content>*{flex-shrink:0}
+ #characters .approved-stage[data-orientation=landscape] input{width:100%;box-sizing:border-box}
+ #seasons .approved-stage[data-orientation=landscape]>.content,#levels .approved-stage[data-orientation=landscape]>.content{left:20%;width:60%;top:39%;height:45%}
+ #seasons .approved-stage[data-orientation=landscape] #seasongrid{grid-template-columns:repeat(2,minmax(0,1fr));flex:none;overflow:visible}
+ #seasons .approved-stage[data-orientation=landscape] #seasongrid .tile{min-height:98px!important}
+ #seasons .approved-stage[data-orientation=landscape]>.content>*{flex-shrink:0}
+ #quiz .approved-stage[data-orientation=landscape]>.content,#ttOnline .approved-stage[data-orientation=landscape]>.content{left:24%;width:52%;top:12%;height:73%}
+ #quiz .approved-stage[data-orientation=landscape] .question,#ttOnline .approved-stage[data-orientation=landscape] .question{font-size:22px;line-height:1.3;min-height:0;margin:8px 0}
+ #quiz .approved-stage[data-orientation=landscape] .score b{font-size:24px}
+ #quiz .approved-stage[data-orientation=landscape] .timer,#ttOnline .approved-stage[data-orientation=landscape] .timer{width:48px;height:48px;font-size:24px}
+ #quiz .approved-stage[data-orientation=landscape] #answers,#ttOnline .approved-stage[data-orientation=landscape] #onlineLiveOptions{gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ #quiz .approved-stage[data-orientation=landscape]>.content{top:11%;gap:4px}
+ #quiz .approved-stage[data-orientation=landscape] #qnumber{order:2;margin:0}
+ #quiz .approved-stage[data-orientation=landscape] .panel.flex{order:1;min-height:52px;background:none;border:0;padding:0;box-shadow:none;flex-shrink:0}
+ #quiz .approved-stage[data-orientation=landscape] .panel:not(.flex){order:3;padding:0}
+ #quiz .approved-stage[data-orientation=landscape] .score{font-size:14px;min-width:16%;line-height:1.1}
+ #quiz .approved-stage[data-orientation=landscape] #qstatus{margin:3px 0}
+ #settings .approved-stage[data-orientation=landscape]>.content{left:36%;width:28%;top:26%;height:54%}
+ #settings .approved-stage[data-orientation=landscape] h3{font-size:21px}
+ #settings .approved-stage[data-orientation=landscape] .stat{flex-wrap:wrap;min-height:48px;gap:8px}
+ #settings .approved-stage[data-orientation=landscape] .stat button{font-size:18px;min-height:44px}
+ #summary .approved-stage[data-orientation=landscape] #roundStats{font-size:22px}
+ #victory .approved-stage[data-orientation=landscape] .question{font-size:18px}
+ #invite .approved-stage[data-orientation=landscape]>.content{left:27%;width:46%}
+ .journey-stage{position:relative;left:0;top:0;transform:none;width:100vw;height:56.28vw;margin:0 auto}
+ .journey-heading p{font-size:18px}
+ .journey-question{font-size:20px;align-items:flex-start}
+ .journey-choices button{font-size:18px;line-height:1.2}
+ .journey-outcome,.journey-panels ul,.journey-record-view .journey-panels ul{font-size:17px}
+ .journey-record-view .journey-panels h3{font-size:17px}
+ .journey-card-collection,.cards-art-page{display:block;overflow-y:auto;overflow-x:hidden}
+ .journey-card-stage,.cards-art-stage{width:100vw;margin:0 auto}
+ .details-page .cards-art-stage{width:min(100vw,960px)}
+ .details-page .details-effect,.details-page .details-timing{font-size:18px}
+ .cards-art-stage>div{font-size:17px}
+ .journey-card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .card-copy-count{font-size:16px}
+}
