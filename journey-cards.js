@@ -97,6 +97,9 @@
  catalog.then(async()=>{for(const event of pending())await reward(event);});
  document.addEventListener('keydown',e=>{if(!root||document.querySelector('dialog[open]'))return;if(e.key==='Escape'){e.preventDefault();close();}else if(e.key==='Tab'){const items=[...root.querySelectorAll('button:not(:disabled),[tabindex="0"]')].filter(x=>x.getClientRects().length);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}});
  window.ThroneCards={open,friends,reward,close};
+ const playButton=document.querySelector('#menu [aria-label="PLAY"]');
+ if(playButton){const action=playButton.onclick;let welcoming=false;playButton.onclick=async function(event){if(welcoming)return;welcoming=true;try{await tutorial('first-play-welcome',true);action?.call(this,event);}finally{welcoming=false;}};}
+ const settings=document.querySelector('#settings .content');if(settings){const replay=button("Replay Sir Edward's welcome",()=>tutorial('first-play-welcome'));replay.className='btn';settings.append(replay);}
  for(const target of ['.journey-stage','#rewards .content']){const parent=document.querySelector(target);if(parent){const b=button('Journey Cards',open);b.className='journey-cards-entry';parent.append(b);}}
  setInterval(()=>{if(inventory&&!document.hidden)command('state').then(x=>{inventory=x;receivedCards();}).catch(()=>{});},15000);
  const originalEndRound=endRound;endRound=function(){const event=match.length===10&&index>=10?'trivia:'+currentSeason+':'+Math.min(50,chosenLevel):null;originalEndRound();if(event)setTimeout(()=>reward(event),1200);};
