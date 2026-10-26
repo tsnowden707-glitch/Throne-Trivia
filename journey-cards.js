@@ -4,6 +4,14 @@
  const pendingKey='throne_card_rewards_pending_v1';
  const byId=id=>cards.find(c=>c.id===id);
  function pending(){try{return JSON.parse(localStorage.getItem(pendingKey)||'[]');}catch{return [];}}
+ let presentingMail=false;
+ async function receivedCards(){
+  if(!root||!inventory||presentingMail||busy||document.hidden||document.querySelector('dialog[open]'))return;
+  const key='throne_card_mail_seen_'+inventory.id;let seen=[];try{seen=JSON.parse(localStorage.getItem(key)||'[]');}catch{}
+  const arrivals=inventory.mail.filter(m=>m.status==='complete'&&!seen.includes(m.id)&&(m.kind==='trade'||m.kind==='gift'&&m.recipient===inventory.id));
+  presentingMail=true;
+  try{for(const m of arrivals){const card=byId(m.kind==='trade'&&m.sender===inventory.id?m.want_card:m.give_card);if(!card)continue;seen.push(m.id);try{localStorage.setItem(key,JSON.stringify(seen));}catch{}await ThroneCardReveal.show(card);await tutorial('first-card',true);}}finally{presentingMail=false;}
+ }
  async function command(action,args={}){return TT.cardCommand(action,args);}
  async function refresh(){inventory=await command('state');for(const use of inventory.uses||[]){const c=byId(use.card);if(c&&window.ThroneJourney?.getScene()?.id===use.scene&&!ThroneJourney.getState().cardEffects?.[use.scene])ThroneJourney.applyCard(c,use.scene);}return inventory;}
  function close(){clearInterval(poll);poll=null;root?.remove();root=null;collection=null;document.querySelectorAll('.page[data-cards-inert]').forEach(p=>{p.inert=false;delete p.dataset.cardsInert;});if(priorFocus?.isConnected)priorFocus.focus();}
@@ -90,7 +98,7 @@
  document.addEventListener('keydown',e=>{if(!root||document.querySelector('dialog[open]'))return;if(e.key==='Escape'){e.preventDefault();close();}else if(e.key==='Tab'){const items=[...root.querySelectorAll('button:not(:disabled),[tabindex="0"]')].filter(x=>x.getClientRects().length);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}});
  window.ThroneCards={open,friends,reward,close};
  for(const target of ['.journey-stage','#rewards .content']){const parent=document.querySelector(target);if(parent){const b=button('Journey Cards',open);b.className='journey-cards-entry';parent.append(b);}}
- setInterval(()=>{if(inventory&&!document.hidden)command('state').then(x=>inventory=x).catch(()=>{});},60000);
+ setInterval(()=>{if(inventory&&!document.hidden)command('state').then(x=>{inventory=x;receivedCards();}).catch(()=>{});},15000);
  const originalEndRound=endRound;endRound=function(){const event=match.length===10&&index>=10?'trivia:'+currentSeason+':'+Math.min(50,chosenLevel):null;originalEndRound();if(event)setTimeout(()=>reward(event),1200);};
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&root)refresh().catch(()=>{});});
 })();
