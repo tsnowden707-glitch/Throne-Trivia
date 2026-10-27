@@ -823,7 +823,16 @@ const CHARACTER_ROSTER = [
 ];
 names.splice(0,names.length,...CHARACTER_ROSTER.map(c=>c.name));
 P.splice(0,P.length,...CHARACTER_ROSTER.map(c=>'portrait-'+c.id+'.webp'));
-function eligibleCharacters(){return CHARACTER_ROSTER.map((c,i)=>({...c,index:i})).filter(c=>c.season<=currentSeason);}
+const CHARACTER_STARTERS=['jon-snow','daenerys','arya'];
+const CHARACTER_STORY_ORDER=['ned','bran-stark','catelyn-stark','sansa-stark','robb-stark','theon-greyjoy','tyrion','cersei','jaime-lannister','robert-baratheon','joffrey-baratheon','petyr-baelish','varys','grand-maester-pycelle','barristan-selmy','benjen-stark','samwell-tarly','jeor-mormont','alliser-thorne','khal-drogo','jorah-mormont','viserys-targaryen','doreah'];
+function characterMilestone(c){
+ if(CHARACTER_STARTERS.includes(c.id))return 0;
+ const group=CHARACTER_ROSTER.filter(x=>x.season===c.season&&!CHARACTER_STARTERS.includes(x.id));
+ const order=x=>{const i=CHARACTER_STORY_ORDER.indexOf(x.id);return i<0?1000+CHARACTER_ROSTER.indexOf(x):i;};group.sort((a,b)=>order(a)-order(b));
+ const position=group.findIndex(x=>x.id===c.id);
+ return position===0?1:2+Math.floor((position-1)*43/Math.max(1,group.length-2));
+}
+function eligibleCharacters(){return CHARACTER_ROSTER.map((c,i)=>({...c,index:i})).filter(c=>c.season<=currentSeason&&(CHARACTER_STARTERS.includes(c.id)||(typeof completedLevels==='function'?completedLevels(c.season):0)>=characterMilestone(c)));}
 function validateCharacter(){
   const eligible=eligibleCharacters();
   if(!eligible.some(c=>c.index===selected))selected=eligible[0].index;
@@ -834,12 +843,11 @@ const savedCharacter=localStorage.getItem('throne_character_v2');
 selected=Math.max(0,CHARACTER_ROSTER.findIndex(c=>c.id===savedCharacter));
 let characterPage=0;
 let characterQuery='';
-const CHARACTER_PAGE_SIZE=8;
+const CHARACTER_PAGE_SIZE=6;
 drawPortraits=function(){
   const eligible=validateCharacter(),holder=$('portraits');holder.replaceChildren();
-  let search=$('characterSearch');
-  if(!search){search=document.createElement('input');search.id='characterSearch';search.type='search';search.placeholder='Find a character';search.setAttribute('aria-label','Find a character');search.autocomplete='off';search.oninput=()=>{characterQuery=search.value;characterPage=0;drawPortraits();};holder.before(search);}
-  const visible=eligible.filter(c=>c.name.toLowerCase().includes(characterQuery.trim().toLowerCase()));
+  $('characterSearch')?.remove();
+  const visible=eligible;
   const pageCount=Math.max(1,Math.ceil(visible.length/CHARACTER_PAGE_SIZE));
   characterPage=Math.max(0,Math.min(characterPage,pageCount-1));
   let pager=$('characterPager');
@@ -883,8 +891,14 @@ reward=function(type){
   if(type!=='Characters'){rewardsBeforeCharacters(type);return;}
   const box=$('rewardBox');box.replaceChildren();
   const title=document.createElement('h3');title.textContent=`Characters · Season ${currentSeason}`;
-  const detail=document.createElement('p');detail.textContent=`${eligibleCharacters().length} characters available. Characters stay available in every season after their debut.`;
+  const detail=document.createElement('p');detail.textContent=`${eligibleCharacters().length} characters available. Earn more by completing story milestones and trivia levels. Unlocked characters remain yours.`;
   const browse=document.createElement('button');browse.className='btn';browse.textContent='CHOOSE YOUR CHARACTER';browse.onclick=()=>go('characters');
   box.append(title,detail,browse);
 };
 drawPortraits();
+window.ThroneCharacterUnlock=async function(){
+ const earned=CHARACTER_ROSTER.filter(c=>c.season===currentSeason&&!CHARACTER_STARTERS.includes(c.id)&&characterMilestone(c)===completedLevels(currentSeason));
+ for(const c of earned){const key='throne_character_reveal_'+c.id;if(localStorage.getItem(key))continue;
+  await new Promise(resolve=>{const d=document.createElement('dialog');d.className='character-unlock';const title=document.createElement('h2'),img=document.createElement('img'),name=document.createElement('p'),close=document.createElement('button');title.textContent='Character unlocked';img.src='portrait-'+c.id+'.webp';img.alt=c.name;name.textContent=c.name;close.textContent='Continue';const finish=()=>{localStorage.setItem(key,'1');d.close();d.remove();resolve();};close.onclick=finish;d.addEventListener('cancel',e=>{e.preventDefault();finish();});d.append(title,img,name,close);document.body.append(d);d.showModal();close.focus();window.ThroneEffects?.play('reward');});
+ }
+};

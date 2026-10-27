@@ -2,7 +2,7 @@
  let paused=false,pending=null;
  const overlay=document.createElement('div');overlay.className='pause-overlay';overlay.hidden=true;
  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Game paused');
- overlay.innerHTML='<h2>Game paused</h2><p>Your question and time are saved here.</p><button>Resume</button>';
+ overlay.innerHTML='<div class="pause-panel"><h2>Paused</h2><p>Your question and time are saved here.</p><button>Resume</button></div>';
  document.body.append(overlay);
  const controls=[];
  for(const page of ['quiz','countdown']){const b=document.createElement('button');b.className='pause-control';b.textContent='Ⅱ';b.setAttribute('aria-label','Pause game');b.onclick=()=>set(true);document.getElementById(page).append(b);controls.push(b);}

@@ -8,6 +8,6 @@
  const saved={};
  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k?.startsWith('throne_'))saved[k]=localStorage.getItem(k);}
  localStorage.setItem('tt_backup_'+id,JSON.stringify(saved));
- for(const k of Object.keys(saved))if(!['throne_music_muted','throne_music_volume'].includes(k))localStorage.removeItem(k);
+ for(const k of Object.keys(saved))if(!['throne_music_muted','throne_music_volume','throne_narrate','throne_effects'].includes(k))localStorage.removeItem(k);
  localStorage.setItem(marker,'1');
 })();

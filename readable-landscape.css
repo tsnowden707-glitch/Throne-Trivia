@@ -62,3 +62,7 @@
  #rewards .approved-stage[data-orientation=landscape] .theme-pager button{min-height:48px;min-width:48px}
 }
 @media(orientation:landscape){#rewards .approved-stage[data-orientation=landscape]>.content{overflow-y:auto!important;overflow-x:hidden!important}}
+
+/* Full-bleed opening keeps art and its clickable entry aligned. */
+#splash{overflow:hidden!important}
+#splash .splashComposition{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-height:none;margin:0}

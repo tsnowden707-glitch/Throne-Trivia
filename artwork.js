@@ -9,6 +9,7 @@ const KINGDOM_THEMES = [
 let activeKingdomTheme=localStorage.getItem('throne_theme_v2')||'royal-castle';
 if(!KINGDOM_THEMES.some(t=>t[0]===activeKingdomTheme))activeKingdomTheme='royal-castle';
 let themePage=0;
+const themePageSize=()=>innerHeight<500?2:4;
 const SCREEN_ART_IDS=['invite','characters','lobby','countdown','quiz','feedback','summary','victory','leaderboard','rewards','settings','seasons','levels'];
 function kingdomArt(screen,theme=activeKingdomTheme){
  if(matchMedia('(orientation: landscape)').matches && window.THRONE_LANDSCAPE_SETS?.[theme]?.[screen])return window.THRONE_LANDSCAPE_SETS[theme][screen].src;
@@ -39,11 +40,11 @@ function setKingdomTheme(id){
  window.dispatchEvent(new Event('artworkchange'));
 }
 function showThemeChoices(){
- const box=$('rewardBox');box.replaceChildren();box.classList.add('theme-browser');
+ const box=$('rewardBox');box.replaceChildren();box.classList.add('theme-browser');const size=themePageSize(),pages=Math.ceil(KINGDOM_THEMES.length/size);themePage=Math.min(themePage,pages-1);
  const title=document.createElement('h3');title.textContent='Choose your kingdom';
  const note=document.createElement('p');note.className='small';note.textContent='15 screens per kingdom · Your choice is saved';
  const grid=document.createElement('div');grid.className='theme-grid';
- KINGDOM_THEMES.slice(themePage*4,themePage*4+4).forEach(([id,name])=>{
+ KINGDOM_THEMES.slice(themePage*size,themePage*size+size).forEach(([id,name])=>{
   const button=document.createElement('button');button.className='theme-card';button.setAttribute('aria-pressed',String(activeKingdomTheme===id));
   button.disabled=!window.THRONE_THEME_SETS?.[id];
   const img=document.createElement('img');img.src=kingdomArt('menu',id);img.alt='';
@@ -53,13 +54,13 @@ function showThemeChoices(){
  const pager=document.createElement('div');pager.className='theme-pager';
  const prev=document.createElement('button'),next=document.createElement('button'),page=document.createElement('span');
  prev.textContent='‹';next.textContent='›';prev.setAttribute('aria-label','Previous themes');next.setAttribute('aria-label','Next themes');
- prev.disabled=themePage===0;next.disabled=themePage===2;page.textContent=`${themePage+1} / 3`;
+ prev.disabled=themePage===0;next.disabled=themePage===pages-1;page.textContent=`${themePage+1} / ${pages}`;
  prev.onclick=()=>{themePage--;showThemeChoices();};next.onclick=()=>{themePage++;showThemeChoices();};pager.append(prev,page,next);
  const preview=document.createElement('button');preview.className='btn gold';preview.textContent='VIEW MY MENU';preview.onclick=()=>go('menu');
  box.append(title,note,grid,pager,preview);
 }
 const rewardBeforeArtwork=reward;
-reward=function(type){$('rewardBox').classList.remove('theme-browser');if(type==='Themes'){themePage=Math.floor(KINGDOM_THEMES.findIndex(t=>t[0]===activeKingdomTheme)/4);showThemeChoices();}else rewardBeforeArtwork(type);};
+reward=function(type){$('rewardBox').classList.remove('theme-browser');if(type==='Themes'){themePage=Math.floor(KINGDOM_THEMES.findIndex(t=>t[0]===activeKingdomTheme)/themePageSize());showThemeChoices();}else rewardBeforeArtwork(type);};
 // Present all existing friend controls in compact, explicit steps.
 const onlineControls=$('onlineControls');
 const inviteSteps=document.createElement('div');inviteSteps.className='invite-steps';
@@ -92,3 +93,5 @@ function applyActiveKingdomArtwork(){
 new MutationObserver(applyActiveKingdomArtwork).observe(document.querySelector('.app'),{subtree:true,attributes:true,attributeFilter:['class']});
 if(!window.THRONE_THEME_SETS?.[activeKingdomTheme])activeKingdomTheme='royal-castle';
 setKingdomTheme(activeKingdomTheme);
+
+addEventListener("resize",()=>{if(current==="rewards"&&$("rewardBox").classList.contains("theme-browser"))showThemeChoices();});

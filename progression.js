@@ -14,11 +14,16 @@ const nextQuestionBeforeProgress=nextQuestion;
 nextQuestion=function(){savePendingRound();nextQuestionBeforeProgress();};
 const answerBeforeProgress=answer;
 answer=function(choice){const wasLocked=locked;answerBeforeProgress(choice);if(!wasLocked)savePendingRound(true);};
+let seasonPage=0;
 drawSeasons=function(){
  const c=$('seasongrid');c.replaceChildren();
- seasons.forEach((name,i)=>{const s=i+1,open=seasonAvailable(s),b=document.createElement('button');b.className='tile';b.disabled=!open;b.setAttribute('aria-label',`Season ${s}${open?'':' locked'}`);
+ const available=seasons.map((name,i)=>({name,s:i+1})).filter(x=>seasonAvailable(x.s));
+ const count=Math.ceil(available.length/4);seasonPage=Math.max(0,Math.min(seasonPage,count-1));
+ available.slice(seasonPage*4,seasonPage*4+4).forEach(({name,s})=>{const open=true,b=document.createElement('button');b.className='tile';b.setAttribute('aria-label',`Season ${s}`);
  b.innerHTML=`Season ${s}<br>${name}<br><small>${open?completedLevels(s)+' / 50 complete':'🔒 Complete Season '+(s-1)}</small>`;
  b.onclick=()=>{if(!seasonAvailable(s))return;currentSeason=s;if(playMode==='friend'){validateCharacter();go('characters');return;}chosenLevel=Math.min(50,completedLevels(s)+1);levelPage=Math.floor((chosenLevel-1)/10);go('levels');};c.append(b);});
+ let pager=$('seasonPager');if(!pager){pager=document.createElement('div');pager.id='seasonPager';c.after(pager);}pager.replaceChildren();pager.hidden=count<=1;
+ if(count>1){const prev=document.createElement('button'),next=document.createElement('button'),label=document.createElement('span');prev.textContent='‹';prev.setAttribute('aria-label','Previous available seasons');prev.disabled=seasonPage===0;next.textContent='›';next.setAttribute('aria-label','Next available seasons');next.disabled=seasonPage===count-1;prev.onclick=()=>{seasonPage--;drawSeasons();};next.onclick=()=>{seasonPage++;drawSeasons();};label.textContent=(seasonPage+1)+' / '+count;pager.append(prev,label,next);}
 };
 const drawLevelsBeforeProgress=drawLevels;
 drawLevels=function(){

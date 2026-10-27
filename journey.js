@@ -1,11 +1,12 @@
 (() => {
- const KEY='throne_journey_v1';let scenes=[],state,transitioning=false,view='story',generation=0;
+ const KEY='throne_journey_v1';let scenes=[],state,transitioning=false,view='story',generation=0,reading=false;
  try{state=JSON.parse(localStorage.getItem(KEY));}catch{}
  if(!state||state.version!==1||!Array.isArray(state.decisions))state=JourneyState.fresh();
  const page=document.createElement('section');page.id='journeyStory';page.className='page';
  page.innerHTML=`<div class="journey-stage"><button class="journey-back" aria-label="Back to menu">‹</button><button class="journey-toggle">Your Journey</button><header class="journey-heading"><h1>Road to the Throne</h1><p></p></header><div class="bella-guide"><video muted playsinline loop></video><span>Lady Bella</span><button class="bella-replay" aria-label="Replay Lady Bella's narration">↻</button></div><div class="journey-story"><p class="journey-question"></p><p class="journey-reminder">Remember, past choices shape who stands beside you.</p><div class="journey-choices"></div><p class="journey-outcome" role="status" aria-live="polite"></p></div><div class="journey-record" hidden><h2>Your Story So Far</h2><ol class="journey-seasons"></ol><div class="journey-panels"></div><button class="journey-return">Return to Story</button></div></div>`;
  document.querySelector('.page').parentElement.append(page);
  const $j=s=>page.querySelector(s),video=$j('video');let videoMode='',poseToken=0,activeVideo=video;
+ const lipVideo=document.createElement('video');lipVideo.playsInline=true;lipVideo.preload='metadata';lipVideo.className='bella-lipsynced';lipVideo.hidden=true;$j('.bella-guide').append(lipVideo);
  const spare=video.cloneNode();video.after(spare);spare.className='bella-video-hidden';
  video.setAttribute('aria-hidden','true');spare.setAttribute('aria-hidden','true');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -19,10 +20,21 @@
  function save(){localStorage.setItem(KEY,JSON.stringify(state));}
  function available(chapter){return Number.isInteger(chapter)&&chapter>=1&&chapter<=8&&(chapter===1||completedLevels(chapter-1)>=50);}
  function currentScene(){return scenes[state.decisions.length];}
- function speak(id,done=()=>{}){pose('speaking');ThroneVoice.bella(id,()=>{pose('idle');done();});}
+ const storyMilestones=[0,1,10,20,35,50];
+ function requiredLevel(scene){return storyMilestones[scenes.filter(s=>s.chapter===scene.chapter).findIndex(s=>s.id===scene.id)]||0;}
+ function sceneAvailable(scene){return !!scene&&available(scene.chapter)&&completedLevels(scene.chapter)>=requiredLevel(scene);}
+ function speak(id,done=()=>{}){
+  const opening=/^chapter-(0[1-8])-opening-short$/.exec(id);
+  const file=id==='journey-intro-short'?'journey-intro':opening?'season-'+opening[1]:null;
+  const finish=()=>{lipVideo.hidden=true;videoMode='';pose('idle');done();};
+  if(file&&document.getElementById('narrate').checked){
+   poseToken++;video.pause();spare.pause();lipVideo.hidden=false;lipVideo.muted=false;
+   ThroneVoice.video(lipVideo,'video/bella/'+file+'-lipsynced.mp4','audio/bella/'+id+'.mp3',finish);
+  }else{lipVideo.hidden=true;pose('speaking');ThroneVoice.bella(id,finish);}
+ }
  function narrateScene(){
-  const scene=currentScene();if(!scene||!available(scene.chapter)||transitioning||view!=='story'||current!=='journeyStory')return;
-  const own=++generation,queue=[];
+  const scene=currentScene();if(!sceneAvailable(scene)||reading||transitioning||view!=='story'||current!=='journeyStory')return;
+  const own=++generation,queue=[];reading=true;page.classList.add('bella-reading');$j('.journey-choices').hidden=true;
   const heardKey='throne_journey_openings_v1';let heard={};
   try{heard=JSON.parse(localStorage.getItem(heardKey))||{};}catch{}
   if(!heard.intro)queue.push(['journey-intro-short','intro']);
@@ -30,7 +42,7 @@
   queue.push([scene.id,null]);
   function next(){
    if(own!==generation||view!=='story'||current!=='journeyStory'||currentScene()?.id!==scene.id)return;
-   const item=queue.shift();if(!item)return;
+   const item=queue.shift();if(!item){reading=false;page.classList.remove('bella-reading');render();return;}
    speak(item[0],()=>{if(own!==generation)return;if(item[1]&&document.getElementById('narrate').checked){heard[item[1]]=true;try{localStorage.setItem(heardKey,JSON.stringify(heard));}catch{}}next();});
   }
   next();
@@ -39,15 +51,16 @@
  function render(){
   const scene=currentScene();const choices=$j('.journey-choices');choices.hidden=false;choices.replaceChildren();$j('.journey-outcome').textContent='';
   $j('.journey-heading p').textContent=state.ending?'Your final fate':scene?'Season '+scene.chapter+' · '+scene.title:'Loading your journey';
-  $j('.bella-replay').disabled=!scene||!available(scene.chapter)||transitioning;
+  $j('.bella-replay').disabled=!sceneAvailable(scene)||transitioning||reading;
   if(state.ending){$j('.journey-question').textContent={throne:'The throne is yours.',wall:'Your journey ends at the Wall.',exile:'Your claim ends in exile.',execution:'The court sentences you to execution.'}[state.ending];choices.append(button('Hear your ending',()=>speak('ending-'+state.ending)),button('See what shaped your journey',()=>changeView('record')));return;}
   if(!scene){$j('.journey-question').textContent='Preparing your story…';return;}
   if(!available(scene.chapter)){$j('.journey-question').textContent='Reach trivia season '+scene.chapter+' to continue this chapter. Your earlier decisions are saved.';choices.append(button('Return to trivia',()=>go('seasons')));return;}
+  if(!sceneAvailable(scene)){$j('.journey-question').textContent='Your next audience awaits after level '+requiredLevel(scene)+' of Season '+scene.chapter+'. Your choices are saved.';choices.append(button('Continue trivia',()=>go('seasons')));return;}
   $j('.journey-question').textContent=scene.narration;
   scene.choices.forEach((choice,i)=>choices.append(button(choice.label,()=>choose(scene,i))));
  }
  async function choose(scene,i){
-  if(transitioning||currentScene()?.id!==scene.id||!available(scene.chapter))return;
+  if(reading||transitioning||currentScene()?.id!==scene.id||!sceneAvailable(scene))return;
   transitioning=true;const own=++generation;
   $j('.journey-toggle').disabled=true;$j('.bella-replay').disabled=true;
   page.querySelectorAll('.journey-choices button').forEach(b=>b.disabled=true);
@@ -97,16 +110,18 @@
   section('Promises',Object.values(state.promises).map(p=>p.label+' · '+p.status));
   const resources=Object.entries(state.resources).filter(([,n])=>n>0).map(([name,n])=>n+' '+name);
   section(state.ending?'Your final record':'Resources',state.ending?[...resources,...JourneyState.recap(state)]:resources);
+  for(const section of panels.children){const list=section.querySelector('ul'),items=[...list.children];if(items.length<2)continue;let cursor=0;const pager=document.createElement('div');pager.className='journey-record-pager';const prev=button('‹',()=>{cursor--;draw();}),next=button('›',()=>{cursor++;draw();}),label=document.createElement('span');prev.setAttribute('aria-label','Previous '+section.querySelector('h3').textContent);next.setAttribute('aria-label','Next '+section.querySelector('h3').textContent);function draw(){items.forEach((item,i)=>item.hidden=i!==cursor);prev.disabled=cursor===0;next.disabled=cursor===items.length-1;label.textContent=(cursor+1)+' / '+items.length;}pager.append(prev,label,next);section.append(pager);draw();}
+
  }
- function changeView(next){generation++;view=next;$j('.journey-stage').classList.toggle('journey-record-view',next!=='story');$j('.journey-story').hidden=next!=='story';$j('.journey-record').hidden=next==='story';$j('.bella-guide').hidden=next!=='story';$j('.journey-toggle').hidden=next!=='story';if(next!=='story'){ThroneVoice.stop();pose('idle');video.pause();spare.pause();record();}else {render();if(!reduced.matches&&!document.hidden)activeVideo.play().catch(()=>{});}window.dispatchEvent(new Event('resize'));}
+ function changeView(next){lipVideo.hidden=true;lipVideo.pause();generation++;reading=false;page.classList.remove('bella-reading');view=next;$j('.journey-stage').classList.toggle('journey-record-view',next!=='story');$j('.journey-story').hidden=next!=='story';$j('.journey-record').hidden=next==='story';$j('.bella-guide').hidden=next!=='story';$j('.journey-toggle').hidden=next!=='story';if(next!=='story'){ThroneVoice.stop();pose('idle');video.pause();spare.pause();record();}else {render();if(!reduced.matches&&!document.hidden)activeVideo.play().catch(()=>{});}window.dispatchEvent(new Event('resize'));}
  $j('.journey-toggle').onclick=()=>changeView('record');$j('.journey-return').onclick=()=>changeView('story');$j('.journey-back').onclick=()=>go('menu');
- $j('.bella-replay').onclick=()=>{const s=currentScene();if(s&&!transitioning&&available(s.chapter)){generation++;speak(s.id);}};
+ $j('.bella-replay').onclick=()=>{const s=currentScene();if(s&&!transitioning&&available(s.chapter)){narrateScene();}};
  const menuButton=button('Road to the Throne',()=>go('journeyStory'));menuButton.className='journey-menu-button';document.getElementById('menu').append(menuButton);
  document.addEventListener('screenchange',e=>{
-  if(e.detail.page!=='journeyStory'){generation++;transitioning=false;video.pause();spare.pause();return;}
-  $j('.journey-toggle').disabled=false;changeView('story');render();videoMode='';pose('idle');narrateScene();
+  if(e.detail.page!=='journeyStory'){lipVideo.hidden=true;lipVideo.pause();generation++;transitioning=false;reading=false;page.classList.remove('bella-reading');video.pause();spare.pause();return;}
+  $j('.journey-toggle').disabled=false;changeView('story');render();videoMode='';pose('idle');Promise.resolve().then(()=>window.ThroneVault?.ready).then(()=>{if(current==='journeyStory')narrateScene();});
  });
  document.addEventListener('visibilitychange',()=>{if(document.hidden){video.pause();spare.pause();}else if(current==='journeyStory'&&view==='story'&&!reduced.matches)activeVideo.play().catch(()=>{});});
- fetch('journey-scenes.json').then(r=>{if(!r.ok)throw Error('Story unavailable');return r.json();}).then(data=>{scenes=data.scenes;if(current==='journeyStory'){render();narrateScene();}}).catch(()=>{$j('.journey-question').textContent='The story could not load. Check your connection and reopen the game.';});
- window.ThroneJourney={open:()=>go('journeyStory'),getState:()=>JSON.parse(JSON.stringify(state)),getScene:()=>currentScene(),canUseCard:c=>!transitioning&&available(currentScene()?.chapter)&&JourneyCardEffects.eligible(c,state,currentScene()),applyCard:(c,id)=>{const next=JourneyCardEffects.apply(state,c,id);localStorage.setItem(KEY,JSON.stringify(next));state=next;render();return next.cardEffects[id].message;}};
+ fetch('journey-scenes.json').then(r=>{if(!r.ok)throw Error('Story unavailable');return r.json();}).then(data=>{scenes=data.scenes;if(current==='journeyStory'){render();Promise.resolve(window.ThroneVault?.ready).then(narrateScene);}}).catch(()=>{$j('.journey-question').textContent='The story could not load. Check your connection and reopen the game.';});
+ window.ThroneJourney={open:()=>go('journeyStory'),getState:()=>JSON.parse(JSON.stringify(state)),getScene:()=>currentScene(),canUseCard:c=>!reading&&!transitioning&&sceneAvailable(currentScene())&&JourneyCardEffects.eligible(c,state,currentScene()),applyCard:(c,id)=>{const next=JourneyCardEffects.apply(state,c,id);localStorage.setItem(KEY,JSON.stringify(next));state=next;render();return next.cardEffects[id].message;}};
 })();

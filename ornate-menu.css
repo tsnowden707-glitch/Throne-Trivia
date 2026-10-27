@@ -1,0 +1,31 @@
+#menu .menu-composition{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;transform:none!important}
+#menu .opening-video{display:block!important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+#menu .menu-composition>.theme-title,#menu .menu-composition>#kingdomMenuArt{visibility:hidden}
+#menu .menu-composition .ornate-action.ornate-action{position:absolute!important;display:flex!important;align-items:center;gap:10px;z-index:4;background:linear-gradient(135deg,#202b31,#080c12 50%,#27170c)!important;border:4px ridge #c59a46!important;border-radius:8px!important;box-shadow:inset 0 0 0 2px #4a321a,0 3px 8px #0009!important;color:#ffe8ae!important;padding:6px 14px!important;box-sizing:border-box;text-shadow:0 2px 3px #000;clip-path:polygon(4% 0,96% 0,100% 15%,100% 85%,96% 100%,4% 100%,0 85%,0 15%)}
+#menu .menu-composition .ornate-action.ornate-action>*{visibility:visible!important}#menu .menu-composition .ornate-action.ornate-action span{flex:1;text-align:center}#menu .menu-composition .ornate-action.ornate-action b,#menu .action-road span{font:700 clamp(17px,1.7vw,28px) Georgia!important}#menu .menu-composition .ornate-action.ornate-action small{display:none}
+#menu .menu-composition .ornate-action.ornate-action .menu-icon{display:block!important;flex:none;width:clamp(42px,5vw,76px);height:100%;background:none!important}#menu .menu-composition .ornate-action.ornate-action svg,#musicBtn svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 2px #0008)}
+#menu .action-road>svg{width:clamp(42px,5vw,76px);flex:none}
+#menu .menu-composition .ornate-action.ornate-action.action-gear{left:auto!important;top:auto!important;right:2%!important;bottom:2%!important;width:64px!important;height:64px!important;padding:4px!important;clip-path:none;border-radius:50%!important}#menu .action-gear span{display:none}#menu .action-gear .menu-icon{width:100%}
+#musicBtn{width:52px!important;height:52px!important;padding:3px!important;background:#121722!important;border:2px ridge #d1a853!important;border-radius:50%!important;z-index:100}#musicBtn[data-muted=true]{opacity:.65}#musicBtn[data-muted=true]::after{content:'';position:absolute;left:9px;top:24px;width:32px;height:3px;transform:rotate(-45deg);background:#ffe6a3;box-shadow:0 1px 2px #000}
+@media(orientation:landscape){
+ #menu .menu-composition .ornate-action.ornate-action{width:28%!important;height:13%!important;bottom:auto!important}
+ #menu .menu-composition .ornate-action.ornate-action.action-friends{left:3%!important;top:49%!important}
+ #menu .menu-composition .ornate-action.ornate-action.action-road{left:3%!important;right:auto!important;top:66%!important;max-width:none}
+ #menu .menu-composition .ornate-action.ornate-action.action-trophy{left:69%!important;top:49%!important}
+ #menu .menu-composition .ornate-action.ornate-action.action-chest{left:69%!important;top:66%!important}
+ #menu .menu-composition .ornate-action.ornate-action.action-play{left:32%!important;top:81%!important;width:36%!important;height:16%!important}
+}
+@media(orientation:portrait){
+ #menu .menu-composition .ornate-action.ornate-action{left:10%!important;width:80%!important;height:9%!important}
+ #menu .action-play{top:39%!important}#menu .action-friends{top:49%!important}#menu .action-trophy{top:59%!important}#menu .action-chest{top:69%!important}#menu .action-road{top:79%!important;max-width:none}
+}
+.page .throne-home{top:auto!important;bottom:max(10px,env(safe-area-inset-bottom));right:max(10px,env(safe-area-inset-right))!important;height:52px;min-width:120px;border:3px ridge #cba451;border-radius:8px;background:linear-gradient(#242b34,#0c1119);font:700 18px Georgia}
+.throne-home svg{width:38px;height:38px;flex:none}.page .back,.journey-back{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;background:#0b1420!important;border:2px ridge #cba451!important;border-radius:50%!important;color:#ffe4a2!important;display:grid;place-items:center;padding:5px!important}.back svg,.journey-back svg{width:100%;height:100%}
+#quiz .throne-home,#countdown .throne-home{right:auto!important;left:10px}
+#journeyStory .journey-cards-entry{position:absolute;left:10px!important;right:auto!important;top:auto!important;bottom:10px!important;width:180px;height:52px;margin:0;z-index:20;border:3px ridge #cba451;border-radius:8px;background:linear-gradient(#242b34,#0c1119);font:700 18px Georgia}
+#journeyStory .throne-home{width:180px}
+#menu .menu-composition .ornate-action.action-road>svg{width:clamp(42px,5vw,76px)!important;height:100%;flex:none}
+#menu .menu-composition .ornate-action.action-road>span{min-width:0;font-size:clamp(17px,1.7vw,26px)!important}
+@media(orientation:landscape){#menu .menu-composition .ornate-action.ornate-action.action-play{left:28%!important;top:76%!important;width:44%!important;height:21%!important}}
+@media(orientation:portrait){#menu .menu-composition .ornate-action.action-play{top:39%!important}#menu .menu-composition .ornate-action.action-friends{top:49%!important}#menu .menu-composition .ornate-action.action-trophy{top:59%!important}#menu .menu-composition .ornate-action.action-chest{top:69%!important}#menu .menu-composition .ornate-action.action-road{top:79%!important}}
+#menu .menu-composition:not(.animated-menu)>.theme-title,#menu .menu-composition:not(.animated-menu)>#kingdomMenuArt{visibility:visible}

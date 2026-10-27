@@ -13,8 +13,8 @@
   art.addEventListener('load',resize);
  }
  function resize(){
-  const ratio=splashArt.naturalWidth&&splashArt.naturalHeight?splashArt.naturalWidth/splashArt.naturalHeight:2/3;
-  const sw=Math.min(app.clientWidth,app.clientHeight*ratio);
+  const ratio=activeKingdomTheme==='royal-castle'?1248/704:(splashArt.naturalWidth&&splashArt.naturalHeight?splashArt.naturalWidth/splashArt.naturalHeight:2/3);
+  const sw=Math.max(app.clientWidth,app.clientHeight*ratio);
   splash.style.width=sw+'px';splash.style.height=(sw/ratio)+'px';
   splash.classList.toggle('approved-wide-splash',ratio>1);
 

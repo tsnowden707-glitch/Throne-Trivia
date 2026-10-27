@@ -146,7 +146,6 @@
 .approved-stage[data-orientation=landscape] .small{font-size:clamp(10px,1.2cqw,14px)!important}
 /* The portrait opening clip belongs only to the Royal Castle portrait composition. */
 .app:not([data-kingdom="royal-castle"]) .opening-video{display:none!important}
-@media(orientation:landscape){.opening-video{display:none!important}}
 .page.approved-page .approved-stage>.content{background:transparent!important;scrollbar-width:thin;scrollbar-color:#bc9348 #101720}
 .page.approved-page .approved-stage .portraits{scrollbar-width:thin;scrollbar-color:#bc9348 #101720}
 .page.approved-page .approved-stage p,.page.approved-page .approved-stage .stat,.page.approved-page .approved-stage h3{ text-shadow:0 1px 3px #000,0 0 5px #000 }
