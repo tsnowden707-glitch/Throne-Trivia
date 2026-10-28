@@ -1,4 +1,5 @@
 (() => {
+ const musicControl=document.getElementById('musicBtn');musicControl.hidden=true;
  const content=document.querySelector('#settings .content'),panels=[...content.querySelectorAll(':scope>.panel')],extras=[...content.children].filter(x=>x.tagName==='BUTTON');
  const tabs=document.createElement('div');tabs.className='settings-tabs';tabs.setAttribute('role','tablist');
  function show(i){panels.forEach((p,j)=>p.hidden=i!==j);extras.forEach(x=>x.hidden=i!==1);[...tabs.children].forEach((b,j)=>b.setAttribute('aria-selected',String(i===j)));}

@@ -3,7 +3,7 @@
  try{state=JSON.parse(localStorage.getItem(KEY));}catch{}
  if(!state||state.version!==1||!Array.isArray(state.decisions))state=JourneyState.fresh();
  const page=document.createElement('section');page.id='journeyStory';page.className='page';
- page.innerHTML=`<div class="journey-stage"><button class="journey-back" aria-label="Back to menu">‹</button><button class="journey-toggle">Your Journey</button><header class="journey-heading"><h1>Road to the Throne</h1><p></p></header><div class="bella-guide"><video muted playsinline loop></video><span>Lady Bella</span><button class="bella-replay" aria-label="Replay Lady Bella's narration">↻</button></div><div class="journey-story"><p class="journey-question"></p><p class="journey-reminder">Remember, past choices shape who stands beside you.</p><div class="journey-choices"></div><p class="journey-outcome" role="status" aria-live="polite"></p></div><div class="journey-record" hidden><h2>Your Story So Far</h2><ol class="journey-seasons"></ol><div class="journey-panels"></div><button class="journey-return">Return to Story</button></div></div>`;
+ page.innerHTML=`<div class="journey-stage"><button class="journey-back" aria-label="Back to menu">‹</button><button class="journey-toggle">Your Journey</button><header class="journey-heading"><h1>Road to the Throne</h1><p></p></header><div class="bella-guide"><video muted playsinline loop></video><span>Lady Bella</span><button class="bella-replay" aria-label="Replay Lady Bella's narration">↻</button></div><div class="journey-story"><p class="journey-question"></p><div class="journey-choices"></div><p class="journey-outcome" role="status" aria-live="polite"></p></div><div class="journey-record" hidden><h2>Your Story So Far</h2><ol class="journey-seasons"></ol><div class="journey-panels"></div><button class="journey-return">Return to Story</button></div></div>`;
  document.querySelector('.page').parentElement.append(page);
  const $j=s=>page.querySelector(s),video=$j('video');let videoMode='',poseToken=0,activeVideo=video;
  const lipVideo=document.createElement('video');lipVideo.playsInline=true;lipVideo.preload='metadata';lipVideo.className='bella-lipsynced';lipVideo.hidden=true;$j('.bella-guide').append(lipVideo);
@@ -34,7 +34,7 @@
  }
  function narrateScene(){
   const scene=currentScene();if(!sceneAvailable(scene)||reading||transitioning||view!=='story'||current!=='journeyStory')return;
-  const own=++generation,queue=[];reading=true;page.classList.add('bella-reading');$j('.journey-choices').hidden=true;
+  const own=++generation,queue=[];reading=true;page.classList.add('bella-reading');$j('.journey-choices').hidden=false;$j('.journey-choices').querySelectorAll('button').forEach(b=>b.disabled=true);
   const heardKey='throne_journey_openings_v1';let heard={};
   try{heard=JSON.parse(localStorage.getItem(heardKey))||{};}catch{}
   if(!heard.intro)queue.push(['journey-intro-short','intro']);

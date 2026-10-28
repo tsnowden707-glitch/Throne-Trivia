@@ -6,7 +6,7 @@
  const overlay=document.createElement('div');
  overlay.className='vault-transition';overlay.hidden=true;overlay.setAttribute('aria-hidden','true');
  overlay.style.pointerEvents='auto';
- const video=document.createElement('video');video.playsInline=true;video.muted=true;video.defaultMuted=true;video.preload='auto';video.style.cssText='width:100%;height:100%;object-fit:cover;display:block';
+ const video=document.createElement('video');video.playsInline=true;video.muted=true;video.defaultMuted=true;video.preload='auto';video.style.cssText='width:100%;height:100%;object-fit:contain;display:block';
  const loaded=fetch('video/vault-browser-silent.mp4').then(r=>{if(!r.ok)throw Error('Vault video unavailable');return r.blob();}).then(blob=>{video.src=URL.createObjectURL(blob);video.load();return true;}).catch(()=>false);
  overlay.removeAttribute('aria-hidden');overlay.setAttribute('aria-label','Vault transition');
  overlay.append(video);app.appendChild(overlay);
@@ -19,10 +19,10 @@
   if(reduced.matches||document.hidden)return Promise.resolve();
   const token=run;
   overlay.hidden=false;void overlay.offsetWidth;overlay.classList.add('running');
-  video.muted=true;video.playbackRate=2;
+  video.muted=true;video.playbackRate=4;
   return new Promise(resolve=>{
    resolvePending=resolve;video.onended=()=>{if(token===run)finish();};video.onerror=()=>{if(token===run)finish();};
-   loaded.then(ok=>{if(token!==run)return;if(!ok){cancel();return;}video.currentTime=0;window.ThroneEffects?.play('enter');video.play().catch(()=>{if(token===run)cancel();});});
+   loaded.then(ok=>{if(token!==run)return;if(!ok){cancel();return;}video.currentTime=0;if(Number.isFinite(video.duration))video.playbackRate=video.duration/2.25;else video.onloadedmetadata=()=>{video.playbackRate=video.duration/2.25;};window.ThroneEffects?.play('enter');video.play().catch(()=>{if(token===run)cancel();});});
   });
  }
  let ready=Promise.resolve();

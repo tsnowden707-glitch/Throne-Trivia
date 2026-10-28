@@ -20,7 +20,7 @@ drawSeasons=function(){
  const available=seasons.map((name,i)=>({name,s:i+1})).filter(x=>seasonAvailable(x.s));
  const count=Math.ceil(available.length/4);seasonPage=Math.max(0,Math.min(seasonPage,count-1));
  available.slice(seasonPage*4,seasonPage*4+4).forEach(({name,s})=>{const open=true,b=document.createElement('button');b.className='tile';b.setAttribute('aria-label',`Season ${s}`);
- b.innerHTML=`Season ${s}<br>${name}<br><small>${open?completedLevels(s)+' / 50 complete':'🔒 Complete Season '+(s-1)}</small>`;
+ b.innerHTML=`${s===1?'<img class="season-place-art" src="theme-winterfell.webp" alt="Winterfell">':''}<strong>Season ${s} · ${name}</strong><small>${open?completedLevels(s)+' / 50 complete':'🔒 Complete Season '+(s-1)}</small>`;
  b.onclick=()=>{if(!seasonAvailable(s))return;currentSeason=s;if(playMode==='friend'){validateCharacter();go('characters');return;}chosenLevel=Math.min(50,completedLevels(s)+1);levelPage=Math.floor((chosenLevel-1)/10);go('levels');};c.append(b);});
  let pager=$('seasonPager');if(!pager){pager=document.createElement('div');pager.id='seasonPager';c.after(pager);}pager.replaceChildren();pager.hidden=count<=1;
  if(count>1){const prev=document.createElement('button'),next=document.createElement('button'),label=document.createElement('span');prev.textContent='‹';prev.setAttribute('aria-label','Previous available seasons');prev.disabled=seasonPage===0;next.textContent='›';next.setAttribute('aria-label','Next available seasons');next.disabled=seasonPage===count-1;prev.onclick=()=>{seasonPage--;drawSeasons();};next.onclick=()=>{seasonPage++;drawSeasons();};label.textContent=(seasonPage+1)+' / '+count;pager.append(prev,label,next);}
@@ -30,7 +30,7 @@ drawLevels=function(){
  if(!seasonAvailable(currentSeason)){currentSeason=1;levelPage=0;}
  drawLevelsBeforeProgress();const done=completedLevels(currentSeason);
  document.querySelector('#levels .small').textContent=`${done} / 50 levels complete · Finish all 50 to unlock the next season`;
- [...$('levelgrid').children].forEach((b,i)=>{const level=levelPage*10+i+1;b.disabled=level!==done+1;b.setAttribute('aria-label',`Level ${level}${level<=done?' complete':level>done+1?' locked':''}`);if(level<=done)b.textContent=level+' ✓';else if(level>done+1)b.textContent=level+' 🔒';});
+ [...$('levelgrid').children].forEach((b,i)=>{const level=levelPage*10+i+1;b.disabled=level!==done+1;b.setAttribute('aria-label',`Level ${level}${level<=done?' complete':level>done+1?' locked':''}`);if(level<=done)b.textContent=level+' ✓';else if(level>done+1)b.textContent=level+' 🔒';else {const hint=document.createElement('small');hint.className='level-play-hint';hint.textContent='Tap to Play';b.append(hint);}});
 };
 const startBeforeProgress=start;
 start=function(){
