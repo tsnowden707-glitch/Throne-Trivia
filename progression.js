@@ -43,5 +43,5 @@ start=function(){
 };
 const endRoundBeforeProgress=endRound;
 let creditedCampaignMatch=null;
-endRound=function(){if(match.length===10&&index>=10&&creditedCampaignMatch!==match){creditedCampaignMatch=match;const p=campaignProgress();p[currentSeason]=Math.min(50,completedLevels(currentSeason)+1);localStorage.setItem('throne_campaign_v2',JSON.stringify(p));localStorage.removeItem('throne_pending_'+currentSeason);}endRoundBeforeProgress();};
+endRound=function(){if(creditedCampaignMatch===match)return;if(match.length===10&&index>=10){creditedCampaignMatch=match;const p=campaignProgress();p[currentSeason]=Math.min(50,completedLevels(currentSeason)+1);localStorage.setItem('throne_campaign_v2',JSON.stringify(p));localStorage.removeItem('throne_pending_'+currentSeason);}endRoundBeforeProgress();};
 document.querySelectorAll('.back').forEach(b=>b.setAttribute('aria-label','Back'));

@@ -8,7 +8,7 @@
  for(const page of ['quiz','countdown']){const b=document.createElement('button');b.className='pause-control';b.textContent='Ⅱ';b.setAttribute('aria-label','Pause game');b.onclick=()=>set(true);document.getElementById(page).append(b);controls.push(b);}
  function set(value){
   if(value&&!['quiz','countdown'].includes(current))return;
-  paused=value;overlay.hidden=!value;
+  paused=value;overlay.hidden=!value;document.dispatchEvent(new CustomEvent('pausechange',{detail:{paused:value}}));
   if(value){ThroneVoice.pause();ThroneEffects.stop();document.getElementById('music').pause();overlay.querySelector('button').focus();}
   else{ThroneVoice.resume();musicPlay();const callback=pending;pending=null;callback?.();controls.find(b=>b.parentElement.id===current)?.focus();}
  }

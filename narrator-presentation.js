@@ -8,8 +8,20 @@
  document.querySelector('.splashComposition').prepend(opening);
  // Preserve the approved complete chair animation and baked-in soft loop.
  // A fully loaded Blob avoids the range-seeking stalls seen in the preview.
- let openingUrl='';
- fetch('entrance-soft-loop.mp4').then(r=>{if(!r.ok)throw Error('Entrance unavailable');return r.blob();}).then(blob=>{openingUrl=URL.createObjectURL(blob);opening.src=openingUrl;update(current);}).catch(()=>{opening.poster='entrance-fallback.png';});
+ const openingSources=new Map();let requestedSource='';
+ async function setOpeningSource(page){
+  const tall=matchMedia('(orientation:portrait)').matches;
+  const file=page==='menu'?(tall?'menu-fire-portrait.mp4':'menu-fire-landscape.mp4'):(tall?'menu-fire-portrait.mp4':'entrance-soft-loop.mp4');
+  const poster=page==='menu'?(tall?'menu-fire-portrait.jpg':'menu-fire-landscape.jpg'):(tall?'menu-fire-portrait.jpg':'entrance-fallback.png');
+  opening.dataset.portrait=String(tall);opening.parentElement?.classList.toggle('portrait-cinematic',tall);
+  if(file===requestedSource)return;
+  requestedSource=file;opening.poster=poster;
+  try{if(!openingSources.has(file))openingSources.set(file,fetch(file).then(r=>{if(!r.ok)throw Error('Video unavailable');return r.blob();}).then(blob=>URL.createObjectURL(blob)));
+   const url=await openingSources.get(file);if(file!==requestedSource)return;opening.src=url;
+   if(['splash','menu'].includes(current)&&!document.hidden&&!reduced.matches)opening.play().catch(()=>{});
+  }catch{openingSources.delete(file);requestedSource='';}
+ }
+ window.addEventListener('resize',()=>update(current));
  const portrait=document.createElement('video');
  portrait.className='edward-intro';portrait.src='video/edward-intro.mp4';
  portrait.muted=true;portrait.playsInline=true;portrait.loop=true;portrait.preload='metadata';
@@ -19,6 +31,7 @@
  function update(page){
   const surface=page==='menu'?document.querySelector('#menu .menu-composition'):document.querySelector('.splashComposition');
   if(opening.parentElement!==surface)surface.prepend(opening);
+  if(['splash','menu'].includes(page))setOpeningSource(page);
   opening.hidden=activeKingdomTheme!=='royal-castle';document.querySelector('#menu .menu-composition').classList.toggle('animated-menu',!opening.hidden);
   if(['splash','menu'].includes(page)&&!opening.hidden&&!document.hidden&&!reduced.matches)opening.play().catch(()=>{});else opening.pause();
   const show=page==='countdown';

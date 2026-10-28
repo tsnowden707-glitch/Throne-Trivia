@@ -61,22 +61,7 @@ function showThemeChoices(){
 }
 const rewardBeforeArtwork=reward;
 reward=function(type){$('rewardBox').classList.remove('theme-browser');if(type==='Themes'){themePage=Math.floor(KINGDOM_THEMES.findIndex(t=>t[0]===activeKingdomTheme)/themePageSize());showThemeChoices();}else rewardBeforeArtwork(type);};
-// Present all existing friend controls in compact, explicit steps.
-const onlineControls=$('onlineControls');
-const inviteSteps=document.createElement('div');inviteSteps.className='invite-steps';
-const inviteGroups=[document.createElement('div'),document.createElement('div'),document.createElement('div')];
-inviteGroups.forEach((g,i)=>{g.className='invite-step';g.dataset.step=i;});
-const stepLabels=['ACCOUNT','ROOM','INVITE'];
-function showInviteStep(index){inviteGroups.forEach((g,i)=>g.hidden=i!==index);inviteSteps.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-selected',String(i===index)));}
-stepLabels.forEach((label,i)=>{const b=document.createElement('button');b.textContent=label;b.onclick=()=>showInviteStep(i);inviteSteps.append(b);});
-for(const id of ['ttEmail','ttPassword'])inviteGroups[0].append($(id));
-for(const b of [...onlineControls.querySelectorAll('button')]){const action=b.getAttribute('onclick')||'';inviteGroups[/signUp|signIn/.test(action)?0:1].append(b);}
-inviteGroups[1].insertBefore($('ttCode'),inviteGroups[1].querySelector('[onclick*="joinRoom"]'));
-const oldInvitePanel=document.querySelector('#invite .content > .panel');
-if(oldInvitePanel){for(const b of [...oldInvitePanel.querySelectorAll('button')])inviteGroups[2].append(b);oldInvitePanel.remove();}
-onlineControls.insertBefore(inviteSteps,$('ttStatus'));inviteGroups.forEach(g=>onlineControls.insertBefore(g,$('ttStatus')));
-showInviteStep(1);
-document.querySelectorAll('#invite .content > .small').forEach(e=>e.remove());
+// Friend actions are presented directly in the approved four-button layout.
 const themeShortcut=document.createElement('button');themeShortcut.className='btn';themeShortcut.textContent='CHANGE KINGDOM THEME';themeShortcut.onclick=()=>{go('rewards');reward('Themes');};document.querySelector('#settings .content').append(themeShortcut);
 function applyActiveKingdomArtwork(){
  const page=document.querySelector('.page.active');if(!page)return;

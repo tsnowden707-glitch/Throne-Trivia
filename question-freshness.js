@@ -10,13 +10,14 @@ selectBank=function(){
  const saved=JSON.parse(localStorage.getItem('throne_seen_v1')||'[]');
  const used=new Set([...seen,...saved]);
  const available=BANK.filter(q=>q.s===currentSeason&&!used.has(q.id));
+ const previousRuns=new Set(JSON.parse(localStorage.getItem('tt_question_history_v1')||'[]'));
  const picked=[],characterCounts={};
  for(const [difficulty,count] of [['challenging',2],['medium',4],['easy',4]]){
   const pool=shuffle(available.filter(q=>(q.d==='hard'?'challenging':q.d)===difficulty));
   if(pool.length<count){questionPoolExhausted=true;return [];}
   for(let n=0;n<count;n++){
    const penalty=q=>questionCharacters(q).reduce((total,name)=>total+(characterCounts[name]||0)**2+((characterCounts[name]||0)>=2?1000:0),0);
-   pool.sort((a,b)=>penalty(a)-penalty(b));
+   pool.sort((a,b)=>Number(previousRuns.has(a.id))-Number(previousRuns.has(b.id))||penalty(a)-penalty(b));
    const q=pool.shift();picked.push(q);questionCharacters(q).forEach(name=>characterCounts[name]=(characterCounts[name]||0)+1);
   }
  }

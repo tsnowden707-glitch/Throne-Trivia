@@ -26,7 +26,7 @@
  const onlineRow=document.createElement('div');onlineRow.className='online-score-row';const onlinePrompt=document.getElementById('onlinePrompt');onlinePrompt.before(onlineRow);onlineRow.append(document.getElementById('onlineScore'),document.getElementById('onlineCountdown'));
  function decorateNavigation(){
   document.querySelectorAll('.throne-home,.back,.journey-back').forEach(button=>{
-   if(button.dataset.ornate)return;button.dataset.ornate='true';const home=button.classList.contains('throne-home');button.innerHTML=icon(home?'crown':'back')+(home?'<span>Home</span>':'');
+   if(button.dataset.ornate)return;button.dataset.ornate='true';const home=button.classList.contains('throne-home');button.textContent=home?'Home':'Back';
   });
  }
  decorateNavigation();new MutationObserver(decorateNavigation).observe(document.body,{subtree:true,childList:true});

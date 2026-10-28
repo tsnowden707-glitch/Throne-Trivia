@@ -2,16 +2,15 @@
 (() => {
  const music=document.getElementById('music');
  const quietPreview=new URL(location.href).searchParams.get('quiet')==='1';
- // Keep the lead-in musical, then leave the whole question/answer round quiet.
+ // Music follows pause and resume; narration manages its own ducking.
  // Every resume route uses this same gate, including taps and tab visibility.
  const originalMusicPlay=musicPlay;
- const roundIsQuiet=()=>['quiz','feedback','ttOnline'].includes(current);
  musicPlay=function(){
-  if(roundIsQuiet()||window.ThronePause?.active){music.pause();return;}
+  if(window.ThronePause?.active){music.pause();return;}
   originalMusicPlay();
  };
  document.addEventListener('screenchange',()=>{
-  if(roundIsQuiet())music.pause();else musicPlay();
+  musicPlay();
  });
  musicMuted=quietPreview||localStorage.getItem('throne_music_muted')==='true';
  music.muted=musicMuted;
