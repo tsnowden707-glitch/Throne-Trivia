@@ -34,3 +34,8 @@
  const scores=document.getElementById('onlineScore');if(scores)new MutationObserver(liveNames).observe(scores,{childList:true,subtree:true,characterData:true});
  const leave=TT.leave;TT.leave=function(){players=null;document.getElementById('invite')?.classList.remove('approved-online-waiting');const h=document.querySelector('#invite h1');if(h)h.textContent='Play a Friend';return leave.apply(this,arguments);};
 })();
+(()=>{
+ const seasonArt={1:['theme-winterfell.webp','Winterfell'],2:['theme-kings-landing.webp','King\u2019s Landing'],3:['cards/tully-river-sanctuary.webp','Riverlands sanctuary'],4:['theme-the-vale.webp','The Vale'],5:['theme-the-wall.webp','The Wall'],6:['theme-winterfell.webp','Winterfell'],7:['theme-dragonstone.webp','Dragonstone'],8:['theme-the-wall.webp','The final winter']};
+ function seasonPictures(){document.querySelectorAll('#seasongrid>.tile').forEach(tile=>{const number=Number(/Season (\d+)/.exec(tile.getAttribute('aria-label')||'')?.[1]),art=seasonArt[number];if(!art||tile.querySelector('.season-place-art'))return;const img=document.createElement('img');img.className='season-place-art';img.src=art[0];img.alt=art[1];tile.prepend(img);});}
+ const original=window.drawSeasons;if(typeof original==='function')window.drawSeasons=function(){const result=original.apply(this,arguments);seasonPictures();return result;};seasonPictures();
+})();

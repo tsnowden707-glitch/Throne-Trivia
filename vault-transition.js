@@ -17,7 +17,7 @@
  const clamp=x=>Math.max(0,Math.min(1,x));
  function fit(media,cover=false){const w=media.videoWidth,h=media.videoHeight;if(!w||!h)return;const scale=(cover?Math.max:Math.min)(canvas.width/w,canvas.height/h);ctx.drawImage(media,(canvas.width-w*scale)/2,(canvas.height-h*scale)/2,w*scale,h*scale);}
  function draw(){if(overlay.hidden)return;const w=innerWidth,h=innerHeight;if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}ctx.globalAlpha=1;ctx.fillStyle='#000';ctx.fillRect(0,0,w,h);
-  if(!headStarted){const landscape=w>=h;fit(video,landscape);const scale=(landscape?Math.max:Math.min)(w/960,h/542),ox=(w-960*scale)/2,oy=(h-542*scale)/2,p=clamp((video.currentTime-6.8)/3.2),half=112*p;
+  if(!headStarted){fit(video,true);const scale=Math.max(w/960,h/542),ox=(w-960*scale)/2,oy=(h-542*scale)/2,p=clamp((video.currentTime-6.8)/3.2),half=112*p;
    if(p>0&&dragon.readyState>=2){ctx.save();ctx.translate(ox,oy);ctx.scale(scale,scale);ctx.beginPath();ctx.rect(480-half,85,half*2,542-85);ctx.clip();ctx.fillStyle='#000';ctx.fillRect(0,0,960,542);ctx.globalAlpha=.12;ctx.drawImage(dragon,290,105,380,315);ctx.globalAlpha=1;ctx.drawImage(dragon,555,350,110,100,423,189,27,24);ctx.drawImage(dragon,915,350,110,100,510,189,27,24);ctx.restore();}
   }else{const dw=dragon.videoWidth,dh=dragon.videoHeight;if(dw&&dh){
    // Preserve the full head first, then smoothly fill every viewport edge with its fire.

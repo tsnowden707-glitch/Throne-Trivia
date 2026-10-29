@@ -1,7 +1,7 @@
 /* Production presentation integration of accepted previews. No game rules. */
-@import url('levels-square-approved-preview.css?v=20261028-approved-4');
-@import url('character-landscape-fit-preview.css?v=20261028-approved-4');
-@import url('lobby-champion-preview.css?v=20261028-approved-4');
+@import url('levels-square-approved-preview.css?v=20261028-approved-5');
+@import url('character-landscape-fit-preview.css?v=20261028-approved-5');
+@import url('lobby-champion-preview.css?v=20261028-approved-5');
 #quiz #answers button:has(.approved-answer-copy),#ttOnline #onlineLiveOptions button:has(.approved-answer-copy){display:grid!important;grid-template-columns:2em minmax(0,1fr)!important;align-items:center!important;gap:.6em!important;padding-left:5%!important;padding-right:5%!important}
 .approved-answer-letter{display:grid;place-items:center;align-self:stretch;min-height:1.7em;border-right:2px solid #e5bd6b;color:#ffe3a1;font-weight:700}
 .approved-answer-copy{min-width:0;text-align:center;white-space:normal;overflow-wrap:break-word}
@@ -114,4 +114,13 @@
  #victory.approved-result .content>button.btn{position:absolute!important;left:18%!important;width:64%!important;height:6%!important;min-height:0!important;top:77%!important}
  #victory.approved-result .content>button.btn:not(.gold){top:85%!important}
  #summary.approved-result .content>.small{position:absolute!important;left:12%!important;top:79%!important;width:76%!important}
+}
+/* Portrait seasons use the same square card, with a swipe rail for earned seasons. */
+@media(orientation:portrait){
+ #seasons .approved-stage>.content{left:5%!important;width:90%!important;top:34%!important;height:53%!important;gap:12px!important}
+ #seasons .approved-stage #seasongrid{display:flex!important;flex-flow:row nowrap!important;align-items:center!important;justify-content:flex-start!important;gap:18px!important;width:100%!important;min-height:260px!important;height:260px!important;max-height:none!important;padding:10px max(0px,calc((100% - 240px)/2))!important;box-sizing:border-box!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory;flex:none!important}
+ #seasons .approved-stage #seasongrid>.tile,#seasons .approved-stage #seasongrid>.tile:has(.season-place-art){flex:0 0 240px!important;width:240px!important;height:240px!important;min-width:240px!important;min-height:240px!important;display:grid!important;grid-template-columns:1fr!important;grid-template-rows:110px 38px 24px!important;gap:5px!important;padding:12px 20px!important;box-sizing:border-box!important;align-content:center!important;scroll-snap-align:center}
+ #seasons .approved-stage #seasongrid .season-place-art{width:100%!important;height:110px!important;max-height:110px!important;grid-row:1!important;grid-column:1!important;object-fit:cover!important;margin:0!important}
+ #seasons .approved-stage #seasongrid strong{grid-row:2!important;grid-column:1!important;font:700 18px/1.1 Georgia,serif!important;white-space:normal!important;text-align:center!important;display:grid!important;place-items:center!important}
+ #seasons .approved-stage #seasongrid small{grid-row:3!important;grid-column:1!important;font:700 15px/1.1 Georgia,serif!important;color:#ffe4a3!important;text-align:center!important;margin:0!important}
 }
