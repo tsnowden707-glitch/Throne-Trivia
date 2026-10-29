@@ -1,0 +1,18 @@
+/* Exact approved Road arrow artwork, shared by all Back controls only. */
+button.approved-back-arrow{
+ background:transparent url('approved-back-arrow-cutout-review.png') center/contain no-repeat!important;
+ border:0!important;border-radius:0!important;box-shadow:none!important;
+ color:transparent!important;text-shadow:none!important;font-size:0!important;
+ padding:0!important;min-width:0!important;min-height:44px!important;
+ width:76px!important;height:48px!important;aspect-ratio:140/88;
+}
+button.approved-back-arrow>*{visibility:hidden!important}
+button.approved-back-arrow::before,button.approved-back-arrow::after{display:none!important}
+button.approved-back-arrow:focus-visible{outline:2px solid #fff1a8!important;outline-offset:3px}
+@media(orientation:landscape) and (max-height:500px){button.approved-back-arrow{width:70px!important;height:44px!important}}
+/* Road already contains this exact arrow: expose it, do not stack another copy. */
+#journeyStory .journey-stage:not(.journey-record-view) .journey-back.approved-back-arrow{background:none!important;left:.48%!important;top:1.91%!important;width:8.37%!important;height:9.35%!important;min-height:0!important}
+#journeyStory .journey-stage.journey-record-view .journey-back.approved-back-arrow{background:transparent url('approved-back-arrow-cutout-review.png') center/contain no-repeat!important;width:76px!important;height:48px!important;min-height:44px!important}
+@media(orientation:portrait){
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-back.approved-back-arrow{background:transparent url('approved-back-arrow-cutout-review.png') center/contain no-repeat!important;left:12px!important;top:max(10px,env(safe-area-inset-top))!important;width:76px!important;height:48px!important;min-height:44px!important}
+}

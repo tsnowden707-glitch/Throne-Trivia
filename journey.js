@@ -25,15 +25,20 @@
  function sceneAvailable(scene){return !!scene&&available(scene.chapter)&&completedLevels(scene.chapter)>=requiredLevel(scene);}
  function speak(id,done=()=>{}){
   const opening=/^chapter-(0[1-8])-opening-short$/.exec(id);
-  const file=id==='journey-intro-short'?'journey-intro':opening?'season-'+opening[1]:null;
+  const file=id==='journey-progress-gate'?'journey-progress-gate':id==='journey-intro-short'?'journey-intro':opening?'season-'+opening[1]:null;
   const finish=()=>{lipVideo.hidden=true;videoMode='';pose('idle');done();};
   if(file&&document.getElementById('narrate').checked){
    poseToken++;video.pause();spare.pause();lipVideo.hidden=false;lipVideo.muted=false;
    ThroneVoice.video(lipVideo,'video/bella/'+file+'-lipsynced.mp4','audio/bella/'+id+'.mp3',finish);
   }else{lipVideo.hidden=true;pose('speaking');ThroneVoice.bella(id,finish);}
  }
+ function narrateGate(){
+  if(reading||transitioning||current!=='journeyStory'||view!=='story')return;
+  const own=++generation;reading=true;$j('.bella-replay').disabled=true;
+  speak('journey-progress-gate',()=>{if(own!==generation||current!=='journeyStory')return;reading=false;render();});
+ }
  function narrateScene(){
-  const scene=currentScene();if(!sceneAvailable(scene)||reading||transitioning||view!=='story'||current!=='journeyStory')return;
+  const scene=currentScene();if(!scene||state.ending||reading||transitioning||view!=='story'||current!=='journeyStory')return;if(!sceneAvailable(scene)){narrateGate();return;}
   const own=++generation,queue=[];reading=true;page.classList.add('bella-reading');$j('.journey-choices').hidden=false;$j('.journey-choices').querySelectorAll('button').forEach(b=>b.disabled=true);
   const heardKey='throne_journey_openings_v1';let heard={};
   try{heard=JSON.parse(localStorage.getItem(heardKey))||{};}catch{}
@@ -49,13 +54,13 @@
  }
  function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=action;return b;}
  function render(){
-  const scene=currentScene();const choices=$j('.journey-choices');choices.hidden=false;choices.replaceChildren();$j('.journey-outcome').textContent='';
+  const scene=currentScene();const choices=$j('.journey-choices');choices.hidden=false;choices.replaceChildren();$j('.journey-outcome').textContent='';page.classList.toggle('journey-progress-gated',!!scene&&!state.ending&&!sceneAvailable(scene));
   $j('.journey-heading p').textContent=state.ending?'Your final fate':scene?'Season '+scene.chapter+' · '+scene.title:'Loading your journey';
-  $j('.bella-replay').disabled=!sceneAvailable(scene)||transitioning||reading;
+  $j('.bella-replay').disabled=!scene||!!state.ending||transitioning||reading;
   if(state.ending){$j('.journey-question').textContent={throne:'The throne is yours.',wall:'Your journey ends at the Wall.',exile:'Your claim ends in exile.',execution:'The court sentences you to execution.'}[state.ending];choices.append(button('Hear your ending',()=>speak('ending-'+state.ending)),button('See what shaped your journey',()=>changeView('record')));return;}
   if(!scene){$j('.journey-question').textContent='Preparing your story…';return;}
-  if(!available(scene.chapter)){$j('.journey-question').textContent='Reach trivia season '+scene.chapter+' to continue this chapter. Your earlier decisions are saved.';choices.append(button('Return to trivia',()=>go('seasons')));return;}
-  if(!sceneAvailable(scene)){$j('.journey-question').textContent='Your next audience awaits after level '+requiredLevel(scene)+' of Season '+scene.chapter+'. Your choices are saved.';choices.append(button('Continue trivia',()=>go('seasons')));return;}
+  if(!available(scene.chapter)){$j('.journey-question').textContent='Complete Level 50 in Season '+(scene.chapter-1)+' to continue.\nYou have completed '+completedLevels(scene.chapter-1)+' of 50 levels.';choices.append(button('Continue Trivia',()=>chooseGameMode('practice')));return;}
+  if(!sceneAvailable(scene)){$j('.journey-question').textContent='Complete Level '+requiredLevel(scene)+' in Season '+scene.chapter+' to continue.\nYou have completed '+completedLevels(scene.chapter)+' of '+requiredLevel(scene)+' required levels.';choices.append(button('Continue Trivia',()=>chooseGameMode('practice')));return;}
   $j('.journey-question').textContent=scene.narration;
   scene.choices.forEach((choice,i)=>choices.append(button(choice.label,()=>choose(scene,i))));
  }
@@ -65,10 +70,11 @@
   $j('.journey-toggle').disabled=true;$j('.bella-replay').disabled=true;
   page.querySelectorAll('.journey-choices button').forEach(b=>b.disabled=true);
   const next=JourneyState.apply(state,scene,i);
+  try{window.ThroneArmory?.apply(state,next,scene,i);}catch(error){console.warn('Equipment unavailable; normal story choice preserved.');}
   try{localStorage.setItem(KEY,JSON.stringify(next));}catch{transitioning=false;$j('.journey-toggle').disabled=false;render();$j('.journey-outcome').textContent='Your choice could not be saved. Free some storage and try again.';return;}
   const formed=Object.keys(next.alliances).length>Object.keys(state.alliances).length||next.decisions.at(-1).changes.includes('Marriage alliance formed');
   const betrayed=Object.entries(next.alliances).some(([name,a])=>a.support<(state.alliances[name]?.support||0));
-  state=next;$j('.journey-choices').hidden=true;ThroneEffects.play('choice');
+  state=next;let gearAward;try{gearAward=window.ThroneArmory?.sync();}catch(error){console.warn('Equipment award will retry later.');}if(gearAward?.awarded.length)window.ThroneEffects?.play('unlock');$j('.journey-choices').hidden=true;if(!gearAward?.awarded.length)ThroneEffects.play('choice');
   if(formed||betrayed){await window.ThroneCinematics?.play(betrayed?'betrayal-revealed':'alliance-sealed');if(own!==generation||current!=='journeyStory')return;}
   $j('.journey-question').textContent=scene.choices[i].response;
   speak(scene.choices[i].response_audio_id,()=>{
@@ -115,7 +121,7 @@
  }
  function changeView(next){lipVideo.hidden=true;lipVideo.pause();generation++;reading=false;page.classList.remove('bella-reading');view=next;$j('.journey-stage').classList.toggle('journey-record-view',next!=='story');$j('.journey-story').hidden=next!=='story';$j('.journey-record').hidden=next==='story';$j('.bella-guide').hidden=next!=='story';$j('.journey-toggle').hidden=next!=='story';if(next!=='story'){ThroneVoice.stop();pose('idle');video.pause();spare.pause();record();}else {render();if(!reduced.matches&&!document.hidden)activeVideo.play().catch(()=>{});}window.dispatchEvent(new Event('resize'));}
  $j('.journey-toggle').onclick=()=>changeView('record');$j('.journey-return').onclick=()=>changeView('story');$j('.journey-back').onclick=()=>go('menu');
- $j('.bella-replay').onclick=()=>{const s=currentScene();if(s&&!transitioning&&available(s.chapter)){narrateScene();}};
+ $j('.bella-replay').onclick=()=>{const s=currentScene();if(s&&!transitioning){narrateScene();}};
  const menuButton=button('Road to the Throne',()=>go('journeyStory'));menuButton.className='journey-menu-button';document.getElementById('menu').append(menuButton);
  document.addEventListener('screenchange',e=>{
   if(e.detail.page!=='journeyStory'){lipVideo.hidden=true;lipVideo.pause();generation++;transitioning=false;reading=false;page.classList.remove('bella-reading');video.pause();spare.pause();return;}

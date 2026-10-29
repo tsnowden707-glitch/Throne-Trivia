@@ -58,7 +58,7 @@
   const stage=artPage('raven');
   hotspot(stage,'Add Friend','raven-add',()=>form('Add a Friend',[{name:'code',label:'Friend code',maxLength:12}],async x=>{inventory=await command('add_friend',x);renderFriends();},'Send invitation'));
   hotspot(stage,'Ask for a Card','raven-request',()=>send('request'));hotspot(stage,'Send a Gift','raven-gift',()=>send('gift'));hotspot(stage,'Trade Cards','raven-trade',()=>send('trade_offer'));
-  hotspot(stage,'Friends','raven-friends',()=>{mailView=false;renderFriends();});hotspot(stage,'Inbox','raven-inbox',()=>{mailView=true;renderFriends();});hotspot(stage,'Back','raven-back',open);hotspot(stage,'Journey Cards','raven-collection',open);
+  hotspot(stage,'Friends','raven-friends',()=>{mailView=false;renderFriends();});hotspot(stage,'Inbox','raven-inbox',()=>{mailView=true;renderFriends();});hotspot(stage,'Back','raven-back',open);
   text(stage,'raven-gift-count','Gifts: '+inventory.gifts+' / 5');text(stage,'raven-trade-count','Trades: '+inventory.trades+' / 10');
   const list=document.createElement('div');list.className='raven-live-list';stage.append(list);
   const profile=document.createElement('div');profile.className='raven-row';const code=document.createElement('p');code.textContent='Your friend code: '+inventory.code+' · Daily limits reset at midnight UTC';profile.append(code,button(inventory.name+' · Edit name',()=>form('Your player name',[{name:'name',label:'Name',value:inventory.name}],async x=>{inventory=await command('profile',x);renderFriends();},'Save')));list.append(profile);
@@ -101,7 +101,7 @@
  document.addEventListener('keydown',e=>{if(!root||document.querySelector('dialog[open]'))return;if(e.key==='Escape'){e.preventDefault();close();}else if(e.key==='Tab'){const items=[...root.querySelectorAll('button:not(:disabled),[tabindex="0"]')].filter(x=>x.getClientRects().length);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}});
  window.ThroneCards={open,friends,reward,close};
  const settings=document.querySelector('#settings .content');if(settings){const replay=button("Replay Sir Edward's welcome",()=>window.ThroneWelcome?.play());replay.className='btn';settings.append(replay);}
- for(const target of ['.journey-stage','#rewards .content']){const parent=document.querySelector(target);if(parent){const b=button('Journey Cards',open);b.className='journey-cards-entry';parent.append(b);}}
+ for(const target of ['#rewards .content']){const parent=document.querySelector(target);if(parent){const b=button('Journey Cards',open);b.className='journey-cards-entry';parent.append(b);}}
  setInterval(()=>{if(inventory&&!document.hidden)command('state').then(x=>{inventory=x;receivedCards();}).catch(()=>{});},15000);
  const originalEndRound=endRound;endRound=function(){const event=match.length===10&&index>=10?'trivia:'+currentSeason+':'+Math.min(50,chosenLevel):null;originalEndRound();Promise.resolve(window.ThroneVault?.ready).then(async()=>{if(current!=='summary')return;if(event)await reward(event);if(current!=='summary')return;await window.ThroneCharacterUnlock?.();window.finishRoundPresentation?.();});};
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&root)refresh().catch(()=>{});});

@@ -29,6 +29,17 @@
  document.getElementById('narrate').addEventListener('change',()=>{if(!enabled()){player.pause();finish?.();}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden){hiddenPaused=!player.paused;player.pause();}else if(hiddenPaused){hiddenPaused=false;if(typeof current!=='undefined'&&current==='ttOnline')return;if(!window.ThronePause?.active)player.play().catch(()=>finish?.());}});
  window.addEventListener('pagehide',stop);
- const music=document.getElementById('music');let normalVolume=null;
- document.addEventListener('narrationstate',e=>{if(e.detail.speaking){if(normalVolume===null)normalVolume=music.volume;music.volume=normalVolume*.3;}else if(normalVolume!==null){music.volume=normalVolume;normalVolume=null;}});
+ const music=document.getElementById('music');let normalVolume=null,speaking=false,vault=false,coinReward=false,fade=0;
+ function duck(){
+  cancelAnimationFrame(fade);const active=speaking||vault||coinReward;
+  if(active&&normalVolume===null)normalVolume=music.volume;
+  if(normalVolume===null)return;
+  const target=normalVolume*(vault?.22:speaking?.3:coinReward?.55:1),from=music.volume,start=performance.now();
+  function step(now){const t=Math.min(1,(now-start)/180);music.volume=from+(target-from)*t;if(t<1)fade=requestAnimationFrame(step);else if(!speaking&&!vault&&!coinReward)normalVolume=null;}
+  fade=requestAnimationFrame(step);
+ }
+ document.addEventListener('narrationstate',e=>{speaking=!!e.detail.speaking;duck();});
+ document.addEventListener('vaultstate',e=>{vault=!!e.detail.active&&!!document.getElementById('effects')?.checked;duck();});
+ document.addEventListener('coinrewardstate',e=>{coinReward=!!e.detail.active&&!!document.getElementById('effects')?.checked;duck();});
+ document.getElementById('effects')?.addEventListener('change',()=>{if(!document.getElementById('effects').checked){vault=false;duck();}});
 })();

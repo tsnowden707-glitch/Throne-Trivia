@@ -1,0 +1,9 @@
+/* Align text to the production story container, not the standalone preview canvas.
+   The question is a child of .journey-story; its coordinates are local. */
+@media(orientation:landscape){
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-heading{left:27%!important;top:19.2%!important;width:56%!important;height:6.4%!important;min-height:0!important;padding:0 1%!important;margin:0!important;display:grid!important;place-items:center!important;text-align:center!important;line-height:1!important}
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-heading p{margin:0!important;text-align:center!important;line-height:1.1!important}
+ #journeyStory.journey-progress-gated .journey-stage:not(.journey-record-view) .journey-question{left:0!important;top:0!important;width:100%!important;height:51%!important;min-height:0!important;box-sizing:border-box!important;padding:12px 26px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;border:0!important;box-shadow:none!important;font:600 18px/1.25 Georgia,serif!important}
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-choices button{font-size:18px!important;line-height:1.15!important}
+}
+#journeyStory.journey-progress-gated .journey-question{white-space:pre-line!important}

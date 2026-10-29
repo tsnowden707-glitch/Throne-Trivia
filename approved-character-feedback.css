@@ -1,0 +1,4 @@
+/* Approved selection feedback only: no layout, artwork, or game-rule changes. */
+#characters .portrait.sel{border-color:#ff9b18!important;box-shadow:inset 0 0 0 1px #ffe6a1,inset 0 0 9px #ff5c0870,0 0 0 2px #ff6b08,0 0 11px #ff7a0be6,0 0 20px #ff3c0875!important}
+#characters .portrait:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#characters button.ready-selected{filter:brightness(1.12) drop-shadow(0 0 5px #ff942460)}

@@ -60,11 +60,10 @@
   });
  }
  window.ThroneWelcome={play:welcome};
- enterKingdoms=async function(){if(entering)return;entering=true;opening.pause();try{await welcome();enteredKingdoms=true;go('menu');await window.ThroneVault?.play();}finally{entering=false;}};
+ enterKingdoms=async function(){if(entering)return;entering=true;opening.pause();try{await welcome();enteredKingdoms=true;go('menu');}finally{entering=false;}};
  // Local results use only this player's outcome. Online results supply their
  // authenticated player identity and never use the practice scores.
  document.addEventListener('screenchange',e=>{
-  if(e.detail.page==='countdown')(window.ThroneVault?.ready||Promise.resolve()).then(()=>{if(current==='countdown')ThroneVoice.announce('countdown');});
   if(e.detail.page==='victory'&&playMode==='practice')ThroneVoice.announce(score>foe?'victory':score<foe?'defeat':'tie');
  });
  const originalStart=start;let rematchPending=false;

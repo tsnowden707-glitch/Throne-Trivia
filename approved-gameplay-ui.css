@@ -1,0 +1,117 @@
+/* Production presentation integration of accepted previews. No game rules. */
+@import url('levels-square-approved-preview.css?v=20261028-approved-4');
+@import url('character-landscape-fit-preview.css?v=20261028-approved-4');
+@import url('lobby-champion-preview.css?v=20261028-approved-4');
+#quiz #answers button:has(.approved-answer-copy),#ttOnline #onlineLiveOptions button:has(.approved-answer-copy){display:grid!important;grid-template-columns:2em minmax(0,1fr)!important;align-items:center!important;gap:.6em!important;padding-left:5%!important;padding-right:5%!important}
+.approved-answer-letter{display:grid;place-items:center;align-self:stretch;min-height:1.7em;border-right:2px solid #e5bd6b;color:#ffe3a1;font-weight:700}
+.approved-answer-copy{min-width:0;text-align:center;white-space:normal;overflow-wrap:break-word}
+#qnumber,#onlineQuestionNumber{font-variant-numeric:lining-nums tabular-nums!important;font-feature-settings:'lnum' 1,'tnum' 1!important}
+#levels .level-lock{width:18px;height:20px;object-fit:contain}
+#victory.approved-result #victoryHero,#victory.approved-result .content>.grow{display:none!important}
+.approved-result-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;min-height:0;flex:1}
+.approved-result-card{position:relative;display:grid;grid-template-rows:minmax(0,1fr) 2.2em 1.4em;min-width:0;min-height:0;padding:9px 6px 6px;border:3px solid #d4aa65;border-radius:7px;background:linear-gradient(145deg,#251c12f2,#080d16f5);color:#ffe4a3;text-align:center}
+.approved-result-card img{width:100%;height:100%;min-height:0;object-fit:contain}.approved-result-card h2{display:grid;place-items:center;font:700 17px/1.05 Georgia;margin:0}.approved-result-card strong{font:700 28px/1 Georgia;font-variant-numeric:lining-nums tabular-nums}
+.approved-result-card .winner-label{position:absolute;top:-15px;left:13%;width:74%;padding:5px 0;background:url('quiz-native-answer-preview.svg') center/100% 100% no-repeat;font:700 14px Georgia}
+#victory.approved-result #victoryStats{font:700 16px/1.2 Georgia!important;background:transparent url('quiz-native-answer-preview.svg') center/100% 100% no-repeat!important;border:0!important;text-align:center}
+@media(orientation:landscape){
+ #seasons .approved-stage #seasongrid{display:flex!important;flex-flow:row nowrap!important;gap:2vw!important;overflow-x:auto!important;overflow-y:hidden!important;align-items:center!important;scroll-snap-type:x mandatory;padding:8px!important}
+ #seasons .approved-stage #seasongrid:has(>.tile:only-child){justify-content:center!important}
+ #seasons .approved-stage #seasongrid>.tile{flex:0 0 26vh!important;width:26vh!important;height:26vh!important;min-width:26vh!important;min-height:26vh!important;max-width:none!important;scroll-snap-align:center;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;box-sizing:border-box}
+ #seasons #seasongrid .season-place-art{max-height:50%!important;object-fit:cover!important}#seasons #seasongrid small{font:700 clamp(12px,2.8vh,18px)/1.1 Georgia!important;color:#ffe4a3!important}
+ #characters.heading-outside .approved-stage .title{background:url('approved-action-frame.svg') center/100% 100% no-repeat}
+ #lobby .content>.grow{display:none!important}
+ #victory.approved-result .approved-stage>.content{inset:0!important;width:100%!important;height:100%!important;padding:0!important;display:block!important;overflow:visible!important}
+ #victory.approved-result #victoryTitle{position:absolute!important;left:28%!important;top:4%!important;width:44%!important;height:13%!important;margin:0!important;display:grid!important;place-items:center!important;font:700 clamp(25px,6.5vh,40px)/1 Georgia!important;background:url('quiz-native-question-preview.svg') center/100% 100% no-repeat}
+ #victory .approved-result-cards{position:absolute;left:13%;top:23%;width:74%;height:54%;grid-template-columns:31.08% 31.08%;justify-content:space-between;gap:0}
+ .approved-result-card h2{font-size:clamp(16px,4.3vh,24px)}.approved-result-card strong{font-size:clamp(30px,8.5vh,50px)}.approved-result-card{grid-template-rows:minmax(0,1fr) calc(clamp(16px,4.3vh,24px)*2.2) clamp(30px,8.5vh,50px)}
+ #victory.approved-result #victoryStats{position:absolute!important;left:39%!important;top:53%!important;width:22%!important;height:25%!important;box-sizing:border-box!important;padding:8px 12px!important;display:grid!important;place-items:center!important;margin:0!important;font-size:clamp(12px,3vh,18px)!important}
+ #victory.approved-result .content>button.btn{position:absolute!important;top:84%!important;width:23%!important;height:11%!important;min-height:0!important;padding:4px 12px!important;font-size:clamp(16px,4vh,24px)!important}
+ #victory.approved-result .content>button.btn.gold{left:26%!important}#victory.approved-result .content>button.btn:not(.gold){left:51%!important}
+}
+
+/* Readable safe areas: live text stays below the existing three HUD medallions. */
+@media(orientation:landscape){
+ #quiz.page .approved-stage>.content,#ttOnline.page .approved-stage>.content{left:10%!important;top:23%!important;width:80%!important;height:72%!important;padding:0!important;display:block!important;overflow:visible!important}
+ #quiz .content>.panel:not(.flex),#ttOnline .content>.panel{display:contents!important}
+ #quiz .content>.panel.flex,.online-score-row{height:0!important;min-height:0!important;margin:0!important;padding:0!important}
+ #quiz .approved-stage #qtext,#ttOnline .approved-stage #onlinePrompt{position:absolute!important;left:0!important;top:0!important;width:100%!important;height:38%!important;min-height:0!important;margin:0!important;box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:10px 5%!important;font:700 clamp(20px,5.5vh,30px)/1.12 Georgia!important;overflow:auto!important}
+ #quiz .approved-stage #qnumber,#ttOnline #onlineQuestionNumber{position:absolute!important;left:25%!important;top:40%!important;width:50%!important;height:8%!important;display:grid!important;place-items:center!important;margin:0!important;padding:0!important;font:700 clamp(15px,4vh,22px)/1 Georgia!important;background:none!important;border:0!important}
+ #quiz .approved-stage #answers,#ttOnline #onlineLiveOptions{position:absolute!important;left:0!important;top:51%!important;width:100%!important;height:44%!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:7px 12px!important;margin:0!important;min-height:0!important}
+ #quiz .approved-stage #answers button,#ttOnline #onlineLiveOptions button{height:100%!important;min-height:0!important;margin:0!important;font:700 clamp(17px,4.6vh,24px)/1.08 Georgia!important;box-sizing:border-box!important}
+ #quiz .approved-stage .panel.flex .score,#ttOnline #onlineScore>span{font-size:clamp(12px,3vh,17px)!important;line-height:1.05!important;width:20vw!important}
+ #quiz .approved-stage .panel.flex .score b,#ttOnline #onlineScore>span strong{font-size:clamp(25px,6vh,36px)!important;line-height:1.1!important;font-variant-numeric:tabular-nums lining-nums}
+ #quiz .approved-stage #clock,#ttOnline #onlineCountdown{font-size:clamp(27px,7vh,40px)!important;display:grid!important;place-items:center!important}
+ #qstatus,#onlineStatus{position:absolute!important;top:96%!important;left:0!important;width:100%!important;margin:0!important;font:12px/1.1 Georgia!important;text-align:center}
+}
+#summary.approved-result .content>.grow{display:none!important}
+#summary.approved-result #roundStats{font:700 16px/1.2 Georgia!important;text-align:center}
+@media(orientation:landscape){
+ #summary.approved-result .approved-stage>.content{inset:0!important;width:100%!important;height:100%!important;display:block!important;padding:0!important}
+ #summary.approved-result .title{position:absolute!important;top:4%!important;left:28%!important;width:44%!important;height:13%!important;display:grid!important;place-items:center!important;margin:0!important}
+ #summary .approved-result-cards{position:absolute;left:13%;top:23%;width:74%;height:54%;grid-template-columns:31.08% 31.08%;justify-content:space-between;gap:0}
+ #summary.approved-result #roundStats{position:absolute!important;left:39%!important;top:53%!important;width:22%!important;height:25%!important;padding:8px 12px!important;box-sizing:border-box!important;background:url('quiz-native-answer-preview.svg') center/100% 100% no-repeat!important;border:0!important}
+ #summary.approved-result .content>.small{position:absolute!important;left:20%!important;top:85%!important;width:60%!important;margin:0!important;text-align:center}
+}
+
+#approved-online-champions{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:10px;min-height:0;flex:1}
+#invite:not(.approved-online-waiting) #approved-online-champions{display:none}
+.online-waiting-card{min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;border:2px solid #d4aa65;background:#080d16e8;padding:5px;color:#ffe4a3;text-align:center}
+.online-waiting-card img,.online-waiting-placeholder{width:100%;height:0;min-height:0;flex:1;object-fit:contain}.online-waiting-placeholder{display:grid;place-items:center}
+.online-waiting-card strong{min-height:2.2em;display:grid;place-items:center;font:700 17px/1.1 Georgia}.online-waiting-vs{display:grid;place-items:center;font:700 26px Georgia;color:#ffe4a3}
+@media(orientation:landscape){
+ #invite.approved-online-waiting .approved-stage>.content{left:20%!important;top:13%!important;width:60%!important;height:81%!important;display:flex!important;flex-direction:column!important;gap:6px!important;padding:0!important;overflow:visible!important}
+ #invite.approved-online-waiting h1{flex:none!important;margin:0!important;font-size:clamp(20px,5vh,30px)!important}
+ #invite.approved-online-waiting #ttSeasonLabel{display:none!important}
+ #invite.approved-online-waiting .friend-approved-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:5px!important;flex:none!important}
+ #invite.approved-online-waiting .friend-approved-actions button{height:34px!important;min-height:34px!important;padding:3px 8px!important;font-size:15px!important}
+ #invite.approved-online-waiting #ttStatus{font:14px/1.1 Georgia!important;margin:0!important;flex:none!important}
+}
+
+/* Keep whole portraits visible in the shorter portrait-orientation cards. */
+@media(orientation:portrait){#characters #portraits .portrait img{object-fit:contain!important;background:#100f0d!important}}
+/* Review correction: fill the level cabinet and give answer markers real space. */
+@media(orientation:landscape){
+ #levels .approved-stage #levelgrid{--level-size:15.5vh;--level-gap:1vh;top:34%!important;height:49%!important}
+ #levels .approved-stage #levelgrid .tile{font-size:clamp(23px,6vh,32px)!important}
+ #levels .approved-stage #levelgrid .level-play-hint{font-size:clamp(12px,3.35vh,16px)!important;letter-spacing:-.02em}
+ #levels .approved-stage #levelgrid .level-lock{width:20px!important;height:22px!important}
+ #quiz #answers button:has(.approved-answer-copy),#ttOnline #onlineLiveOptions button:has(.approved-answer-copy){grid-template-columns:44px minmax(0,1fr)!important;gap:8px!important;padding-left:3%!important;padding-right:4%!important}
+ #quiz .approved-answer-letter,#ttOnline .approved-answer-letter{font:700 22px/1 Georgia!important;min-width:44px!important;box-sizing:border-box}
+ #quiz .approved-answer-copy,#ttOnline .approved-answer-copy{font:700 clamp(18px,4.7vh,24px)/1.08 Georgia!important}
+ #quiz .approved-stage #qnumber,#ttOnline #onlineQuestionNumber{font:700 20px/1 'Times New Roman',serif!important;font-variant-numeric:lining-nums tabular-nums!important}
+ #quiz .approved-stage .panel.flex .score{font-size:clamp(12px,3.35vh,16px)!important;white-space:normal!important}
+}
+
+/* Names wrap independently inside their medallions; scores keep their own row. */
+#quiz .approved-score-name,#ttOnline .approved-score-name{display:block!important;margin:0 auto!important;text-align:center!important;white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;font:700 11px/1.05 Georgia,serif!important;max-width:100%!important}
+@media(orientation:landscape){
+ #quiz .approved-score-name,#ttOnline .approved-score-name{width:min(70px,18vh)!important}
+}
+@media(orientation:portrait){
+ #quiz .panel.flex>.score,#ttOnline #onlineScore>span{width:17vw!important}
+ #quiz .approved-score-name,#ttOnline .approved-score-name{width:17vw!important;font-size:10px!important;line-height:1.05!important}
+}
+/* Portrait medallions sit close to the viewport edges: keep names within 54px. */
+@media(orientation:portrait){
+ #quiz .panel.flex>.score,#ttOnline #onlineScore>span{width:54px!important;max-width:54px!important}
+ #quiz .approved-score-name,#ttOnline .approved-score-name{width:54px!important;max-width:54px!important;font:700 9px/1.05 Georgia,serif!important;overflow-wrap:normal!important;word-break:normal!important}
+ #quiz .panel.flex>.score b,#ttOnline #onlineScore>span strong{display:block!important;font:700 22px/1.05 Georgia,serif!important;font-variant-numeric:tabular-nums lining-nums!important}
+ #quiz .approved-answer-letter,#ttOnline .approved-answer-letter{font:700 18px/1 Georgia,serif!important}
+}
+/* Compact results preserve actual scores and leave the stairs visible. */
+.approved-result-reward{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important}
+.approved-result-reward img{width:28px!important;height:28px!important;object-fit:contain!important}
+@media(orientation:landscape){
+ #victory.approved-result #victoryStats,#summary.approved-result #roundStats{left:34%!important;top:74%!important;width:32%!important;height:9%!important;padding:4px 14px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;font-size:14px!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important}
+}
+@media(orientation:portrait){
+ #victory.approved-result .approved-stage>.content,#summary.approved-result .approved-stage>.content{inset:0!important;width:100%!important;height:100%!important;display:block!important;padding:0!important;overflow:visible!important}
+ #victory.approved-result #victoryTitle,#summary.approved-result .title{position:absolute!important;left:15%!important;top:13%!important;width:70%!important;height:8%!important;min-height:0!important;box-sizing:border-box!important;display:grid!important;place-items:center!important;font-size:24px!important}
+ #victory.approved-result .approved-result-cards,#summary.approved-result .approved-result-cards{position:absolute!important;left:7%!important;top:26%!important;width:86%!important;height:34%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+ .approved-result-card{grid-template-rows:minmax(0,1fr) 38px 32px;padding:6px 4px}
+ .approved-result-card h2{font-size:16px}.approved-result-card strong{font-size:28px}
+ #victory.approved-result #victoryStats,#summary.approved-result #roundStats{position:absolute!important;left:18%!important;top:66%!important;width:64%!important;height:7%!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;box-sizing:border-box!important;font-size:15px!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important}
+ #victory.approved-result .content>button.btn{position:absolute!important;left:18%!important;width:64%!important;height:6%!important;min-height:0!important;top:77%!important}
+ #victory.approved-result .content>button.btn:not(.gold){top:85%!important}
+ #summary.approved-result .content>.small{position:absolute!important;left:12%!important;top:79%!important;width:76%!important}
+}

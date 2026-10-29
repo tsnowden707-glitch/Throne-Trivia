@@ -9,7 +9,7 @@ const KINGDOM_THEMES = [
 let activeKingdomTheme=localStorage.getItem('throne_theme_v2')||'royal-castle';
 if(!KINGDOM_THEMES.some(t=>t[0]===activeKingdomTheme))activeKingdomTheme='royal-castle';
 let themePage=0;
-const themePageSize=()=>innerHeight<500?2:4;
+const themePageSize=()=>4;
 const SCREEN_ART_IDS=['invite','characters','lobby','countdown','quiz','feedback','summary','victory','leaderboard','rewards','settings','seasons','levels'];
 function kingdomArt(screen,theme=activeKingdomTheme){
  if(matchMedia('(orientation: landscape)').matches && window.THRONE_LANDSCAPE_SETS?.[theme]?.[screen])return window.THRONE_LANDSCAPE_SETS[theme][screen].src;
@@ -32,6 +32,7 @@ function sizeMenuArtwork(){const app=document.querySelector('.app'),landscape=ap
 new ResizeObserver(()=>{sizeMenuArtwork();applyActiveKingdomArtwork();}).observe(document.querySelector('.app'));sizeMenuArtwork();
 function setKingdomTheme(id){
  if(!KINGDOM_THEMES.some(t=>t[0]===id))return;
+ if(window.ThroneThemes&&!ThroneThemes.owned(id))return;
  activeKingdomTheme=id;localStorage.setItem('throne_theme_v2',id);
  document.querySelector('.app').dataset.kingdom=id;
  composition.classList.toggle('themed',id!=='royal-castle');
@@ -42,14 +43,17 @@ function setKingdomTheme(id){
 function showThemeChoices(){
  const box=$('rewardBox');box.replaceChildren();box.classList.add('theme-browser');const size=themePageSize(),pages=Math.ceil(KINGDOM_THEMES.length/size);themePage=Math.min(themePage,pages-1);
  const title=document.createElement('h3');title.textContent='Choose your kingdom';
- const note=document.createElement('p');note.className='small';note.textContent='15 screens per kingdom · Your choice is saved';
+ const note=document.createElement('p');note.className='small';note.textContent='Preview free · Buy once with earned coins · Owned themes stay yours';
  const grid=document.createElement('div');grid.className='theme-grid';
  KINGDOM_THEMES.slice(themePage*size,themePage*size+size).forEach(([id,name])=>{
   const button=document.createElement('button');button.className='theme-card';button.setAttribute('aria-pressed',String(activeKingdomTheme===id));
   button.disabled=!window.THRONE_THEME_SETS?.[id];
   const img=document.createElement('img');img.src=kingdomArt('menu',id);img.alt='';
-  const label=document.createElement('span');label.textContent=name+(id===activeKingdomTheme?' ✓':'');button.append(img,label);
-  button.onclick=()=>{setKingdomTheme(id);showThemeChoices();};grid.append(button);
+  const label=document.createElement('span');label.textContent=name+(id===activeKingdomTheme?' ✓':window.ThroneThemes&&!ThroneThemes.owned(id)?' · '+ThroneThemes.prices[id]+' coins':' · Owned');button.append(img,label);
+  button.onclick=()=>{
+   if(!window.ThroneThemes||ThroneThemes.owned(id)){setKingdomTheme(id);showThemeChoices();return;}
+   box.querySelector('.theme-purchase')?.remove();const detail=document.createElement('div');detail.className='theme-purchase';const message=document.createElement('p');message.textContent=name+' preview · '+ThroneThemes.prices[id]+' coins to own permanently.';const buy=document.createElement('button');buy.className='btn gold';buy.textContent='BUY & EQUIP · '+ThroneThemes.prices[id]+' COINS';buy.onclick=()=>{try{ThroneThemes.purchase(id);setKingdomTheme(id);const count=document.getElementById('coinNum');if(count)count.textContent=localStorage.getItem('throne_coins_v1')||'0';showThemeChoices();}catch(error){message.textContent=error.message;}};detail.append(message,buy);box.append(detail);/* Fixed Rewards layout keeps purchase controls visible without scrolling the heading away. */
+  };grid.append(button);
  });
  const pager=document.createElement('div');pager.className='theme-pager';
  const prev=document.createElement('button'),next=document.createElement('button'),page=document.createElement('span');

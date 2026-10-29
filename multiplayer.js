@@ -13,7 +13,7 @@ window.TT = (()=>{
  function begin(){if(poll)clearInterval(poll);poll=setInterval(refresh,950);refresh()}
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&room){needsNarration=true;refresh()}});
  function escapeHtml(s){return String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
- async function refresh(){if(!room||refreshing)return;refreshing=true;const requestedRoom=room;try{const s=await exec('tt_state',{p_room:room});if(room!==requestedRoom)return;if(s.state==='waiting'){if(s.guest&&!arrivalPlayed){arrivalPlayed=true;window.ThroneVoice?.announce('arrival');}status(s.guest?'Both players connected · waiting for READY':'Room '+s.code+' · Waiting for friend to join');return;}
+ async function refresh(){if(!room||refreshing)return;refreshing=true;const requestedRoom=room;try{const s=await exec('tt_state',{p_room:room});if(room!==requestedRoom)return;if(s.state==='waiting'){roomDetails=await exec('tt_room_details',{p_room:room});if(room!==requestedRoom)return;window.dispatchEvent(new CustomEvent('throne-online-presentation',{detail:{state:s,details:roomDetails,myId}}));if(s.guest&&!arrivalPlayed){arrivalPlayed=true;window.ThroneVoice?.announce('arrival');}status(s.guest?'Both players connected · waiting for READY':'Room '+s.code+' · Waiting for friend to join');return;}
  if(s.state==='finished'){if(ended)return;roomDetails=await exec('tt_room_details',{p_room:room});const {data}=await client().auth.getUser();if(room!==requestedRoom)return;ended=true;clearInterval(poll);poll=null;showOnlineVictory(s,roomDetails,data.user.id);Promise.resolve(window.ThroneVault?.ready).then(()=>window.ThroneCards?.reward("online:"+requestedRoom));return;}
  if(current!=='ttOnline')go('ttOnline');const reveal=new Date(s.reveal_at).getTime(),close=new Date(s.closes_at).getTime(),now=s.server_now?new Date(s.server_now).getTime():Date.now();
  if(s.round!==currentRound){currentRound=s.round;shown=false;el('onlineLiveOptions').innerHTML='';el('onlinePrompt').textContent=s.prompt;const counter=el('onlineQuestionNumber');if(counter)counter.textContent='QUESTION '+s.round+' OF 10';el('onlineStatus').textContent='';needsNarration=true;}
@@ -27,7 +27,7 @@ window.TT = (()=>{
   if(!room||submitting)return;
   const requestedRoom=room,round=currentRound;
   submitting=true;el('onlineLiveOptions').querySelectorAll('button').forEach(b=>b.disabled=true);
-  try{const r=await exec('tt_answer_round',{p_room:requestedRoom,p_index:index,p_round:round});if(room!==requestedRoom||round!==currentRound)return;el('onlineStatus').textContent='Answer locked. Points: '+r.points;}
+  try{const r=await exec('tt_answer_round',{p_room:requestedRoom,p_index:index,p_round:round});if(room!==requestedRoom||round!==currentRound)return;el('onlineStatus').textContent='Answer locked. Points: '+r.points;window.ThroneEffects?.play(Number(r.points)>0?'correct':'wrong');}
   catch(e){if(room===requestedRoom&&round===currentRound){el('onlineStatus').textContent=e.message;el('onlineLiveOptions').querySelectorAll('button').forEach(b=>b.disabled=false);}}
   finally{submitting=false;if(room===requestedRoom)refresh();}
  }

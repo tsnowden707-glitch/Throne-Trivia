@@ -5,7 +5,7 @@
   "description": "Throne Trivia \u2014 your journey through the Seven Kingdoms",
   "start_url": "./index.html",
   "scope": "./",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#080e15",
   "theme_color": "#080e15",
   "icons": [

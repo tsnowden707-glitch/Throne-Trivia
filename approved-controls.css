@@ -245,3 +245,11 @@
  #victory .content>.btn:first-of-type{grid-column:1}
  #victory .content>.btn:last-of-type{grid-column:2}
 }
+
+/* Existing countdown oval: warm, steady fire light with no flashing. */
+#countdown .approved-stage #count{line-height:1;margin:0;text-align:center;color:#fff1bd;text-shadow:0 1px 0 #ffd267,0 0 5px #ffb52e,0 0 14px #ff7200,0 0 24px #a52b00;font-weight:700}
+#countdown .approved-stage #count.count-begin{font-size:clamp(28px,7cqw,64px)!important}
+
+/* Approved frames remain intact; color and symbols identify the locked answer. */
+#quiz #answers .answer.good,#ttOnline #onlineLiveOptions .answer.good{color:#a4ffb7!important;text-shadow:0 1px 2px #031c08,0 0 8px #138b32!important;filter:drop-shadow(0 0 6px #1ad44d);opacity:1!important}
+#quiz #answers .answer.bad,#ttOnline #onlineLiveOptions .answer.bad{color:#ffaaaa!important;text-shadow:0 1px 2px #290202,0 0 8px #ac1818!important;filter:drop-shadow(0 0 6px #ed3030);opacity:1!important}

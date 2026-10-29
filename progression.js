@@ -43,5 +43,13 @@ start=function(){
 };
 const endRoundBeforeProgress=endRound;
 let creditedCampaignMatch=null;
-endRound=function(){if(creditedCampaignMatch===match)return;if(match.length===10&&index>=10){creditedCampaignMatch=match;const p=campaignProgress();p[currentSeason]=Math.min(50,completedLevels(currentSeason)+1);localStorage.setItem('throne_campaign_v2',JSON.stringify(p));localStorage.removeItem('throne_pending_'+currentSeason);}endRoundBeforeProgress();};
+endRound=function(){
+ if(creditedCampaignMatch===match||match.length!==10||index<10)return;
+ const earned=ThroneEconomy.claim(currentSeason,chosenLevel,right);
+ coins=earned.total;window.lastCampaignCoinReward=earned;creditedCampaignMatch=match;
+ try{window.ThroneArmory?.sync();}catch(error){console.warn('Equipment award will retry when the save becomes available.');}
+ localStorage.removeItem('throne_pending_'+currentSeason);endRoundBeforeProgress();
+ if(earned.total>0)window.ThroneEffects?.play('coin');
+ if(earned.season>0&&currentSeason<8)window.ThroneEffects?.play('unlock');
+};
 document.querySelectorAll('.back').forEach(b=>b.setAttribute('aria-label','Back'));
