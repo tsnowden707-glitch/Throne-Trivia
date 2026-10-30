@@ -11,12 +11,12 @@
  function play(src,callback=()=>{},offset=0,media=null,spokenSource=src){
   const prepared=media&&media.getAttribute('src')===src&&media.readyState>=2;stop(prepared?media:null);player=media||audioPlayer;observe(player);captionSrc=spokenSource;const own=token;
   let ended=false;
-  const done=()=>{if(ended||own!==token)return;ended=true;finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));callback();};
-  finish=done;
-  if(!enabled()||document.hidden){queueMicrotask(done);return;}
-  player.onloadedmetadata=null;player.muted=new URL(location.href).searchParams.get("quiet")==="1";if(!prepared)player.src=src;else if(player.currentTime!==0)player.currentTime=0;player.playbackRate=1;player.onended=done;player.onerror=()=>{if(media&&own===token)play(spokenSource,callback,offset);else done();};
+  const done=(reason='ended')=>{if(ended||own!==token)return;ended=true;finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));callback({completed:reason==='ended',reason});};
+  finish=()=>done('interrupted');
+  if(!enabled()||document.hidden){queueMicrotask(()=>done('disabled'));return;}
+  player.onloadedmetadata=null;player.muted=new URL(location.href).searchParams.get("quiet")==="1";if(!prepared)player.src=src;else if(player.currentTime!==0)player.currentTime=0;player.playbackRate=1;player.onended=()=>done('ended');player.onerror=()=>{if(media&&own===token)play(spokenSource,callback,offset);else done('error');};
   document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:true,src:spokenSource}}));
-  const start=()=>{if(own!==token)return;if(offset>0){if(offset>=player.duration){done();return;}player.currentTime=offset;}player.play().catch(done);};
+  const start=()=>{if(own!==token)return;if(offset>0){if(offset>=player.duration){done();return;}player.currentTime=offset;}player.play().catch(()=>done('playback-blocked'));};
   if(offset>0&&player.readyState<1){player.onloadedmetadata=start;player.preload='auto';player.load();}else start();
  }
  // Only verified authentic unlock recordings belong here; missing recordings remain silent.

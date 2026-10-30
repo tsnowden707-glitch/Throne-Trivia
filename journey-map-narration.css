@@ -1,0 +1,4 @@
+#journeyStory .journey-record .journey-map-hear-bella{position:absolute;z-index:12;left:5%;top:88%;width:25%;height:7%;min-height:32px;padding:5px 16px;border:0;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat;color:#ffe4a3;font:700 clamp(12px,1.6vw,18px)/1 Georgia,serif;text-align:center;cursor:pointer}
+#journeyStory .journey-record .journey-map-hear-bella[hidden]{display:none!important}
+@media(orientation:portrait){#journeyStory .journey-record .journey-map-hear-bella{left:5%;top:86%;width:33%;height:4%;font-size:14px}}
+

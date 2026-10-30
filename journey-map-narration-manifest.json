@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "enabled": true,
+  "notes": "23 approved passages from user-supplied Bella recording. Local Whisper transcript matched against approved script; cuts at inter-paragraph silence midpoints. No generated or substituted speech.",
+  "clips": [
+    {
+      "id": "map-explanation-01",
+      "group": "map-explanation",
+      "text": "Welcome to your journey. Your rider marks your progress through the eight seasons. Your standing reflects the alliances you build, the promises you keep, and the resources you gather.",
+      "src": "audio/bella-journey-map/01-map-explanation-01.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "map-open"
+      },
+      "playOnce": true,
+      "duration": 12.035
+    },
+    {
+      "id": "map-explanation-02",
+      "group": "map-explanation",
+      "text": "Green means your position is secure. Yellow means you are vulnerable. Red signals danger. Your standing can change, and the choices ahead may help you recover.",
+      "src": "audio/bella-journey-map/02-map-explanation-02.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "map-open"
+      },
+      "playOnce": true,
+      "duration": 11.635
+    },
+    {
+      "id": "map-season-01",
+      "group": "season-introduction",
+      "text": "Your journey begins. Choose your loyalties carefully, and remember the promises you make. Even a small decision can shape the road ahead.",
+      "src": "audio/bella-journey-map/03-map-season-01.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 1
+      },
+      "playOnce": true,
+      "duration": 9.265
+    },
+    {
+      "id": "map-season-02",
+      "group": "season-introduction",
+      "text": "A new season opens before you. Carry your alliances forward, take stock of your resources, and consider what you can afford to promise.",
+      "src": "audio/bella-journey-map/04-map-season-02.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 2
+      },
+      "playOnce": true,
+      "duration": 9.12
+    },
+    {
+      "id": "map-season-03",
+      "group": "season-introduction",
+      "text": "Your journey grows more complex. Loyalty must be supported by action, and every commitment deserves careful thought.",
+      "src": "audio/bella-journey-map/05-map-season-03.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 3
+      },
+      "playOnce": true,
+      "duration": 8.355
+    },
+    {
+      "id": "map-season-04",
+      "group": "season-introduction",
+      "text": "You have come far. Look at the strength of your alliances and the promises still waiting to be fulfilled before choosing your next step.",
+      "src": "audio/bella-journey-map/06-map-season-04.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 4
+      },
+      "playOnce": true,
+      "duration": 8.78
+    },
+    {
+      "id": "map-season-05",
+      "group": "season-introduction",
+      "text": "The road continues. A strong position takes more than ambition. Consider your resources, your obligations, and those who stand beside you.",
+      "src": "audio/bella-journey-map/07-map-season-05.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 5
+      },
+      "playOnce": true,
+      "duration": 9.795
+    },
+    {
+      "id": "map-season-06",
+      "group": "season-introduction",
+      "text": "Another season begins. Your past choices have brought you here, but your next choices still matter. Review your standing before moving forward.",
+      "src": "audio/bella-journey-map/08-map-season-06.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 6
+      },
+      "playOnce": true,
+      "duration": 9.665
+    },
+    {
+      "id": "map-season-07",
+      "group": "season-introduction",
+      "text": "You are nearing the final stretch. Protect what you have built, and weigh new commitments against the promises you already carry.",
+      "src": "audio/bella-journey-map/09-map-season-07.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 7
+      },
+      "playOnce": true,
+      "duration": 8.025
+    },
+    {
+      "id": "map-season-08",
+      "group": "season-introduction",
+      "text": "The final season lies ahead. Take stock of your journey, honor what you can, and choose your remaining steps with care.",
+      "src": "audio/bella-journey-map/10-map-season-08.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "season-map-open",
+        "season": 8
+      },
+      "playOnce": true,
+      "duration": 8.3
+    },
+    {
+      "id": "map-update-01",
+      "group": "standing-update",
+      "text": "You have built a steady position. Keep supporting the relationships and commitments that helped you reach it.",
+      "src": "audio/bella-journey-map/11-map-update-01.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 6.335
+    },
+    {
+      "id": "map-update-02",
+      "group": "standing-update",
+      "text": "Your footing is strong for now. Stay attentive; a secure position still needs care.",
+      "src": "audio/bella-journey-map/12-map-update-02.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 6.505
+    },
+    {
+      "id": "map-update-03",
+      "group": "standing-update",
+      "text": "Your position needs attention. Review your promises and resources before taking on more.",
+      "src": "audio/bella-journey-map/13-map-update-03.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 5.86
+    },
+    {
+      "id": "map-update-04",
+      "group": "standing-update",
+      "text": "You are on uncertain ground. Consider which commitments need support and where you may be stretching too far.",
+      "src": "audio/bella-journey-map/14-map-update-04.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 7.325
+    },
+    {
+      "id": "map-update-05",
+      "group": "standing-update",
+      "text": "The pressure on your journey is growing. Look carefully at your obligations before making your next commitment.",
+      "src": "audio/bella-journey-map/15-map-update-05.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 6.695
+    },
+    {
+      "id": "map-update-06",
+      "group": "standing-update",
+      "text": "Your position is under strain. The road is not closed, but your next decisions deserve extra care.",
+      "src": "audio/bella-journey-map/16-map-update-06.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 6.77
+    },
+    {
+      "id": "map-update-07",
+      "group": "standing-update",
+      "text": "Your standing has improved. Take note of what has strengthened your position as you continue.",
+      "src": "audio/bella-journey-map/17-map-update-07.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 5.645
+    },
+    {
+      "id": "map-update-08",
+      "group": "standing-update",
+      "text": "You are gaining firmer ground. Keep building on that progress without overlooking the promises still ahead.",
+      "src": "audio/bella-journey-map/18-map-update-08.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 6.705
+    },
+    {
+      "id": "map-update-09",
+      "group": "standing-update",
+      "text": "Your standing has slipped. Review what has changed, and consider where your next choices could restore balance.",
+      "src": "audio/bella-journey-map/19-map-update-09.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 6.91
+    },
+    {
+      "id": "map-update-10",
+      "group": "standing-update",
+      "text": "You have met a setback. It does not decide your whole journey. Take stock, then choose your next step carefully.",
+      "src": "audio/bella-journey-map/20-map-update-10.mp3",
+      "verified": true,
+      "trigger": null,
+      "playOnce": true,
+      "duration": 7.75
+    },
+    {
+      "id": "map-status-green",
+      "group": "current-standing",
+      "text": "Your current standing is secure.",
+      "src": "audio/bella-journey-map/21-map-status-green.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "every-map-open",
+        "color": "green"
+      },
+      "playOnce": false,
+      "duration": 2.31
+    },
+    {
+      "id": "map-status-yellow",
+      "group": "current-standing",
+      "text": "Your current standing is vulnerable.",
+      "src": "audio/bella-journey-map/22-map-status-yellow.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "every-map-open",
+        "color": "yellow"
+      },
+      "playOnce": false,
+      "duration": 2.645
+    },
+    {
+      "id": "map-status-red",
+      "group": "current-standing",
+      "text": "Your current standing is in danger.",
+      "src": "audio/bella-journey-map/23-map-status-red.mp3",
+      "verified": true,
+      "trigger": {
+        "type": "every-map-open",
+        "color": "red"
+      },
+      "playOnce": false,
+      "duration": 2.738
+    }
+  ]
+}
