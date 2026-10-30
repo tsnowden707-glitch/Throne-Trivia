@@ -225,3 +225,9 @@
 #invite #ttStatus:empty{display:none!important}
 @media(orientation:landscape){#invite:not(.approved-online-waiting) .approved-stage>.content{top:49%!important;height:37%!important}}
 @media(orientation:portrait){#invite:not(.approved-online-waiting) .approved-stage>.content{top:44%!important;height:46%!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:12px!important}#invite:not(.approved-online-waiting) .title{margin:0!important;padding:8px 18px!important;min-height:52px!important;flex:none!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important}}
+
+/* Text-safe interior excludes the frame's transparent outer margins and ruby corners. */
+#quiz.page .approved-stage #qtext,#ttOnline.page .approved-stage #onlinePrompt{padding:20px 14%!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important;overflow:hidden!important;min-width:0!important;line-height:1.12!important}
+@media(orientation:portrait){#quiz.page .approved-stage #qtext,#ttOnline.page .approved-stage #onlinePrompt{padding:18px 13%!important}}
+
+#quiz.page .approved-stage #qtext,#ttOnline.page .approved-stage #onlinePrompt{background-image:url('clean-question-panel-frame.svg')!important}

@@ -8,7 +8,8 @@
   const cs=getComputedStyle(el),max=parseFloat(cs.fontSize),space=el.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
   const range=document.createRange();range.selectNodeContents(el);
   let size=max;
-  while(size>14&&(range.getBoundingClientRect().height>space-8||el.scrollWidth>el.clientWidth+1)){
+  const innerWidth=el.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  while(size>14&&(range.getBoundingClientRect().height>space-8||range.getBoundingClientRect().width>innerWidth+1||el.scrollWidth>el.clientWidth+1)){
    size-=.5;el.style.setProperty('font-size',size+'px','important');
   }
  }}
