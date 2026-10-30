@@ -15,7 +15,7 @@
   let area, sources = [], active = '', sparks = [], artImage=null, artRegions=[];
   let fireTiles=[],fireTileKey='';
   function prepareFireTiles(){
-    const key=(artImage?.currentSrc||'')+JSON.stringify(artRegions);
+    const key=active+(artImage?.currentSrc||'')+JSON.stringify(artRegions);
     if(key===fireTileKey)return;
     fireTiles=[];
     if(!artImage?.complete||!artImage.naturalWidth){fireTileKey='';return;}
@@ -33,7 +33,8 @@
           const warm=r>180&&g>65&&r>b*1.3;
           const cool=b>175&&g>100&&b>r*1.2;
           const edge=Math.min(1,px/8,py/8,(tile.width-1-px)/8,(tile.height-1-py)/8);
-          data[n+3]=warm||cool?Math.round(255*Math.max(0,edge)):0;
+          const flameOnly=active!=='lobby'||py<tile.height*.72;
+          data[n+3]=(warm||cool)&&flameOnly?Math.round(255*Math.max(0,edge)):0;
         }
         paint.putImageData(pixels,0,0);fireTiles.push({tile,x,y,w,h});
       }catch(_){/* Leave unverified cross-origin pixels unmodified. */}
@@ -184,7 +185,8 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
         ctx.globalAlpha=.12+.12*(1+Math.sin(time*8.7+i*2))+.04*Math.sin(time*17+i)**2;
         for(let k=0;k<12;k++){
           const sy=k*tile.height/12,sh=tile.height/12;
-          const dx=Math.sin(time*6+k*.7+i)*Math.min(2,area.w*.003)*(1-k/12);
+          const dx=active==='lobby'?0:Math.sin(time*6+k*.7+i)*Math.min(2,area.w*.003)*(1-k/12);
+          if(active==='lobby')ctx.globalAlpha=.10+.10*(1+Math.sin(time*5+k*.9+i*2))+.035*Math.sin(time*13+i+k)**2;
           ctx.drawImage(tile,0,sy,tile.width,sh,area.x+x*area.w+dx,area.y+(y+h*k/12)*area.h,w*area.w,h*area.h/12+.5);
         }ctx.restore();
       });

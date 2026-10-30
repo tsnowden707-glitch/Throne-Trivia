@@ -36,7 +36,7 @@
   if(['splash','menu'].includes(page)&&!opening.hidden&&!document.hidden&&!reduced.matches)opening.play().catch(()=>{});else opening.pause();
   const show=page==='countdown';
   portrait.hidden=!show;
-  if(show){document.getElementById(page).append(portrait);if(!document.hidden&&!reduced.matches)portrait.play().catch(()=>{});}
+  if(show){const target=document.getElementById(page);if(portrait.parentElement!==target)target.append(portrait);if(!document.hidden&&!reduced.matches)portrait.play().catch(()=>{});}
   else portrait.pause();
  }
  document.addEventListener('screenchange',e=>update(e.detail.page));

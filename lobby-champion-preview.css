@@ -28,3 +28,5 @@
  #lobby .content>.btn{flex:none!important;min-height:42px!important;width:100%!important}
  #lobby .content>.small{flex:none!important}
 }
+#lobby .panel.flex>.score p{position:relative}
+#lobby .panel.flex>.score p::before{content:'';position:absolute;left:0;right:0;top:-3px;height:3px;border-top:1px solid #d4aa65;border-bottom:1px solid #d4aa65;pointer-events:none}
