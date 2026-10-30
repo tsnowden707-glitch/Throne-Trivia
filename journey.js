@@ -31,9 +31,9 @@
   const opening=/^chapter-(0[1-8])-opening-short$/.exec(id);
   const file=id==='journey-progress-gate'?'journey-progress-gate':id==='journey-intro-short'?'journey-intro':opening?'season-'+opening[1]:null;
   const finish=()=>{welcome.hidden=true;welcomeVideo.pause();page.classList.remove('bella-welcome-playing');pose('idle');if(activeVideo.readyState>=2&&!reduced.matches&&current==='journeyStory')activeVideo.play().catch(()=>{});if(!lipVideo.hidden&&!reduced.matches&&activeVideo.readyState>=2){lipVideo.style.transition='opacity .24s ease';lipVideo.style.opacity='0';setTimeout(()=>{if(speechToken===speechFinishToken){lipVideo.hidden=true;lipVideo.style.opacity='1';}},250);}else lipVideo.hidden=true;done();};
-  if(id==='journey-intro-short'&&document.getElementById('narrate').checked){poseToken++;video.pause();spare.pause();lipVideo.hidden=true;welcome.hidden=false;page.classList.add('bella-welcome-playing');welcomeSkip.onclick=()=>{ThroneVoice.stop();finish();};ThroneVoice.video(welcomeVideo,'video/bella/welcome-smooth-approved.mp4','audio/bella/'+id+'.mp3',finish);return;}
+  if(id==='journey-intro-short'&&document.getElementById('narrate').checked){video.pause();spare.pause();lipVideo.hidden=true;welcome.hidden=false;page.classList.add('bella-welcome-playing');welcomeSkip.onclick=()=>{ThroneVoice.stop();finish();};ThroneVoice.video(welcomeVideo,'video/bella/welcome-smooth-approved.mp4','audio/bella/'+id+'.mp3',finish);return;}
   if(file&&document.getElementById('narrate').checked){
-   poseToken++;video.pause();spare.pause();lipVideo.hidden=false;lipVideo.muted=false;
+   video.pause();spare.pause();lipVideo.hidden=false;lipVideo.muted=false;
    ThroneVoice.video(lipVideo,'video/bella/'+file+'-lipsynced.mp4','audio/bella/'+id+'.mp3',finish);
   }else{lipVideo.hidden=true;pose('idle');ThroneVoice.bella(id,finish);}
  }
