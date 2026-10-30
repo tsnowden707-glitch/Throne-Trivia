@@ -12,3 +12,6 @@
 /* Approved widescreen master retains its full composition in both orientations. */
 .edward-welcome-stage{width:min(100vw,calc(100dvh * 16 / 9));height:auto;aspect-ratio:16/9}.edward-welcome-stage .edward-firelight{display:none}
 
+/* Phone welcome fills the viewport; portrait crops the room, retaining Edward's face. */
+.edward-welcome-screen .edward-welcome-stage{width:100vw;height:100dvh;aspect-ratio:auto;box-shadow:none}
+.edward-welcome-screen .edward-welcome-stage video{width:100%;height:100%;object-fit:cover;object-position:50% 0%}
