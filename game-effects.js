@@ -47,7 +47,7 @@
   });
  },true);
  function stopVault(){vaultAudio.pause();vaultAudio.currentTime=0;}
- document.addEventListener('vaultstate',e=>{vaultActive=!!e.detail.active;if(!vaultActive){stopVault();return;}stop();if(enabled()&&gesture){vaultAudio.currentTime=0;vaultAudio.play().catch(()=>{});}});
+ document.addEventListener('vaultstate',e=>{vaultActive=!!e.detail.active;if(!vaultActive){stopVault();return;}stop();if(enabled()&&gesture&&!e.detail.embeddedAudio){vaultAudio.currentTime=0;vaultAudio.play().catch(()=>{});}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();stopVault();}});
  document.addEventListener('narrationstate',event=>{
   narrating=!!event.detail.speaking;

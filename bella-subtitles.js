@@ -15,7 +15,8 @@
   if(!active||!e.detail.src?.endsWith('/'+active+'.mp3'))return;
   // Keep the exact unlock requirement visible during the generic gate voice line.
   if(active==='journey-progress-gate')return;
-  const spoken=words.filter(w=>w.start<=e.detail.time);
+  const offset=active==='journey-intro-short'&&page.classList.contains('bella-welcome-playing')?5:0;
+  const spoken=words.filter(w=>w.start<=e.detail.time-offset);
   text.textContent=spoken.map(w=>w.word).join(' ');text.scrollTop=text.scrollHeight;
  });
  document.addEventListener('screenchange',()=>{epoch++;active='';});

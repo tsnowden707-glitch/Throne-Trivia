@@ -49,8 +49,8 @@
    window.ThroneVoice?.stop();
    const panel=document.createElement('div'),clip=document.createElement('video'),skip=document.createElement('button');
    panel.className='edward-welcome-screen';panel.setAttribute('role','dialog');panel.setAttribute('aria-label',"Sir Edward's welcome");panel.setAttribute('aria-modal','true');
-   clip.src='video/edward-welcome-lipsynced.mp4';clip.playsInline=true;clip.preload='auto';clip.muted=new URL(location.href).searchParams.get('quiet')==='1'||document.getElementById('narrate')?.checked===false;
-   const stage=document.createElement('div');stage.className='edward-welcome-stage';stage.append(clip);clip.poster='video/edward-welcome-poster.jpg';
+   clip.src='video/edward-welcome-widescreen-approved.mp4';clip.playsInline=true;clip.preload='auto';clip.muted=new URL(location.href).searchParams.get('quiet')==='1'||document.getElementById('narrate')?.checked===false;
+   const stage=document.createElement('div');stage.className='edward-welcome-stage';stage.append(clip);clip.poster='video/edward-welcome-widescreen-poster.jpg';
    for(const [x,y,size] of [[2.5,33,7],[7,37,5],[74,47,5],[97,50,18]]){const light=document.createElement('i');light.className='edward-firelight';light.style.cssText=`left:${x}%;top:${y}%;width:${size}%;height:${size}%;animation-delay:-${x/10}s`;stage.append(light);}
    skip.textContent='Skip';skip.className='edward-welcome-skip';panel.append(stage,skip);document.body.append(panel);let done=false;
    const speaking=value=>document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:value,src:clip.src}}));

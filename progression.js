@@ -45,7 +45,9 @@ const endRoundBeforeProgress=endRound;
 let creditedCampaignMatch=null;
 endRound=function(){
  if(creditedCampaignMatch===match||match.length!==10||index<10)return;
+ const priorStoryGate=window.ThroneJourney?.getGateStatus();
  const earned=ThroneEconomy.claim(currentSeason,chosenLevel,right);
+ window.ThroneJourneyRoute?.crossed(priorStoryGate,window.ThroneJourney?.getGateStatus(),earned);
  coins=earned.total;window.lastCampaignCoinReward=earned;creditedCampaignMatch=match;
  try{window.ThroneArmory?.sync();}catch(error){console.warn('Equipment award will retry when the save becomes available.');}
  localStorage.removeItem('throne_pending_'+currentSeason);endRoundBeforeProgress();

@@ -11,3 +11,20 @@
  #lobby .content>.btn{height:42px!important;min-height:42px!important;flex:none!important;font:700 20px Georgia!important;padding:6px 24px!important}
  #lobby .content>.small.lobby-redundant-label{display:none!important}
 }
+
+/* Both solo portraits fill their existing framed cards evenly. */
+#lobby .panel.flex>.score{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important}
+#lobby .panel.flex>.score .avatar{width:100%!important;max-width:none!important;height:0!important;min-height:0!important;max-height:none!important;flex:1 1 0!important;object-fit:cover!important;object-position:center 24%!important;aspect-ratio:auto!important}
+#lobby .panel.flex>.score p{flex:0 0 auto!important;min-height:2.2em;display:grid;place-items:center;margin:3px 0!important;text-align:center;overflow-wrap:anywhere}
+#lobby .panel.flex>b{align-self:center!important;text-align:center!important}
+/* Portrait needs an explicit card row: flex images otherwise collapse to zero. */
+@media(orientation:portrait){
+ #lobby .approved-stage>.content{position:absolute!important;left:7%!important;top:24%!important;width:86%!important;height:58%!important;display:flex!important;flex-direction:column!important;gap:12px!important;overflow:visible!important;padding:0!important}
+ #lobby .title{flex:none!important;min-height:50px!important;font:700 24px/1.05 Georgia!important;text-align:center;padding:0!important}
+ #lobby .panel.flex{display:grid!important;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr)!important;align-items:stretch!important;gap:7px!important;flex:1 1 0!important;height:0!important;min-height:0!important;background:none!important;border:0!important;padding:0!important}
+ #lobby .panel.flex>.score{width:100%!important;height:100%!important;padding:3px!important;box-sizing:border-box;border:2px solid #d4aa65!important;border-radius:6px;background:#111318!important}
+ #lobby .panel.flex>.score p{font:700 14px/1.15 Georgia!important;min-height:38px}
+ #lobby .panel.flex>b{font:700 24px Georgia!important}
+ #lobby .content>.btn{flex:none!important;min-height:42px!important;width:100%!important}
+ #lobby .content>.small{flex:none!important}
+}

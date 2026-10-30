@@ -2,9 +2,12 @@ let playMode='practice';
 function chooseGameMode(mode){playMode=mode;go('seasons');}
 function readyCharacter(){validateCharacter();go(playMode==='friend'?'invite':'lobby');}
 function updateFriendLabel(){const label=$('ttSeasonLabel');if(label)label.textContent=`Season ${currentSeason} · ${names[selected]}`;}
-function practiceRivalIndex(){const eligible=eligibleCharacters();return eligible[(eligible.findIndex(c=>c.index===selected)+1)%eligible.length].index;}
+let practiceRival=null;
+function practiceRivalPool(){const pool=CHARACTER_ROSTER.map((c,index)=>({...c,index})).filter(c=>c.season===currentSeason);const others=pool.filter(c=>c.index!==selected);return others.length?others:pool;}
+function choosePracticeRival(){const pool=practiceRivalPool();if(!pool.length)throw Error('No characters available for this season');practiceRival={season:currentSeason,player:selected,index:pool[Math.floor(Math.random()*pool.length)].index};return practiceRival.index;}
+function practiceRivalIndex(){if(!practiceRival||practiceRival.season!==currentSeason||practiceRival.player!==selected)choosePracticeRival();return practiceRival.index;}
 const goBeforeFriendPresentation=go;
-go=function(page){goBeforeFriendPresentation(page);if(page==='invite')updateFriendLabel();if(page==='victory'){const rematch=document.querySelector('#victory button');rematch.textContent='REMATCH';rematch.onclick=start;}};
+go=function(page){if(page==='lobby'){validateCharacter();choosePracticeRival();}goBeforeFriendPresentation(page);if(page==='lobby'){const heading=document.querySelector('#lobby .title');if(heading)heading.textContent='Your Challenger Awaits';}if(page==='invite')updateFriendLabel();if(page==='victory'){const rematch=document.querySelector('#victory button');rematch.textContent='REMATCH';rematch.onclick=start;}};
 function showOnlineVictory(state,details,myId){
  const ownerWins=state.winner===state.owner;
  const winnerId=state.winner?(ownerWins?details.owner_character:details.guest_character):CHARACTER_ROSTER[selected].id;
@@ -25,3 +28,5 @@ reward=function(type){
   document.querySelectorAll('#rewardBox .tile small').forEach((label,i)=>{label.textContent=i===0?'Current look':'Artwork pending';});
  }
 };
+
+const startBeforeRivalRefresh=start;start=function(){if(current==='victory'&&playMode==='practice')choosePracticeRival();return startBeforeRivalRefresh.apply(this,arguments);};

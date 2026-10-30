@@ -203,7 +203,7 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
     if(active!=='splash'&&active!=='menu'){
       // Clearing each rectangle creates a union; overlapping buttons/images stay protected.
       const origin=app.getBoundingClientRect();
-      for(const el of document.querySelectorAll('.page.active .panel,.page.active button,.page.active input,.page.active .title,.page.active .question,.page.active img:not(.screen-art):not(#kingdomMenuArt)')){
+      for(const el of document.querySelectorAll('.page.active .approved-result-card,.page.active .panel,.page.active button,.page.active input,.page.active .title,.page.active .question,.page.active img:not(.screen-art):not(#kingdomMenuArt)')){
         const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-2,r.top-origin.top-2,r.width+4,r.height+4);
       }
     }
@@ -224,7 +224,7 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
     }
     // Embers stay around the controls, never over names, questions or faces.
     const origin=app.getBoundingClientRect();
-    for(const el of document.querySelectorAll('.page.active button,.page.active input,.page.active .panel,.page.active .title,.page.active .question,.page.active .journey-question,.page.active .journey-reminder,.page.active .bella-guide,.page.active .journey-panels,.page.active .journey-heading,.page.active img:not(.screen-art):not(#kingdomMenuArt):not(.splashOriginal)')){
+    for(const el of document.querySelectorAll('.page.active button,.page.active input,.page.active .approved-result-card,.page.active .panel,.page.active .title,.page.active .question,.page.active .journey-question,.page.active .journey-reminder,.page.active .bella-guide,.page.active .journey-panels,.page.active .journey-heading,.page.active img:not(.screen-art):not(#kingdomMenuArt):not(.splashOriginal)')){
       const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-1,r.top-origin.top-1,r.width+2,r.height+2);
     }
     ctx.shadowBlur=0;ctx.globalAlpha=1;canvas.dataset.frames=String(Number(canvas.dataset.frames||0)+1);

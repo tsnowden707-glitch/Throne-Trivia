@@ -7,3 +7,67 @@
  #journeyStory .journey-stage:not(.journey-record-view) .journey-choices button{font-size:18px!important;line-height:1.15!important}
 }
 #journeyStory.journey-progress-gated .journey-question{white-space:pre-line!important}
+/* Native Road slots already contain the approved gold frames. Never overlay another panel. */
+#journeyStory .journey-stage:not(.journey-record-view) .journey-story{inset:0!important;width:100%!important;height:100%!important;pointer-events:none}
+#journeyStory .journey-stage:not(.journey-record-view) .journey-question,#journeyStory .journey-stage:not(.journey-record-view) .journey-choices button{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;visibility:visible!important;opacity:1!important;box-sizing:border-box!important;pointer-events:auto}
+#journeyStory .journey-stage:not(.journey-record-view) .journey-choices button::before,#journeyStory .journey-stage:not(.journey-record-view) .journey-choices button::after{display:none!important}
+#journeyStory .journey-stage:not(.journey-record-view) .journey-choices{visibility:visible!important;pointer-events:auto;grid-template-rows:repeat(3,minmax(0,1fr))!important}
+#journeyStory .journey-stage:not(.journey-record-view) .journey-choices button{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;color:#ffe4a3!important;padding:3px 12px!important;line-height:1.1!important;overflow:auto!important}
+@media(orientation:landscape){
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-question{left:27.2%!important;top:35.6%!important;width:45.6%!important;height:10.7%!important;padding:2px 10px!important;min-height:0!important;font-size:clamp(14px,1.7vw,24px)!important;line-height:1.13!important;overflow-y:auto!important}
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-choices{left:31.7%!important;top:55.3%!important;width:36.6%!important;height:23.4%!important;gap:5.2%!important}
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-choices button{font-size:clamp(16px,2vw,28px)!important}
+}
+@media(orientation:portrait){
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-question{left:8%!important;top:40%!important;width:84%!important;height:12%!important;padding:6px 12px!important;min-height:0!important;font-size:clamp(16px,4cqw,22px)!important;line-height:1.2!important;overflow-y:auto!important}
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-choices{left:10%!important;top:60.4%!important;width:80%!important;height:19.1%!important;gap:7%!important}
+ #journeyStory .journey-stage:not(.journey-record-view) .journey-choices button{font-size:clamp(16px,4.3cqw,22px)!important}
+}
+/* The source artwork already paints Your Journey: retain only its accessible hit target. */
+#journeyStory .journey-stage:not(.journey-record-view) .journey-toggle{background:none!important;border:0!important;box-shadow:none!important;color:transparent!important;text-shadow:none!important;font-size:0!important;padding:0!important;opacity:1!important;min-height:0!important}
+#journeyStory .journey-stage:not(.journey-record-view) .journey-toggle::before,#journeyStory .journey-stage:not(.journey-record-view) .journey-toggle::after{display:none!important}
+@media(orientation:landscape){#journeyStory .journey-stage:not(.journey-record-view) .journey-toggle{right:.35%!important;top:2.2%!important;width:17.2%!important;height:8.9%!important}}
+@media(orientation:portrait){#journeyStory .journey-stage:not(.journey-record-view) .journey-toggle{right:1%!important;top:3.5%!important;width:21%!important;height:4%!important}}
+/* Approved Road composition; house artwork is separate from the background. */
+#journeyStory .journey-choices button.choice-awaiting-reveal{visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+#journeyStory .journey-choices button{transition:opacity .18s ease}
+#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:1fr!important;gap:2.7%!important;align-items:center!important}
+#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices button{padding:0!important;height:auto!important;width:100%!important;aspect-ratio:320/282!important;overflow:visible!important}
+#journeyStory.journey-house-selection .journey-choices img{width:100%;height:100%;display:block;object-fit:contain;pointer-events:none}
+@media(orientation:portrait){
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view){background-image:url('road-approved-clean-portrait.png')!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-heading{left:29%!important;top:16.8%!important;width:42%!important;height:2.1%!important;padding:0!important;display:grid!important;place-items:center!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-heading p{font-size:clamp(12px,3.2cqw,18px)!important;line-height:1.05!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .bella-guide{left:28.2%!important;top:22.6%!important;width:43.6%!important;height:21.1%!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-question{left:10%!important;top:48.1%!important;width:80%!important;height:7.1%!important;padding:2px 8px!important;font-size:clamp(14px,3.8cqw,20px)!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices{left:6%!important;top:59%!important;width:88%!important;height:17%!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-toggle{right:3%!important;top:2.1%!important;width:29%!important;height:4.5%!important}
+}
+@media(orientation:landscape){
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view){background-image:url('road-approved-clean-landscape.png')!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-heading{left:35%!important;top:17.8%!important;width:30%!important;height:3.2%!important;padding:0!important;display:grid!important;place-items:center!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-heading p{font-size:clamp(12px,1.65cqw,24px)!important;line-height:1.05!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .bella-guide{left:12.45%!important;top:28.3%!important;width:15.2%!important;height:43%!important}
+ #journeyStory.journey-house-selection .bella-guide video{border-radius:0!important;object-fit:cover!important;object-position:center!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-question{left:32%!important;top:31.7%!important;width:51.6%!important;height:13.3%!important;padding:2px 10px!important;font-size:clamp(16px,2cqw,28px)!important;line-height:1.15!important}
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices{left:30.2%!important;top:49.4%!important;width:55.6%!important;height:28.4%!important;gap:2%!important}
+}
+@media(orientation:portrait){
+ #journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .bella-guide{height:24.5%!important}
+ #journeyStory.journey-house-selection .bella-guide video{border-radius:50%!important;clip-path:inset(0 0 16% 0);object-fit:cover!important}
+ #journeyStory.journey-house-selection .bella-replay{bottom:17%!important;right:-3%!important}
+}
+/* Live QA: the subtitle sits directly in the blank source strip. */
+#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-heading,#journeyStory.journey-house-selection .journey-heading p{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important}
+@media(orientation:portrait){#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-question{font-size:clamp(12px,3.35cqw,18px)!important;line-height:1.1!important}}
+.bella-welcome-screen{position:absolute;inset:0;z-index:90;background:#03060b;display:flex;align-items:center;justify-content:center}
+.bella-welcome-screen[hidden]{display:none!important}
+.bella-welcome-screen video{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.bella-welcome-screen button{position:absolute;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:1;min-height:44px;padding:10px 24px;color:#ffe4a3;background:#080c12e8;border:1px solid #cfa75a;font:700 18px Georgia}
+
+/* Reversible welcome vignette prototype; neither source video is edited. */
+.bella-welcome-stage{position:relative;width:min(100vw,calc(100dvh * 16 / 9));aspect-ratio:16/9}.bella-welcome-stage::after,.edward-welcome-stage::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 44%,transparent 45%,rgba(0,0,0,.13) 72%,rgba(0,0,0,.52) 100%)}.welcome-vignette-off .bella-welcome-stage::after,.welcome-vignette-off .edward-welcome-stage::after{display:none}
+
+
+#journeyStory.journey-house-selection .journey-choices button>svg{width:100%!important;height:100%!important;display:block;overflow:hidden;pointer-events:none}
+

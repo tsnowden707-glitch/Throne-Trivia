@@ -13,3 +13,7 @@
 @keyframes card-shimmer{to{transform:rotate(360deg)}}
 @media (orientation:landscape) and (max-height:550px){.card-reveal-art{max-height:64dvh}.card-reveal h2{margin-bottom:5px;font-size:18px}.card-reveal button{margin-top:7px}}
 @media(prefers-reduced-motion:reduce){.card-reveal-art,.card-reveal-glow{animation:none}}
+/* Earned-card review: protect only the heading; preserve transparent card art and modal flow. */
+.card-reveal h2{display:table;position:relative;margin-left:auto;margin-right:auto;padding:7px 18px;background:#080c12;color:#ffe4a3;box-sizing:border-box;max-width:90vw;font-family:Georgia,serif;font-weight:700;line-height:1.15;text-shadow:0 2px 3px #000}
+.card-reveal button{width:min(216px,68vw)!important;height:60px!important;min-height:60px!important;box-sizing:border-box!important;padding:9px 30px!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;font:700 21px/1 Georgia,serif!important;color:#ffe4a3!important}
+@media(orientation:landscape) and (max-height:550px){.card-reveal h2{padding:5px 16px}.card-reveal button{width:194px!important;height:54px!important;min-height:54px!important;font-size:20px!important}}

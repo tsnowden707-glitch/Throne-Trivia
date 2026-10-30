@@ -880,7 +880,7 @@ go=function(page){
   }
   const eligible=validateCharacter();goBeforeCharacters(page);
   if(page==='lobby'){
-    const next=eligible[(eligible.findIndex(c=>c.index===selected)+1)%eligible.length];
+    const rivalIndex=practiceRivalIndex(),next={...CHARACTER_ROSTER[rivalIndex],index:rivalIndex};
     $('rivalFace').src=P[next.index];$('rivalFace').alt=next.name;$('youFace').alt=names[selected];
   }
 };
@@ -899,6 +899,6 @@ drawPortraits();
 window.ThroneCharacterUnlock=async function(){
  const earned=CHARACTER_ROSTER.filter(c=>c.season===currentSeason&&!CHARACTER_STARTERS.includes(c.id)&&characterMilestone(c)===completedLevels(currentSeason));
  for(const c of earned){const key='throne_character_reveal_'+c.id;if(localStorage.getItem(key))continue;
-  await new Promise(resolve=>{const d=document.createElement('dialog');d.className='character-unlock';const title=document.createElement('h2'),img=document.createElement('img'),name=document.createElement('p'),close=document.createElement('button');title.textContent='Character unlocked';img.src='portrait-'+c.id+'.webp';img.alt=c.name;name.textContent=c.name;close.textContent='Continue';const finish=()=>{localStorage.setItem(key,'1');d.close();d.remove();resolve();};close.onclick=finish;d.addEventListener('cancel',e=>{e.preventDefault();finish();});d.append(title,img,name,close);document.body.append(d);d.showModal();close.focus();window.ThroneEffects?.play('reward');});
+  await new Promise(resolve=>{const d=document.createElement('dialog');d.className='character-unlock';const title=document.createElement('h2'),img=document.createElement('img'),name=document.createElement('p'),close=document.createElement('button');title.textContent='Character unlocked';img.src='portrait-'+c.id+'.webp';img.alt=c.name;name.textContent=c.name;close.textContent='Continue';let cancelUnlockVoice=()=>{},closing=false;const resultArt=document.querySelector('#victory .screen-art');if(resultArt)resultArt.loading='eager';const resultReady=resultArt?.decode?resultArt.decode().catch(()=>{}):Promise.resolve();const finish=async()=>{if(closing)return;closing=true;close.disabled=true;cancelUnlockVoice();localStorage.setItem(key,'1');await Promise.race([resultReady,new Promise(done=>setTimeout(done,2000))]);resolve();requestAnimationFrame(()=>requestAnimationFrame(()=>{d.close();d.remove();}));};close.onclick=finish;d.addEventListener('cancel',e=>{e.preventDefault();finish();});d.append(title,img,name,close);document.body.append(d);d.showModal();close.focus();window.ThroneEffects?.play('reward');cancelUnlockVoice=window.ThroneVoice?.unlockCharacter(c.id)||(()=>{});});
  }
 };

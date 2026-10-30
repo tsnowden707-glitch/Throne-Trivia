@@ -4,7 +4,7 @@
  let captionFrame=0;const observed=new WeakSet();
  function progress(){document.dispatchEvent(new CustomEvent('narrationprogress',{detail:{src:captionSrc,time:player.currentTime,duration:player.duration}}));}
  function captionTick(){cancelAnimationFrame(captionFrame);if(player.paused||player.ended)return;progress();captionFrame=requestAnimationFrame(captionTick);}
- function observe(media){if(observed.has(media))return;observed.add(media);media.addEventListener('timeupdate',()=>{if(media===player)progress();});media.addEventListener('playing',()=>{if(media===player)captionTick();});media.addEventListener('pause',()=>{if(media===player)cancelAnimationFrame(captionFrame);});}
+ function observe(media){if(observed.has(media))return;observed.add(media);media.addEventListener('timeupdate',()=>{if(media===player)progress();});media.addEventListener('playing',()=>{if(media===player){document.dispatchEvent(new CustomEvent('narrationplaying',{detail:{src:captionSrc,time:player.currentTime}}));captionTick();}});media.addEventListener('pause',()=>{if(media===player)cancelAnimationFrame(captionFrame);});}
  observe(audioPlayer);
  const enabled=()=>document.getElementById('narrate')?.checked;
  function stop(){token++;hiddenPaused=false;player.onloadedmetadata=null;player.pause();player.removeAttribute('src');player.load();finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));}
@@ -19,10 +19,19 @@
   const start=()=>{if(own!==token)return;if(offset>0){if(offset>=player.duration){done();return;}player.currentTime=offset;}player.play().catch(done);};
   if(offset>0&&player.readyState<1)player.onloadedmetadata=start;else start();
  }
+ // Only verified authentic unlock recordings belong here; missing recordings remain silent.
+ const unlockRecordings=Object.freeze({});
+ function unlockCharacter(id){
+  let cancelled=false,started=false;const key='throne_character_voice_'+id;
+  const sources=unlockRecordings[id];
+  if(!sources||localStorage.getItem(key)||!enabled())return ()=>{};
+  const wait=()=>{if(cancelled)return;if(finish){setTimeout(wait,100);return;}started=true;localStorage.setItem(key,'1');let i=0;const next=()=>{if(!cancelled&&i<sources.length)play(sources[i++],next);};next();};wait();
+  const cancel=()=>{cancelled=true;document.removeEventListener('screenchange',cancel);if(started)stop();};document.addEventListener('screenchange',cancel,{once:true});return cancel;
+ }
  const announcements={welcome:'01-welcome',arrival:'02-opponent-arrived',countdown:'03-countdown',victory:'04-victory',defeat:'05-defeat',tie:'06-tie',rematch:'07-rematch'};
  const normalized=s=>s.replace(/[’]/g,"'").replace(/\s+/g,' ').trim();
  const byText=new Map(BANK.map(q=>[normalized(q.q),q.id]));
- window.ThroneVoice={play,stop,video:(media,src,spokenSource,done)=>play(src,done,0,media,spokenSource),pause:()=>player.pause(),resume:()=>{if(player.src&&enabled())player.play().catch(()=>finish?.());},questionByText:(text,done=()=>{},offset=0)=>{const id=byText.get(normalized(text));if(id)play('audio/edward/questions/'+id+'.mp3',done,offset);else queueMicrotask(done);},question:(id,done)=>play('audio/edward/questions/'+id+'.mp3',done),announce:(name,done)=>play('audio/edward/announcements/'+announcements[name]+'.mp3',done),bella:(id,done)=>play('audio/bella/'+id+'.mp3',done)};
+ window.ThroneVoice={play,stop,unlockCharacter,unlockRecordings,video:(media,src,spokenSource,done)=>play(src,done,0,media,spokenSource),pause:()=>player.pause(),resume:()=>{if(player.src&&enabled())player.play().catch(()=>finish?.());},questionByText:(text,done=()=>{},offset=0)=>{const id=byText.get(normalized(text));if(id)play('audio/edward/questions/'+id+'.mp3',done,offset);else queueMicrotask(done);},question:(id,done)=>play('audio/edward/questions/'+id+'.mp3',done),announce:(name,done)=>play('audio/edward/announcements/'+announcements[name]+'.mp3',done),bella:(id,done)=>play('audio/bella/'+id+'.mp3',done)};
  narrate=function(text,callback){const ready=()=>window.ThronePause?ThronePause.gate(callback):callback();const id=match?.[index]?.id||byText.get(normalized(text));if(id)ThroneVoice.question(id,ready);else queueMicrotask(ready);};
  const priorGo=go;
  go=function(page){stop();priorGo(page);document.dispatchEvent(new CustomEvent('screenchange',{detail:{page}}));};

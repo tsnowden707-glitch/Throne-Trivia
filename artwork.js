@@ -66,7 +66,7 @@ function showThemeChoices(){
 const rewardBeforeArtwork=reward;
 reward=function(type){$('rewardBox').classList.remove('theme-browser');if(type==='Themes'){themePage=Math.floor(KINGDOM_THEMES.findIndex(t=>t[0]===activeKingdomTheme)/themePageSize());showThemeChoices();}else rewardBeforeArtwork(type);};
 // Friend actions are presented directly in the approved four-button layout.
-const themeShortcut=document.createElement('button');themeShortcut.className='btn';themeShortcut.textContent='CHANGE KINGDOM THEME';themeShortcut.onclick=()=>{go('rewards');reward('Themes');};document.querySelector('#settings .content').append(themeShortcut);
+// Theme selection and purchasing are available only under Rewards > Themes.
 function applyActiveKingdomArtwork(){
  const page=document.querySelector('.page.active');if(!page)return;
  const screen=page.id==='ttOnline'?'quiz':page.id;

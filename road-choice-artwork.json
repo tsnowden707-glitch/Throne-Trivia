@@ -1,0 +1,962 @@
+{
+  "chapter-01-scene-01": [
+    {
+      "src": "road-approved-house-source.png",
+      "width": 1672,
+      "height": 941,
+      "viewBox": "493 457 320 282"
+    },
+    {
+      "src": "road-approved-house-source.png",
+      "width": 1672,
+      "height": 941,
+      "viewBox": "815 457 320 282"
+    },
+    {
+      "src": "road-approved-house-source.png",
+      "width": 1672,
+      "height": 941,
+      "viewBox": "1132 457 320 282"
+    }
+  ],
+  "chapter-01-scene-02": [
+    {
+      "src": "road-promise-approved-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 682 701"
+    },
+    {
+      "src": "road-promise-approved-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-promise-approved-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1366 22 682 701"
+    }
+  ],
+  "chapter-01-scene-03": [
+    {
+      "src": "road-scene-01-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-01-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-01-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-01-scene-04": [
+    {
+      "src": "road-scene-01-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-01-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-01-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-01-scene-05": [
+    {
+      "src": "road-scene-01-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-01-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-01-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-01-scene-06": [
+    {
+      "src": "road-scene-01-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-01-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-01-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-02-scene-01": [
+    {
+      "src": "road-scene-02-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-02-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-02-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-02-scene-02": [
+    {
+      "src": "road-scene-02-02-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-02-02-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-02-02-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-02-scene-03": [
+    {
+      "src": "road-scene-02-03-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-02-03-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-02-03-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-02-scene-04": [
+    {
+      "src": "road-scene-02-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-02-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-02-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-02-scene-05": [
+    {
+      "src": "road-scene-02-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-02-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-02-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-02-scene-06": [
+    {
+      "src": "road-scene-02-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-02-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-02-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-03-scene-01": [
+    {
+      "src": "road-scene-03-01-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-03-01-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-03-01-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-03-scene-02": [
+    {
+      "src": "road-scene-03-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-03-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-03-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-03-scene-03": [
+    {
+      "src": "road-scene-03-03-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-03-03-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-03-03-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-03-scene-04": [
+    {
+      "src": "road-scene-03-04-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-03-04-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-03-04-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-03-scene-05": [
+    {
+      "src": "road-scene-03-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-03-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-03-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-03-scene-06": [
+    {
+      "src": "road-scene-03-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-03-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-03-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-04-scene-01": [
+    {
+      "src": "road-scene-04-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-04-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-04-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-04-scene-02": [
+    {
+      "src": "road-scene-04-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-04-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-04-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-04-scene-03": [
+    {
+      "src": "road-scene-04-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-04-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-04-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-04-scene-04": [
+    {
+      "src": "road-scene-04-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-04-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-04-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-04-scene-05": [
+    {
+      "src": "road-scene-04-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-04-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-04-05-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-04-scene-06": [
+    {
+      "src": "road-scene-04-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-04-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-04-06-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-05-scene-01": [
+    {
+      "src": "road-scene-05-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-05-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-05-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-05-scene-02": [
+    {
+      "src": "road-scene-05-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-05-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-05-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-05-scene-03": [
+    {
+      "src": "road-scene-05-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-05-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-05-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-05-scene-04": [
+    {
+      "src": "road-scene-05-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-05-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-05-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-05-scene-05": [
+    {
+      "src": "road-scene-05-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-05-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-05-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-05-scene-06": [
+    {
+      "src": "road-scene-05-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-05-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-05-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-06-scene-01": [
+    {
+      "src": "road-scene-06-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-06-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-06-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-06-scene-02": [
+    {
+      "src": "road-scene-06-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-06-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-06-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-06-scene-03": [
+    {
+      "src": "road-scene-06-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-06-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-06-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-06-scene-04": [
+    {
+      "src": "road-scene-06-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-06-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-06-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-06-scene-05": [
+    {
+      "src": "road-scene-06-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-06-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-06-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-06-scene-06": [
+    {
+      "src": "road-scene-06-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-06-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-06-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-07-scene-01": [
+    {
+      "src": "road-scene-07-01-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "0 0 724 724"
+    },
+    {
+      "src": "road-scene-07-01-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "724 0 724 724"
+    },
+    {
+      "src": "road-scene-07-01-source.png",
+      "width": 2172,
+      "height": 724,
+      "viewBox": "1448 0 724 724"
+    }
+  ],
+  "chapter-07-scene-02": [
+    {
+      "src": "road-scene-07-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-07-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-07-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-07-scene-03": [
+    {
+      "src": "road-scene-07-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-07-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-07-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-07-scene-04": [
+    {
+      "src": "road-scene-07-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-07-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-07-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-07-scene-05": [
+    {
+      "src": "road-scene-07-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-07-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-07-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-07-scene-06": [
+    {
+      "src": "road-scene-07-06-source.png",
+      "width": 2046,
+      "height": 768,
+      "viewBox": "0 0 682 768"
+    },
+    {
+      "src": "road-scene-07-06-source.png",
+      "width": 2046,
+      "height": 768,
+      "viewBox": "682 0 682 768"
+    },
+    {
+      "src": "road-scene-07-06-source.png",
+      "width": 2046,
+      "height": 768,
+      "viewBox": "1364 0 682 768"
+    }
+  ],
+  "chapter-08-scene-01": [
+    {
+      "src": "road-scene-08-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-08-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-08-01-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-08-scene-02": [
+    {
+      "src": "road-scene-08-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-08-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-08-02-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-08-scene-03": [
+    {
+      "src": "road-scene-08-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-08-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-08-03-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-08-scene-04": [
+    {
+      "src": "road-scene-08-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-08-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-08-04-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-08-scene-05": [
+    {
+      "src": "road-scene-08-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-08-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-08-05-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ],
+  "chapter-08-scene-06": [
+    {
+      "src": "road-scene-08-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "0 22 683 701"
+    },
+    {
+      "src": "road-scene-08-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "683 22 682 701"
+    },
+    {
+      "src": "road-scene-08-06-source.png",
+      "width": 2048,
+      "height": 768,
+      "viewBox": "1365 22 683 701"
+    }
+  ]
+}

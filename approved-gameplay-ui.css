@@ -1,7 +1,7 @@
 /* Production presentation integration of accepted previews. No game rules. */
-@import url('levels-square-approved-preview.css?v=20261028-approved-5');
-@import url('character-landscape-fit-preview.css?v=20261028-approved-5');
-@import url('lobby-champion-preview.css?v=20261028-approved-5');
+@import url('levels-square-approved-preview.css?v=20261029-journey-test1');
+@import url('character-landscape-fit-preview.css?v=20261029-journey-test1');
+@import url('lobby-champion-preview.css?v=20261029-journey-test1');
 #quiz #answers button:has(.approved-answer-copy),#ttOnline #onlineLiveOptions button:has(.approved-answer-copy){display:grid!important;grid-template-columns:2em minmax(0,1fr)!important;align-items:center!important;gap:.6em!important;padding-left:5%!important;padding-right:5%!important}
 .approved-answer-letter{display:grid;place-items:center;align-self:stretch;min-height:1.7em;border-right:2px solid #e5bd6b;color:#ffe3a1;font-weight:700}
 .approved-answer-copy{min-width:0;text-align:center;white-space:normal;overflow-wrap:break-word}
@@ -124,3 +124,90 @@
  #seasons .approved-stage #seasongrid strong{grid-row:2!important;grid-column:1!important;font:700 18px/1.1 Georgia,serif!important;white-space:normal!important;text-align:center!important;display:grid!important;place-items:center!important}
  #seasons .approved-stage #seasongrid small{grid-row:3!important;grid-column:1!important;font:700 15px/1.1 Georgia,serif!important;color:#ffe4a3!important;text-align:center!important;margin:0!important}
 }
+/* Final responsive season squares: override legacy image-row selectors explicitly. */
+#seasons.page .approved-stage #seasongrid{--season-card-size:240px;display:flex!important;flex-flow:row nowrap!important;align-items:center!important;justify-content:flex-start!important;gap:18px!important;box-sizing:border-box!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory;max-height:none!important;padding:8px max(0px,calc((100% - var(--season-card-size))/2))!important}
+#seasons.page .approved-stage #seasongrid>.tile,#seasons.page .approved-stage #seasongrid>.tile:has(.season-place-art){display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) 40px 20px!important;gap:5px!important;flex:0 0 var(--season-card-size)!important;width:var(--season-card-size)!important;height:var(--season-card-size)!important;min-width:var(--season-card-size)!important;min-height:var(--season-card-size)!important;max-width:var(--season-card-size)!important;max-height:var(--season-card-size)!important;padding:calc(var(--season-card-size) * .09)!important;box-sizing:border-box!important;align-content:stretch!important;align-items:center!important;scroll-snap-align:center}
+#seasons.page .approved-stage #seasongrid>.tile .season-place-art{grid-column:1!important;grid-row:1!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;object-fit:cover!important;margin:0!important}
+#seasons.page .approved-stage #seasongrid>.tile strong{grid-column:1!important;grid-row:2!important;font:700 18px/1.1 Georgia,serif!important;white-space:normal!important;text-align:center!important;margin:0!important}
+#seasons.page .approved-stage #seasongrid>.tile small{grid-column:1!important;grid-row:3!important;font:700 14px/1.1 Georgia,serif!important;color:#ffe4a3!important;text-align:center!important;margin:0!important}
+@media(orientation:landscape){
+ #seasons.page .approved-stage>.content{left:12%!important;width:76%!important;top:25%!important;height:73%!important;display:block!important;padding:0!important;overflow:visible!important}
+ #seasons.page .content>.title{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:8%!important;margin:0!important;padding:0!important;font-size:24px!important;min-height:0!important;text-align:center!important}
+ #seasons.page .content>.small{position:absolute!important;top:9%!important;width:100%!important;margin:0!important;font-size:14px!important;text-align:center!important}
+ #seasons.page .approved-stage #seasongrid{--season-card-size:clamp(180px,44vh,260px);position:absolute!important;top:16%!important;left:0!important;width:100%!important;height:69%!important;min-height:0!important;flex:none!important}
+ #seasons.page .content>.grow{display:none!important}
+ #seasons.page .content>.btn{position:absolute!important;bottom:0!important;left:25%!important;width:50%!important;height:12%!important;min-height:32px!important;padding:4px 12px!important;font-size:16px!important;margin:0!important}
+ #seasons.page #seasonPager{position:absolute;right:0;bottom:0}
+}
+
+/* Keep the question frame below the complete HUD artwork, including its lower points. */
+@media(orientation:landscape){
+ #quiz.page .approved-stage>.content,#ttOnline.page .approved-stage>.content{top:30%!important;height:65%!important}
+}
+
+/* Results cards occlude background effects across portraits, names and scores. */
+.approved-result-card{background:linear-gradient(145deg,#251c12,#080d16)!important}
+.approved-result-card h2,.approved-result-card>strong{background:#080d16}
+/* Correct count uses the same readable lettering as the result actions. */
+#victory.approved-result #victoryStats,#summary.approved-result #roundStats{font-family:Georgia,serif!important;font-weight:700!important;color:#ffe4a3!important;line-height:1!important;gap:8px!important}
+#victoryStats>span:first-child,#roundStats>span:first-child{white-space:nowrap}
+@media(orientation:landscape){#victory.approved-result #victoryStats,#summary.approved-result #roundStats{left:30%!important;width:40%!important;font-size:clamp(16px,4vh,24px)!important}}
+@media(orientation:portrait){#victory.approved-result #victoryStats,#summary.approved-result #roundStats{font-size:18px!important;padding-left:10px!important;padding-right:10px!important}}
+/* Settings controls inhabit the original arch; no second rectangular panel. */
+#settings.page .approved-stage>.content{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:6px!important;overflow-y:auto!important;overflow-x:hidden!important;box-sizing:border-box!important}
+#settings .approved-stage .content>.panel,#settings .approved-stage .stat{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+#settings .approved-stage .stat{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;flex-wrap:wrap!important;padding:4px 0!important;font:18px/1.15 Georgia!important;min-height:36px!important}
+#settings .approved-stage input[type=range]{width:90px!important;max-width:100%!important}
+#settings .approved-stage .title{font-size:24px!important;line-height:1.05!important;margin:0!important;flex:none!important}
+#settings .approved-stage h3{display:none!important}
+#settings .approved-stage .settings-tabs{gap:4px!important}
+#settings .approved-stage .settings-tabs button{min-width:0!important;min-height:34px!important;padding:4px!important;font-size:16px!important}
+#settings .approved-stage .content>.panel{flex:1 0 auto!important;justify-content:flex-start!important}
+@media(orientation:landscape){#settings.page .approved-stage>.content{left:37%!important;top:29%!important;width:21.5%!important;height:49%!important}#settings .approved-stage .stat{font-size:clamp(14px,2.8vh,18px)!important}#settings .approved-stage .stat button{font-size:14px!important;padding:4px 10px!important;min-height:32px!important}}
+@media(orientation:portrait){#settings.page .approved-stage>.content{left:25%!important;top:25%!important;width:50%!important;height:56%!important}}
+/* Both approved settings tabs retain red; selection is identified by the gold outline. */
+#settings .settings-tabs button{background:linear-gradient(#8e2025,#4a0b12)!important;color:#ffe4a3!important;box-shadow:inset 0 0 0 1px #b78b43!important}
+#settings .settings-tabs button[aria-selected=true]{outline:2px solid #ffe3a0;outline-offset:-2px}
+#settings .settings-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;width:100%!important;margin:0!important;padding:0!important;box-sizing:border-box!important}
+#settings .settings-tabs button{width:100%!important;height:38px!important;min-height:38px!important;max-height:38px!important;margin:0!important;padding:4px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important}
+/* Audio-only settings: no Game tab or gameplay status display. */
+#settings .approved-stage .content>.panel>h3{display:block!important;margin:4px 0 10px!important;text-align:center!important;color:#ffe4a3!important;font:700 20px/1.1 Georgia,serif!important}
+
+/* Keep the complete results title inside its approved frame. */
+@media(orientation:landscape){#victory.approved-result #victoryTitle,#summary.approved-result .title{left:20%!important;width:60%!important;white-space:nowrap!important}}
+/* Approved clean Settings artwork supplies labels, title, dividers and outer frame. */
+#settings.page .approved-stage>.content{inset:0!important;width:100%!important;height:100%!important;overflow:visible!important;display:block!important}
+#settings.page .content>.title,#settings.page .content>.panel>h3{display:none!important}
+#settings.page .content>.panel{display:contents!important}
+#settings.page .approved-stage .stat{position:absolute!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:0!important;min-height:0!important;box-sizing:border-box!important}
+#settings.page .stat>button,#settings.page .stat>input{margin:0!important;flex:none}
+#settings.page .stat>button,#settings.page input[type=checkbox]{appearance:none!important;width:90px!important;height:38px!important;min-height:0!important;max-width:100%!important;border:2px solid #e9bc63!important;border-radius:30px!important;background:linear-gradient(#ae1820,#630c13)!important;box-shadow:inset 0 0 0 2px #39200c!important;position:relative!important;padding:0!important;font-size:0!important;cursor:pointer}
+#settings.page .stat>button::before,#settings.page input[type=checkbox]::before{content:'';position:absolute;right:3px;top:3px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff0a8,#f4ba37 40%,#a4670d);border:1px solid #ffe4a3}
+#settings.page .stat>button.settings-off::before,#settings.page input[type=checkbox]:not(:checked)::before{right:calc(100% - 31px)}
+#settings.page .stat>button.settings-off,#settings.page input[type=checkbox]:not(:checked){background:linear-gradient(#34241e,#18100e)!important}
+#settings.page input[type=range]{width:100%!important;max-width:100%!important;accent-color:#c62632;height:30px;cursor:pointer}
+@media(orientation:landscape){#settings.page .stat{left:61%!important;width:10%!important;height:7%!important}#settings.page [data-audio-row="0"]{top:53%!important}#settings.page [data-audio-row="1"]{left:43%!important;width:27%!important;top:62%!important}#settings.page [data-audio-row="2"]{top:71%!important}#settings.page [data-audio-row="3"]{top:80%!important}}
+@media(orientation:portrait){#settings.page .stat{left:61%!important;width:16%!important;height:5%!important}#settings.page [data-audio-row="0"]{top:48.5%!important}#settings.page [data-audio-row="1"]{left:25%!important;width:50%!important;top:59.5%!important}#settings.page [data-audio-row="2"]{top:67%!important}#settings.page [data-audio-row="3"]{top:75%!important}#settings.page .stat>button,#settings.page input[type=checkbox]{height:30px!important}#settings.page .stat>button::before,#settings.page input[type=checkbox]::before{width:20px;height:20px;top:2px}#settings.page .stat>button.settings-off::before,#settings.page input[type=checkbox]:not(:checked)::before{right:calc(100% - 25px)}}
+/* Exact approved capsule pixels, including their gold knob. */
+#settings.page .stat>button,#settings.page input[type=checkbox]{background:transparent url('settings-approved-switch.svg') center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+#settings.page .stat>button::before,#settings.page input[type=checkbox]::before{display:none!important}
+#settings.page .stat>button.settings-off,#settings.page input[type=checkbox]:not(:checked){background:transparent url('settings-approved-switch.svg') center/100% 100% no-repeat!important;transform:scaleX(-1);filter:brightness(.65)}
+#settings.page .content>button{display:none!important}
+
+/* Restored transparent gold/ruby pause artwork; live text remains inside. */
+.pause-panel{background:transparent url('clean-pause-frame.png') center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;padding:40px 34px!important}
+
+/* Original approved ornate volume rail and separate ruby thumb remain interactive. */
+#settings.page input[type=range]{appearance:none!important;background:linear-gradient(#ff444c,#ac071b) 8% center/var(--volume-fill,14%) 8px no-repeat,url('settings-volume-track.svg') center/100% 28px no-repeat!important;height:42px!important;padding:0!important;border:0!important;outline-offset:4px}
+#settings.page input[type=range]::-webkit-slider-runnable-track{height:42px;background:transparent;border:0}
+#settings.page input[type=range]::-webkit-slider-thumb{appearance:none;width:42px;height:42px;background:transparent url('settings-volume-knob.svg') center/contain no-repeat;border:0;cursor:grab}
+#settings.page input[type=range]::-moz-range-track{height:28px;background:transparent;border:0}
+#settings.page input[type=range]::-moz-range-thumb{width:42px;height:42px;background:transparent url('settings-volume-knob.svg') center/contain no-repeat;border:0;cursor:grab}
+/* Clean source rails replace scenery-containing stretched screenshot frames. */
+#quiz #questionText,#ttOnline #onlineQuestionText{background-image:url('clean-question-answer-frame.svg')!important}
+#quiz #answers button,#ttOnline #onlineLiveOptions button,.pause-overlay button{background-image:url('clean-question-answer-frame.svg')!important}
+
+#quiz.page .approved-stage #qtext,#ttOnline.page .approved-stage #onlinePrompt{background-image:url('clean-question-answer-frame.svg')!important}
+
+/* Season squares use the crisp character-card treatment, not a stretched banner crop. */
+#seasons.page .approved-stage #seasongrid>.tile{background:#111b29!important;border:2px solid #b68b4a!important;border-radius:5px!important;box-shadow:inset 0 0 0 1px #f3d18a,inset 0 0 0 4px #49341d,0 3px 8px #0008!important}

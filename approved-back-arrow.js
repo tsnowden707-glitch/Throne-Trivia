@@ -1,13 +1,12 @@
-/* Presentation only: keep every original navigation callback and accessible name. */
+/* Official approved PNG plaque. Presentation only: retain every navigation handler. */
 (()=>{
- const candidates='.back,.journey-back,.card-action-back,.details-back,.raven-back,.trade-back';
- const rules={background:"transparent url('approved-back-arrow-cutout-review.png') center/contain no-repeat",border:'0',borderRadius:'0',boxShadow:'none',color:'transparent',textShadow:'none',fontSize:'0',padding:'0',minWidth:'0',minHeight:'44px',width:'76px',height:'48px'};
- function apply(){
-  document.querySelectorAll(candidates).forEach(button=>{
-   if(button.tagName!=='BUTTON'||button.classList.contains('approved-back-arrow'))return;
-   button.classList.add('approved-back-arrow');if(!button.getAttribute('aria-label'))button.setAttribute('aria-label','Back');
-   for(const [key,value]of Object.entries(rules)){if(button.classList.contains('journey-back')&&['background','width','height','minHeight'].includes(key))continue;button.style.setProperty(key.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),value,'important');}
-  });
- }
- apply();new MutationObserver(apply).observe(document.body,{childList:true,subtree:true});
+ const candidates='.back,.journey-back,.card-action-back,.details-back,.raven-back,.trade-back,button[aria-label="Back"],button[aria-label="Back to menu"],button[aria-label="Back to Collection"]';
+ const rules={background:"transparent url('official-back-plaque.png') center/contain no-repeat",border:'0',borderRadius:'0',boxShadow:'none',color:'transparent',textShadow:'none',fontSize:'0',padding:'0',minWidth:'0',minHeight:'44px',width:'116px',height:'62px',filter:'none'};
+ function apply(){document.querySelectorAll(candidates).forEach(button=>{if(button.tagName!=='BUTTON')return;button.classList.add('approved-back-arrow');if(!button.getAttribute('aria-label'))button.setAttribute('aria-label','Back');for(const[key,value]of Object.entries(rules))button.style.setProperty(key.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),value,'important');});}
+ apply();new MutationObserver(apply).observe(document.body,{childList:true,subtree:true});window.addEventListener('resize',apply);document.addEventListener('screenchange',apply);
+})();
+/* Official illustrated Home plaque, applied to existing controls only. */
+(()=>{
+ function apply(){document.querySelectorAll('button').forEach(button=>{const label=(button.getAttribute('aria-label')||button.textContent||'').trim();if(!button.matches('.throne-home,.rewards-card-home,.card-action-home')&&!/^(home|main menu)$/i.test(label))return;button.classList.add('official-home-plaque');if(!button.getAttribute('aria-label'))button.setAttribute('aria-label','Home');const rules={background:"transparent url('official-home-plaque.png') center/contain no-repeat",border:'0',borderRadius:'0',boxShadow:'none',color:'transparent',textShadow:'none',fontSize:'0',padding:'0',minWidth:'0',minHeight:'44px',width:'154px',height:'62px',filter:'none'};for(const[key,value]of Object.entries(rules))button.style.setProperty(key.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),value,'important');});}
+ const css=document.createElement('style');css.textContent='button.official-home-plaque>*{visibility:hidden!important}button.official-home-plaque::before,button.official-home-plaque::after{display:none!important}';document.head.append(css);apply();new MutationObserver(apply).observe(document.body,{childList:true,subtree:true});window.addEventListener('resize',apply);document.addEventListener('screenchange',apply);
 })();
