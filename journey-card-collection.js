@@ -19,7 +19,7 @@
    selected(all,!ready&&!family);selected(available,ready);for(const [name,b] of filters)selected(b,family===name);
    grid.replaceChildren();
    const shown=cards.filter(c=>(!family||c.family===family)&&(!ready||((inventory.copies[c.id]||0)>0&&isUsable(c))));
-   const pageSize=matchMedia('(orientation:portrait)').matches?4:6,total=Math.max(1,Math.ceil(shown.length/pageSize));page=Math.min(page,total-1);
+   const pageSize=4,total=Math.max(1,Math.ceil(shown.length/pageSize));page=Math.min(page,total-1);
    for(const card of shown.slice(page*pageSize,(page+1)*pageSize)){
     const known=inventory.discovered.includes(card.id),b=document.createElement('button');b.className='journey-collection-card';
     b.setAttribute('aria-label',known?card.name+', '+(inventory.copies[card.id]||0)+' copies':'Undiscovered '+card.family+' card');

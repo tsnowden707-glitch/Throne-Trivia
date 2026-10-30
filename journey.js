@@ -25,10 +25,12 @@
  const storyMilestones=[0,1,10,20,35,50];
  function requiredLevel(scene){return storyMilestones[scenes.filter(s=>s.chapter===scene.chapter).findIndex(s=>s.id===scene.id)]||0;}
  function sceneAvailable(scene){return !!scene&&available(scene.chapter)&&completedLevels(scene.chapter)>=requiredLevel(scene);}
+ let speechFinishToken=0;
  function speak(id,done=()=>{}){
+  const speechToken=++speechFinishToken;lipVideo.style.opacity='1';lipVideo.style.transition='none';
   const opening=/^chapter-(0[1-8])-opening-short$/.exec(id);
   const file=id==='journey-progress-gate'?'journey-progress-gate':id==='journey-intro-short'?'journey-intro':opening?'season-'+opening[1]:null;
-  const finish=()=>{welcome.hidden=true;welcomeVideo.pause();page.classList.remove('bella-welcome-playing');lipVideo.hidden=true;videoMode='';pose('idle');done();};
+  const finish=()=>{welcome.hidden=true;welcomeVideo.pause();page.classList.remove('bella-welcome-playing');pose('idle');if(activeVideo.readyState>=2&&!reduced.matches&&current==='journeyStory')activeVideo.play().catch(()=>{});if(!lipVideo.hidden&&!reduced.matches&&activeVideo.readyState>=2){lipVideo.style.transition='opacity .24s ease';lipVideo.style.opacity='0';setTimeout(()=>{if(speechToken===speechFinishToken){lipVideo.hidden=true;lipVideo.style.opacity='1';}},250);}else lipVideo.hidden=true;done();};
   if(id==='journey-intro-short'&&document.getElementById('narrate').checked){poseToken++;video.pause();spare.pause();lipVideo.hidden=true;welcome.hidden=false;page.classList.add('bella-welcome-playing');welcomeSkip.onclick=()=>{ThroneVoice.stop();finish();};ThroneVoice.video(welcomeVideo,'video/bella/welcome-smooth-approved.mp4','audio/bella/'+id+'.mp3',finish);return;}
   if(file&&document.getElementById('narrate').checked){
    poseToken++;video.pause();spare.pause();lipVideo.hidden=false;lipVideo.muted=false;
@@ -134,7 +136,7 @@
   $j('.journey-toggle').disabled=false;changeView('story');render();videoMode='';pose('idle');Promise.resolve().then(()=>window.ThroneVault?.ready).then(()=>{if(current==='journeyStory')narrateScene();});
  });
  document.addEventListener('visibilitychange',()=>{if(document.hidden){video.pause();spare.pause();}else if(current==='journeyStory'&&view==='story'&&!reduced.matches)activeVideo.play().catch(()=>{});});
- Promise.all([fetch('journey-scenes.json').then(r=>{if(!r.ok)throw Error('Story unavailable');return r.json();}),fetch('road-choice-artwork.json').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,art])=>{for(const scene of data.scenes){const paths=art[scene.id];if(Array.isArray(paths)&&paths.length===scene.choices.length&&paths.every(p=>typeof p==='string'?/^road-[a-z0-9-]+[.]svg$/.test(p):p&&/^road-[a-z0-9-]+[.]png$/.test(p.src)&&Number.isFinite(p.width)&&Number.isFinite(p.height)&&/^\d+ \d+ \d+ \d+$/.test(p.viewBox)))illustratedChoices[scene.id]=paths;}scenes=data.scenes;if(current==='journeyStory'){render();Promise.resolve(window.ThroneVault?.ready).then(narrateScene);}}).catch(()=>{$j('.journey-question').textContent='The story could not load. Check your connection and reopen the game.';});
+ Promise.all([fetch('journey-scenes.json').then(r=>{if(!r.ok)throw Error('Story unavailable');return r.json();}),fetch('road-choice-artwork.json?v=20261029-art-restoration7').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,art])=>{for(const scene of data.scenes){const paths=art[scene.id];if(Array.isArray(paths)&&paths.length===scene.choices.length&&paths.every(p=>typeof p==='string'?/^road-[a-z0-9-]+[.](?:svg|png)$/.test(p):p&&/^road-[a-z0-9-]+[.]png$/.test(p.src)&&Number.isFinite(p.width)&&Number.isFinite(p.height)&&/^\d+ \d+ \d+ \d+$/.test(p.viewBox)))illustratedChoices[scene.id]=paths;}scenes=data.scenes;if(current==='journeyStory'){render();Promise.resolve(window.ThroneVault?.ready).then(narrateScene);}}).catch(()=>{$j('.journey-question').textContent='The story could not load. Check your connection and reopen the game.';});
  function welcomeNeeded(){let heard={};try{heard=JSON.parse(localStorage.getItem('throne_journey_openings_v1'))||{};}catch{}return document.getElementById('narrate').checked&&!heard.intro;}
  function prepareEntry(){
   if(!welcomeNeeded())return prepareScene();

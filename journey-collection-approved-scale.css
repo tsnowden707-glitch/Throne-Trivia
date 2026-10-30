@@ -1,0 +1,16 @@
+/* Four tall cards match the approved Rewards collection composition. */
+@media(orientation:landscape){
+ .journey-card-stage [class*=card-family-]{top:21%!important;height:8%!important}
+ .journey-card-stage .card-filter-all,.journey-card-stage .card-filter-ready{top:30%!important;height:5%!important}
+ .journey-card-stage .journey-card-grid{left:15%!important;top:36%!important;width:70%!important;height:40%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:minmax(0,1fr)!important;align-items:center!important;justify-items:center!important;gap:1.4vw!important}
+ .journey-card-stage .journey-collection-card{width:min(100%,26.66vh)!important;height:100%!important;aspect-ratio:2/3!important}
+}
+.journey-card-stage .journey-collection-card img{width:100%!important;height:100%!important;object-fit:contain!important}
+@media(orientation:portrait){
+ .journey-card-stage [class*=card-family-]{top:23%!important;width:21%!important;height:7%!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:2px!important;padding:3px!important}
+ .journey-card-stage .card-family-supplies{left:6%!important}.journey-card-stage .card-family-information{left:28%!important}.journey-card-stage .card-family-diplomacy{left:50%!important}.journey-card-stage .card-family-protection{left:72%!important}
+ .journey-card-stage [class*=card-family-]>img{width:32px!important;height:30px!important}.journey-card-stage [class*=card-family-]>span{font-size:11px!important}
+ .journey-card-stage .card-filter-all,.journey-card-stage .card-filter-ready{top:31%!important;height:4.5%!important}
+ .journey-card-stage .journey-card-grid{left:18%!important;top:37%!important;width:64%!important;height:43%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:8px!important;justify-items:center!important;align-items:center!important}
+ .journey-card-stage .journey-collection-card{width:100%!important;height:100%!important;aspect-ratio:2/3!important}
+}

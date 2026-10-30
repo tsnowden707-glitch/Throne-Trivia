@@ -75,3 +75,7 @@
 #journeyStory .journey-stage:not(.journey-record-view) .journey-choices:has(.journey-next-level){display:flex!important;justify-content:center!important;align-items:center!important}
 #journeyStory .journey-stage:not(.journey-record-view) .journey-choices button.journey-next-level{width:min(340px,90%)!important;min-height:70px!important;height:80px!important;background:transparent url('clean-pause-frame.png') center/100% 100% no-repeat!important;font:700 clamp(18px,2.2vw,26px) Georgia!important;padding:16px 26px!important;flex:none!important;overflow:visible!important}
 @media(orientation:portrait){#journeyStory .journey-stage:not(.journey-record-view) .journey-choices button.journey-next-level{width:86%!important;height:70px!important;font-size:20px!important}}
+/* Let the transparent approved choice frames occupy their full available slot. */
+#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices button{aspect-ratio:auto!important;height:100%!important;min-width:0!important}
+@media(orientation:landscape){#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices{left:30%!important;width:56%!important;top:47.4%!important;height:33.4%!important;gap:1%!important}}
+@media(orientation:portrait){#journeyStory.journey-house-selection .journey-stage:not(.journey-record-view) .journey-choices{left:3%!important;width:94%!important;top:57.3%!important;height:22%!important;gap:1%!important}}

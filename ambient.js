@@ -55,7 +55,7 @@
   const random = (a, b) => a + Math.random() * (b - a);
   const splashArt=new Image();splashArt.src='approved-splash.png';
   const journeyFireArt={};
-  for(const orientation of ['portrait','landscape']){const image=new Image();image.onload=()=>{if(active==='journeyStory')layout();};image.src='journey-'+orientation+'.png';journeyFireArt[orientation]=image;}
+  for(const orientation of ['portrait','landscape']){const image=new Image();image.onload=()=>{if(active==='journeyStory')layout();};image.src='road-approved-clean-'+orientation+'.png';journeyFireArt[orientation]=image;}
   function layout() {
     const bounds = app.getBoundingClientRect();
     width = app.clientWidth; height = app.clientHeight;
@@ -75,7 +75,7 @@
       if(!record){
         // Animate only flame-colored pixels from the actual bowls, not floating synthetic fire.
         artImage=journeyFireArt[portrait?'portrait':'landscape'];
-        artRegions=portrait?[[0,.29,.12,.065],[.86,.28,.14,.075],[0,.73,.12,.075],[.86,.73,.14,.075]]:[[0,.49,.125,.16],[.875,.47,.125,.18]];
+        artRegions=portrait?[[0,.405,.125,.065],[.875,.405,.125,.065]]:[[0,.525,.07,.11],[.92,.525,.08,.11]];
       }
     }else if(artImage&&artImage.naturalWidth){
       const r=artImage.getBoundingClientRect(),style=getComputedStyle(artImage);
@@ -185,8 +185,8 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
         ctx.globalAlpha=.12+.12*(1+Math.sin(time*8.7+i*2))+.04*Math.sin(time*17+i)**2;
         for(let k=0;k<12;k++){
           const sy=k*tile.height/12,sh=tile.height/12;
-          const dx=active==='lobby'?0:Math.sin(time*6+k*.7+i)*Math.min(2,area.w*.003)*(1-k/12);
-          if(active==='lobby')ctx.globalAlpha=.10+.10*(1+Math.sin(time*5+k*.9+i*2))+.035*Math.sin(time*13+i+k)**2;
+          const dx=(active==='lobby'||active==='journeyStory')?0:Math.sin(time*6+k*.7+i)*Math.min(2,area.w*.003)*(1-k/12);
+          if(active==='lobby'||active==='journeyStory')ctx.globalAlpha=.10+.10*(1+Math.sin(time*5+k*.9+i*2))+.035*Math.sin(time*13+i+k)**2;
           ctx.drawImage(tile,0,sy,tile.width,sh,area.x+x*area.w+dx,area.y+(y+h*k/12)*area.h,w*area.w,h*area.h/12+.5);
         }ctx.restore();
       });
