@@ -1,0 +1,13 @@
+#seasons .solo-season-actions{position:absolute;left:5%;width:90%;bottom:max(2dvh,env(safe-area-inset-bottom));display:grid;gap:7px;z-index:7}
+#seasons .solo-season-actions>.btn{position:relative!important;inset:auto!important;margin:0!important;width:100%!important;min-height:42px!important;height:48px!important;box-sizing:border-box!important;padding:7px 24px!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;color:#ffe4a3!important;font:700 15px/1.1 Georgia,serif!important}
+#seasons .solo-season-actions>.btn[hidden]{display:none!important}
+.solo-character-notice[hidden]{display:none!important}
+#selected.solo-selection-warning{display:block!important;font-size:14px!important;line-height:1.2!important;color:#ffe4a3!important}
+@media(orientation:landscape){
+ #seasons .solo-season-actions{left:29%;width:42%;gap:4px}
+ #seasons .solo-season-actions>.btn{height:34px!important;min-height:34px!important;font-size:14px!important;padding:5px 20px!important}
+ #seasons.page:has(.solo-season-actions:not(.friend-mode)) .approved-stage #seasongrid{--season-card-size:clamp(110px,35vh,240px);height:57%!important;top:13%!important}
+ #seasons.page:has(.solo-season-actions:not(.friend-mode)) #seasongrid>.tile{grid-template-rows:minmax(0,1fr) 30px 16px!important;gap:3px!important}
+ #seasons.page:has(.solo-season-actions:not(.friend-mode)) #seasongrid>.tile strong{font-size:14px!important}
+ #seasons.page:has(.solo-season-actions:not(.friend-mode)) #seasongrid>.tile small{font-size:12px!important}
+}
