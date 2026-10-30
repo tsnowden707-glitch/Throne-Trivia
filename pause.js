@@ -6,15 +6,19 @@
  document.body.append(overlay);
  const controls=[];
  for(const page of ['quiz','countdown']){const b=document.createElement('button');b.className='pause-control';b.textContent='Ⅱ';b.setAttribute('aria-label','Pause game');b.onclick=()=>set(true);document.getElementById(page).append(b);controls.push(b);}
+ function mask(value){
+  document.body.classList.toggle('game-paused',value);
+  for(const id of ['quiz','countdown']){const page=document.getElementById(id);page.inert=value;if(value)page.setAttribute('aria-hidden','true');else page.removeAttribute('aria-hidden');}
+ }
  function set(value){
   if(value&&!['quiz','countdown'].includes(current))return;
-  paused=value;overlay.hidden=!value;document.dispatchEvent(new CustomEvent('pausechange',{detail:{paused:value}}));
+  paused=value;mask(value);overlay.hidden=!value;document.dispatchEvent(new CustomEvent('pausechange',{detail:{paused:value}}));
   if(value){ThroneVoice.pause();ThroneEffects.stop();document.getElementById('music').pause();overlay.querySelector('button').focus();}
   else{ThroneVoice.resume();musicPlay();const callback=pending;pending=null;callback?.();controls.find(b=>b.parentElement.id===current)?.focus();}
  }
  overlay.querySelector('button').onclick=()=>set(false);
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&['quiz','countdown'].includes(current)){e.preventDefault();set(!paused);}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&['quiz','countdown'].includes(current))set(true);});
- document.addEventListener('screenchange',()=>{paused=false;pending=null;overlay.hidden=true;});
+ document.addEventListener('screenchange',()=>{paused=false;pending=null;mask(false);overlay.hidden=true;});
  window.ThronePause={get active(){return paused;},gate(callback){if(paused)pending=callback;else callback();}};
 })();

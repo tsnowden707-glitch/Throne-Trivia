@@ -8,7 +8,7 @@
  const notice=document.createElement('p');notice.className='solo-character-notice';notice.hidden=true;choose.before(notice);
  function preferred(){return CHARACTER_ROSTER.findIndex(c=>c.id===localStorage.getItem(key));}
  function available(index){return eligibleCharacters().some(c=>c.index===index);}
- function update(){choose.hidden=playMode==='friend';actions.classList.toggle('friend-mode',playMode==='friend');if(playMode==='friend')notice.hidden=true;}
+ function update(){choose.hidden=playMode==='friend';actions.classList.toggle('friend-mode',playMode==='friend');if(playMode==='friend')notice.hidden=true;if(current!=='characters'||playMode==='friend')document.getElementById('selected').classList.remove('solo-selection-warning');}
  async function enter(){
   if(entering)return;const wanted=preferred();validateCharacter();
   if(!available(wanted)){
@@ -35,4 +35,3 @@
  const back=document.querySelector('#characters>.back,#characters .back');if(back){const old=back.onclick;back.onclick=function(){if(playMode!=='friend'&&manualPicker){manualPicker=false;return baseGo('seasons');}return old?.call(this);};}
  document.addEventListener('screenchange',update);update();
 })();
-

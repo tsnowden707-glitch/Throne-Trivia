@@ -7,3 +7,7 @@
 .pause-panel h2{font:700 clamp(30px,5vw,48px) Georgia;margin:0 0 20px;text-shadow:0 3px 4px #000}
 .pause-panel p{font:20px/1.5 Georgia;margin:0 0 24px}
 .pause-control{top:auto;bottom:max(12px,env(safe-area-inset-bottom));right:max(12px,env(safe-area-inset-right));width:52px;height:52px;border:3px ridge #c7a24f}
+
+/* Pause must conceal the playable content, not merely dim it behind the art. */
+body.game-paused #quiz,body.game-paused #quiz *,body.game-paused #countdown,body.game-paused #countdown *{visibility:hidden!important;pointer-events:none!important}
+body.game-paused .pause-overlay{background-color:#050a14!important}
