@@ -1,0 +1,20 @@
+/* Fill the actual approved answer frames and reserve safe inner text bounds. */
+#quiz.page.approved-page .approved-stage #answers .answer,#ttOnline.page.approved-page .approved-stage #onlineLiveOptions button{background-size:100% 100%!important;background-repeat:no-repeat!important;min-width:0!important;padding:6px 7%!important;grid-template-columns:28px minmax(0,1fr)!important;column-gap:9px!important;text-size-adjust:100%;-webkit-text-size-adjust:100%}
+#quiz .approved-answer-copy,#ttOnline .approved-answer-copy{box-sizing:border-box!important;max-height:100%!important;min-height:0!important;overflow-wrap:anywhere!important;line-height:1.12!important}
+@media(orientation:portrait){
+ #quiz.page .approved-stage #answers,#ttOnline.page .approved-stage #onlineLiveOptions{position:absolute!important;top:54%!important;left:0!important;width:100%!important;height:55%!important;display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;gap:7px!important;flex:none!important;margin:0!important}
+ #quiz.page .approved-stage #answers .answer,#ttOnline.page .approved-stage #onlineLiveOptions button{height:100%!important;min-height:0!important;padding:7px 7%!important;grid-template-columns:28px minmax(0,1fr)!important;column-gap:9px!important}
+}
+
+#quiz.page:not(#menu):not(#splash) .approved-stage>.content,#ttOnline.page:not(#menu):not(#splash) .approved-stage>.content{overflow:visible!important}
+
+#quiz,#ttOnline{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!important}
+#quiz.page.approved-page .approved-stage #answers .answer,#ttOnline.page.approved-page .approved-stage #onlineLiveOptions button{background-image:url('approved-answer-fill.svg?v=20261029-answer-safe12')!important}
+
+@media(orientation:portrait){
+#quiz.page.approved-page .approved-stage #qtext,#ttOnline.page.approved-page .approved-stage #onlinePrompt{position:absolute!important;top:17%!important;left:0!important;width:100%!important;height:28%!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;margin:0!important;padding:18px 14%!important;box-sizing:border-box!important}
+}
+
+@media(orientation:landscape){#quiz.page.approved-page .approved-stage #qtext,#ttOnline.page.approved-page .approved-stage #onlinePrompt{padding:14px 12%!important}}
+
+#quiz .approved-answer-letter,#ttOnline .approved-answer-letter{min-height:0!important;max-height:100%!important;width:28px!important;box-sizing:border-box!important}

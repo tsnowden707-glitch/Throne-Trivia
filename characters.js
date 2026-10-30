@@ -832,15 +832,23 @@ function characterMilestone(c){
  const position=group.findIndex(x=>x.id===c.id);
  return position===0?1:2+Math.floor((position-1)*43/Math.max(1,group.length-2));
 }
-function eligibleCharacters(){return CHARACTER_ROSTER.map((c,i)=>({...c,index:i})).filter(c=>c.season<=currentSeason&&(CHARACTER_STARTERS.includes(c.id)||(typeof completedLevels==='function'?completedLevels(c.season):0)>=characterMilestone(c)));}
+const FRIEND_CHARACTER_IDS=Object.freeze(["jon-snow", "daenerys", "arya", "sansa-stark", "tyrion", "cersei", "jaime-lannister", "ned", "robb-stark", "bran-stark", "catelyn-stark", "theon-greyjoy", "samwell-tarly", "brienne", "sandor-the-hound-clegane", "joffrey-baratheon", "stannis-baratheon", "davos-seaworth", "margaery-tyrell", "tywin-lannister"]);
+function friendCharacterMode(){return typeof playMode!=='undefined'&&playMode==='friend';}
+let characterSelectionMode='practice';
+let soloCharacterSelection=selected,friendCharacterSelection=CHARACTER_ROSTER.findIndex(c=>c.id===localStorage.getItem('throne_friend_character_v1'));
+function characterSaveKey(){return friendCharacterMode()?'throne_friend_character_v1':'throne_character_v2';}
+function eligibleCharacters(){if(friendCharacterMode())return FRIEND_CHARACTER_IDS.map(id=>{const index=CHARACTER_ROSTER.findIndex(c=>c.id===id);return {...CHARACTER_ROSTER[index],index};}).filter(c=>c.id);return CHARACTER_ROSTER.map((c,i)=>({...c,index:i})).filter(c=>c.season<=currentSeason&&(CHARACTER_STARTERS.includes(c.id)||(typeof completedLevels==='function'?completedLevels(c.season):0)>=characterMilestone(c)));}
 function validateCharacter(){
+  const mode=friendCharacterMode()?'friend':'practice';
+  if(mode!==characterSelectionMode){if(characterSelectionMode==='friend')friendCharacterSelection=selected;else soloCharacterSelection=selected;selected=mode==='friend'?friendCharacterSelection:soloCharacterSelection;characterSelectionMode=mode;}
   const eligible=eligibleCharacters();
   if(!eligible.some(c=>c.index===selected))selected=eligible[0].index;
   return eligible;
 }
-function rememberCharacter(){localStorage.setItem('throne_character_v2',CHARACTER_ROSTER[selected].id);}
+function rememberCharacter(){localStorage.setItem(characterSaveKey(),CHARACTER_ROSTER[selected].id);if(friendCharacterMode())friendCharacterSelection=selected;else soloCharacterSelection=selected;}
 const savedCharacter=localStorage.getItem('throne_character_v2');
 selected=Math.max(0,CHARACTER_ROSTER.findIndex(c=>c.id===savedCharacter));
+soloCharacterSelection=selected;
 let characterPage=0;
 let characterQuery='';
 const CHARACTER_PAGE_SIZE=6;
@@ -874,8 +882,9 @@ const goBeforeCharacters=go;
 go=function(page){
   if(page==='characters'){
     characterQuery='';if($('characterSearch'))$('characterSearch').value='';
-    const saved=CHARACTER_ROSTER.findIndex(c=>c.id===localStorage.getItem('throne_character_v2'));
-    if(saved>=0&&CHARACTER_ROSTER[saved].season<=currentSeason)selected=saved;
+    const saved=CHARACTER_ROSTER.findIndex(c=>c.id===localStorage.getItem(characterSaveKey()));
+    validateCharacter();
+    if(saved>=0&&(friendCharacterMode()||CHARACTER_ROSTER[saved].season<=currentSeason))selected=saved;
     const eligible=validateCharacter();characterPage=Math.floor(eligible.findIndex(c=>c.index===selected)/CHARACTER_PAGE_SIZE);
   }
   const eligible=validateCharacter();goBeforeCharacters(page);
@@ -902,3 +911,4 @@ window.ThroneCharacterUnlock=async function(){
   await new Promise(resolve=>{const d=document.createElement('dialog');d.className='character-unlock';const title=document.createElement('h2'),img=document.createElement('img'),name=document.createElement('p'),close=document.createElement('button');title.textContent='Character unlocked';img.src='portrait-'+c.id+'.webp';img.alt=c.name;name.textContent=c.name;close.textContent='Continue';let cancelUnlockVoice=()=>{},closing=false;const resultArt=document.querySelector('#victory .screen-art');if(resultArt)resultArt.loading='eager';const resultReady=resultArt?.decode?resultArt.decode().catch(()=>{}):Promise.resolve();const finish=async()=>{if(closing)return;closing=true;close.disabled=true;cancelUnlockVoice();localStorage.setItem(key,'1');await Promise.race([resultReady,new Promise(done=>setTimeout(done,2000))]);resolve();requestAnimationFrame(()=>requestAnimationFrame(()=>{d.close();d.remove();}));};close.onclick=finish;d.addEventListener('cancel',e=>{e.preventDefault();finish();});d.append(title,img,name,close);document.body.append(d);d.showModal();close.focus();window.ThroneEffects?.play('reward');cancelUnlockVoice=window.ThroneVoice?.unlockCharacter(c.id)||(()=>{});});
  }
 };
+

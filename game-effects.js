@@ -1,11 +1,12 @@
 // Reusable UI effects. Narration and music remain separately controlled.
 (() => {
  const cues = {
-  tap:['menu-switch',.38], enter:['menu-switch',.38], character:['character-selection',.48], correct:['correct-answer',.48], wrong:['wrong-answer',.42], unlock:['unlock-reward',.48],
+  tap:['menu-switch',.38], enter:['menu-switch',.38], character:['character-selection',.48], correct:['correct-answer',.48], unlock:['unlock-reward',.48],
   choice:['03-choice-locked',.24], reward:['04-reward-shimmer',.32], coin:['coin-award',.48],
   chapter:['05-chapter-complete',.35], back:['menu-switch',.38],
   countdown:['07-countdown-build',.38], roundEnd:['round-ending',.3]
  };
+ // Rejected buzzer removed. Wrong answers retain inline red feedback until a replacement is reviewed.
  const players = new Map();
  let active=null, lastAt=0, lastCue='', gesture=false, narrating=false, cueVersion=0,vaultActive=false;
  const vaultAudio=new Audio('audio/effects/02-ember-transition.mp3');vaultAudio.preload='auto';vaultAudio.volume=.7;

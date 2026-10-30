@@ -1,0 +1,14 @@
+/* Reserve a readable counter line instead of allowing a short flex row to collapse. */
+#quiz.page .approved-stage #qnumber,#ttOnline.page .approved-stage #onlineQuestionNumber{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ flex-shrink:0!important;min-height:24px!important;box-sizing:border-box!important;
+ padding:2px 12px!important;font:700 clamp(14px,1.8vw,18px)/1.15 Georgia,serif!important;
+ white-space:nowrap!important;color:#ffe4a3!important;visibility:visible!important;opacity:1!important;
+ max-width:90%!important;z-index:5!important;text-align:center!important;
+}
+@media(orientation:portrait){
+ #quiz.page .approved-stage #qnumber,#ttOnline.page .approved-stage #onlineQuestionNumber{min-height:28px!important;font-size:15px!important}
+}
+@media(orientation:portrait){
+ #quiz.page .approved-stage #qnumber,#ttOnline.page .approved-stage #onlineQuestionNumber{position:absolute!important;top:calc(54% - 34px)!important;left:50%!important;transform:translateX(-50%)!important;width:max-content!important;height:28px!important;margin:0!important}
+}

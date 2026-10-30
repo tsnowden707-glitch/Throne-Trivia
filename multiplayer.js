@@ -20,7 +20,7 @@ window.TT = (()=>{
  if(needsNarration){needsNarration=false;window.ThroneVoice?.stop();if(now<reveal&&!document.hidden&&el('narrate').checked&&window.ThroneVoice){const offset=s.narration_started_at?Math.max(0,(now-new Date(s.narration_started_at).getTime())/1000):0;ThroneVoice.questionByText(s.prompt,()=>{},offset)}}
  const mineScore=s.owner===myId?'owner':'guest',rivalScore=mineScore==='owner'?'guest':'owner';
  el('onlineScore').innerHTML='<span class="online-you">You<strong>'+Number(s.scores[mineScore]||0)+'</strong></span><span class="online-rival">Rival<strong>'+Number(s.scores[rivalScore]||0)+'</strong></span>';el('onlineCountdown').textContent=now<reveal?'READY':String(Math.max(0,Math.ceil((close-now)/1000)));
- if(s.options&&!shown){shown=true;el('onlineLiveOptions').innerHTML='';s.options.forEach((option,i)=>{const b=document.createElement('button');b.className='answer';b.textContent='ABCD'[i]+'.  '+option;b.onclick=()=>answer(i);el('onlineLiveOptions').appendChild(b)});el('onlineStatus').textContent='Select your answer before time expires.'}
+ if(s.options&&!shown){shown=true;el('onlineLiveOptions').innerHTML='';s.options.forEach((option,i)=>{const b=document.createElement('button');b.className='answer';b.textContent='ABCD'[i]+'.  '+option;b.onclick=()=>answer(i);el('onlineLiveOptions').appendChild(b)});el('onlineStatus').textContent=''}
  if(s.phase==='feedback'&&Number.isInteger(s.correct_index)){
  const selectedAnswer=s.answers?.find(a=>a.player_id===myId)?.chosen_index;
  el('onlineLiveOptions').querySelectorAll('button').forEach((b,i)=>{b.disabled=true;b.classList.toggle('good',i===s.correct_index);b.classList.toggle('bad',i===selectedAnswer&&i!==s.correct_index);});
