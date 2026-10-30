@@ -41,7 +41,7 @@
     }
   }
   const regions={
-    invite:[[.42,.23,.18,.10]],characters:[[0,.66,.15,.09],[.85,.66,.15,.09],[.17,.10,.15,.12],[.72,.10,.20,.15]],
+    invite:[],characters:[[0,.66,.15,.09],[.85,.66,.15,.09],[.17,.10,.15,.12],[.72,.10,.20,.15]],
     lobby:[[0,.54,.16,.12],[.84,.54,.16,.12],[.30,.24,.07,.03],[.62,.24,.07,.03]],
     countdown:[[0,.55,.16,.12],[.84,.55,.16,.12]],quiz:[[0,.68,.16,.10],[.84,.68,.16,.10],[.19,.21,.06,.04],[.72,.21,.06,.04]],
     feedback:[[.02,.66,.16,.10],[.83,.66,.17,.10],[.18,.09,.19,.14],[.66,.09,.21,.16]],
@@ -115,6 +115,7 @@
       sources = [[.259,.764,.045,.14,0],[.728,.764,.045,.14,0],
         [.353,.44,.014,.075,0],[.643,.44,.014,.075,0],[.885,.94,.045,.13,0]];
     }
+    if(active==='rewards'&&document.getElementById('rewards')?.dataset.rewardsView==='armory'){artImage=null;artRegions=[];sources=[];}
     prepareFireTiles();
     canvas.dataset.scene = active;
     canvas.dataset.sources = String(sources.length);
@@ -242,7 +243,7 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
   new ResizeObserver(layout).observe(app);
   app.addEventListener('load',layout,true);
   window.addEventListener('artworkchange',layout);
-  new MutationObserver(layout).observe(app,{subtree:true,attributes:true,attributeFilter:['class']});
+  new MutationObserver(layout).observe(app,{subtree:true,attributes:true,attributeFilter:['class','data-rewards-view']});
   document.addEventListener('visibilitychange',resume);
   window.addEventListener('pageshow',()=>{layout();resume();});
   window.addEventListener('pagehide',()=>{cancelAnimationFrame(frame);frame=0;previous=0;});

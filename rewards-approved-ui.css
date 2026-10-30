@@ -47,3 +47,63 @@
 #rewards[data-rewards-view=armory] #rewardBox.theme-browser{display:none!important;pointer-events:none!important}
 #rewards[data-rewards-view=armory]>.content{pointer-events:none!important}
 #rewards[data-rewards-view=armory] .rewards-armory{pointer-events:auto!important;z-index:4}
+/* Approved Armory artwork is the page; only state and controls are live overlays. */
+#rewards[data-rewards-view=armory]>.rewards-screen-title{display:none!important}
+#rewards[data-rewards-view=armory]>.back,#rewards[data-rewards-view=armory]>.rewards-home,#rewards[data-rewards-view=armory]>.rewards-coin{z-index:7!important}
+#rewards[data-rewards-view=armory] .rewards-armory.armory-art-stage{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;background:url('armory-approved-clean-landscape.png') center/100% 100% no-repeat!important;border:0!important;padding:0!important;pointer-events:none!important;container-type:size}
+.armory-art-stage>*{position:absolute;right:auto;bottom:auto;box-sizing:border-box;margin:0;color:#ffe6ac;text-align:center;font-family:Georgia,serif}
+#rewards .armory-art-stage .armory-art-categories{left:5.3%;top:28.5%;width:59.7%;height:59%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5%}
+#rewards .armory-art-stage .armory-category-hotspot{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;width:100%;height:100%;cursor:pointer;pointer-events:auto!important}
+.armory-category-hotspot:focus-visible{outline:3px solid #ffe5a3;outline-offset:-8px}
+#rewards .armory-art-stage .armory-live-preview{left:71%;top:23%;width:23%;height:25%;object-fit:contain;pointer-events:none}
+#rewards .armory-art-stage .armory-live-name{left:69%;top:48.5%;width:27%;height:4%;font-size:clamp(16px,2vw,28px);line-height:1}
+#rewards .armory-art-stage .armory-live-status{left:69%;top:52.5%;width:27%;height:3.5%;font-size:clamp(11px,1.3vw,18px);line-height:1.1}
+#rewards .armory-art-stage .armory-live-actions{left:69%;top:56%;width:27%;height:5%;display:grid;grid-template-columns:1fr 1fr;gap:8px;pointer-events:auto}
+#rewards .armory-art-stage .armory-live-actions .armory-action,.armory-category-dialog>.armory-action{min-width:0!important;width:100%!important;height:100%!important;min-height:28px!important;background:transparent url('clean-pause-frame.png') center/100% 100% no-repeat!important;padding:6px!important;font:700 clamp(10px,1.1vw,15px) Georgia!important;color:#ffe6ac;border:0!important}
+#rewards .armory-art-stage .armory-live-note{left:69%;top:61%;width:27%;height:2%;font-size:clamp(9px,.9vw,12px);line-height:1.05}
+#rewards .armory-art-stage .armory-live-benefits{left:69%;top:67%;width:27%;height:5%;font-size:clamp(11px,1.3vw,18px);line-height:1.1;display:grid;place-items:center}
+#rewards .armory-art-stage .armory-live-equipped{left:70.8%;top:81%;width:23%;height:10.5%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12%;pointer-events:auto}
+#rewards .armory-art-stage .armory-equipped-slot{position:relative;background:none!important;border:0!important;box-shadow:none!important;color:#ffe6ac;padding:8px!important;min-width:0;min-height:0;font:12px Georgia;cursor:pointer}
+.armory-equipped-slot img{width:100%;height:100%;object-fit:contain}
+.armory-category-dialog{width:min(850px,92vw);max-height:90dvh;overflow:auto;box-sizing:border-box;background:#090b0f;color:#ffe6ac;border:2px solid #d7ad55;padding:18px;font-family:Georgia;text-align:center}
+.armory-category-dialog::backdrop{background:#000b}
+.armory-category-dialog h2{margin:0 0 14px;font-size:24px}
+.armory-category-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.armory-category-item{display:grid;grid-template-rows:minmax(0,1fr) auto auto;height:min(48dvh,350px);min-width:0;gap:6px;background:#0d1014;color:#ffe6ac;border:1px solid #d7ad55;padding:10px;font:16px Georgia}
+.armory-category-item img{width:100%;height:100%;min-height:0;object-fit:contain}
+.armory-category-item span{font-size:13px}
+.armory-category-dialog>.armory-action{display:block;max-width:170px;height:48px!important;margin:16px auto 0;font-size:18px!important}
+@media(orientation:portrait){
+ #rewards[data-rewards-view=armory] .rewards-armory.armory-art-stage{background-image:url('armory-approved-clean-portrait.png')!important}
+ #rewards .armory-art-stage .armory-art-categories{left:6%;top:19%;width:88%;height:25%;gap:2%}
+ #rewards .armory-art-stage .armory-live-preview{left:9%;top:49%;width:34%;height:20%}
+ #rewards .armory-art-stage .armory-live-name{left:45%;top:49%;width:45%;height:4%;font-size:19px}
+ #rewards .armory-art-stage .armory-live-status{left:45%;top:54%;width:45%;height:6%;font-size:13px}
+ #rewards .armory-art-stage .armory-live-actions{left:45%;top:61%;width:45%;height:5%;gap:5px}
+ #rewards .armory-art-stage .armory-live-actions .armory-action{font-size:10px!important;min-height:36px!important}
+ #rewards .armory-art-stage .armory-live-note{left:45%;top:67%;width:45%;height:4%;font-size:10px}
+ #rewards .armory-art-stage .armory-live-benefits{left:12%;top:75%;width:76%;height:5%;font-size:13px}
+ #rewards .armory-art-stage .armory-live-equipped{left:16%;top:85%;width:68%;height:9%;gap:15%}
+ .armory-category-items{gap:7px}.armory-category-item{height:35dvh;padding:6px;font-size:14px}
+}
+
+#rewards .armory-art-stage>p{background:none;right:auto;bottom:auto;padding:0;}
+@media(orientation:portrait){
+ #rewards .armory-art-stage .armory-art-categories{left:4%;top:17%;width:92%;height:28%}
+ #rewards .armory-art-stage .armory-live-preview{left:11%;top:53%;width:31%;height:17%}
+ #rewards .armory-art-stage .armory-live-name{left:44%;top:53%;width:45%;height:4%}
+ #rewards .armory-art-stage .armory-live-status{left:44%;top:58%;width:45%;height:5%}
+ #rewards .armory-art-stage .armory-live-actions{left:44%;top:63%;width:45%;height:4.5%}
+ #rewards .armory-art-stage .armory-live-note{left:44%;top:68%;width:45%;height:3.5%}
+ #rewards .armory-art-stage .armory-live-benefits{top:75%;height:4%}
+ #rewards .armory-art-stage .armory-live-equipped{left:19.6%;top:86%;width:60.8%;height:9%;gap:9%}
+ #rewards[data-rewards-view=armory]>.back{top:.3%!important;left:2%!important;width:20%!important;height:5%!important}
+ #rewards[data-rewards-view=armory]>.rewards-home{top:.3%!important;right:2%!important;width:25%!important;height:5%!important}
+ #rewards[data-rewards-view=armory]>.rewards-coin{top:1%!important;right:29%!important;width:20%!important;height:4%!important;font-size:13px!important}
+}
+@media(orientation:portrait){#rewards[data-rewards-view=armory]>.rewards-coin{left:29%!important;right:auto!important;top:.3%!important;width:19%!important;height:4%!important}#rewards[data-rewards-view=armory]>.rewards-coin img{width:26px!important;height:26px!important}}
+@media(orientation:landscape) and (max-height:500px){
+ #rewards .armory-art-stage .armory-live-note{display:none}
+ #rewards .armory-art-stage .armory-live-actions{top:55.5%;height:6%}
+ #rewards .armory-art-stage .armory-live-actions .armory-action{min-height:0!important;padding:3px!important;font-size:10px!important}
+}

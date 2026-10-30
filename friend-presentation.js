@@ -3,7 +3,7 @@ function chooseGameMode(mode){playMode=mode;go('seasons');}
 let readyCharacterBusy=false,preparedPracticeRival=null;
 async function readyCharacter(){
  if(readyCharacterBusy)return;validateCharacter();
- if(playMode==='friend'){go('invite');return;}
+ if(playMode==='friend'){go('invite');TT.resumeWaiting();return;}
  const button=document.querySelector('#characters button[onclick="readyCharacter()"]'),player=selected,season=currentSeason;
  choosePracticeRival();const rival=practiceRival;
  readyCharacterBusy=true;if(button){button.disabled=true;button.setAttribute('aria-busy','true');}
