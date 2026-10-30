@@ -1,0 +1,34 @@
+/* Approved collection and detail artwork supplies its own frames and headings. */
+.cards-art-page.details-page .cards-art-stage .details-effect,
+.cards-art-page.details-page .cards-art-stage .details-timing{
+ background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;
+ padding:3px 6px!important;color:#f3dfb5!important;font:600 clamp(12px,1.8cqw,20px)/1.15 Georgia!important;
+ display:flex;align-items:center;justify-content:center;text-align:center;overflow:auto!important;
+}
+.cards-art-page.details-page .details-effect::before,.cards-art-page.details-page .details-timing::before{content:none!important}
+.cards-art-page.details-page .details-effect{left:51.7%!important;top:25.7%!important;width:36.5%!important;height:7.8%!important}
+.cards-art-page.details-page .details-timing{left:51.7%!important;top:42.5%!important;width:36.5%!important;height:7.9%!important}
+.cards-art-page.details-page .details-copies{left:51.7%!important;top:58.8%!important;width:36.5%!important;height:6.3%!important;background:none!important;border:0!important}
+.cards-art-page.details-page .details-card{left:21.8%!important;top:22.4%!important;width:24.5%!important;height:40.5%!important;object-fit:contain!important}
+@media(orientation:portrait){
+ .cards-art-page.details-page .details-effect{left:10.5%!important;top:47%!important;width:79%!important;height:4.7%!important}
+ .cards-art-page.details-page .details-timing{left:10.5%!important;top:57.5%!important;width:79%!important;height:4.2%!important}
+ .cards-art-page.details-page .details-copies{left:10.5%!important;top:67.7%!important;width:79%!important;height:3.8%!important}
+ .cards-art-page.details-page .details-card{left:24%!important;top:13.6%!important;width:52%!important;height:27.4%!important}
+ .cards-art-page.details-page .details-effect,.cards-art-page.details-page .details-timing{font-size:clamp(12px,3.5cqw,18px)!important}
+}
+
+/* Retain the artwork's original Back plaque as the single visible control. */
+.cards-art-page.details-page .cards-art-stage .details-back{left:4.3%!important;top:91%!important;width:22%!important;height:5.3%!important;min-width:0!important;min-height:0!important;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;font-size:0!important;transform:none!important}
+.cards-art-page.details-page .details-back::before,.cards-art-page.details-page .details-back::after{content:none!important;display:none!important}
+@media(orientation:portrait){
+ .cards-art-page.details-page .cards-art-stage .details-back{left:5.2%!important;top:94.3%!important;width:42.2%!important;height:4.7%!important}
+ .cards-art-page.details-page .cards-art-stage>.throne-home{top:auto!important;bottom:1%!important;right:4%!important;left:auto!important;width:35%!important;height:5%!important;min-height:0!important;max-height:44px!important}
+}
+/* Navigation enhancer assigns its plaque inline; hide only that duplicate image layer. The button remains the accessible hit target over the baked Back plaque. */
+.cards-art-page.details-page .cards-art-stage .details-back.approved-back-arrow{opacity:0!important}
+
+/* Existing welcome action uses the same approved plaque as other controls. */
+.bella-welcome-screen button{width:180px;min-height:48px;padding:10px 24px;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat;border:0;box-shadow:none;text-shadow:0 1px 2px #000}
+/* Long descriptions may scroll within the original slot; their first line must remain reachable. */
+.cards-art-page.details-page .cards-art-stage .details-effect,.cards-art-page.details-page .cards-art-stage .details-timing{align-items:safe center!important;overscroll-behavior:contain;touch-action:pan-y}
