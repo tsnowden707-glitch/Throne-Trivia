@@ -11,7 +11,7 @@
    timer=setTimeout(()=>{if(own!==token||current!=='victory'||busy()){if(own===token)schedule();return;}clear();go('journeyStory');window.ThroneVault?.play({revealReady:window.ThroneJourney?.prepare?.()});},900);
   };timer=setTimeout(poll,250);
  }
- window.ThroneJourneyRoute={crossed(before,after,reward){if(!reward?.total||!before||before.available||!after?.available||before.id!==after.id)return false;pending={scene:after.id,season:after.chapter,required:after.required};localStorage.setItem(KEY,JSON.stringify(pending));window.ThroneJourney?.prepare?.();return true;},cancel:clear};
+ window.ThroneJourneyRoute={continue(){if(!pending)return false;const gate=window.ThroneJourney?.getGateStatus();if(!gate?.available||gate.id!==pending.scene){clear();return false;}clear();go('journeyStory');window.ThroneVault?.play({revealReady:window.ThroneJourney?.prepare?.()});return true;},crossed(before,after,reward){if(!reward?.total||!before||before.available||!after?.available||before.id!==after.id)return false;pending={scene:after.id,season:after.chapter,required:after.required};localStorage.setItem(KEY,JSON.stringify(pending));window.ThroneJourney?.prepare?.();return true;},cancel:clear};
  document.addEventListener('narrationstate',e=>{speaking=!!e.detail.speaking;});document.addEventListener('coinrewardstate',e=>{rewardBusy=!!e.detail.active;});
  document.addEventListener('screenchange',e=>{if(e.detail.page==='victory')schedule();else if(e.detail.page!=='summary')clear();});
  window.addEventListener('pagehide',()=>{token++;clearTimeout(timer);});

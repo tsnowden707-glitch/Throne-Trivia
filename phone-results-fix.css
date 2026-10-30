@@ -1,0 +1,11 @@
+/* Separate portrait scores, result summary and actions on short phone screens. */
+#victory.approved-result .approved-result-cards{height:46%!important}
+#victory.approved-result .approved-stage>.content #victoryStats{left:20%!important;top:71%!important;width:60%!important;height:11%!important;box-sizing:border-box!important;padding:8px 28px!important;font-size:clamp(13px,3.4vh,20px)!important;line-height:1.2!important;text-align:center!important;overflow-wrap:normal!important}
+@media(orientation:portrait){
+ #victory.approved-result .approved-result-cards{height:34%!important}
+ #victory.approved-result .approved-stage>.content #victoryStats{left:10%!important;top:64%!important;width:80%!important;height:9%!important;padding:10px 24px!important;font-size:clamp(14px,3.8vw,18px)!important}
+}
+/* Keep the complete heading within the existing plaque in either orientation. */
+#victory.approved-result .approved-stage>.content #victoryTitle,#summary.approved-result .approved-stage>.content .title{box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:8px 10%!important;line-height:1.02!important;font-size:clamp(17px,3.4vw,32px)!important}
+@media(orientation:portrait){#victory.approved-result .approved-stage>.content #victoryTitle,#summary.approved-result .approved-stage>.content .title{padding:6px 8%!important;font-size:clamp(16px,4.8vw,22px)!important;white-space:nowrap!important}}
+

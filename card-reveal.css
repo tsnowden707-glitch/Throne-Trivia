@@ -21,3 +21,7 @@
 .card-reveal h2{background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important;padding:14px 35px!important;min-height:56px;display:flex!important;align-items:center;justify-content:center;width:max-content;max-width:94vw;font-size:clamp(17px,3vw,28px);text-align:center}
 @media(orientation:landscape) and (max-height:550px){.card-reveal h2{min-height:44px;padding:10px 30px!important;font-size:18px}}
 @media(orientation:portrait){.card-reveal h2{font-size:20px;padding:14px 28px!important}}
+
+/* Only the earned-card plaque is shown while this top-layer reveal is open. */
+body:has(dialog.card-reveal[open]) #victoryTitle,
+body:has(dialog.card-reveal[open]) #summary .title{visibility:hidden!important}

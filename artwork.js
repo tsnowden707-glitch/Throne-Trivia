@@ -16,9 +16,9 @@ function kingdomArt(screen,theme=activeKingdomTheme){
  return window.THRONE_THEME_SETS?.[theme]?.[screen]?.src || (screen==='splash'?'approved-splash.png':screen==='menu'?'menu-approved.webp':'screen-'+screen+'.webp');
 }
 for(const id of SCREEN_ART_IDS){
- const page=$(id),art=document.createElement('img');art.className='screen-art';art.alt='';art.loading='lazy';art.setAttribute('aria-hidden','true');art.src=kingdomArt(id);page.prepend(art);
+ const page=$(id),art=document.createElement('img');art.className='screen-art';art.alt='';art.loading=['characters','invite'].includes(id)?'eager':'lazy';art.setAttribute('aria-hidden','true');art.src=kingdomArt(id);page.prepend(art);
 }
-const onlineArt=document.createElement('img');onlineArt.className='screen-art';onlineArt.alt='';onlineArt.loading='lazy';onlineArt.src=kingdomArt('quiz');$('ttOnline').prepend(onlineArt);
+const onlineArt=document.createElement('img');onlineArt.className='screen-art';onlineArt.alt='';onlineArt.loading='eager';onlineArt.src=kingdomArt('quiz');$('ttOnline').prepend(onlineArt);
 const menu=$('menu');menu.querySelector('.menuart').remove();
 const composition=document.createElement('div');composition.className='menu-composition';
 const menuImage=document.createElement('img');menuImage.id='kingdomMenuArt';menuImage.alt='';menuImage.src=kingdomArt('menu');composition.append(menuImage);

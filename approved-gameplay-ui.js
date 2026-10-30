@@ -41,8 +41,39 @@
 })();
 /* HUD uses the artwork's own bounds, never viewport percentages. */
 (()=>{
- function place(el,x,y,w,h,size){if(!el)return;for(const [k,v] of Object.entries({position:'fixed',left:x+'px',top:y+'px',width:w+'px',height:h+'px',transform:'translate(-50%,-50%)',display:'flex','align-items':'center','justify-content':'center','text-align':'center',margin:'0',padding:'0','line-height':'1.05','font-size':size+'px','z-index':'4'}))el.style.setProperty(k,v,'important');el.style.setProperty('left','0px','important');el.style.setProperty('top','0px','important');el.style.setProperty('transform','none','important');const origin=el.getBoundingClientRect();el.style.setProperty('left',(x-origin.left)+'px','important');el.style.setProperty('top',(y-origin.top)+'px','important');el.style.setProperty('transform','translate(-50%,-50%)','important');el.style.setProperty('font-variant-numeric','tabular-nums lining-nums','important');const text=document.createRange();text.selectNodeContents(el);let fitted=size;while(fitted>12&&(text.getBoundingClientRect().width>w*.88||text.getBoundingClientRect().height>h*.88)){fitted-=.5;el.style.setProperty('font-size',fitted+'px','important');}}
- function align(){for(const id of ['quiz','ttOnline']){const page=document.getElementById(id),stage=page?.querySelector('.approved-stage'),art=stage?.querySelector('.screen-art');if(!stage||!art)continue;const r=art.getBoundingClientRect();if(!r.width||!r.height)continue;const wide=art.naturalWidth>art.naturalHeight;const y=r.top+r.height*(wide?.183:.165),xs=wide?[.263,.737]:[.106,.889],namesX=wide?[.39,.607]:[.305,.69],diam=r.width*(wide?.06:.115),nameWidth=r.width*(wide?.13:.205),nameSize=Math.max(12,Math.min(wide?23:17,r.width*(wide?.022:.036)));const slots=page.querySelectorAll(id==='quiz'?'.panel.flex>.score':'#onlineScore>span');slots.forEach((slot,i)=>{slot.style.setProperty('font-size','0','important');slot.style.setProperty('transform','none','important');slot.style.setProperty('display','contents','important');const name=slot.querySelector('.approved-score-name'),value=slot.querySelector('b,strong');place(value,r.left+r.width*xs[i],y,diam,diam,Math.max(22,Math.min(40,diam*.65)));place(name,r.left+r.width*namesX[i],y,nameWidth,r.height*.065,nameSize);});place(document.getElementById(id==='quiz'?'clock':'onlineCountdown'),r.left+r.width*.5,y,diam,diam,Math.max(24,Math.min(42,diam*.7)));}}
+ function imageBounds(art){
+  const box=art.getBoundingClientRect(),css=getComputedStyle(art),nw=art.naturalWidth,nh=art.naturalHeight;
+  if(!nw||!nh)return box;
+  let w=box.width,h=box.height;
+  if(css.objectFit==='cover'||css.objectFit==='contain'){const scale=(css.objectFit==='cover'?Math.max:Math.min)(w/nw,h/nh);w=nw*scale;h=nh*scale;}
+  const pos=css.objectPosition.split(' '),offset=(space,value)=>value?.endsWith('%')?space*parseFloat(value)/100:parseFloat(value)||0;
+  return {left:box.left+offset(box.width-w,pos[0]),top:box.top+offset(box.height-h,pos[1]||pos[0]),width:w,height:h};
+ }
+ function place(el,x,y,w,h,size){
+  if(!el)return;
+  for(const [k,v] of Object.entries({position:'fixed',left:'0px',top:'0px',width:w+'px',height:h+'px',transform:'none',display:'flex','align-items':'center','justify-content':'center','text-align':'center',margin:'0',padding:'0','max-width':'none','max-height':'none','min-width':'0','min-height':'0',right:'auto',bottom:'auto','box-sizing':'border-box','white-space':'normal','overflow-wrap':'normal','line-height':'1.05','font-size':size+'px','z-index':'4'}))el.style.setProperty(k,v,'important');
+  const origin=el.getBoundingClientRect(),sx=origin.width/w||1,sy=origin.height/h||1;
+  el.style.setProperty('width',w/sx+'px','important');el.style.setProperty('height',h/sy+'px','important');
+  el.style.setProperty('left',(x-origin.left)/sx+'px','important');el.style.setProperty('top',(y-origin.top)/sy+'px','important');
+  el.style.setProperty('transform','translate(-50%,-50%)','important');el.style.setProperty('font-variant-numeric','tabular-nums lining-nums','important');
+  const text=document.createRange();text.selectNodeContents(el);let fitted=size;
+  while(fitted>10&&(text.getBoundingClientRect().width>w*.9||text.getBoundingClientRect().height>h*.9)){fitted-=.5;el.style.setProperty('font-size',fitted+'px','important');}
+ }
+ function align(){for(const id of ['quiz','ttOnline']){
+  const page=document.getElementById(id),stage=page?.querySelector('.approved-stage'),art=stage?.querySelector('.screen-art');if(!stage||!art)continue;
+  const box=art.getBoundingClientRect();if(!box.width||!box.height)continue;
+  const r=imageBounds(art),wide=art.naturalWidth>art.naturalHeight;
+  // Centers measured on the approved art. Cover cropping is included above.
+  const xs=wide?[.284,.714]:[.115,.886],ys=wide?[.181,.181]:[.163,.163],namesX=wide?[.39,.609]:[.305,.695];
+  const diam=r.width*(wide?.056:.112),nameWidth=r.width*(wide?.124:.218),nameHeight=r.height*(wide?.073:.047),nameSize=Math.max(12,Math.min(wide?23:18,r.width*(wide?.021:.039)));
+  const slots=page.querySelectorAll(id==='quiz'?'.panel.flex>.score':'#onlineScore>span');
+  slots.forEach((slot,i)=>{if(i>1)return;slot.style.setProperty('font-size','0','important');slot.style.setProperty('transform','none','important');slot.style.setProperty('display','contents','important');
+   const name=slot.querySelector('.approved-score-name'),value=slot.querySelector('b,strong');
+   place(value,r.left+r.width*xs[i],r.top+r.height*ys[i],diam,diam,Math.max(22,Math.min(40,diam*.65)));
+   place(name,r.left+r.width*namesX[i],r.top+r.height*(wide?.185:.167),nameWidth,nameHeight,nameSize);
+  });
+  place(document.getElementById(id==='quiz'?'clock':'onlineCountdown'),r.left+r.width*.5,r.top+r.height*(wide?.185:.169),diam,diam,Math.max(24,Math.min(42,diam*.7)));
+ }}
  document.addEventListener('screenchange',()=>requestAnimationFrame(align));window.addEventListener('resize',()=>requestAnimationFrame(align));window.addEventListener('artworkchange',()=>requestAnimationFrame(align));for(const id of ['quiz','ttOnline']){const stage=document.querySelector('#'+id+' .approved-stage');if(stage){new ResizeObserver(align).observe(stage);stage.querySelector('.screen-art')?.addEventListener('load',align);}}for(const id of ['yourScore','foeScore','clock','onlineScore','onlineCountdown']){const node=document.getElementById(id);if(node)new MutationObserver(()=>requestAnimationFrame(align)).observe(node,{childList:true,subtree:true,characterData:true});}requestAnimationFrame(align);
 })();
 (()=>{function raiseSeasonHeading(){const stage=document.querySelector('#seasons .approved-stage'),title=document.querySelector('#seasons .title');if(stage&&title){title.classList.add('season-heading-raised');if(title.parentElement!==stage)stage.append(title);}}document.addEventListener('screenchange',raiseSeasonHeading);raiseSeasonHeading();})();
