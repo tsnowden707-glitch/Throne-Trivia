@@ -17,7 +17,7 @@
   player.onloadedmetadata=null;player.muted=new URL(location.href).searchParams.get("quiet")==="1";if(!prepared)player.src=src;else if(player.currentTime!==0)player.currentTime=0;player.playbackRate=1;player.onended=done;player.onerror=()=>{if(media&&own===token)play(spokenSource,callback,offset);else done();};
   document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:true,src:spokenSource}}));
   const start=()=>{if(own!==token)return;if(offset>0){if(offset>=player.duration){done();return;}player.currentTime=offset;}player.play().catch(done);};
-  if(offset>0&&player.readyState<1)player.onloadedmetadata=start;else start();
+  if(offset>0&&player.readyState<1){player.onloadedmetadata=start;player.preload='auto';player.load();}else start();
  }
  // Only verified authentic unlock recordings belong here; missing recordings remain silent.
  const unlockRecordings=Object.freeze({});

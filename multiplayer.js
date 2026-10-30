@@ -1,6 +1,6 @@
 window.TT = (()=>{
  const url='https://htdupeikjohbwnjvevrd.supabase.co', key='sb_publishable_91txBMAJNP8szu3b_0V7ng_ewX65IV9';
- let sb=null,room=null,poll=null,currentRound=0,shown=false,speaking=false,live=false,ended=false,roomDetails=null,refreshing=false,submitting=false,connecting=false,myId=null,arrivalPlayed=false,needsNarration=false,navigationPaused=false,backBusy=false;
+ let sb=null,room=null,poll=null,currentRound=0,shown=false,speaking=false,live=false,ended=false,roomDetails=null,refreshing=false,submitting=false,connecting=false,myId=null,arrivalPlayed=false,needsNarration=false,navigationPaused=false,backBusy=false,rematchBusy=false,rewardPending=Promise.resolve();
  const el=id=>document.getElementById(id);
  const status=s=>{el('ttStatus').dataset.roomHint=String(/^(Room |ROOM |Ready\.|Both players|Joined Season)/.test(s));el('ttStatus').textContent=s;el('onlineStatus').textContent=s;};
  function client(){if(!window.supabase){status('Internet required: could not load the multiplayer library.');throw Error('Supabase SDK unavailable');}const id=window.ThroneTestId;const options=id?{auth:{storage:{getItem:k=>localStorage.getItem(id+':'+k),setItem:(k,v)=>localStorage.setItem(id+':'+k,v),removeItem:k=>localStorage.removeItem(id+':'+k)}}}:undefined;return sb ||= window.supabase.createClient(url,key,options);}
@@ -14,7 +14,7 @@ window.TT = (()=>{
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&room){needsNarration=true;refresh()}});
  function escapeHtml(s){return String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
  async function refresh(){if(!room||refreshing||navigationPaused)return;refreshing=true;const requestedRoom=room;try{const s=await exec('tt_state',{p_room:room});if(room!==requestedRoom||navigationPaused)return;if(s.state==='waiting'){roomDetails=await exec('tt_room_details',{p_room:room});if(room!==requestedRoom||navigationPaused)return;window.dispatchEvent(new CustomEvent('throne-online-presentation',{detail:{state:s,details:roomDetails,myId}}));if(s.guest&&!arrivalPlayed){arrivalPlayed=true;window.ThroneVoice?.announce('arrival');}status(s.guest?'Both players connected · waiting for READY':'Room '+s.code+' · Waiting for friend to join');return;}
- if(s.state==='finished'){if(ended)return;roomDetails=await exec('tt_room_details',{p_room:room});const {data}=await client().auth.getUser();if(room!==requestedRoom||navigationPaused)return;ended=true;clearInterval(poll);poll=null;showOnlineVictory(s,roomDetails,data.user.id);Promise.resolve(window.ThroneVault?.ready).then(()=>window.ThroneCards?.reward("online:"+requestedRoom));return;}
+ if(s.state==='finished'){if(ended){if(current==='victory')await rematch(false);return;}roomDetails=await exec('tt_room_details',{p_room:room});const {data}=await client().auth.getUser();if(room!==requestedRoom||navigationPaused)return;ended=true;showOnlineVictory(s,roomDetails,data.user.id);rewardPending=Promise.resolve(window.ThroneVault?.ready).then(()=>window.ThroneCards?.reward("online:"+requestedRoom));return;}
  if(current!=='ttOnline')go('ttOnline');const reveal=new Date(s.reveal_at).getTime(),close=new Date(s.closes_at).getTime(),now=s.server_now?new Date(s.server_now).getTime():Date.now();
  if(s.round!==currentRound){currentRound=s.round;shown=false;el('onlineLiveOptions').innerHTML='';el('onlinePrompt').textContent=s.prompt;const counter=el('onlineQuestionNumber');if(counter)counter.textContent='QUESTION '+s.round+' OF 10';el('onlineStatus').textContent='';needsNarration=true;}
  if(needsNarration){needsNarration=false;window.ThroneVoice?.stop();if(now<reveal&&!document.hidden&&el('narrate').checked&&window.ThroneVoice){const offset=s.narration_started_at?Math.max(0,(now-new Date(s.narration_started_at).getTime())/1000):0;ThroneVoice.questionByText(s.prompt,()=>{},offset)}}
@@ -33,6 +33,14 @@ window.TT = (()=>{
  }
 
 
+ async function rematch(accept=true){
+  if(!room||!ended||rematchBusy)return;rematchBusy=true;const previous=room,button=document.querySelector('#victory .btn.gold');
+  try{const result=await exec('tt_rematch',{p_room:previous,p_accept:accept});if(room!==previous){if(accept)await exec('tt_rematch',{p_room:previous,p_accept:null});return;}
+   if(result.room_id){await rewardPending;if(room!==previous||current!=='victory')return;room=result.room_id;el('ttCode').value=result.code;currentRound=0;ended=false;shown=false;needsNarration=true;arrivalPlayed=true;window.ThroneVoice?.stop();go('ttOnline');}
+   else if(button){button.disabled=!!result.accepted;button.textContent=result.accepted?'WAITING FOR FRIEND':result.friend_accepted?'ACCEPT REMATCH':'REMATCH';}
+  }catch(e){if(room===previous&&button){button.disabled=false;button.textContent='RETRY REMATCH';button.title=e.message;el('victoryStats').textContent=e.message;}}
+  finally{rematchBusy=false;}
+ }
  async function backToCharacter(){
   if(backBusy)return;backBusy=true;navigationPaused=true;if(poll)clearInterval(poll);poll=null;
   const requestedRoom=room,button=el('invite').querySelector('.back');if(button)button.disabled=true;
@@ -41,6 +49,6 @@ window.TT = (()=>{
   finally{backBusy=false;if(button)button.disabled=false;}
  }
  async function resumeWaiting(){navigationPaused=false;if(!room)return;const requestedRoom=room;try{await exec('tt_configure_room',{p_room:room,p_character:CHARACTER_ROSTER[selected].id});}catch(e){status(e.message);}if(room===requestedRoom&&!navigationPaused&&current==='invite')begin();}
- function leave(){navigationPaused=false;if(poll)clearInterval(poll);poll=null;room=null;roomDetails=null;currentRound=0;ended=false;go('menu')}
- return {rankings:async(scope)=>{await requireLogin();return exec('tt_leaderboard',{p_scope:scope});},signUp:()=>auth('signUp'),signIn:()=>auth('signInWithPassword'),createRoom,joinRoom,ready,leave,backToCharacter,resumeWaiting,getRoomCode:()=>room?el('ttCode').value.trim():null,cardCommand:async(action,args={})=>{await requireLogin();return exec('tt_cards',{action,args});}};
+ function leave(){if(room&&ended)exec('tt_rematch',{p_room:room,p_accept:null}).catch(()=>{});navigationPaused=false;if(poll)clearInterval(poll);poll=null;room=null;roomDetails=null;currentRound=0;ended=false;go('menu')}
+ return {rankings:async(scope)=>{await requireLogin();return exec('tt_leaderboard',{p_scope:scope});},signUp:()=>auth('signUp'),signIn:()=>auth('signInWithPassword'),createRoom,joinRoom,ready,leave,rematch,backToCharacter,resumeWaiting,getRoomCode:()=>room?el('ttCode').value.trim():null,cardCommand:async(action,args={})=>{await requireLogin();return exec('tt_cards',{action,args});}};
 })();

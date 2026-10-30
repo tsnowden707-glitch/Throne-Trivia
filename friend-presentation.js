@@ -20,7 +20,7 @@ function practiceRivalPool(){const pool=CHARACTER_ROSTER.map((c,index)=>({...c,i
 function choosePracticeRival(){const pool=practiceRivalPool();if(!pool.length)throw Error('No characters available for this season');practiceRival={season:currentSeason,player:selected,index:pool[Math.floor(Math.random()*pool.length)].index};return practiceRival.index;}
 function practiceRivalIndex(){if(!practiceRival||practiceRival.season!==currentSeason||practiceRival.player!==selected)choosePracticeRival();return practiceRival.index;}
 const goBeforeFriendPresentation=go;
-go=function(page){if(page==='lobby'){validateCharacter();if(preparedPracticeRival&&preparedPracticeRival.player===selected&&preparedPracticeRival.season===currentSeason)practiceRival=preparedPracticeRival;else choosePracticeRival();preparedPracticeRival=null;}goBeforeFriendPresentation(page);if(page==='lobby'){const heading=document.querySelector('#lobby .title');if(heading)heading.textContent='Your Challenger Awaits';}if(page==='invite')updateFriendLabel();if(page==='victory'){const rematch=document.querySelector('#victory button');rematch.textContent='REMATCH';rematch.onclick=start;}};
+go=function(page){if(page==='lobby'){validateCharacter();if(preparedPracticeRival&&preparedPracticeRival.player===selected&&preparedPracticeRival.season===currentSeason)practiceRival=preparedPracticeRival;else choosePracticeRival();preparedPracticeRival=null;}goBeforeFriendPresentation(page);if(page==='lobby'){const heading=document.querySelector('#lobby .title');if(heading)heading.textContent='Your Challenger Awaits';}if(page==='invite')updateFriendLabel();if(page==='victory'){const rematch=document.querySelector('#victory button');rematch.disabled=false;rematch.textContent='REMATCH';rematch.onclick=start;}};
 function showOnlineVictory(state,details,myId){
  const ownerWins=state.winner===state.owner;
  const winnerId=state.winner?(ownerWins?details.owner_character:details.guest_character):CHARACTER_ROSTER[selected].id;
@@ -30,7 +30,7 @@ function showOnlineVictory(state,details,myId){
  $('victoryHero').src='portrait-'+champion.id+'.webp';$('victoryHero').alt=champion.name;
  const mine=state.owner===myId?'owner':'guest',other=mine==='owner'?'guest':'owner';
  $('victoryStats').textContent=`${state.winner?champion.name+' wins':'Honors shared'} · YOU ${state.scores[mine]} · RIVAL ${state.scores[other]}`;
- const rematch=document.querySelector('#victory button');rematch.textContent='PLAY ANOTHER FRIEND MATCH';rematch.onclick=()=>{TT.leave();playMode='friend';go('invite');};
+ const rematch=document.querySelector('#victory .btn.gold');rematch.disabled=false;rematch.textContent='REMATCH';rematch.onclick=()=>TT.rematch();const menu=document.querySelector('#victory .content>.btn:not(.gold)');if(menu)menu.onclick=()=>TT.leave();
 }
 const rewardBeforeThemeStatus=reward;
 reward=function(type){
