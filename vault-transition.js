@@ -19,6 +19,6 @@
  document.getElementById('effects')?.addEventListener('change',audioSetting);
  window.ThroneVault=Object.freeze({play:options=>ready=play(options),get ready(){return ready;},cancel});
  let previousPage=current;
- document.addEventListener('screenchange',e=>{const fromMenu=previousPage==='menu';previousPage=e.detail.page;if(fromMenu&&['seasons','journeyStory'].includes(e.detail.page))ready=play();else cancel();});
+ document.addEventListener('screenchange',e=>{const fromMenu=previousPage==='menu';previousPage=e.detail.page;if(fromMenu&&['seasons','journeyStory'].includes(e.detail.page))ready=play({revealReady:e.detail.page==='journeyStory'?Promise.resolve().then(()=>window.ThroneJourney?.prepareEntry?.()):Promise.resolve()});else cancel();});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancel();});reduced.addEventListener('change',()=>{if(reduced.matches)cancel();});window.addEventListener('pagehide',cancel);
 })();

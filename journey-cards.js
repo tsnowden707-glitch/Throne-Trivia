@@ -30,7 +30,7 @@
   if(!part){const d=document.createElement('dialog');d.className='cards-dialog';d.setAttribute('aria-label','How Cards Work');for(const [id,label] of [['first-card','Earning cards'],['friends','Friends & Trading'],['use-card','Using a card']])d.append(button(label,()=>{d.close();d.remove();tutorial(id);}));d.append(button('Close',()=>{d.close();d.remove();}));document.body.append(d);d.showModal();return Promise.resolve();}
   const key='throne_cards_heard_'+part;if(once&&localStorage.getItem(key))return Promise.resolve();if(once&&document.getElementById('narrate')?.checked===false)return Promise.resolve();
   return new Promise(resolve=>{window.ThroneVoice?.stop();const synced=['first-card','friends'].includes(part),portrait=document.createElement('video');const audio=synced?portrait:new Audio('audio/cards/'+part+'.mp3');audio.muted=new URL(location.href).searchParams.get('quiet')==='1';const d=document.createElement('dialog');d.className='cards-dialog';d.setAttribute('aria-label','Sir Edward explains '+part);let stopped=false;
-   portrait.src=synced?'video/edward/'+part+'-lipsynced.mp4':'video/edward-intro.mp4';portrait.muted=synced?audio.muted:true;portrait.playsInline=true;portrait.loop=!synced;portrait.className='cards-tutorial-edward';portrait.setAttribute('aria-label','Sir Edward');d.append(portrait);
+   portrait.src=synced?'video/edward/'+part+'-lipsynced.mp4':'video/edward-intro.mp4';portrait.muted=synced?audio.muted:true;portrait.playsInline=true;portrait.loop=!synced;portrait.className='cards-tutorial-edward';portrait.setAttribute('aria-label','Sir Edward');d.classList.add('edward-tutorial-dialog');const portraitFrame=document.createElement('div');portraitFrame.className='edward-tutorial-frame';portraitFrame.append(portrait);d.append(portraitFrame);
    const speaking=value=>document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:value,src:audio.src}}));
    const stop=()=>{if(stopped)return;stopped=true;audio.pause();portrait.pause();speaking(false);document.removeEventListener('visibilitychange',hide);d.close();d.remove();try{localStorage.setItem(key,'1');}catch{}resolve();};
    const play=async()=>{await window.ThroneCardRhythm?.nextAccent(.4);if(stopped||document.hidden)return;audio.playbackRate=1;audio.play().catch(()=>{});};
@@ -93,7 +93,7 @@
  }
  async function reward(event){
   try{const queue=pending();if(!queue.includes(event)){queue.push(event);localStorage.setItem(pendingKey,JSON.stringify(queue));}
-   await catalog;const r=await command('reward',{event});localStorage.setItem(pendingKey,JSON.stringify(pending().filter(x=>x!==event)));await refresh();if(!r.repeated){await ThroneCardReveal.show(byId(r.card));await tutorial('first-card',true);}
+   await catalog;const r=await command('reward',{event});localStorage.setItem(pendingKey,JSON.stringify(pending().filter(x=>x!==event)));await refresh();if(!r.repeated){await ThroneCardReveal.show(byId(r.card));const firstRoadTutorial=event==='story:1:1'&&current==='journeyStory'&&!localStorage.getItem('throne_cards_heard_first-card')&&document.getElementById('narrate')?.checked!==false;await tutorial('first-card',true);if(firstRoadTutorial&&current==='journeyStory'){go('menu');await window.ThroneVault?.play();}}
   }catch(e){console.warn('Card reward queued:',e.message);}
  }
  window.addEventListener('online',()=>{for(const event of pending())reward(event);});

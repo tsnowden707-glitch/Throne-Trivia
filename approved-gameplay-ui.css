@@ -211,3 +211,17 @@
 
 /* Season squares use the crisp character-card treatment, not a stretched banner crop. */
 #seasons.page .approved-stage #seasongrid>.tile{background:#111b29!important;border:2px solid #b68b4a!important;border-radius:5px!important;box-shadow:inset 0 0 0 1px #f3d18a,inset 0 0 0 4px #49341d,0 3px 8px #0008!important}
+/* Approved season-screen revision: raised plaque and full-width black picture card. */
+#seasons.page .content>.small{display:none!important}
+#seasons.page .content>.title{background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;min-height:0!important;margin:0!important;padding:8px 24px!important}
+#seasons.page .approved-stage #seasongrid>.tile,#seasons.page .approved-stage #seasongrid>.tile:has(.season-place-art){background:#050505!important;padding:6px!important;gap:3px!important;grid-template-rows:minmax(0,1fr) 36px 20px!important}
+#seasons.page .approved-stage #seasongrid>.tile .season-place-art{width:100%!important;height:100%!important;object-fit:cover!important}
+@media(orientation:landscape){#seasons.page .content>.title{top:-15.5%!important;left:16%!important;width:68%!important;height:8vh!important;font-size:24px!important}}
+@media(orientation:portrait){#seasons.page .content>.title{position:absolute!important;top:-30%!important;left:5%!important;width:90%!important;height:7vh!important;font-size:21px!important}}
+#seasons.page .approved-stage>.season-heading-raised{position:absolute!important;z-index:2!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:8px 24px!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;min-height:0!important;line-height:1!important;text-align:center!important}
+@media(orientation:landscape){#seasons.page .approved-stage>.season-heading-raised{left:24%!important;top:13.7%!important;width:52%!important;height:8%!important;font-size:24px!important}}
+@media(orientation:portrait){#seasons.page .approved-stage>.season-heading-raised{left:8%!important;top:18%!important;width:84%!important;height:7%!important;font-size:21px!important}}
+#invite #ttSeasonLabel{display:none!important}
+#invite #ttStatus:empty{display:none!important}
+@media(orientation:landscape){#invite:not(.approved-online-waiting) .approved-stage>.content{top:49%!important;height:37%!important}}
+@media(orientation:portrait){#invite:not(.approved-online-waiting) .approved-stage>.content{top:44%!important;height:46%!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:12px!important}#invite:not(.approved-online-waiting) .title{margin:0!important;padding:8px 18px!important;min-height:52px!important;flex:none!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important}}

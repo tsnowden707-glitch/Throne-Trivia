@@ -120,12 +120,12 @@
   }
 const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff761e','#e63b0b88','#ffad44'],['#fff5c7','#ffd56b','#ff8b2988','#fff1af']].map(colors=>{const tile=document.createElement('canvas');tile.width=64;tile.height=64;const ec=tile.getContext('2d'),eg=ec.createRadialGradient(32,32,1,32,32,28);eg.addColorStop(0,colors[0]);eg.addColorStop(.15,colors[1]);eg.addColorStop(.4,colors[2]);eg.addColorStop(1,'#ff440000');ec.fillStyle=eg;ec.fillRect(0,0,64,64);ec.fillStyle=colors[3];ec.beginPath();ec.moveTo(24,32);ec.lineTo(30,20);ec.lineTo(38,29);ec.lineTo(35,41);ec.closePath();ec.fill();return tile;});
 
-  function spark(initial = false) {
+  function spark(initial = false, lane = 0) {
     const source = sources.length && Math.random() < .65 ? sources[Math.floor(Math.random()*sources.length)] : null;
     const sizeRoll = Math.random();
     const size = sizeRoll < .25 ? random(4,7) : sizeRoll < .65 ? random(2,3.8) : random(.7,1.6);
-    return { x: source ? area.x + source[0]*area.w + random(-12,12) : random(0,width),
-      y: initial ? random(0,height) : source ? area.y+source[1]*area.h : random(height*.2,height),
+    return { lane, x: (lane + random(.04,.96))*width/3,
+      y: initial ? random(0,height) : random(height*.2,height),
       vx: random(-28,28), vy: random(-38,10), phase: random(0,Math.PI*2),
       size, age: initial ? random(0,5) : 0, life: random(5,12), blue: source?.[4] === 1 };
   }
@@ -207,15 +207,16 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
         const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-2,r.top-origin.top-2,r.width+4,r.height+4);
       }
     }
-    const target=active==='victory'?155:active==='splash'||active==='menu'?155:100;
-    while(sparks.length<target)sparks.push(spark(true));
+    const target=active==='victory'?180:active==='splash'||active==='menu'?180:135;
+    while(sparks.length<target)sparks.push(spark(true,sparks.length%3));
     if(sparks.length>target)sparks.length=target;
     for(let i=0;i<sparks.length;i++){
       let p=sparks[i];p.age+=dt;
-      if(p.age>p.life||p.y < -20||p.x < -30||p.x>width+30){p=sparks[i]=spark();}
+      if(p.age>p.life||p.y < -20||p.x < -30||p.x>width+30){p=sparks[i]=spark(false,p.lane);}
       const oldX=p.x,oldY=p.y;
       p.x+=(p.vx+Math.sin(time*1.2+p.phase+p.y*.012)*24)*dt;
       p.y+=(p.vy+Math.cos(time*1.7+p.phase+p.x*.009)*19)*dt;
+      const laneLeft=p.lane*width/3,laneRight=(p.lane+1)*width/3;if(p.x<laneLeft||p.x>laneRight){p.vx=-p.vx;p.x=Math.max(laneLeft,Math.min(laneRight,p.x));}
       const fade=Math.min(1,p.age*2,(p.life-p.age)*.6);
       ctx.globalAlpha=Math.max(0,fade)*(.45+.5*Math.abs(Math.sin(p.phase*3)))*(.65+.3*Math.sin(time*5+p.phase)**2);
       ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.phase+time*(.8+p.size*.2));
@@ -227,6 +228,7 @@ const emberSprites=[['#ffe6a0','#ffb33c','#ff671a88','#ffe7a0'],['#ffbd68','#ff7
     for(const el of document.querySelectorAll('.page.active button,.page.active input,.page.active .approved-result-card,.page.active .panel,.page.active .title,.page.active .question,.page.active .journey-question,.page.active .journey-reminder,.page.active .bella-guide,.page.active .journey-panels,.page.active .journey-heading,.page.active img:not(.screen-art):not(#kingdomMenuArt):not(.splashOriginal)')){
       const r=el.getBoundingClientRect();if(r.width&&r.height)ctx.clearRect(r.left-origin.left-1,r.top-origin.top-1,r.width+2,r.height+2);
     }
+    canvas.dataset.emberLanes=JSON.stringify([0,1,2].map(lane=>sparks.filter(p=>p.lane===lane).length));
     ctx.shadowBlur=0;ctx.globalAlpha=1;canvas.dataset.frames=String(Number(canvas.dataset.frames||0)+1);
     frame=requestAnimationFrame(draw);
   }
