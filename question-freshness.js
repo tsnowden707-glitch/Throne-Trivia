@@ -9,6 +9,16 @@ selectBank=function(){
  questionPoolExhausted=false;
  const saved=JSON.parse(localStorage.getItem('throne_seen_v1')||'[]');
  const used=new Set([...seen,...saved]);
+ // Another open tab may have reserved questions since this tab loaded.
+ // Base start() persists `seen`, so keep its in-memory ledger in sync too.
+ // Include saved unfinished rounds: resuming one must not make its IDs fresh.
+ for(let season=1;season<=8;season++){
+  try{const pending=JSON.parse(localStorage.getItem('throne_pending_'+season)||'null');
+   if(pending?.season===season&&Array.isArray(pending.match))
+    pending.match.forEach(q=>{if(typeof q.id==='string')used.add(q.id);});
+  }catch{}
+ }
+ seen.splice(0,seen.length,...used);
  const available=BANK.filter(q=>q.s===currentSeason&&!used.has(q.id));
  const previousRuns=new Set(JSON.parse(localStorage.getItem('tt_question_history_v1')||'[]'));
  const picked=[],characterCounts={};
