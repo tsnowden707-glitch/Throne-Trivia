@@ -1,4 +1,6 @@
 /* Separate portrait scores, result summary and actions on short phone screens. */
+/* The approved top-right Home control already handles solo and friend exit. */
+#victory .content>.btn:not(.gold){display:none!important}
 #victory.approved-result .approved-result-cards{height:46%!important}
 #victory.approved-result .approved-stage>.content #victoryStats{left:20%!important;top:71%!important;width:60%!important;height:11%!important;box-sizing:border-box!important;padding:8px 28px!important;font-size:clamp(13px,3.4vh,20px)!important;line-height:1.2!important;text-align:center!important;overflow-wrap:normal!important}
 @media(orientation:portrait){
@@ -8,4 +10,21 @@
 /* Keep the complete heading within the existing plaque in either orientation. */
 #victory.approved-result .approved-stage>.content #victoryTitle,#summary.approved-result .approved-stage>.content .title{box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:8px 10%!important;line-height:1.02!important;font-size:clamp(17px,3.4vw,32px)!important}
 @media(orientation:portrait){#victory.approved-result .approved-stage>.content #victoryTitle,#summary.approved-result .approved-stage>.content .title{padding:6px 8%!important;font-size:clamp(16px,4.8vw,22px)!important;white-space:nowrap!important}}
+
+/* Character awards use the existing artwork, not another opaque dialog panel. */
+dialog.character-unlock{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:hidden;color:#ffe6aa;outline:none}
+dialog.character-unlock::backdrop{background:transparent}
+body:has(dialog.character-unlock[open]) #summary .content,
+body:has(dialog.character-unlock[open]) #victory .content{visibility:hidden!important}
+dialog.character-unlock h2{position:absolute;left:12%;top:13%;width:76%;height:8%;margin:0;padding:8px 28px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat;font:700 clamp(16px,4.8vw,24px)/1.1 Georgia,serif;white-space:nowrap}
+dialog.character-unlock img{position:absolute;left:50%;top:43%;transform:translateX(-50%);width:min(72vw,29dvh);height:29dvh;object-fit:contain;border:0;box-shadow:none}
+dialog.character-unlock p{position:absolute;left:12%;top:72.5%;width:76%;height:4.5%;margin:0;display:flex;align-items:center;justify-content:center;font:700 clamp(15px,4.2vw,21px)/1.1 Georgia,serif;text-align:center}
+dialog.character-unlock button{position:absolute;left:20%;top:78%;width:60%;height:48px;min-height:48px;box-sizing:border-box;margin:0;padding:8px 24px!important;font:700 18px/1.1 Georgia,serif}
+dialog.character-unlock button:focus-visible{outline:0;filter:drop-shadow(0 0 5px #ffe4a3)}
+@media(orientation:landscape){
+ dialog.character-unlock h2{left:50%;top:43%;width:24%;height:14%;font-size:clamp(14px,2vw,18px);padding:6px 18px;white-space:normal}
+ dialog.character-unlock img{left:36%;top:44%;width:34dvh;height:34dvh}
+ dialog.character-unlock p{left:50%;top:57%;width:24%;height:10%;font-size:clamp(12px,1.8vw,18px)}
+ dialog.character-unlock button{left:51%;top:68%;width:22%;height:44px;min-height:44px;font-size:16px}
+}
 

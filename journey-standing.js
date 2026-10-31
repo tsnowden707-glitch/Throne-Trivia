@@ -17,7 +17,7 @@
   if(broken){pressure+=1;reasons.push('Unfulfilled promises: '+broken);}
   if(withdrawn){pressure+=1;reasons.push('Alliances without support: '+withdrawn);}
   const color=pressure>=3?'red':pressure?'yellow':'green';
-  return {color,label:color==='red'?'In danger':color==='yellow'?'Vulnerable':'Steady',reasons:reasons.length?reasons:['No recorded strain'],pressure};
+  return {color,label:color==='red'?'In danger':color==='yellow'?'Vulnerable':'Secure',reasons:reasons.length?reasons:['No recorded strain'],pressure};
  }
  const api={progress,standing};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.JourneyStanding=api;
 })(typeof window==='undefined'?globalThis:window);

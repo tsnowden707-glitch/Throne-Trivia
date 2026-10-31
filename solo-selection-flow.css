@@ -2,6 +2,10 @@
 #seasons .solo-season-actions>.btn{position:relative!important;inset:auto!important;margin:0!important;width:100%!important;min-height:42px!important;height:48px!important;box-sizing:border-box!important;padding:7px 24px!important;background:transparent url('approved-action-frame.svg') center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;color:#ffe4a3!important;font:700 15px/1.1 Georgia,serif!important}
 #seasons .solo-season-actions>.btn[hidden]{display:none!important}
 .solo-character-notice[hidden]{display:none!important}
+/* Keep portrait actions with the season rail instead of at the screen bottom. */
+@media(orientation:portrait){
+ #seasons .solo-season-actions{top:calc(34% + 260px + 4px);bottom:auto}
+}
 #characters .approved-stage #selected.solo-selection-warning{display:block!important;flex:none!important;box-sizing:border-box!important;width:100%!important;height:auto!important;min-height:44px!important;padding:10px 20px!important;margin:0!important;background:rgba(10,7,5,.92) url("approved-action-frame.svg") center/100% 100% no-repeat!important;font:14px/1.2 Georgia,serif!important;color:#ffe4a3!important;text-align:center!important}
 @media(orientation:landscape){
  #seasons .solo-season-actions{left:29%;width:42%;gap:4px}
