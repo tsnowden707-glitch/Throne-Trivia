@@ -54,9 +54,11 @@
    for(const [x,y,size] of [[2.5,33,7],[7,37,5],[74,47,5],[97,50,18]]){const light=document.createElement('i');light.className='edward-firelight';light.style.cssText=`left:${x}%;top:${y}%;width:${size}%;height:${size}%;animation-delay:-${x/10}s`;stage.append(light);}
    skip.textContent='Skip';skip.className='edward-welcome-skip';panel.append(stage,skip);document.body.append(panel);let done=false;
    const speaking=value=>document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:value,src:clip.src}}));
-   const finish=()=>{if(done)return;done=true;clip.pause();speaking(false);panel.remove();document.removeEventListener('visibilitychange',visibility);resolve();};
-   const visibility=()=>{if(document.hidden)clip.pause();else clip.play().catch(()=>{});};
-   document.addEventListener('visibilitychange',visibility);skip.onclick=finish;clip.onended=finish;clip.onerror=finish;clip.onplaying=()=>speaking(!clip.muted);skip.focus();clip.play().catch(()=>{skip.textContent='Continue';});
+   const finish=()=>{if(done)return;done=true;document.removeEventListener('visibilitychange',visibility);skip.onclick=null;clip.onended=clip.onerror=clip.onplaying=null;clip.pause();speaking(false);panel.remove();
+    // Skipping must release the intro download/decoder before the next cinematic.
+    clip.removeAttribute('src');clip.load();resolve();};
+   const visibility=()=>{if(done)return;if(document.hidden)clip.pause();else clip.play().catch(()=>{});};
+   document.addEventListener('visibilitychange',visibility);skip.onclick=finish;clip.onended=finish;clip.onerror=finish;clip.onplaying=()=>{if(!done)speaking(!clip.muted);};skip.focus();clip.play().catch(()=>{if(!done)skip.textContent='Continue';});
   });
  }
  window.ThroneWelcome={play:welcome};

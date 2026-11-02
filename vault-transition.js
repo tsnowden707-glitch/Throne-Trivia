@@ -6,15 +6,19 @@
  video.playsInline=true;video.preload='auto';video.src='video/vault-dragon-continuous-approved.mp4';video.volume=.7;video.style.cssText='display:block;width:100%;height:100%;object-fit:cover';
  overlay.append(video);document.body.appendChild(overlay);
  const style=document.createElement('style');style.textContent='.vault-transition.departing{transition:opacity .25s ease-out;opacity:0}.vault-transition{opacity:1;background:#000 url("video/vault-dragon-start.jpg") center/cover no-repeat}.vault-transition.running{opacity:1}.vault-transition.running.departing{opacity:0}';document.head.append(style);
- let run=0,resolvePending=null,fadeTimer=null,watchdog=null,ready=Promise.resolve(),revealReady=Promise.resolve(),finishing=false;
+ let run=0,resolvePending=null,fadeTimer=null,watchdog=null,progressTimer=null,ready=Promise.resolve(),revealReady=Promise.resolve(),finishing=false;
  function audioSetting(){video.muted=!document.getElementById('effects')?.checked||new URL(location.href).searchParams.get('quiet')==='1';}
  function state(active){document.dispatchEvent(new CustomEvent('vaultstate',{detail:{active,embeddedAudio:true}}));}
- function cancel(){run++;finishing=false;clearTimeout(fadeTimer);clearTimeout(watchdog);fadeTimer=watchdog=null;video.pause();overlay.hidden=true;overlay.classList.remove('running','departing');state(false);const resolve=resolvePending;resolvePending=null;resolve?.();}
+ function cancel(){run++;finishing=false;clearTimeout(fadeTimer);clearTimeout(watchdog);clearTimeout(progressTimer);fadeTimer=watchdog=progressTimer=null;video.pause();overlay.hidden=true;overlay.classList.remove('running','departing');state(false);const resolve=resolvePending;resolvePending=null;resolve?.();}
  function finish(token){if(token!==run||overlay.hidden||finishing)return;finishing=true;Promise.resolve(revealReady).catch(()=>{}).then(()=>{if(token!==run||overlay.hidden)return;overlay.classList.add('departing');fadeTimer=setTimeout(()=>{if(token===run)cancel();},250);});}
+ // A stalled media promise must never hold the destination behind a blocking poster.
  function play(options={}){cancel();revealReady=options.revealReady||Promise.resolve();if(reduced.matches||document.hidden)return Promise.resolve();const token=run;audioSetting();video.playbackRate=1;video.style.visibility='hidden';video.currentTime=0;overlay.hidden=false;overlay.classList.add('running');state(true);
-  return new Promise(resolve=>{resolvePending=resolve;video.onended=()=>finish(token);video.onerror=()=>{if(token===run)cancel();};video.ontimeupdate=()=>{if(Number.isFinite(video.duration)&&video.currentTime>=video.duration-.25)finish(token);};watchdog=setTimeout(()=>{if(token===run)cancel();},15000);
+  return new Promise(resolve=>{resolvePending=resolve;video.onended=()=>finish(token);video.onerror=()=>{if(token===run)cancel();};video.ontimeupdate=()=>{if(token!==run||overlay.hidden)return;if(video.currentTime>lastTime+.05){lastTime=video.currentTime;if(video.readyState>=2)showFirstFrame();clearTimeout(progressTimer);progressTimer=setTimeout(()=>{if(token===run)cancel();},4000);}if(Number.isFinite(video.duration)&&video.currentTime>=video.duration-.25)finish(token);};watchdog=setTimeout(()=>{if(token===run)cancel();},15000);
+   let lastTime=video.currentTime;
+   progressTimer=setTimeout(()=>{if(token===run)cancel();},5000);
    const showFirstFrame=()=>{if(token===run&&!overlay.hidden)video.style.visibility='visible';};if(video.requestVideoFrameCallback)video.requestVideoFrameCallback(showFirstFrame);else video.onplaying=showFirstFrame;
-   video.play().catch(()=>{if(token!==run)return;video.muted=true;video.play().catch(()=>{if(token===run)cancel();});});
+   const attempt=()=>{try{return Promise.resolve(video.play());}catch(error){return Promise.reject(error);}};
+   attempt().catch(()=>{if(token!==run||overlay.hidden)return;video.muted=true;attempt().catch(()=>{if(token===run)cancel();});});
   });
  }
  document.getElementById('effects')?.addEventListener('change',audioSetting);
