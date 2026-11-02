@@ -22,3 +22,8 @@
 /* Transparent sprite padding must not steal taps from neighbouring objects. */
 #bellaSearch .bs-object{pointer-events:none!important}
 #bellaSearch .bs-object img{pointer-events:auto;touch-action:none}
+/* Shared material treatment grounds targets and furnishings in the room light. */
+#bellaSearch .bs-clutter{position:absolute;pointer-events:none;user-select:none;object-fit:contain}
+#bellaSearch .bs-object{z-index:2}
+#bellaSearch .bs-object img{filter:var(--scene-tone,drop-shadow(1px 3px 2px #0009))}
+#bellaSearch .bs-object.hinted img{filter:var(--scene-tone) drop-shadow(0 0 10px #ffe48a) drop-shadow(0 0 18px #ffb326)}
