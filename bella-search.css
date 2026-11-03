@@ -27,3 +27,24 @@
 #bellaSearch .bs-object{z-index:2}
 #bellaSearch .bs-object img{filter:var(--scene-tone,drop-shadow(1px 3px 2px #0009))}
 #bellaSearch .bs-object.hinted img{filter:var(--scene-tone) drop-shadow(0 0 10px #ffe48a) drop-shadow(0 0 18px #ffb326)}
+/* Composed rooms use the approved full artwork and invisible authored hit areas. */
+#bellaSearch.bs-composed .bs-object{pointer-events:auto!important;border-radius:35%!important;cursor:pointer}
+#bellaSearch.bs-composed .bs-object.hinted{outline:3px solid #ffe08c!important;box-shadow:0 0 16px 5px #ffc866!important;background:#ffd46920!important}
+#bellaSearch.bs-composed .bs-target{padding:4px 3px;border:1px solid #98713a;border-radius:4px;background:#100c09;gap:3px}
+#bellaSearch.bs-composed .bs-target svg{display:block;flex:1 1 0;min-height:0;width:100%;max-height:78px}
+#bellaSearch.bs-composed .bs-target span{font-size:11px;line-height:12px;min-height:24px;display:flex;align-items:center;justify-content:center}
+#bellaSearch.bs-composed .bs-targets{padding:13px 24px;gap:6px}
+@media(orientation:portrait){#bellaSearch.bs-composed{grid-template-rows:80px minmax(0,1fr) 266px}#bellaSearch.bs-composed .bs-targets{padding:17px 23px;gap:5px}#bellaSearch.bs-composed .bs-target svg{max-height:70px}#bellaSearch.bs-composed .bs-target span{font-size:10px;line-height:11px;min-height:22px}}
+@media(orientation:landscape) and (max-height:450px){#bellaSearch.bs-composed{grid-template-rows:57px minmax(0,1fr) 154px}#bellaSearch.bs-composed .bs-targets{padding:10px 22px}#bellaSearch.bs-composed .bs-target span{font-size:10px;line-height:11px;min-height:22px}}
+#bellaSearch.bs-composed .bs-target img.bs-reference{flex:1 1 0;min-height:0;width:100%;height:auto;max-height:78px;object-fit:contain}
+@media(orientation:portrait){#bellaSearch.bs-composed .bs-target img.bs-reference{max-height:70px}}
+.bs-reference-dialog{background:#17100b;color:#ffe7ac;border:2px solid #bd9349;border-radius:8px;text-align:center;padding:20px;max-width:90vw;max-height:90dvh;font-family:Georgia,serif}
+.bs-reference-dialog::backdrop{background:#000b}.bs-reference-dialog h2{font-size:23px;margin:0 0 14px}.bs-reference-art{display:flex;justify-content:center;align-items:center;min-height:30px}.bs-reference-art img{max-width:75vw;max-height:55dvh;object-fit:contain}.bs-reference-dialog p{font-size:14px}.bs-reference-dialog button{background:#23180c;border:1px solid #b58b3a;padding:10px 20px;color:#ffe7ac;font:17px Georgia;cursor:pointer}
+#bellaSearch .bs-heading{padding-block:6px}
+#bellaSearch .bs-heading h1{white-space:nowrap}
+#bellaSearch .bs-heading p{line-height:1.15}
+@media(orientation:portrait){#bellaSearch .bs-heading{padding:8px 15px}#bellaSearch .bs-heading h1{font-size:clamp(20px,6.5vw,28px)}#bellaSearch .bs-heading p{font-size:11px;margin-top:3px}}
+#bellaSearch.bs-composed .bs-target{cursor:pointer}#bellaSearch.bs-composed .bs-target:focus-visible{outline:2px solid #ffe08c;outline-offset:2px}
+#bellaSearch .bs-inspect{position:absolute;right:4px;top:4px;width:11px;height:11px;border:2px solid #ffe4a1;border-radius:50%;background:#21180de8;box-shadow:0 0 0 2px #17100b;pointer-events:none}
+#bellaSearch .bs-inspect::after{content:'';position:absolute;width:6px;height:2px;right:-5px;bottom:-3px;background:#ffe4a1;transform:rotate(45deg);transform-origin:left center}
+@media(orientation:landscape) and (max-height:450px){.bs-reference-dialog{padding:10px}.bs-reference-dialog h2{font-size:18px;margin:0 0 8px}.bs-reference-dialog p{margin:8px 0;font-size:12px}.bs-reference-dialog button{padding:6px 15px;font-size:14px}}
