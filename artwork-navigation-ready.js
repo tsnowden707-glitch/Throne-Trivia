@@ -6,6 +6,6 @@
   if(!['characters','invite'].includes(page)||!img)return previous.apply(this,arguments);
   const source=kingdomArt(page);if(img.getAttribute('src')!==source)img.src=source;
   if(img.complete&&img.naturalWidth)return previous.apply(this,arguments);
-  return img.decode().catch(()=>{}).then(()=>{if(token===navigation)return previous(page);});
+  return (window.ThroneLoading?ThroneLoading.wait(img.decode()):img.decode()).catch(()=>{}).then(()=>{if(token===navigation)return previous(page);});
  };
 })();

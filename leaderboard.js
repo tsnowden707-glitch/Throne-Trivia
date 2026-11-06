@@ -5,7 +5,7 @@
   const token=++request,box=document.getElementById('rankBox');box.replaceChildren();
   const title=document.createElement('h3');title.textContent=scope.toUpperCase();const note=document.createElement('p');note.className='small';note.textContent='Loading rankings…';box.append(title,note);
   try{
-   const rows=await TT.rankings(scope);if(token!==request)return;
+   const rows=await (window.ThroneLoading?ThroneLoading.wait(TT.rankings(scope)):TT.rankings(scope));if(token!==request)return;
    let page=0;const list=document.createElement('div');list.className='ranking-list';const pager=document.createElement('div');pager.className='ranking-pager';box.append(list,pager);
    note.textContent=scope==='Friends'?'Completed matches · Friends you have played':scope==='Monthly'?'Completed matches started this month':'Completed online matches · Ranked by points';
    if(!rows.length){note.textContent=scope==='Friends'?'Finish a match with a friend to begin your rankings.':'No completed online matches yet. Finish a duel to enter the rankings.';return;}

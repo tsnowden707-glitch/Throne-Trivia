@@ -13,7 +13,7 @@
  document.addEventListener('narrationplaying',e=>{if(phase==='audio'&&e.detail.src?.endsWith('/03-countdown.mp3')){audioReady=true;lastProgress=performance.now();display(e.detail.time||0);}});
  hide();
  window.ThroneCountdown={start:async()=>{
-  cancel();const own=token;position=0;hide();await(window.ThroneVault?.ready||Promise.resolve());if(own!==token||current!=='countdown')return;
+  cancel();const own=token;position=0;hide();await(window.ThroneVault?.ready||Promise.resolve());await window.ThroneLoading?.images([kingdomArt('quiz')]).catch(()=>{});if(own!==token||current!=='countdown')return;
   if(!document.getElementById('narrate').checked){fallback(own);return;}
   phase='audio';lastProgress=performance.now();
   function monitor(now){if(own!==token||phase!=='audio')return;if(document.hidden||window.ThronePause?.active)lastProgress=now;else if(now-lastProgress>10000){phase='';ThroneVoice.stop();fallback(own);return;}frame=requestAnimationFrame(monitor);}

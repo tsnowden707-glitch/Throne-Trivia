@@ -1,0 +1,10 @@
+#season-loading[hidden]{display:none!important}
+#season-loading{position:fixed;inset:0;z-index:2147483600;background:#080d14;color:#ffe6a0;isolation:isolate;overflow:hidden;font-family:Georgia,serif}
+#season-loading .sl-art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;opacity:0}
+#season-loading.sl-art-ready .sl-art{opacity:1}
+#season-loading .sl-track{position:absolute;left:24.6%;top:82.65%;width:50.5%;height:3.4%;overflow:hidden;background:#050a11;border-radius:4px;box-sizing:border-box}
+#season-loading .sl-fill{height:100%;width:0;background:linear-gradient(180deg,#d6f7ff 0%,#42c9ff 22%,#0071d2 60%,#013c91 95%);box-shadow:0 0 15px #13aaff,inset 0 1px 5px #fff;transition:width .12s linear}
+#season-loading .sl-label{position:absolute;top:87%;left:32%;width:36%;margin:0;text-align:center;font-size:clamp(14px,2.2vh,24px);text-shadow:0 2px 4px #000;background:#080d14e8;border-radius:8px;padding:4px 0}
+#season-loading[data-orientation=portrait] .sl-track{left:12%;width:76%;top:87%;height:2.8%;border:3px solid #d7ab4f;box-shadow:0 0 0 2px #3a2006,0 0 0 4px #b57d2e,inset 0 0 5px #000;border-radius:5px}
+#season-loading[data-orientation=portrait] .sl-label{top:91%;left:15%;width:70%;background:#080d1499;font-size:clamp(16px,2.2vh,24px)}
+@media(prefers-reduced-motion:reduce){#season-loading .sl-fill{transition:none}}

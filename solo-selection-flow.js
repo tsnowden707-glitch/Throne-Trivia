@@ -17,7 +17,7 @@
   }
   selected=wanted;entering=true;const origin=current,season=currentSeason;
   try{choosePracticeRival();const rival=practiceRival;
-   await Promise.all([P[selected],P[rival.index],kingdomArt('lobby')].map(src=>{const image=new Image();image.src=src;return image.decode().catch(()=>{});}));
+   await window.ThroneLoading.images([P[selected],P[rival.index],kingdomArt('lobby')]).catch(()=>{});
    if(current!==origin||currentSeason!==season||playMode==='friend')return;
    preparedPracticeRival=rival;await baseGo('lobby');
   }finally{entering=false;}
