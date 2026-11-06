@@ -1,6 +1,6 @@
 window.TT = (()=>{
  const url='https://htdupeikjohbwnjvevrd.supabase.co', key='sb_publishable_91txBMAJNP8szu3b_0V7ng_ewX65IV9';
- let sb=null,room=null,poll=null,currentRound=0,shown=false,speaking=false,live=false,ended=false,roomDetails=null,refreshing=false,submitting=false,connecting=false,myId=null,arrivalPlayed=false,needsNarration=false,navigationPaused=false,backBusy=false,rematchBusy=false,rewardPending=Promise.resolve();
+ let sb=null,room=null,poll=null,currentRound=0,shown=false,speaking=false,live=false,ended=false,roomDetails=null,refreshing=false,submitting=false,connecting=false,myId=null,arrivalPlayed=false,needsNarration=false,navigationPaused=false,backBusy=false,rematchBusy=false,queuedRematchRoom=null,rewardPending=Promise.resolve();
  const el=id=>document.getElementById(id);
  const status=s=>{el('ttStatus').dataset.roomHint=String(/^(Room |ROOM |Ready\.|Both players|Joined Season)/.test(s));el('ttStatus').textContent=s;el('onlineStatus').textContent=s;};
  function client(){if(!window.supabase){status('Internet required: could not load the multiplayer library.');throw Error('Supabase SDK unavailable');}const id=window.ThroneTestId;const options=id?{auth:{storage:{getItem:k=>localStorage.getItem(id+':'+k),setItem:(k,v)=>localStorage.setItem(id+':'+k,v),removeItem:k=>localStorage.removeItem(id+':'+k)}}}:undefined;return sb ||= window.supabase.createClient(url,key,options);}
@@ -39,12 +39,15 @@ window.TT = (()=>{
 
 
  async function rematch(accept=true){
-  if(!room||!ended||rematchBusy)return;rematchBusy=true;const previous=room,button=document.querySelector('#victory .btn.gold');
+  if(!room||!ended)return;
+  // A status poll must not swallow a player's Rematch tap.
+  if(rematchBusy){if(accept)queuedRematchRoom=room;return;}
+  rematchBusy=true;const previous=room,button=document.querySelector('#victory .btn.gold');
   try{const result=await exec('tt_rematch',{p_room:previous,p_accept:accept});if(room!==previous){if(accept)await exec('tt_rematch',{p_room:previous,p_accept:null});return;}
    if(result.room_id){await rewardPending;if(room!==previous||current!=='victory')return;room=result.room_id;el('ttCode').value=result.code;currentRound=0;ended=false;shown=false;needsNarration=true;arrivalPlayed=true;window.ThroneVoice?.stop();go('ttOnline');}
    else if(button){button.disabled=!!result.accepted;button.textContent=result.accepted?'WAITING FOR FRIEND':result.friend_accepted?'ACCEPT REMATCH':'REMATCH';}
   }catch(e){if(room===previous&&button){button.disabled=false;button.textContent='RETRY REMATCH';button.title=e.message;el('victoryStats').textContent=e.message;}}
-  finally{rematchBusy=false;}
+  finally{rematchBusy=false;const queued=queuedRematchRoom;queuedRematchRoom=null;if(queued&&queued===room&&ended)queueMicrotask(()=>rematch(true));}
  }
  async function backToCharacter(){
   if(backBusy)return;backBusy=true;navigationPaused=true;if(poll)clearInterval(poll);poll=null;

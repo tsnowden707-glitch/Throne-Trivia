@@ -6,6 +6,8 @@
  const root=document.createElement('div');root.id='season-loading';root.hidden=true;
  root.innerHTML='<img class="sl-art" alt=""><div class="sl-track" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100"><div class="sl-fill"></div></div><p class="sl-label" role="status"></p>';
  document.body.append(root);
+ const skipIntro=document.createElement('button');skipIntro.className='sl-skip';skipIntro.textContent='Skip intro';skipIntro.hidden=true;root.append(skipIntro);
+ skipIntro.onclick=()=>document.querySelector('.edward-welcome-skip')?.click();
  const art=root.querySelector('img'),track=root.querySelector('.sl-track'),fill=root.querySelector('.sl-fill'),label=root.querySelector('.sl-label');
  function season(){try{return Math.max(1,Math.min(8,Number(document.querySelector('#journeyStory.active')?window.ThroneJourney?.getScene()?.chapter:(typeof currentSeason!=='undefined'?currentSeason:localStorage.getItem('throne_loading_season')))||1));}catch{return 1;}}
  function picture(s){const orientation=matchMedia('(orientation:portrait)').matches?'portrait':'landscape';const src=`loading-assets/season-${s}-${orientation}.png`;if(art.getAttribute('src')!==src){root.classList.remove('sl-art-ready');art.src=src;}root.dataset.season=s;root.dataset.orientation=orientation;}
@@ -39,7 +41,7 @@
   const timer=setTimeout(finish,15000);watched.set(el,finish);events.forEach(n=>el.addEventListener(n,finish));
  }
  let frame=0;
- function scan(){cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{for(const [el,finish] of watched)if(!el.isConnected||!visible(el))finish();document.querySelectorAll('img,video').forEach(el=>{if(!visible(el)){watched.get(el)?.();return;}watch(el);});});}
+ function scan(){cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const intro=document.querySelector('.edward-welcome-skip');skipIntro.hidden=!intro||!visible(intro);for(const [el,finish] of watched)if(!el.isConnected||!visible(el))finish();document.querySelectorAll('img,video').forEach(el=>{if(!visible(el)){watched.get(el)?.();return;}watch(el);});});}
  new MutationObserver(records=>{if(records.some(r=>!root.contains(r.target)&&(r.type==='childList'||['src','hidden','class'].includes(r.attributeName))))scan();}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src','hidden','class']});
  document.addEventListener('screenchange',()=>{try{localStorage.setItem('throne_loading_season',season());}catch{}scan();});
  document.addEventListener('waiting',e=>{if(e.target.tagName==='VIDEO'&&visible(e.target))watch(e.target);},true);

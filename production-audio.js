@@ -1,21 +1,32 @@
 // One narration channel prevents overlapping speakers and stale callbacks.
 (() => {
  const audioPlayer=new Audio();audioPlayer.preload='none';let player=audioPlayer,token=0,finish=null,hiddenPaused=false,captionSrc='';
- let captionFrame=0;const observed=new WeakSet();
+ let captionFrame=0,stallWatch=0;const observed=new WeakSet();
  function progress(){document.dispatchEvent(new CustomEvent('narrationprogress',{detail:{src:captionSrc,time:player.currentTime,duration:player.duration}}));}
  function captionTick(){cancelAnimationFrame(captionFrame);if(player.paused||player.ended)return;progress();captionFrame=requestAnimationFrame(captionTick);}
  function observe(media){if(observed.has(media))return;observed.add(media);media.addEventListener('timeupdate',()=>{if(media===player)progress();});media.addEventListener('playing',()=>{if(media===player){document.dispatchEvent(new CustomEvent('narrationplaying',{detail:{src:captionSrc,time:player.currentTime}}));captionTick();}});media.addEventListener('pause',()=>{if(media===player)cancelAnimationFrame(captionFrame);});}
  observe(audioPlayer);
  const enabled=()=>document.getElementById('narrate')?.checked;
- function stop(preserve=null){token++;hiddenPaused=false;player.onloadedmetadata=null;player.pause();if(player!==preserve){player.removeAttribute('src');player.load();}finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));}
+ function stop(preserve=null){clearInterval(stallWatch);stallWatch=0;token++;hiddenPaused=false;player.onloadedmetadata=null;player.pause();if(player!==preserve){player.removeAttribute('src');player.load();}finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));}
  function play(src,callback=()=>{},offset=0,media=null,spokenSource=src){
   const prepared=media&&media.getAttribute('src')===src&&media.readyState>=2;stop(prepared?media:null);player=media||audioPlayer;observe(player);captionSrc=spokenSource;const own=token;
   let ended=false;
-  const done=(reason='ended')=>{if(ended||own!==token)return;ended=true;finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));callback({completed:reason==='ended',reason});};
+  const done=(reason='ended')=>{if(ended||own!==token)return;ended=true;clearInterval(stallWatch);stallWatch=0;finish=null;document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:false}}));callback({completed:reason==='ended',reason});};
   finish=()=>done('interrupted');
   if(!enabled()||document.hidden){queueMicrotask(()=>done('disabled'));return;}
   player.onloadedmetadata=null;player.muted=new URL(location.href).searchParams.get("quiet")==="1";if(!prepared)player.src=src;else if(player.currentTime!==0)player.currentTime=0;player.playbackRate=1;player.onended=()=>done('ended');player.onerror=()=>{if(media&&own===token)play(spokenSource,callback,offset);else done('error');};
   document.dispatchEvent(new CustomEvent('narrationstate',{detail:{speaking:true,src:spokenSource}}));
+  // A stalled download or decoder must not trap a question before its answers.
+  let lastTime=player.currentTime,lastProgress=performance.now();
+  stallWatch=setInterval(()=>{
+   if(own!==token||ended)return;
+   const now=performance.now();
+   if(document.hidden||window.ThronePause?.active){lastProgress=now;return;}
+   if(player.currentTime>lastTime+.01){lastTime=player.currentTime;lastProgress=now;return;}
+   if(now-lastProgress<12000)return;
+   player.onended=player.onerror=player.onloadedmetadata=null;
+   player.pause();player.removeAttribute('src');player.load();done('stalled');
+  },500);
   const start=()=>{if(own!==token)return;if(offset>0){if(offset>=player.duration){done();return;}player.currentTime=offset;}player.play().catch(()=>done('playback-blocked'));};
   if(offset>0&&player.readyState<1){player.onloadedmetadata=start;player.preload='auto';player.load();}else start();
  }
